@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "382826993394",
+    "project_id": "trip-advisor-e007c",
+    "storage_bucket": "trip-advisor-e007c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382826993394:android:f34c40ea47bdc71488626b",
+        "android_client_info": {
+          "package_name": "com.example.trip_advisor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382826993394-3qgv8uvqv64i5cdubvp75co4puq0vhga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOS61omGToUDMtaHx5U262Lj_kgPdh1Q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382826993394-3qgv8uvqv64i5cdubvp75co4puq0vhga.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
