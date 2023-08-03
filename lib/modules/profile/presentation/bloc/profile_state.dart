@@ -1,17 +1,15 @@
 import 'package:equatable/equatable.dart';
-
-import '../../../../common/helpers/enums/enums.dart';
+import 'package:trip_advisor/common/models/user_model.dart';
 
 class ProfileState extends Equatable {
   @override
-  List<Object?> get props => [signOutCondition];
+  List<Object?> get props => [user];
 
-  final SignOutCondition signOutCondition;
+  final UserModel? user;
 
-  const ProfileState({this.signOutCondition = SignOutCondition.signIn});
+  const ProfileState({this.user});
 
-  ProfileState copyWith({SignOutCondition? signOutCondition}) {
-    return ProfileState(
-        signOutCondition: signOutCondition ?? this.signOutCondition);
+  ProfileState copyWith({UserModel? user}) {
+    return ProfileState(user: user ?? this.user);
   }
 }

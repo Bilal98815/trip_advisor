@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_bloc.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_event.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_state.dart';
+import 'package:trip_advisor/modules/plan_trip/presentation/widgets/create_trip_button.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/widgets/trip_guidance_tile.dart';
 
 import '../../../../common/widgets/common_text_widget.dart';
@@ -92,17 +92,20 @@ class TripsView extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: size.maxWidth * 0.06),
           child: BlocBuilder<PlanTripBloc, PlanTripState>(
               builder: (context, state) {
-            return AuthenticationButton(
-                onTap: () {},
-                color: state.tripName == '' ? Colors.grey : Colors.white,
+            return CreateTripButton(
+                onTap: () {
+                  if (controller.text != '') {}
+                },
                 height: size.maxHeight * 0.075,
-                size: size,
+                color:
+                    controller.text == '' ? Colors.grey.shade700 : Colors.white,
                 child: Center(
                   child: CommonText(
                       text: 'Create a Trip',
-                      color:
-                          state.tripName == '' ? Colors.grey : Colors.black87,
-                      fontsize: 17,
+                      color: controller.text == ''
+                          ? Colors.grey.shade600
+                          : Colors.black,
+                      fontsize: 15,
                       fontWeight: FontWeight.w500),
                 ));
           }),

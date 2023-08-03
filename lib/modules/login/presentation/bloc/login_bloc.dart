@@ -12,9 +12,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
   late LoginRepository loginRepository;
 
   LoginBloc({required this.loginRepository}) : super(const LoginBlocState()) {
-    on<LoginEvent>((event, emit) async {
+    on<OnLoginEvent>((event, emit) async {
       await login(event.email, event.password, emit);
     });
+
+    on<GetUserDetailsFromDb>((event, emit) async {
+      await getUserDetailsFromDb(event.email);
+    });
+
+    // on<GetUserFromPreferencesEvent>((event, emit) async {
+    //   return getUserFromPreferences();
+    // });
   }
 
   final prefs = Preferences();
@@ -24,6 +32,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
     //String? token = await authService.getFCMToken();
     try {
       await loginRepository.signInUser(email, password);
+      String? token = await prefs.getFCMToken();
+      await loginRepository.updateUser(token!, email);
       //await authService.updateUser(token!, email, 'online');
       emit(state.copyWith(authApiState: ApiState.done));
       //emailId = email;
@@ -33,6 +43,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
     } catch (e) {
       updateError(e.toString());
     }
+  }
+
+  Future getUserDetailsFromDb(String email) async {
+    await loginRepository.getUserDetails(email);
+  }
+
+  Future getUserFromPreferences() async {
+    final user = await prefs.getSharedPreferenceUser();
+    return user;
   }
 
   void setEmailInPreferences(String email) {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_advisor/modules/account/presentation/view/account_view.dart';
 import 'package:trip_advisor/modules/bottom_bar/presentation/bloc/bottom_bar_bloc.dart';
 import 'package:trip_advisor/modules/bottom_bar/presentation/bloc/bottom_bar_event.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/view/plan_trip_view.dart';
-import 'package:trip_advisor/modules/profile/presentation/view/profile_view.dart';
 
 import '../bloc/bottom_bar_state.dart';
 
@@ -15,7 +15,7 @@ class BottomBarView extends StatelessWidget {
     const Center(child: Text('Search')),
     PlanTripView(),
     const Center(child: Text('Review')),
-    const ProfileView(),
+    const AccountView(),
   ];
 
   @override

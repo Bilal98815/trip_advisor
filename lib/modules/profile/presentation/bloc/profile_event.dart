@@ -1,3 +1,3 @@
 abstract class ProfileEvent {}
 
-class SignOutEvent extends ProfileEvent {}
+class GetUserEvent extends ProfileEvent {}

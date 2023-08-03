@@ -1,3 +1,5 @@
+import '../../../../common/models/user_model.dart';
+
 abstract class ProfileRepository {
-  Future signOut();
+  Future<UserModel?> getUserDetails(String email);
 }

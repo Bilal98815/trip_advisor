@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
+import 'package:trip_advisor/modules/bottom_bar/presentation/view/bottom_bar_view.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/view/forgot_password_view.dart';
 import 'package:trip_advisor/modules/location_data/presentation/view/location_data_view.dart';
 import 'package:trip_advisor/modules/signup/presentation/view/signup_view.dart';
@@ -153,7 +155,7 @@ class LoginView extends StatelessWidget {
                         height: constraints.maxHeight * 0.08,
                       ),
                       BlocConsumer<LoginBloc, LoginBlocState>(
-                        listener: (context, state) {
+                        listener: (context, state) async {
                           if (state.authApiState == ApiState.error) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
@@ -167,12 +169,26 @@ class LoginView extends StatelessWidget {
                           } else if (state.authApiState == ApiState.done) {
                             context.read<LoginBloc>().setEmailInPreferences(
                                 emailController.text.trim());
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LocationDataView(),
-                              ),
-                            );
+
+                            final prefs = Preferences();
+                            final user = await prefs.getSharedPreferenceUser();
+
+                            if (user.email!.isNotEmpty) {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => BottomBarView(),
+                                ),
+                              );
+                            } else {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const LocationDataView(),
+                                ),
+                              );
+                            }
                           }
                         },
                         builder: (context, state) {
@@ -184,7 +200,7 @@ class LoginView extends StatelessWidget {
                                     .read<LoginBloc>()
                                     .updateError('Enter correct credentials');
                               } else {
-                                context.read<LoginBloc>().add(LoginEvent(
+                                context.read<LoginBloc>().add(OnLoginEvent(
                                     email: emailController.text,
                                     password: passwordController.text));
                               }
