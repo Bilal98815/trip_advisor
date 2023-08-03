@@ -9,9 +9,15 @@ class UserDataBloc extends Bloc<UserDataEvent, UserDataBlocState> {
   late UserDataRepository userDataRepository;
 
   UserDataBloc({required this.userDataRepository})
-      : super(UserDataBlocState()) {
-    on<UserDataEvent>((event, emit) async {
+      : super(const UserDataBlocState()) {
+    on<UpdateNameEvent>((event, emit) async {
       await updateName(event.name, emit);
+    });
+    on<UpdateCountryEvent>((event, emit) {
+      updateCountry(event.country, emit);
+    });
+    on<StoreCountryDB>((event, emit) async {
+      await updateCountryDB(event.country);
     });
   }
 
@@ -21,5 +27,14 @@ class UserDataBloc extends Bloc<UserDataEvent, UserDataBlocState> {
     String? email = await prefs.getEmail();
 
     await userDataRepository.updateStatus(email!, name);
+  }
+
+  Future updateCountryDB(String country) async {
+    String? email = await prefs.getEmail();
+    await userDataRepository.updateCountry(email!, country);
+  }
+
+  void updateCountry(String country, Emitter emit) {
+    emit(state.copyWith(country: country));
   }
 }

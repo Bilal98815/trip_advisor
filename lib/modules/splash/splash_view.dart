@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:trip_advisor/modules/onboarding/presentation/view/onbaording_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -14,8 +15,8 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Center()));
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const OnboardingView()));
     });
   }
 

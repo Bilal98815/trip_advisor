@@ -19,7 +19,9 @@ class SignupAuthService {
   Future addUserDetails(UserModel user) async {
     await FirebaseFirestore.instance.collection('users').doc(user.email).set({
       'email': user.email,
+      'country': '',
       'name': '',
+      'location': const GeoPoint(0, 0),
     });
   }
 }

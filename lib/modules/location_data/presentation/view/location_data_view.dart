@@ -1,6 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
-import 'package:trip_advisor/modules/user_data/presentation/view/user_data.dart';
+import 'package:trip_advisor/modules/location_data/presentation/bloc/location_data_bloc.dart';
+import 'package:trip_advisor/modules/location_data/presentation/bloc/location_data_event.dart';
+import 'package:trip_advisor/modules/user_data/presentation/view/user_data_view.dart';
 
 import '../../../../common/widgets/common_text_widget.dart';
 
@@ -56,7 +61,13 @@ class LocationDataView extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
                 child: AuthenticationButton(
-                    onTap: () {},
+                    onTap: () async {
+                      await getLocation(context);
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => UserDataView()));
+                    },
                     height: size.maxHeight * 0.064,
                     color: Colors.white,
                     size: size,
@@ -95,5 +106,16 @@ class LocationDataView extends StatelessWidget {
         );
       })),
     );
+  }
+
+  getLocation(BuildContext context) async {
+    await Geolocator.checkPermission();
+    await Geolocator.requestPermission();
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.low);
+
+    debugPrint('------ Position: $position');
+    context.read<LocationDataBloc>().add(LocationDataEvent(
+        location: GeoPoint(position.latitude, position.longitude)));
   }
 }
