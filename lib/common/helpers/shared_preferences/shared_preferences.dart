@@ -49,4 +49,10 @@ class Preferences {
     String? token = await _messaging.getToken();
     return token;
   }
+
+  Future clearPreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    prefs.clear();
+  }
 }

@@ -19,7 +19,7 @@ class _SplashViewState extends State<SplashView> {
     Timer(const Duration(seconds: 3), () async {
       final prefs = Preferences();
       final user = await prefs.getSharedPreferenceUser();
-      if (user.email!.isNotEmpty && user.email != null) {
+      if (user.email != null) {
         debugPrint('----------->In if of Splash');
         // context.read<LoginBloc>().add(GetUserDetailsEvent(email: user.email!));
         Navigator.pushReplacement(

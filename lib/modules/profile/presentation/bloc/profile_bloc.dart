@@ -17,7 +17,12 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
   Future getUserDetails(Emitter emit) async {
     String? email = await prefs.getEmail();
+    emit(state.copyWith(isLoading: true));
     final user = await profileRepository.getUserDetails(email!);
-    emit(state.copyWith(user: user));
+    emit(state.copyWith(user: user, isLoading: false));
+  }
+
+  void isShowLoader(bool isLoader, Emitter emit) {
+    emit(state.copyWith(isLoading: isLoader));
   }
 }

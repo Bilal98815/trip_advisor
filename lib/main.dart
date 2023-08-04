@@ -16,6 +16,7 @@ import 'package:trip_advisor/modules/location_data/presentation/bloc/location_da
 import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_bloc.dart';
 import 'package:trip_advisor/modules/profile/data/profile_auth.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_bloc.dart';
+import 'package:trip_advisor/modules/review/presentation/bloc/review_bloc.dart';
 import 'package:trip_advisor/modules/splash/presentation/view/splash_view.dart';
 import 'package:trip_advisor/modules/user_data/data/user_data_auth.dart';
 import 'package:trip_advisor/modules/user_data/domain/repository/user_data_repository_imp.dart';
@@ -82,6 +83,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => PlanTripBloc(),
+        ),
+        BlocProvider(
+          create: (context) => ReviewBloc(),
         ),
         BlocProvider(
           create: (context) => AccountBloc(

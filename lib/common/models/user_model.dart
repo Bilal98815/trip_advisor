@@ -8,6 +8,7 @@ class UserModel {
   GeoPoint? location;
   Timestamp? time;
   String? bio;
+  String? imageUrl;
   List<dynamic>? photos;
   String? website;
 
@@ -19,6 +20,7 @@ class UserModel {
       this.country,
       this.photos,
       this.website,
+      this.imageUrl,
       this.bio,
       this.time});
 
@@ -31,6 +33,7 @@ class UserModel {
     bio = json['bio'];
     time = json['time'];
     website = json['website'];
+    imageUrl = json['imageUrl'];
     photos = json['photos'];
   }
 
@@ -43,6 +46,7 @@ class UserModel {
     data['country'] = this.country;
     data['photos'] = this.photos;
     data['bio'] = this.bio;
+    data['imageUrl'] = this.imageUrl;
     data['website'] = this.website;
     data['location'] = this.location;
     return data;

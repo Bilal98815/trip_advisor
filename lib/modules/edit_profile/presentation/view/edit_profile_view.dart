@@ -1,5 +1,9 @@
+import 'dart:async';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_bloc.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_event.dart';
@@ -17,7 +21,14 @@ class EditProfileView extends StatelessWidget {
   final nameController = TextEditingController();
   final websiteController = TextEditingController();
   final aboutController = TextEditingController();
-  List<String> items = ['UK', 'America', 'Canada', 'Australia', 'Pakistan'];
+  Uint8List img = Uint8List(0);
+  final List<String> items = [
+    'UK',
+    'America',
+    'Canada',
+    'Australia',
+    'Pakistan'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -58,14 +69,55 @@ class EditProfileView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(
+                    height: size.maxHeight * 0.04,
+                  ),
                   Container(
-                    width: size.maxWidth * 0.17,
-                    height: size.maxHeight * 0.15,
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: AssetImage('assets/mine.jpg'),
-                            fit: BoxFit.cover)),
+                    width: size.maxWidth * 0.2,
+                    height: size.maxHeight * 0.11,
+                    child: Stack(
+                      children: [
+                        BlocBuilder<EditProfileBloc, EditProfileState>(
+                            builder: (context, state) {
+                          if (state.img != null) {
+                            return CircleAvatar(
+                              radius: 64,
+                              backgroundImage: MemoryImage(state.img!),
+                            );
+                          } else {
+                            return const CircleAvatar(
+                              radius: 64,
+                              backgroundImage: AssetImage('assets/mine.jpg'),
+                            );
+                          }
+                        }),
+                        Positioned(
+                          bottom: 1,
+                          left: 50,
+                          child: InkWell(
+                            onTap: () async {
+                              img = await _pickImageFromGallery();
+                              context
+                                  .read<EditProfileBloc>()
+                                  .add(UpdateImageEvent(img: img));
+                            },
+                            child: Container(
+                                padding: const EdgeInsets.all(5),
+                                decoration: const BoxDecoration(
+                                    color: Colors.white,
+                                    shape: BoxShape.circle),
+                                child: const Icon(
+                                  Icons.camera_alt_outlined,
+                                  color: Colors.black,
+                                  size: 17,
+                                )),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: size.maxHeight * 0.04,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -238,22 +290,28 @@ class EditProfileView extends StatelessWidget {
                       builder: (context, state) {
                     return AuthenticationButton(
                         onTap: () {
+                          debugPrint('Image -------->>>>> $img');
                           context.read<EditProfileBloc>().add(UpdateUserEvent(
-                                bio: aboutController.text.isEmpty
-                                    ? state.user?.bio ?? ''
-                                    : aboutController.text,
-                                name: nameController.text.isEmpty
-                                    ? state.user?.name ?? ''
-                                    : nameController.text,
-                                website: websiteController.text.isEmpty
-                                    ? state.user?.website ?? ''
-                                    : websiteController.text,
-                              ));
+                              bio: aboutController.text.isEmpty
+                                  ? state.user?.bio ?? ''
+                                  : aboutController.text,
+                              name: nameController.text.isEmpty
+                                  ? state.user?.name ?? ''
+                                  : nameController.text,
+                              website: websiteController.text.isEmpty
+                                  ? state.user?.website ?? ''
+                                  : websiteController.text,
+                              file: img));
 
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ProfileView()));
+                          Timer(const Duration(seconds: 5), () {
+                            BlocProvider.of<ProfileBloc>(context)
+                                .add(GetUserEvent());
+
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ProfileView()));
+                          });
                         },
                         color: Colors.white,
                         height: size.maxHeight * 0.08,
@@ -276,5 +334,12 @@ class EditProfileView extends StatelessWidget {
         }),
       ),
     );
+  }
+
+  _pickImageFromGallery() async {
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      return await image.readAsBytes();
+    }
   }
 }

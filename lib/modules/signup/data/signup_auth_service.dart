@@ -35,6 +35,7 @@ class SignupAuthService {
       'photos': [],
       'bio': '',
       'website': '',
+      'imageUrl': '',
     });
   }
 }

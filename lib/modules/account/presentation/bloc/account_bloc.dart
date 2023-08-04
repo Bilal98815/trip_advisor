@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
+import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
 import 'package:trip_advisor/modules/account/presentation/bloc/account_event.dart';
 
 import '../../domain/repository/account_repository.dart';
@@ -16,6 +17,12 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
 
   Future signOutUser(Emitter emit) async {
     await accountRepository.signOut();
+    await clearPrefs();
     emit(state.copyWith(signOutCondition: SignOutCondition.signOut));
+  }
+
+  Future clearPrefs() async {
+    final prefs = Preferences();
+    await prefs.clearPreferences();
   }
 }
