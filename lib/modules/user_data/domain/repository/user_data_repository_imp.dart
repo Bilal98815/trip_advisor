@@ -10,4 +10,9 @@ class UserDataRepositoryImp implements UserDataRepository {
   Future updateStatus(String email, String name) {
     return userDataAuth.updateStatus(email, name);
   }
+
+  @override
+  Future updateCountry(String email, String country) {
+    return userDataAuth.updateCountry(email, country);
+  }
 }

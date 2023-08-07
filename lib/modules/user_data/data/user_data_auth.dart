@@ -6,4 +6,10 @@ class UserDataAuth {
       'name': name,
     });
   }
+
+  Future updateCountry(String email, String country) async {
+    await FirebaseFirestore.instance.collection('users').doc(email).update({
+      'country': country,
+    });
+  }
 }

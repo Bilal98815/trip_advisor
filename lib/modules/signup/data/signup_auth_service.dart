@@ -17,9 +17,25 @@ class SignupAuthService {
   }
 
   Future addUserDetails(UserModel user) async {
+    // // creating an empty collection
+    // CollectionReference collectionReference = FirebaseFirestore.instance
+    //     .collection('users')
+    //     .doc(user.email)
+    //     .collection('photos');
+    // collectionReference.doc();
+
+    Timestamp time = Timestamp.fromDate(DateTime.now());
     await FirebaseFirestore.instance.collection('users').doc(user.email).set({
       'email': user.email,
+      'country': '',
       'name': '',
+      'location': const GeoPoint(0, 0),
+      'fcm': '',
+      'time': time,
+      'photos': [],
+      'bio': '',
+      'website': '',
+      'imageUrl': '',
     });
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_advisor/modules/bottom_bar/presentation/view/bottom_bar_view.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc.dart';
+import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc_state.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_event.dart';
 
 import '../../../../common/widgets/authentication_button.dart';
@@ -11,6 +13,7 @@ class UserDataView extends StatelessWidget {
 
   final nameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  List<String> items = ['UK', 'America', 'Canada', 'Australia', 'Pakistan'];
 
   @override
   Widget build(BuildContext context) {
@@ -113,18 +116,52 @@ class UserDataView extends StatelessWidget {
                         SizedBox(
                           height: size.maxHeight * 0.01,
                         ),
-                        TextFormField(
-                          style: const TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
-                            hintText: 'Hometown',
-                            hintStyle: const TextStyle(color: Colors.grey),
-                            border: OutlineInputBorder(
-                                borderSide: const BorderSide(color: Colors.red),
-                                borderRadius: BorderRadius.circular(8)),
-                            focusedBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white)),
-                          ),
-                        ),
+                        Container(
+                            width: size.maxWidth,
+                            height: size.maxHeight * 0.08,
+                            padding: EdgeInsets.symmetric(
+                                vertical: size.maxHeight * 0.01,
+                                horizontal: size.maxWidth * 0.03),
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(10)),
+                                border: Border.all(color: Colors.grey)),
+                            child: BlocBuilder<UserDataBloc, UserDataBlocState>(
+                              builder: (context, state) {
+                                debugPrint('---->> Country: ${state.country}');
+                                return DropdownButton(
+                                  icon: const SizedBox.shrink(),
+                                  underline: const SizedBox.shrink(),
+                                  //value: state.country,
+                                  hint: Text(
+                                    state.country,
+                                    style: const TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  dropdownColor: Colors.black87,
+                                  style: const TextStyle(color: Colors.white),
+                                  items: items.map((String item) {
+                                    return DropdownMenuItem(
+                                      value: item,
+                                      child: Text(item),
+                                    );
+                                  }).toList(),
+                                  onChanged: (value) {
+                                    context.read<UserDataBloc>().add(
+                                        UpdateCountryEvent(country: value!));
+                                    context
+                                        .read<UserDataBloc>()
+                                        .add(StoreCountryDB(country: value));
+                                    debugPrint(
+                                        '---->> Selected Country: $value');
+                                    debugPrint(
+                                        '---->> Country: ${state.country}');
+                                  },
+                                );
+                              },
+                            )),
                       ],
                     ),
                   ),
@@ -132,29 +169,39 @@ class UserDataView extends StatelessWidget {
                     height: size.maxHeight * 0.04,
                   ),
                   Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
-                    child: AuthenticationButton(
-                        onTap: () {
-                          if (!formKey.currentState!.validate()) {
-                            debugPrint('------Enter Name');
-                          } else {
-                            context
-                                .read<UserDataBloc>()
-                                .add(UserDataEvent(name: nameController.text));
-                          }
+                      padding: EdgeInsets.symmetric(
+                          horizontal: size.maxWidth * 0.08),
+                      child: BlocBuilder<UserDataBloc, UserDataBlocState>(
+                        builder: (context, state) {
+                          return AuthenticationButton(
+                              onTap: () {
+                                if (!formKey.currentState!.validate()) {
+                                  debugPrint('------Enter Name');
+                                } else {
+                                  context
+                                      .read<UserDataBloc>()
+                                      .add(UpdateNameEvent(
+                                        name: nameController.text,
+                                      ));
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              BottomBarView()));
+                                }
+                              },
+                              height: size.maxHeight * 0.064,
+                              color: Colors.white,
+                              size: size,
+                              child: const Center(
+                                child: CommonText(
+                                    text: 'Next',
+                                    color: Colors.black87,
+                                    fontsize: 20,
+                                    fontWeight: FontWeight.w500),
+                              ));
                         },
-                        height: size.maxHeight * 0.064,
-                        color: Colors.white,
-                        size: size,
-                        child: const Center(
-                          child: CommonText(
-                              text: 'Next',
-                              color: Colors.black87,
-                              fontsize: 20,
-                              fontWeight: FontWeight.w500),
-                        )),
-                  ),
+                      )),
                   SizedBox(
                     height: size.maxHeight * 0.05,
                   ),
