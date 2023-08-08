@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trip_advisor/modules/bottom_bar/presentation/view/bottom_bar_view.dart';
+import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc_state.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_event.dart';
@@ -183,11 +183,7 @@ class UserDataView extends StatelessWidget {
                                       .add(UpdateNameEvent(
                                         name: nameController.text,
                                       ));
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              BottomBarView()));
+                                  context.go('/bottomBar');
                                 }
                               },
                               height: size.maxHeight * 0.064,

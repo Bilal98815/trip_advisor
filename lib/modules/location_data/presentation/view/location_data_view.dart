@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/modules/location_data/presentation/bloc/location_data_bloc.dart';
 import 'package:trip_advisor/modules/location_data/presentation/bloc/location_data_event.dart';
-import 'package:trip_advisor/modules/user_data/presentation/view/user_data_view.dart';
 
 import '../../../../common/widgets/common_text_widget.dart';
 
@@ -63,10 +63,7 @@ class LocationDataView extends StatelessWidget {
                 child: AuthenticationButton(
                     onTap: () async {
                       await getLocation(context);
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => UserDataView()));
+                      if (context.mounted) context.go('/userData');
                     },
                     height: size.maxHeight * 0.064,
                     color: Colors.white,
@@ -84,12 +81,7 @@ class LocationDataView extends StatelessWidget {
               ),
               Center(
                 child: InkWell(
-                  onTap: () {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => UserDataView()));
-                  },
+                  onTap: () => context.go('/userData'),
                   child: const Text(
                     'Not now',
                     style: TextStyle(

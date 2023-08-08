@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
-import 'package:trip_advisor/modules/bottom_bar/presentation/view/bottom_bar_view.dart';
-import 'package:trip_advisor/modules/forgot_password/presentation/view/forgot_password_view.dart';
-import 'package:trip_advisor/modules/location_data/presentation/view/location_data_view.dart';
 import 'package:trip_advisor/modules/signup/presentation/view/signup_view.dart';
 
 import '../../../../common/helpers/enums/enums.dart';
@@ -140,10 +138,7 @@ class LoginView extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ForgotPasswordView()));
+                          context.go('/onboarding/login/forgotPassword');
                         },
                         child: CommonText(
                             text: 'Forgot password?',
@@ -173,21 +168,10 @@ class LoginView extends StatelessWidget {
                             final prefs = Preferences();
                             final user = await prefs.getSharedPreferenceUser();
 
-                            if (user.email!.isNotEmpty) {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => BottomBarView(),
-                                ),
-                              );
-                            } else {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      const LocationDataView(),
-                                ),
-                              );
+                            if (context.mounted) {
+                              user.email!.isNotEmpty
+                                  ? context.go('/bottomBar')
+                                  : context.go('/locationData');
                             }
                           }
                         },
@@ -225,10 +209,7 @@ class LoginView extends StatelessWidget {
                       AuthenticationButton(
                           height: constraints.maxHeight * 0.075,
                           onTap: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignUpView()));
+                            context.go('/onboarding/login/signup');
                           },
                           color: Colors.black12,
                           size: constraints,
