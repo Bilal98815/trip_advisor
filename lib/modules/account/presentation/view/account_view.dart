@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
@@ -59,25 +60,22 @@ class AccountView extends StatelessWidget {
                       height: size.maxHeight * 0.05,
                     ),
                     ProfileSettingsTile(
-                        image: 'assets/invoice.png',
-                        onTap: () {
-                          _launchUrl(Uri.parse('https://www.google.com'));
-                        },
-                        title: "Bookings",
-                        size: size),
+                      image: 'assets/invoice.png',
+                      onTap: () {
+                        _launchUrl(Uri.parse('https://www.google.com'));
+                      },
+                      title: "Bookings",
+                      size: size,
+                    ),
                     SizedBox(
                       height: size.maxHeight * 0.03,
                     ),
                     ProfileSettingsTile(
-                        image: 'assets/user.png',
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ProfileView()));
-                        },
-                        title: "Profile",
-                        size: size),
+                      image: 'assets/user.png',
+                      onTap: () => context.go('/account/profile'),
+                      title: "Profile",
+                      size: size,
+                    ),
                     SizedBox(
                       height: size.maxHeight * 0.03,
                     ),
@@ -101,12 +99,7 @@ class AccountView extends StatelessWidget {
                     ),
                     ProfileSettingsTile(
                         image: 'assets/question.png',
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const SupportView()));
-                        },
+                        onTap: () => context.go('/account/support'),
                         title: "Support",
                         size: size),
                     SizedBox(
@@ -198,12 +191,7 @@ class AccountView extends StatelessWidget {
                     ),
                     ProfileSettingsTile(
                         image: 'assets/question.png',
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const SupportView()));
-                        },
+                        onTap: () => context.go('/account/support'),
                         title: "Support",
                         size: size),
                     SizedBox(

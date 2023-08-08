@@ -3,12 +3,12 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_bloc.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_event.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_state.dart';
-import 'package:trip_advisor/modules/profile/presentation/view/profile_view.dart';
 
 import '../../../../common/widgets/common_text_widget.dart';
 import '../../../profile/presentation/bloc/profile_bloc.dart';
@@ -43,7 +43,7 @@ class EditProfileView extends StatelessWidget {
             padding: EdgeInsets.only(left: size.maxWidth * 0.5),
             child: InkWell(
               onTap: () {
-                Navigator.pop(context);
+                context.pop();
               },
               child: const Icon(
                 Icons.arrow_back_ios_new,
@@ -307,10 +307,7 @@ class EditProfileView extends StatelessWidget {
                             BlocProvider.of<ProfileBloc>(context)
                                 .add(GetUserEvent());
 
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const ProfileView()));
+                            context.go('/account/profile');
                           });
                         },
                         color: Colors.white,
