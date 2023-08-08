@@ -74,7 +74,7 @@ class AccountView extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const ProfileView()));
+                                  builder: (context) => ProfileView()));
                         },
                         title: "Profile",
                         size: size),

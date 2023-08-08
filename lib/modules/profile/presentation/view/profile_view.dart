@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/view/edit_profile_view.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_event.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_state.dart';
@@ -14,7 +16,9 @@ import '../../../../common/widgets/common_text_widget.dart';
 import '../bloc/profile_bloc.dart';
 
 class ProfileView extends StatelessWidget {
-  const ProfileView({super.key});
+  ProfileView({super.key});
+
+  List<Uint8List> _images = [];
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +39,8 @@ class ProfileView extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => EditProfileView()))
                       .then((value) {
-                    debugPrint('In then <<<<<<<----------');
-                    BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
+                    // debugPrint('In then <<<<<<<----------');
+                    // BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
                   });
                 },
                 child: const Icon(
@@ -70,9 +74,7 @@ class ProfileView extends StatelessWidget {
       body: SafeArea(
         child: BlocBuilder<ProfileBloc, ProfileState>(
           builder: (context, state) {
-            if (!state.isLoading) {
-              debugPrint(
-                  'User Name: ------>>>>>>>>>>>>>>>> ${state.user?.name}');
+            if (state.apiState == ApiState.done) {
               return LayoutBuilder(
                 builder: (context, size) {
                   DateTime time = state.user?.time?.toDate() ?? DateTime.now();
@@ -178,14 +180,19 @@ class ProfileView extends StatelessWidget {
                             color: Colors.grey,
                             thickness: 0.4,
                           ),
-                          ActionForm(
-                              onTap: () {
-                                _pickImageFromGallery();
-                              },
-                              size: size,
-                              buttonText: 'Upload a photo',
-                              number: 0,
-                              actionTitle: 'photos'),
+                          state.apiState == ApiState.loading
+                              ? const Center(child: CircularProgressIndicator())
+                              : ActionForm(
+                                  onTap: () async {
+                                    _images =
+                                        await _pickMultipleImagesFromGallery();
+                                    context.read<ProfileBloc>().add(
+                                        UploadImagesEvent(images: _images));
+                                  },
+                                  size: size,
+                                  buttonText: 'Upload a photo',
+                                  number: state.user?.photos?.length ?? 0,
+                                  actionTitle: 'photos'),
                           ActionForm(
                               onTap: () {},
                               size: size,
@@ -254,7 +261,14 @@ class ProfileView extends StatelessWidget {
     }
   }
 
-  _pickImageFromGallery() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+  _pickMultipleImagesFromGallery() async {
+    final images = await ImagePicker().pickMultiImage();
+    if (images.isNotEmpty) {
+      List<Uint8List> files = [];
+      for (int i = 0; i < images.length; i++) {
+        files.add(await images[i].readAsBytes());
+      }
+      return files;
+    }
   }
 }

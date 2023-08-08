@@ -12,6 +12,8 @@ class EditProfileAuth {
 
   Future updateUser(String bio, String name, String website, String email,
       Uint8List file) async {
+    Map<String, dynamic> data = {};
+
     final snapShot = await FirebaseFirestore.instance
         .collection('users')
         .where('email', isEqualTo: email)
@@ -29,13 +31,25 @@ class EditProfileAuth {
       imageUrl = await uploadImageToStorage(
           'profilePictures-${DateTime.now().millisecondsSinceEpoch}', file);
     }
-    debugPrint('Image URL ------------->>>>> $imageUrl');
-    await FirebaseFirestore.instance.collection('users').doc(email).update({
-      'bio': bio,
-      'name': name,
-      'website': website,
-      'imageUrl': imageUrl,
-    });
+
+    if (bio.isNotEmpty) {
+      data['bio'] = bio;
+    }
+    if (name.isNotEmpty) {
+      data['name'] = name;
+    }
+
+    if (website.isNotEmpty) {
+      data['website'] = website;
+    }
+
+    if (data.isNotEmpty) {
+      data['imageUrl'] = imageUrl;
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(email)
+          .update(data);
+    }
   }
 
   Future updateCountry(String country, String email) async {

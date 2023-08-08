@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
+import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_event.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_state.dart';
@@ -18,7 +19,7 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
     });
 
     on<UpdateUserEvent>((event, emit) async {
-      await updateUser(event.bio, event.name, event.website, event.file);
+      await updateUser(event.bio, event.name, event.website, event.file, emit);
     });
 
     on<UpdateCountryEvent>((event, emit) {
@@ -42,10 +43,12 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
     emit(state.copyWith(count: count));
   }
 
-  Future updateUser(
-      String bio, String name, String website, Uint8List file) async {
+  Future updateUser(String bio, String name, String website, Uint8List file,
+      Emitter emit) async {
     String? email = await prefs.getEmail();
+    emit(state.copyWith(apiState: ApiState.loading));
     await editProfileRepository.updateUser(bio, name, website, email!, file);
+    emit(state.copyWith(apiState: ApiState.saved));
   }
 
   void updateCountry(String country, Emitter emit) {

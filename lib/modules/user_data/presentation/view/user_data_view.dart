@@ -13,7 +13,13 @@ class UserDataView extends StatelessWidget {
 
   final nameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  List<String> items = ['UK', 'America', 'Canada', 'Australia', 'Pakistan'];
+  final List<String> items = [
+    'UK',
+    'America',
+    'Canada',
+    'Australia',
+    'Pakistan'
+  ];
 
   @override
   Widget build(BuildContext context) {

@@ -1,14 +1,13 @@
-import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_bloc.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_event.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_state.dart';
-import 'package:trip_advisor/modules/profile/presentation/view/profile_view.dart';
 
 import '../../../../common/widgets/common_text_widget.dart';
 import '../../../profile/presentation/bloc/profile_bloc.dart';
@@ -286,43 +285,47 @@ class EditProfileView extends StatelessWidget {
                   SizedBox(
                     height: size.maxHeight * 0.09,
                   ),
-                  BlocBuilder<ProfileBloc, ProfileState>(
-                      builder: (context, state) {
+                  BlocConsumer<EditProfileBloc, EditProfileState>(
+                      listener: (context, state) {
+                    if (state.apiState == ApiState.saved) {
+                      context.read<ProfileBloc>().add(GetUserEvent());
+                      Navigator.pop(context);
+                    } else if (state.apiState == ApiState.error) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          backgroundColor: Colors.red,
+                          content: Text(
+                            'Something went wrong!',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      );
+                    }
+                  }, builder: (context, state) {
                     return AuthenticationButton(
                         onTap: () {
-                          debugPrint('Image -------->>>>> $img');
-                          context.read<EditProfileBloc>().add(UpdateUserEvent(
-                              bio: aboutController.text.isEmpty
-                                  ? state.user?.bio ?? ''
-                                  : aboutController.text,
-                              name: nameController.text.isEmpty
-                                  ? state.user?.name ?? ''
-                                  : nameController.text,
-                              website: websiteController.text.isEmpty
-                                  ? state.user?.website ?? ''
-                                  : websiteController.text,
-                              file: img));
-
-                          Timer(const Duration(seconds: 5), () {
-                            BlocProvider.of<ProfileBloc>(context)
-                                .add(GetUserEvent());
-
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const ProfileView()));
-                          });
+                          if (state.apiState == ApiState.loading) {
+                            null;
+                          } else {
+                            context.read<EditProfileBloc>().add(UpdateUserEvent(
+                                bio: aboutController.text,
+                                name: nameController.text,
+                                website: websiteController.text,
+                                file: img));
+                          }
                         },
                         color: Colors.white,
                         height: size.maxHeight * 0.08,
                         size: size,
-                        child: const Center(
-                          child: CommonText(
-                              text: 'Save',
-                              color: Colors.black,
-                              fontsize: 18,
-                              fontWeight: FontWeight.w500),
-                        ));
+                        child: state.apiState == ApiState.loading
+                            ? const Center(child: CircularProgressIndicator())
+                            : const Center(
+                                child: CommonText(
+                                    text: 'Save',
+                                    color: Colors.black,
+                                    fontsize: 18,
+                                    fontWeight: FontWeight.w500),
+                              ));
                   }),
                   SizedBox(
                     height: size.maxHeight * 0.06,
