@@ -41,7 +41,7 @@ class SignUpView extends StatelessWidget {
                       ),
                       InkWell(
                           onTap: () {
-                            Navigator.pop(context);
+                            context.pop();
                           },
                           child: const Icon(
                             Icons.arrow_back_ios_new,

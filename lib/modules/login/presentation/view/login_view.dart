@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
-import 'package:trip_advisor/modules/signup/presentation/view/signup_view.dart';
 
 import '../../../../common/helpers/enums/enums.dart';
 import '../bloc/login_bloc.dart';
@@ -41,7 +39,7 @@ class LoginView extends StatelessWidget {
                       ),
                       InkWell(
                           onTap: () {
-                            Navigator.pop(context);
+                            context.pop();
                           },
                           child: const Icon(
                             Icons.arrow_back_ios_new,
@@ -165,7 +163,7 @@ class LoginView extends StatelessWidget {
                             context.read<LoginBloc>().setEmailInPreferences(
                                 emailController.text.trim());
 
-                            if (context.mounted) context.go('/bottomBar');
+                            if (context.mounted) context.go('/explore');
                           }
                         },
                         builder: (context, state) {

@@ -22,7 +22,7 @@ class _SplashViewState extends State<SplashView> {
         final user = await prefs.getSharedPreferenceUser();
 
         if (context.mounted) {
-          context.go(user.email != null ? '/bottomBar' : '/onboarding');
+          context.go(user.email != null ? '/explore' : '/onboarding');
         }
       },
     );

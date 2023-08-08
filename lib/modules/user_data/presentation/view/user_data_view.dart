@@ -184,7 +184,7 @@ class UserDataView extends StatelessWidget {
                                         ),
                                       );
 
-                                  context.go('/bottomBar');
+                                  context.go('/explore');
                                 }
                               },
                               height: size.maxHeight * 0.064,
