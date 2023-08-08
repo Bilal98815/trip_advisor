@@ -165,14 +165,7 @@ class LoginView extends StatelessWidget {
                             context.read<LoginBloc>().setEmailInPreferences(
                                 emailController.text.trim());
 
-                            final prefs = Preferences();
-                            final user = await prefs.getSharedPreferenceUser();
-
-                            if (context.mounted) {
-                              user.email!.isNotEmpty
-                                  ? context.go('/bottomBar')
-                                  : context.go('/locationData');
-                            }
+                            if (context.mounted) context.go('/bottomBar');
                           }
                         },
                         builder: (context, state) {
@@ -209,7 +202,7 @@ class LoginView extends StatelessWidget {
                       AuthenticationButton(
                           height: constraints.maxHeight * 0.075,
                           onTap: () {
-                            context.go('/onboarding/login/signup');
+                            context.go('/onboarding/signup');
                           },
                           color: Colors.black12,
                           size: constraints,

@@ -28,21 +28,25 @@ class AppRouter {
                     path: 'forgotPassword',
                     builder: (context, state) => ForgotPasswordView(),
                   ),
+                ],
+              ),
+              GoRoute(
+                path: 'signup',
+                builder: (context, state) => SignUpView(),
+                routes: [
                   GoRoute(
-                    path: 'signup',
-                    builder: (context, state) => SignUpView(),
+                    path: 'locationData',
+                    builder: (context, state) => const LocationDataView(),
+                    routes: [
+                      GoRoute(
+                        path: 'userData',
+                        builder: (context, state) => UserDataView(),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ],
-          ),
-          GoRoute(
-            path: 'locationData',
-            builder: (context, state) => const LocationDataView(),
-          ),
-          GoRoute(
-            path: 'userData',
-            builder: (context, state) => UserDataView(),
           ),
           GoRoute(
             path: 'bottomBar',

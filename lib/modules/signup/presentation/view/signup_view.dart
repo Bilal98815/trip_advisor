@@ -200,7 +200,7 @@ class SignUpView extends StatelessWidget {
                               ),
                             );
                           } else if (state.registerApiState == ApiState.done) {
-                            context.go('/onboarding/login');
+                            context.go('/onboarding/signup/locationData');
                           }
                         },
                         builder: (context, state) {

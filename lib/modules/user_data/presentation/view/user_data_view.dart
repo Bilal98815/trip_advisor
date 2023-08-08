@@ -178,11 +178,12 @@ class UserDataView extends StatelessWidget {
                                 if (!formKey.currentState!.validate()) {
                                   debugPrint('------Enter Name');
                                 } else {
-                                  context
-                                      .read<UserDataBloc>()
-                                      .add(UpdateNameEvent(
-                                        name: nameController.text,
-                                      ));
+                                  context.read<UserDataBloc>().add(
+                                        UpdateNameEvent(
+                                          name: nameController.text,
+                                        ),
+                                      );
+
                                   context.go('/bottomBar');
                                 }
                               },

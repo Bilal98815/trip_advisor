@@ -63,7 +63,9 @@ class LocationDataView extends StatelessWidget {
                 child: AuthenticationButton(
                     onTap: () async {
                       await getLocation(context);
-                      if (context.mounted) context.go('/userData');
+                      if (context.mounted) {
+                        context.go('/onboarding/signup/locationData/userData');
+                      }
                     },
                     height: size.maxHeight * 0.064,
                     color: Colors.white,
@@ -81,7 +83,8 @@ class LocationDataView extends StatelessWidget {
               ),
               Center(
                 child: InkWell(
-                  onTap: () => context.go('/userData'),
+                  onTap: () =>
+                      context.go('/onboarding/signup/locationData/userData'),
                   child: const Text(
                     'Not now',
                     style: TextStyle(
