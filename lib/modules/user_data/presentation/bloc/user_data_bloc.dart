@@ -11,27 +11,26 @@ class UserDataBloc extends Bloc<UserDataEvent, UserDataBlocState> {
   UserDataBloc({required this.userDataRepository})
       : super(const UserDataBlocState()) {
     on<UpdateNameEvent>((event, emit) async {
-      await updateName(event.name, emit);
+      await updateName(event.name, event.email, emit);
     });
     on<UpdateCountryEvent>((event, emit) {
       updateCountry(event.country, emit);
     });
     on<StoreCountryDB>((event, emit) async {
-      await updateCountryDB(event.country);
+      await updateCountryDB(event.country, event.email);
     });
   }
 
   final prefs = Preferences();
 
-  Future updateName(String name, Emitter emit) async {
-    String? email = await prefs.getEmail();
-
-    await userDataRepository.updateStatus(email!, name);
+  Future updateName(String name, String email, Emitter emit) async {
+    //String? email = await prefs.getEmail();
+    await userDataRepository.updateStatus(email, name);
   }
 
-  Future updateCountryDB(String country) async {
-    String? email = await prefs.getEmail();
-    await userDataRepository.updateCountry(email!, country);
+  Future updateCountryDB(String country, String email) async {
+    // String? email = await prefs.getEmail();
+    await userDataRepository.updateCountry(email, country);
   }
 
   void updateCountry(String country, Emitter emit) {

@@ -13,6 +13,10 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
     on<SignOutEvent>((event, emit) async {
       await signOutUser(emit);
     });
+
+    on<UpdateSigningCondition>((event, emit) {
+      updateSigningCondition(event.condition, emit);
+    });
   }
 
   Future signOutUser(Emitter emit) async {
@@ -24,5 +28,9 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
   Future clearPrefs() async {
     final prefs = Preferences();
     await prefs.clearPreferences();
+  }
+
+  void updateSigningCondition(SignOutCondition condition, Emitter emit) {
+    emit(state.copyWith(signOutCondition: condition));
   }
 }

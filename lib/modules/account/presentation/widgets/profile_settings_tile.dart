@@ -18,32 +18,32 @@ class ProfileSettingsTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Image.asset(
-              image,
-              width: size.maxWidth * 0.045,
-            ),
-            SizedBox(
-              width: size.maxWidth * 0.06,
-            ),
-            CommonText(
-                text: title,
-                color: Colors.white,
-                fontsize: 15,
-                fontWeight: FontWeight.w500),
-            const Spacer(),
-            InkWell(
-              onTap: () {
-                onTap.call();
-              },
-              child: const Icon(
+        InkWell(
+          onTap: () {
+            onTap.call();
+          },
+          child: Row(
+            children: [
+              Image.asset(
+                image,
+                width: size.maxWidth * 0.045,
+              ),
+              SizedBox(
+                width: size.maxWidth * 0.06,
+              ),
+              CommonText(
+                  text: title,
+                  color: Colors.white,
+                  fontsize: 15,
+                  fontWeight: FontWeight.w500),
+              const Spacer(),
+              const Icon(
                 Icons.arrow_forward_ios,
                 color: Colors.white,
                 size: 18,
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         SizedBox(
           height: size.maxHeight * 0.01,

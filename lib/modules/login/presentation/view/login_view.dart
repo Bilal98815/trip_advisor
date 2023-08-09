@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
+import 'package:trip_advisor/modules/account/presentation/bloc/account_bloc.dart';
+import 'package:trip_advisor/modules/account/presentation/bloc/account_event.dart';
 import 'package:trip_advisor/modules/bottom_bar/presentation/view/bottom_bar_view.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/view/forgot_password_view.dart';
-import 'package:trip_advisor/modules/location_data/presentation/view/location_data_view.dart';
 import 'package:trip_advisor/modules/signup/presentation/view/signup_view.dart';
 
 import '../../../../common/helpers/enums/enums.dart';
@@ -170,25 +170,14 @@ class LoginView extends StatelessWidget {
                             context.read<LoginBloc>().setEmailInPreferences(
                                 emailController.text.trim());
 
-                            final prefs = Preferences();
-                            final user = await prefs.getSharedPreferenceUser();
-
-                            if (user.email!.isNotEmpty) {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => BottomBarView(),
-                                ),
-                              );
-                            } else {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      const LocationDataView(),
-                                ),
-                              );
-                            }
+                            // final prefs = Preferences();
+                            // final user = await prefs.getSharedPreferenceUser();
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BottomBarView(),
+                              ),
+                            );
                           }
                         },
                         builder: (context, state) {
@@ -203,6 +192,9 @@ class LoginView extends StatelessWidget {
                                 context.read<LoginBloc>().add(OnLoginEvent(
                                     email: emailController.text,
                                     password: passwordController.text));
+                                context.read<AccountBloc>().add(
+                                    UpdateSigningCondition(
+                                        condition: SignOutCondition.signIn));
                               }
                             },
                             color: Colors.white,
