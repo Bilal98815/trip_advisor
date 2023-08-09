@@ -10,13 +10,23 @@ class EditProfileRepositoryImp implements EditProfileRepository {
   EditProfileRepositoryImp({required this.editProfileAuth});
 
   @override
-  Future updateUser(
-      String bio, String name, String website, String email, Uint8List file) {
-    return editProfileAuth.updateUser(bio, name, website, email, file);
+  Future updateCountry(String country, String email) {
+    return editProfileAuth.updateCountry(country, email);
   }
 
   @override
-  Future updateCountry(String country, String email) {
-    return editProfileAuth.updateCountry(country, email);
+  Future updateUser(
+      {String? bio,
+      String? name,
+      String? website,
+      String? email,
+      Uint8List? file}) {
+    return editProfileAuth.updateUser(
+      bio: bio,
+      name: name,
+      website: website,
+      email: email,
+      file: file,
+    );
   }
 }

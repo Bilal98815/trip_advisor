@@ -10,8 +10,13 @@ import '../../../common/models/user_model.dart';
 class EditProfileAuth {
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
 
-  Future updateUser(String bio, String name, String website, String email,
-      Uint8List file) async {
+  Future updateUser({
+    String? bio,
+    String? name,
+    String? website,
+    String? email,
+    Uint8List? file,
+  }) async {
     Map<String, dynamic> data = {};
 
     final snapShot = await FirebaseFirestore.instance
@@ -24,27 +29,20 @@ class EditProfileAuth {
 
     final user = UserModel.fromJson(userData);
 
-    String imageUrl = user.imageUrl!;
+    String imageUrl = user.imageUrl ?? '';
 
-    if (file.isNotEmpty) {
+    if (file != null) {
       debugPrint('------------->>>>> File is not Empty');
       imageUrl = await uploadImageToStorage(
           'profilePictures-${DateTime.now().millisecondsSinceEpoch}', file);
     }
 
-    if (bio.isNotEmpty) {
-      data['bio'] = bio;
-    }
-    if (name.isNotEmpty) {
-      data['name'] = name;
-    }
+    final updatedUser = user.copyWith(
+        bio: bio, name: name, website: website, imageUrl: imageUrl);
 
-    if (website.isNotEmpty) {
-      data['website'] = website;
-    }
+    data = updatedUser.toJson();
 
     if (data.isNotEmpty) {
-      data['imageUrl'] = imageUrl;
       await FirebaseFirestore.instance
           .collection('users')
           .doc(email)

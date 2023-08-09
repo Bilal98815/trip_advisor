@@ -93,7 +93,7 @@ class ProfileView extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              state.user?.imageUrl != ''
+                              state.user?.imageUrl != null
                                   ? CircleAvatar(
                                       radius: 50,
                                       backgroundImage: NetworkImage(

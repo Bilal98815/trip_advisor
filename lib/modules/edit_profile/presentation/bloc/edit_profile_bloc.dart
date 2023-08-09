@@ -19,7 +19,13 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
     });
 
     on<UpdateUserEvent>((event, emit) async {
-      await updateUser(event.bio, event.name, event.website, event.file, emit);
+      await updateUser(
+        emit,
+        bio: event.bio,
+        name: event.name,
+        website: event.website,
+        file: event.file,
+      );
     });
 
     on<UpdateCountryEvent>((event, emit) {
@@ -43,11 +49,22 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
     emit(state.copyWith(count: count));
   }
 
-  Future updateUser(String bio, String name, String website, Uint8List file,
-      Emitter emit) async {
+  Future updateUser(
+    Emitter emit, {
+    String? bio,
+    String? name,
+    String? website,
+    Uint8List? file,
+  }) async {
     String? email = await prefs.getEmail();
     emit(state.copyWith(apiState: ApiState.loading));
-    await editProfileRepository.updateUser(bio, name, website, email!, file);
+    await editProfileRepository.updateUser(
+      bio: bio,
+      name: name,
+      website: website,
+      email: email,
+      file: file,
+    );
     emit(state.copyWith(apiState: ApiState.saved));
   }
 

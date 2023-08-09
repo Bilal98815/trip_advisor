@@ -9,10 +9,10 @@ class UpdateCountEvent extends EditProfileEvent {
 }
 
 class UpdateUserEvent extends EditProfileEvent {
-  final String bio;
-  final String name;
-  final String website;
-  final Uint8List file;
+  final String? bio;
+  final String? name;
+  final String? website;
+  final Uint8List? file;
 
   UpdateUserEvent(
       {required this.bio,

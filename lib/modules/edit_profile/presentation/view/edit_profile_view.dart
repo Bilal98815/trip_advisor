@@ -20,7 +20,7 @@ class EditProfileView extends StatelessWidget {
   final nameController = TextEditingController();
   final websiteController = TextEditingController();
   final aboutController = TextEditingController();
-  Uint8List img = Uint8List(0);
+  Uint8List? img;
   final List<String> items = [
     'UK',
     'America',
@@ -94,11 +94,15 @@ class EditProfileView extends StatelessWidget {
                           bottom: 1,
                           left: 50,
                           child: InkWell(
-                            onTap: () async {
-                              img = await _pickImageFromGallery();
-                              context
-                                  .read<EditProfileBloc>()
-                                  .add(UpdateImageEvent(img: img));
+                            onTap: () {
+                              pickImageFromGallery().then((value) {
+                                img = value;
+                                if (img != null) {
+                                  context
+                                      .read<EditProfileBloc>()
+                                      .add(UpdateImageEvent(img: img!));
+                                }
+                              });
                             },
                             child: Container(
                                 padding: const EdgeInsets.all(5),
@@ -308,9 +312,15 @@ class EditProfileView extends StatelessWidget {
                             null;
                           } else {
                             context.read<EditProfileBloc>().add(UpdateUserEvent(
-                                bio: aboutController.text,
-                                name: nameController.text,
-                                website: websiteController.text,
+                                bio: aboutController.text.isEmpty
+                                    ? null
+                                    : aboutController.text,
+                                name: nameController.text.isEmpty
+                                    ? null
+                                    : nameController.text,
+                                website: websiteController.text.isEmpty
+                                    ? null
+                                    : websiteController.text,
                                 file: img));
                           }
                         },
@@ -339,7 +349,7 @@ class EditProfileView extends StatelessWidget {
     );
   }
 
-  _pickImageFromGallery() async {
+  Future<Uint8List?> pickImageFromGallery() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (image != null) {
       return await image.readAsBytes();
