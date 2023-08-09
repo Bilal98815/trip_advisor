@@ -65,6 +65,7 @@ class LocationDataView extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
                 child: PrimaryButton(
+                    ignoring: false,
                     onTap: () async {
                       await getLocation(context);
                       Navigator.pushReplacement(

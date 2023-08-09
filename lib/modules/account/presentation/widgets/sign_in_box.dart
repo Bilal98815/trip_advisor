@@ -39,6 +39,7 @@ class SignInBox extends StatelessWidget {
             height: size.maxHeight * 0.04,
           ),
           PrimaryButton(
+              ignoring: false,
               onTap: () {
                 Navigator.pushReplacement(
                     context,

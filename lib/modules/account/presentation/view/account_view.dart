@@ -123,6 +123,7 @@ class AccountView extends StatelessWidget {
                       height: size.maxHeight * 0.05,
                     ),
                     PrimaryButton(
+                        ignoring: false,
                         onTap: () {
                           showDialog(
                               context: context,

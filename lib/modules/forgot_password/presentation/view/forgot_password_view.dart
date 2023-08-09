@@ -114,6 +114,7 @@ class ForgotPasswordView extends StatelessWidget {
                         },
                         builder: (context, state) {
                           return PrimaryButton(
+                              ignoring: false,
                               onTap: () {
                                 if (!_key.currentState!.validate()) {
                                   context.read<ForgotPasswordBloc>().add(ShowError(

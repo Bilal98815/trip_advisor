@@ -182,6 +182,7 @@ class LoginView extends StatelessWidget {
                         },
                         builder: (context, state) {
                           return PrimaryButton(
+                            ignoring: false,
                             height: constraints.maxHeight * 0.075,
                             onTap: () {
                               if (!formKey.currentState!.validate()) {
@@ -215,6 +216,7 @@ class LoginView extends StatelessWidget {
                         height: constraints.maxHeight * 0.03,
                       ),
                       PrimaryButton(
+                          ignoring: false,
                           height: constraints.maxHeight * 0.075,
                           onTap: () {
                             Navigator.pushReplacement(

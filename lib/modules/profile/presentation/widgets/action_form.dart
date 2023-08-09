@@ -80,6 +80,7 @@ class ActionForm extends StatelessWidget {
           height: size.maxHeight * 0.09,
         ),
         PrimaryButton(
+            ignoring: false,
             onTap: onTap,
             color: Colors.black12,
             height: size.maxHeight * 0.075,

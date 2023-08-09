@@ -47,6 +47,7 @@ class SignoutDialogBox extends StatelessWidget {
               height: size.maxHeight * 0.04,
             ),
             PrimaryButton(
+                ignoring: false,
                 onTap: () {
                   context.read<AccountBloc>().add(SignOutEvent());
                   Navigator.pop(context);

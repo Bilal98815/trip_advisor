@@ -57,6 +57,7 @@ class DialogueBox extends StatelessWidget {
                 fontsize: 19,
                 fontWeight: FontWeight.w400),
             PrimaryButton(
+                ignoring: false,
                 onTap: () {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => LoginView()));
@@ -75,6 +76,7 @@ class DialogueBox extends StatelessWidget {
               height: constraint.maxHeight * 0.01,
             ),
             PrimaryButton(
+                ignoring: false,
                 onTap: () {
                   context
                       .read<ForgotPasswordBloc>()

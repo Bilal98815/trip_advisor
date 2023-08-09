@@ -308,22 +308,19 @@ class EditProfileView extends StatelessWidget {
                     }
                   }, builder: (context, state) {
                     return PrimaryButton(
+                        ignoring: state.apiState == ApiState.loading,
                         onTap: () {
-                          if (state.apiState == ApiState.loading) {
-                            null;
-                          } else {
-                            context.read<EditProfileBloc>().add(UpdateUserEvent(
-                                bio: aboutController.text.isEmpty
-                                    ? null
-                                    : aboutController.text,
-                                name: nameController.text.isEmpty
-                                    ? null
-                                    : nameController.text,
-                                website: websiteController.text.isEmpty
-                                    ? null
-                                    : websiteController.text,
-                                file: img));
-                          }
+                          context.read<EditProfileBloc>().add(UpdateUserEvent(
+                              bio: aboutController.text.isEmpty
+                                  ? null
+                                  : aboutController.text,
+                              name: nameController.text.isEmpty
+                                  ? null
+                                  : nameController.text,
+                              website: websiteController.text.isEmpty
+                                  ? null
+                                  : websiteController.text,
+                              file: img));
                         },
                         color: Colors.white,
                         height: size.maxHeight * 0.08,

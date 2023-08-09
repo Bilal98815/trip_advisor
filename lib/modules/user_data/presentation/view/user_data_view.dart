@@ -185,6 +185,7 @@ class UserDataView extends StatelessWidget {
                       child: BlocBuilder<UserDataBloc, UserDataBlocState>(
                         builder: (context, state) {
                           return PrimaryButton(
+                              ignoring: false,
                               onTap: () {
                                 if (!formKey.currentState!.validate()) {
                                   debugPrint('------Enter Name');
