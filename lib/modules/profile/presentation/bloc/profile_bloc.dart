@@ -41,6 +41,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     String? email = await prefs.getEmail();
     emit(state.copyWith(apiState: ApiState.loading));
     await profileRepository.uploadImagesToFireStore(images, email!);
-    emit(state.copyWith(apiState: ApiState.done));
+    await getUserDetails(emit);
+    emit(state.copyWith(apiState: ApiState.done, images: images));
   }
 }

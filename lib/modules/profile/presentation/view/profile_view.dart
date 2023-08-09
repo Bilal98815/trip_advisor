@@ -18,7 +18,7 @@ import '../bloc/profile_bloc.dart';
 class ProfileView extends StatelessWidget {
   ProfileView({super.key});
 
-  List<Uint8List> _images = [];
+  List<Uint8List>? _images = [];
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +35,9 @@ class ProfileView extends StatelessWidget {
               child: InkWell(
                 onTap: () {
                   Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => EditProfileView()))
-                      .then((value) {
-                    // debugPrint('In then <<<<<<<----------');
-                    // BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
-                  });
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => EditProfileView()));
                 },
                 child: const Icon(
                   Icons.create,
@@ -183,19 +179,27 @@ class ProfileView extends StatelessWidget {
                           state.apiState == ApiState.loading
                               ? const Center(child: CircularProgressIndicator())
                               : ActionForm(
-                                  onTap: () async {
-                                    _images =
-                                        await _pickMultipleImagesFromGallery();
-                                    context.read<ProfileBloc>().add(
-                                        UploadImagesEvent(images: _images));
+                                  onTap: () {
+                                    pickMultipleImagesFromGallery()
+                                        .then((value) {
+                                      _images = value;
+                                      if (_images != null) {
+                                        context.read<ProfileBloc>().add(
+                                            UploadImagesEvent(
+                                                images: _images!));
+                                      }
+                                    });
                                   },
                                   size: size,
+                                  isTextWidget:
+                                      state.user?.photos?.isEmpty ?? true,
                                   buttonText: 'Upload a photo',
                                   number: state.user?.photos?.length ?? 0,
                                   actionTitle: 'photos'),
                           ActionForm(
                               onTap: () {},
                               size: size,
+                              isTextWidget: true,
                               buttonText: 'Write a review',
                               number: 0,
                               actionTitle: 'reviews'),
@@ -204,6 +208,7 @@ class ProfileView extends StatelessWidget {
                                 _launchUrl(Uri.parse('https://www.google.com'));
                               },
                               size: size,
+                              isTextWidget: true,
                               buttonText: 'Post to a forum',
                               number: 0,
                               actionTitle: 'forum posts'),
@@ -261,7 +266,7 @@ class ProfileView extends StatelessWidget {
     }
   }
 
-  _pickMultipleImagesFromGallery() async {
+  Future<List<Uint8List>?> pickMultipleImagesFromGallery() async {
     final images = await ImagePicker().pickMultiImage();
     if (images.isNotEmpty) {
       List<Uint8List> files = [];

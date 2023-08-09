@@ -20,12 +20,9 @@ class _SplashViewState extends State<SplashView> {
       final prefs = Preferences();
       final user = await prefs.getSharedPreferenceUser();
       if (user.email != null) {
-        debugPrint('----------->In if of Splash');
-        // context.read<LoginBloc>().add(GetUserDetailsEvent(email: user.email!));
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => BottomBarView()));
       } else {
-        debugPrint('----------->In else of Splash');
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => const OnboardingView()));
       }
