@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../common/widgets/authentication_button.dart';
 import '../../../../common/widgets/common_text_widget.dart';
+import '../../../../common/widgets/primary_button.dart';
 import '../bloc/account_bloc.dart';
 import '../bloc/account_event.dart';
 
@@ -46,7 +46,7 @@ class SignoutDialogBox extends StatelessWidget {
             SizedBox(
               height: size.maxHeight * 0.04,
             ),
-            AuthenticationButton(
+            PrimaryButton(
                 onTap: () {
                   context.read<AccountBloc>().add(SignOutEvent());
                   Navigator.pop(context);

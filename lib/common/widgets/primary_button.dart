@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AuthenticationButton extends StatelessWidget {
+class PrimaryButton extends StatelessWidget {
   final BoxConstraints size;
   final Color color;
   final Function onTap;
   final double height;
   final Widget child;
 
-  const AuthenticationButton(
+  const PrimaryButton(
       {required this.onTap,
       required this.color,
       required this.height,

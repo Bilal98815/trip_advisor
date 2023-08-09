@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trip_advisor/common/widgets/authentication_button.dart';
+import 'package:trip_advisor/common/widgets/primary_button.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_bloc.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_state.dart';
 
@@ -79,7 +79,7 @@ class ActionForm extends StatelessWidget {
         SizedBox(
           height: size.maxHeight * 0.09,
         ),
-        AuthenticationButton(
+        PrimaryButton(
             onTap: onTap,
             color: Colors.black12,
             height: size.maxHeight * 0.075,

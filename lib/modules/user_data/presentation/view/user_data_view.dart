@@ -7,8 +7,8 @@ import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc.
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc_state.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_event.dart';
 
-import '../../../../common/widgets/authentication_button.dart';
 import '../../../../common/widgets/common_text_widget.dart';
+import '../../../../common/widgets/primary_button.dart';
 
 class UserDataView extends StatelessWidget {
   final String email;
@@ -184,7 +184,7 @@ class UserDataView extends StatelessWidget {
                           horizontal: size.maxWidth * 0.08),
                       child: BlocBuilder<UserDataBloc, UserDataBlocState>(
                         builder: (context, state) {
-                          return AuthenticationButton(
+                          return PrimaryButton(
                               onTap: () {
                                 if (!formKey.currentState!.validate()) {
                                   debugPrint('------Enter Name');

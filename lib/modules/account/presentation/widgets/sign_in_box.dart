@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:trip_advisor/modules/onboarding/presentation/view/onbaording_view.dart';
 
-import '../../../../common/widgets/authentication_button.dart';
 import '../../../../common/widgets/common_text_widget.dart';
+import '../../../../common/widgets/primary_button.dart';
 
 class SignInBox extends StatelessWidget {
   final BoxConstraints size;
@@ -38,7 +38,7 @@ class SignInBox extends StatelessWidget {
           SizedBox(
             height: size.maxHeight * 0.04,
           ),
-          AuthenticationButton(
+          PrimaryButton(
               onTap: () {
                 Navigator.pushReplacement(
                     context,
