@@ -1,4 +1,4 @@
-enum ApiState { idle, loading, done, error }
+enum ApiState { idle, loading, done, error, saved }
 
 enum ProfileApiEvent { success, failure }
 

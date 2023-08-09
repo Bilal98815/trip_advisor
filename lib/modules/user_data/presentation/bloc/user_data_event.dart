@@ -2,7 +2,8 @@ abstract class UserDataEvent {}
 
 class UpdateNameEvent extends UserDataEvent {
   final String name;
-  UpdateNameEvent({required this.name});
+  final String email;
+  UpdateNameEvent({required this.name, required this.email});
 }
 
 class UpdateCountryEvent extends UserDataEvent {
@@ -13,6 +14,7 @@ class UpdateCountryEvent extends UserDataEvent {
 
 class StoreCountryDB extends UserDataEvent {
   final String country;
+  final String email;
 
-  StoreCountryDB({required this.country});
+  StoreCountryDB({required this.country, required this.email});
 }

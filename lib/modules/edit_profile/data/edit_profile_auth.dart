@@ -10,8 +10,15 @@ import '../../../common/models/user_model.dart';
 class EditProfileAuth {
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
 
-  Future updateUser(String bio, String name, String website, String email,
-      Uint8List file) async {
+  Future updateUser({
+    String? bio,
+    String? name,
+    String? website,
+    String? email,
+    Uint8List? file,
+  }) async {
+    Map<String, dynamic> data = {};
+
     final snapShot = await FirebaseFirestore.instance
         .collection('users')
         .where('email', isEqualTo: email)
@@ -22,20 +29,25 @@ class EditProfileAuth {
 
     final user = UserModel.fromJson(userData);
 
-    String imageUrl = user.imageUrl!;
+    String imageUrl = user.imageUrl ?? '';
 
-    if (file.isNotEmpty) {
+    if (file != null) {
       debugPrint('------------->>>>> File is not Empty');
       imageUrl = await uploadImageToStorage(
           'profilePictures-${DateTime.now().millisecondsSinceEpoch}', file);
     }
-    debugPrint('Image URL ------------->>>>> $imageUrl');
-    await FirebaseFirestore.instance.collection('users').doc(email).update({
-      'bio': bio,
-      'name': name,
-      'website': website,
-      'imageUrl': imageUrl,
-    });
+
+    final updatedUser = user.copyWith(
+        bio: bio, name: name, website: website, imageUrl: imageUrl);
+
+    data = updatedUser.toJson();
+
+    if (data.isNotEmpty) {
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(email)
+          .update(data);
+    }
   }
 
   Future updateCountry(String country, String email) async {

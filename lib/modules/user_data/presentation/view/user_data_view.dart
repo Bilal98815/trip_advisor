@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc.dart';
+import 'package:trip_advisor/modules/login/presentation/bloc/login_event.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc_state.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_event.dart';
@@ -9,11 +11,20 @@ import '../../../../common/widgets/authentication_button.dart';
 import '../../../../common/widgets/common_text_widget.dart';
 
 class UserDataView extends StatelessWidget {
-  UserDataView({super.key});
+  final String email;
+  final String password;
+
+  UserDataView({super.key, required this.email, required this.password});
 
   final nameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  List<String> items = ['UK', 'America', 'Canada', 'Australia', 'Pakistan'];
+  final List<String> items = [
+    'UK',
+    'America',
+    'Canada',
+    'Australia',
+    'Pakistan'
+  ];
 
   static const routeName = "userData";
   static String route() => "/onboarding/signup/locationData/userData";
@@ -154,9 +165,9 @@ class UserDataView extends StatelessWidget {
                                   onChanged: (value) {
                                     context.read<UserDataBloc>().add(
                                         UpdateCountryEvent(country: value!));
-                                    context
-                                        .read<UserDataBloc>()
-                                        .add(StoreCountryDB(country: value));
+                                    context.read<UserDataBloc>().add(
+                                        StoreCountryDB(
+                                            country: value, email: email));
                                     debugPrint(
                                         '---->> Selected Country: $value');
                                     debugPrint(
@@ -181,12 +192,16 @@ class UserDataView extends StatelessWidget {
                                 if (!formKey.currentState!.validate()) {
                                   debugPrint('------Enter Name');
                                 } else {
-                                  context.read<UserDataBloc>().add(
-                                        UpdateNameEvent(
-                                          name: nameController.text,
-                                        ),
-                                      );
-
+                                  context
+                                      .read<UserDataBloc>()
+                                      .add(UpdateNameEvent(
+                                        name: nameController.text,
+                                        email: email,
+                                      ));
+                                  context.read<LoginBloc>().add(OnLoginEvent(
+                                        email: email,
+                                        password: password,
+                                      ));
                                   context.go('/explore');
                                 }
                               },

@@ -57,11 +57,26 @@ class AppRouter {
             routes: [
               GoRoute(
                 path: LocationDataView.routeName,
-                builder: (context, state) => const LocationDataView(),
+                name: LocationDataView.routeName,
+                builder: (context, state) {
+                  final params = state.extra as Map<String, String>;
+
+                  return LocationDataView(
+                    email: params['email'] as String,
+                    password: params['password'] as String,
+                  );
+                },
                 routes: [
                   GoRoute(
                     path: UserDataView.routeName,
-                    builder: (context, state) => UserDataView(),
+                    name: UserDataView.routeName,
+                    builder: (context, state) {
+                      final params = state.extra as Map<String, String>;
+                      return UserDataView(
+                        email: params['email'] as String,
+                        password: params['password'] as String,
+                      );
+                    },
                   ),
                 ],
               ),
@@ -95,7 +110,7 @@ class AppRouter {
             routes: [
               GoRoute(
                   path: ProfileView.routeName,
-                  builder: (context, state) => const ProfileView(),
+                  builder: (context, state) => ProfileView(),
                   routes: [
                     GoRoute(
                       path: EditProfileView.routeName,

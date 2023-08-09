@@ -32,7 +32,6 @@ class SignupAuthService {
       'location': const GeoPoint(0, 0),
       'fcm': '',
       'time': time,
-      'photos': [],
       'bio': '',
       'website': '',
       'imageUrl': '',

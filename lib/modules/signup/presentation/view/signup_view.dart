@@ -10,6 +10,7 @@ import 'package:trip_advisor/modules/signup/presentation/widgets/password_rules_
 import '../../../../common/helpers/enums/enums.dart';
 import '../../../../common/widgets/authentication_button.dart';
 import '../../../../common/widgets/common_text_widget.dart';
+import '../../../location_data/presentation/view/location_data_view.dart';
 import '../bloc/signup_bloc_state.dart';
 
 class SignUpView extends StatelessWidget {
@@ -205,7 +206,13 @@ class SignUpView extends StatelessWidget {
                               ),
                             );
                           } else if (state.registerApiState == ApiState.done) {
-                            context.go(LocationDataView.route());
+                            context.goNamed(
+                              LocationDataView.routeName,
+                              extra: {
+                                'password': passwordController.text,
+                                'email': emailController.text,
+                              },
+                            );
                           }
                         },
                         builder: (context, state) {

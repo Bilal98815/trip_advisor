@@ -11,7 +11,11 @@ import 'package:trip_advisor/modules/user_data/presentation/view/user_data_view.
 import '../../../../common/widgets/common_text_widget.dart';
 
 class LocationDataView extends StatelessWidget {
-  const LocationDataView({super.key});
+  final String email;
+  final String password;
+
+  const LocationDataView(
+      {super.key, required this.email, required this.password});
 
   static const routeName = "locationData";
   static String route() => "/onboarding/signup/locationData";
@@ -67,8 +71,15 @@ class LocationDataView extends StatelessWidget {
                 child: AuthenticationButton(
                     onTap: () async {
                       await getLocation(context);
+
                       if (context.mounted) {
-                        context.go(UserDataView.route());
+                        context.goNamed(
+                          UserDataView.routeName,
+                          pathParameters: {
+                            'email': email,
+                            'password': password,
+                          },
+                        );
                       }
                     },
                     height: size.maxHeight * 0.064,
@@ -87,7 +98,10 @@ class LocationDataView extends StatelessWidget {
               ),
               Center(
                 child: InkWell(
-                  onTap: () => context.go(UserDataView.route()),
+                  onTap: () => context.goNamed(
+                    UserDataView.routeName,
+                    pathParameters: {'email': email, 'password': password},
+                  ),
                   child: const Text(
                     'Not now',
                     style: TextStyle(
@@ -114,6 +128,7 @@ class LocationDataView extends StatelessWidget {
 
     debugPrint('------ Position: $position');
     context.read<LocationDataBloc>().add(LocationDataEvent(
-        location: GeoPoint(position.latitude, position.longitude)));
+        location: GeoPoint(position.latitude, position.longitude),
+        email: email));
   }
 }
