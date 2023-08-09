@@ -12,14 +12,13 @@ class LocationDataBloc extends Bloc<LocationDataEvent, LocationDataState> {
   LocationDataBloc({required this.locationDataRepository})
       : super(const LocationDataState()) {
     on<LocationDataEvent>((event, emit) async {
-      await updateLocation(event.location);
+      await updateLocation(event.location, event.email);
     });
   }
 
   final prefs = Preferences();
 
-  Future updateLocation(GeoPoint location) async {
-    String? email = await prefs.getEmail();
-    await locationDataRepository.updateLocation(email!, location);
+  Future updateLocation(GeoPoint location, String email) async {
+    await locationDataRepository.updateLocation(email, location);
   }
 }

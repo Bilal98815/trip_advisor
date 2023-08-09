@@ -51,4 +51,29 @@ class UserModel {
     data['location'] = this.location;
     return data;
   }
+
+  UserModel copyWith({
+    String? email,
+    String? name,
+    String? country,
+    String? fcm,
+    GeoPoint? location,
+    Timestamp? time,
+    String? bio,
+    String? imageUrl,
+    List<dynamic>? photos,
+    String? website,
+  }) {
+    return UserModel(
+        email: email ?? this.email,
+        name: name ?? this.name,
+        country: country ?? this.country,
+        fcm: fcm ?? this.fcm,
+        location: location ?? this.location,
+        time: time ?? this.time,
+        bio: bio ?? this.bio,
+        imageUrl: imageUrl ?? this.imageUrl,
+        photos: photos ?? this.photos,
+        website: website ?? this.website);
+  }
 }

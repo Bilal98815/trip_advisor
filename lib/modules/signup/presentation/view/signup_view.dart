@@ -204,7 +204,10 @@ class SignUpView extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const LocationDataView(),
+                                builder: (context) => LocationDataView(
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                ),
                               ),
                             );
                           }

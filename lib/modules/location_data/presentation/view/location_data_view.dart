@@ -10,7 +10,11 @@ import 'package:trip_advisor/modules/user_data/presentation/view/user_data_view.
 import '../../../../common/widgets/common_text_widget.dart';
 
 class LocationDataView extends StatelessWidget {
-  const LocationDataView({super.key});
+  final String email;
+  final String password;
+
+  const LocationDataView(
+      {super.key, required this.email, required this.password});
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +70,10 @@ class LocationDataView extends StatelessWidget {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => UserDataView()));
+                              builder: (context) => UserDataView(
+                                    email: email,
+                                    password: password,
+                                  )));
                     },
                     height: size.maxHeight * 0.064,
                     color: Colors.white,
@@ -88,7 +95,10 @@ class LocationDataView extends StatelessWidget {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => UserDataView()));
+                            builder: (context) => UserDataView(
+                                  email: email,
+                                  password: password,
+                                )));
                   },
                   child: const Text(
                     'Not now',
@@ -116,6 +126,7 @@ class LocationDataView extends StatelessWidget {
 
     debugPrint('------ Position: $position');
     context.read<LocationDataBloc>().add(LocationDataEvent(
-        location: GeoPoint(position.latitude, position.longitude)));
+        location: GeoPoint(position.latitude, position.longitude),
+        email: email));
   }
 }
