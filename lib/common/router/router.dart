@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
 import 'package:trip_advisor/modules/account/presentation/view/account_view.dart';
 import 'package:trip_advisor/modules/bottom_bar/presentation/view/bottom_bar_view.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/view/edit_profile_view.dart';
@@ -26,7 +27,13 @@ class AppRouter {
       GoRoute(
         parentNavigatorKey: _rootNavigatorKey,
         path: SplashView.routeName,
-        builder: (context, state) => const SplashView(),
+        builder: (context, state) {
+          return const SplashView();
+        },
+        redirect: (context, state) async {
+          final bool userAuthenticated = await isUserAuthenticated(context);
+          return userAuthenticated ? '/explore' : OnboardingView.route();
+        },
       ),
       GoRoute(
         path: OnboardingView.routeName,
@@ -105,4 +112,10 @@ class AppRouter {
   );
 
   static GoRouter get router => _router;
+
+  static Future<bool> isUserAuthenticated(BuildContext context) async {
+    final prefs = Preferences();
+    final user = await prefs.getSharedPreferenceUser();
+    return user.email != null;
+  }
 }

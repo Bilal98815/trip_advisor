@@ -1,36 +1,10 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
-import 'package:trip_advisor/modules/onboarding/presentation/view/onbaording_view.dart';
 
-class SplashView extends StatefulWidget {
+class SplashView extends StatelessWidget {
   const SplashView({super.key});
-
-  @override
-  State<SplashView> createState() => _SplashViewState();
 
   static const routeName = "/";
   static String route() => "/";
-}
-
-class _SplashViewState extends State<SplashView> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(
-      const Duration(seconds: 3),
-      () async {
-        final prefs = Preferences();
-        final user = await prefs.getSharedPreferenceUser();
-
-        if (context.mounted) {
-          context.go(user.email != null ? '/explore' : OnboardingView.route());
-        }
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
