@@ -15,6 +15,9 @@ class UserDataView extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   List<String> items = ['UK', 'America', 'Canada', 'Australia', 'Pakistan'];
 
+  static const routeName = "userData";
+  static String route() => "/onboarding/signup/locationData/userData";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

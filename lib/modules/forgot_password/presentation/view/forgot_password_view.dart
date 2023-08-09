@@ -17,6 +17,9 @@ class ForgotPasswordView extends StatelessWidget {
   final _key = GlobalKey<FormState>();
   final emailController = TextEditingController();
 
+  static const routeName = "forgotPassword";
+  static String route() => "/onboarding/login/forgotPassword";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -6,11 +6,15 @@ import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/modules/location_data/presentation/bloc/location_data_bloc.dart';
 import 'package:trip_advisor/modules/location_data/presentation/bloc/location_data_event.dart';
+import 'package:trip_advisor/modules/user_data/presentation/view/user_data_view.dart';
 
 import '../../../../common/widgets/common_text_widget.dart';
 
 class LocationDataView extends StatelessWidget {
   const LocationDataView({super.key});
+
+  static const routeName = "locationData";
+  static String route() => "/onboarding/signup/locationData";
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +68,7 @@ class LocationDataView extends StatelessWidget {
                     onTap: () async {
                       await getLocation(context);
                       if (context.mounted) {
-                        context.go('/onboarding/signup/locationData/userData');
+                        context.go(UserDataView.route());
                       }
                     },
                     height: size.maxHeight * 0.064,
@@ -83,8 +87,7 @@ class LocationDataView extends StatelessWidget {
               ),
               Center(
                 child: InkWell(
-                  onTap: () =>
-                      context.go('/onboarding/signup/locationData/userData'),
+                  onTap: () => context.go(UserDataView.route()),
                   child: const Text(
                     'Not now',
                     style: TextStyle(

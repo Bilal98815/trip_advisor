@@ -20,38 +20,38 @@ final _shellNavigatorKey = GlobalKey<NavigatorState>();
 
 class AppRouter {
   static final GoRouter _router = GoRouter(
-    initialLocation: '/',
+    initialLocation: SplashView.route(),
     navigatorKey: _rootNavigatorKey,
     routes: [
       GoRoute(
         parentNavigatorKey: _rootNavigatorKey,
-        path: '/',
+        path: SplashView.routeName,
         builder: (context, state) => const SplashView(),
       ),
       GoRoute(
-        path: '/onboarding',
+        path: OnboardingView.routeName,
         builder: (context, state) => const OnboardingView(),
         routes: [
           GoRoute(
-            path: 'login',
+            path: LoginView.routeName,
             builder: (context, state) => LoginView(),
             routes: [
               GoRoute(
-                path: 'forgotPassword',
+                path: ForgotPasswordView.routeName,
                 builder: (context, state) => ForgotPasswordView(),
               ),
             ],
           ),
           GoRoute(
-            path: 'signup',
+            path: SignUpView.routeName,
             builder: (context, state) => SignUpView(),
             routes: [
               GoRoute(
-                path: 'locationData',
+                path: LocationDataView.routeName,
                 builder: (context, state) => const LocationDataView(),
                 routes: [
                   GoRoute(
-                    path: 'userData',
+                    path: UserDataView.routeName,
                     builder: (context, state) => UserDataView(),
                   ),
                 ],
@@ -73,28 +73,28 @@ class AppRouter {
             builder: (context, state) => const Center(child: Text('Search')),
           ),
           GoRoute(
-            path: '/plan',
-            builder: (context, state) => PlanTripView(),
+            path: PlanTripView.routeName,
+            builder: (context, state) => const PlanTripView(),
           ),
           GoRoute(
-            path: '/review',
+            path: ReviewView.routeName,
             builder: (context, state) => const ReviewView(),
           ),
           GoRoute(
-            path: '/account',
+            path: AccountView.routeName,
             builder: (context, state) => const AccountView(),
             routes: [
               GoRoute(
-                  path: 'profile',
+                  path: ProfileView.routeName,
                   builder: (context, state) => const ProfileView(),
                   routes: [
                     GoRoute(
-                      path: 'edit',
+                      path: EditProfileView.routeName,
                       builder: (context, state) => EditProfileView(),
                     )
                   ]),
               GoRoute(
-                path: 'support',
+                path: SupportView.routeName,
                 builder: (context, state) => const SupportView(),
               ),
             ],

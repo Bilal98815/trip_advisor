@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_password_bloc.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_password_event.dart';
+import 'package:trip_advisor/modules/login/presentation/view/login_view.dart';
 
 import '../../../../common/widgets/common_text_widget.dart';
 
@@ -57,7 +58,7 @@ class DialogueBox extends StatelessWidget {
                 fontsize: 19,
                 fontWeight: FontWeight.w400),
             AuthenticationButton(
-                onTap: () => context.go('/onboarding/login'),
+                onTap: () => context.go(LoginView.route()),
                 color: Colors.white,
                 height: constraint.maxHeight * 0.06,
                 size: constraint,

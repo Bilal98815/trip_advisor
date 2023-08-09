@@ -7,6 +7,9 @@ import '../widgets/support_tile.dart';
 class SupportView extends StatelessWidget {
   const SupportView({super.key});
 
+  static const routeName = "support";
+  static String route() => "/account/support";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

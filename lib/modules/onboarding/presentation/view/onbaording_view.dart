@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/common/widgets/onboarding_button.dart';
+import 'package:trip_advisor/modules/login/presentation/view/login_view.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});
+
+  static const routeName = "/onboarding";
+  static String route() => "/onboarding";
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +99,7 @@ class OnboardingView extends StatelessWidget {
                   OnboardingButton(
                       size: size,
                       title: 'Continue with Email',
-                      onTap: () => context.go('/onboarding/login'),
+                      onTap: () => context.go(LoginView.route()),
                       image: 'assets/email.png'),
                 ],
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:trip_advisor/modules/onboarding/presentation/view/onbaording_view.dart';
 
 import '../../../../common/widgets/authentication_button.dart';
 import '../../../../common/widgets/common_text_widget.dart';
@@ -39,7 +40,7 @@ class SignInBox extends StatelessWidget {
             height: size.maxHeight * 0.04,
           ),
           AuthenticationButton(
-              onTap: () => context.go('/onboarding'),
+              onTap: () => context.go(OnboardingView.route()),
               color: Colors.white,
               height: size.maxHeight * 0.06,
               size: size,

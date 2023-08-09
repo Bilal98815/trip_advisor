@@ -17,6 +17,9 @@ import '../bloc/profile_bloc.dart';
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
 
+  static const routeName = "profile";
+  static String route() => "/account/profile";
+
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
@@ -31,7 +34,7 @@ class ProfileView extends StatelessWidget {
               padding: const EdgeInsets.only(right: 20),
               child: InkWell(
                 onTap: () {
-                  context.go('/account/profile/edit');
+                  context.go(EditProfileView.route());
 
                   debugPrint('In then <<<<<<<----------');
                   BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
@@ -141,7 +144,7 @@ class ProfileView extends StatelessWidget {
                               text: state.user?.country == ''
                                   ? 'No city selected.'
                                   : state.user?.country ?? '',
-                              onTap: () => context.go('/account/profile/edit'),
+                              onTap: () => context.go(EditProfileView.route()),
                               image: 'assets/placeholder.png'),
                           SizedBox(
                             height: size.maxHeight * 0.025,
@@ -151,7 +154,7 @@ class ProfileView extends StatelessWidget {
                               text: state.user?.website == ''
                                   ? 'No website added.'
                                   : state.user?.website ?? '',
-                              onTap: () => context.go('/account/profile/edit'),
+                              onTap: () => context.go(EditProfileView.route()),
                               image: 'assets/link.png'),
                           SizedBox(
                             height: size.maxHeight * 0.06,

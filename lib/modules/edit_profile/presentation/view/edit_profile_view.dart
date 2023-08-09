@@ -9,6 +9,7 @@ import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_bloc.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_event.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_state.dart';
+import 'package:trip_advisor/modules/profile/presentation/view/profile_view.dart';
 
 import '../../../../common/widgets/common_text_widget.dart';
 import '../../../profile/presentation/bloc/profile_bloc.dart';
@@ -29,6 +30,9 @@ class EditProfileView extends StatelessWidget {
     'Australia',
     'Pakistan'
   ];
+
+  static const routeName = "edit";
+  static String route() => "/account/profile/edit";
 
   @override
   Widget build(BuildContext context) {
@@ -307,7 +311,7 @@ class EditProfileView extends StatelessWidget {
                             BlocProvider.of<ProfileBloc>(context)
                                 .add(GetUserEvent());
 
-                            context.go('/account/profile');
+                            context.go(ProfileView.route());
                           });
                         },
                         color: Colors.white,

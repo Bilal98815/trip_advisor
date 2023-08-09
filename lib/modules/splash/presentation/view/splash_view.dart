@@ -3,12 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
+import 'package:trip_advisor/modules/onboarding/presentation/view/onbaording_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
   @override
   State<SplashView> createState() => _SplashViewState();
+
+  static const routeName = "/";
+  static String route() => "/";
 }
 
 class _SplashViewState extends State<SplashView> {
@@ -22,7 +26,7 @@ class _SplashViewState extends State<SplashView> {
         final user = await prefs.getSharedPreferenceUser();
 
         if (context.mounted) {
-          context.go(user.email != null ? '/explore' : '/onboarding');
+          context.go(user.email != null ? '/explore' : OnboardingView.route());
         }
       },
     );

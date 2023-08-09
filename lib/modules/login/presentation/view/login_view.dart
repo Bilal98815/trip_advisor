@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
+import 'package:trip_advisor/modules/forgot_password/presentation/view/forgot_password_view.dart';
+import 'package:trip_advisor/modules/signup/presentation/view/signup_view.dart';
 
 import '../../../../common/helpers/enums/enums.dart';
 import '../bloc/login_bloc.dart';
@@ -15,6 +17,9 @@ class LoginView extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   final passwordController = TextEditingController();
   final emailController = TextEditingController();
+
+  static const routeName = "login";
+  static String route() => "/onboarding/login";
 
   @override
   Widget build(BuildContext context) {
@@ -135,9 +140,7 @@ class LoginView extends StatelessWidget {
                         height: constraints.maxHeight * 0.03,
                       ),
                       InkWell(
-                        onTap: () {
-                          context.go('/onboarding/login/forgotPassword');
-                        },
+                        onTap: () => context.go(ForgotPasswordView.route()),
                         child: CommonText(
                             text: 'Forgot password?',
                             color: Colors.purple.shade200,
@@ -199,9 +202,7 @@ class LoginView extends StatelessWidget {
                       ),
                       AuthenticationButton(
                           height: constraints.maxHeight * 0.075,
-                          onTap: () {
-                            context.go('/onboarding/signup');
-                          },
+                          onTap: () => context.go(SignUpView.route()),
                           color: Colors.black12,
                           size: constraints,
                           child: const Center(
