@@ -5,8 +5,10 @@ import 'package:trip_advisor/modules/account/presentation/view/account_view.dart
 import 'package:trip_advisor/modules/bottom_bar/presentation/bloc/bottom_bar_bloc.dart';
 import 'package:trip_advisor/modules/bottom_bar/presentation/bloc/bottom_bar_event.dart';
 import 'package:trip_advisor/modules/bottom_bar/presentation/models/icon_tab.dart';
+import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/view/plan_trip_view.dart';
 import 'package:trip_advisor/modules/review/presentation/view/review_view.dart';
+import 'package:trip_advisor/modules/search/presentation/search_view.dart';
 
 import '../bloc/bottom_bar_state.dart';
 
@@ -16,17 +18,17 @@ class BottomBarView extends StatelessWidget {
   final Widget child;
 
   final List<IconTab> tabs = [
-    const IconTab(
+    IconTab(
       index: 0,
       label: 'Explore',
       icon: Icons.home_rounded,
-      location: '/search',
+      location: ExploreView.route(),
     ),
-    const IconTab(
+    IconTab(
       index: 1,
       label: 'Search',
       icon: Icons.search,
-      location: '/search',
+      location: SearchView.route(),
     ),
     IconTab(
       index: 2,
