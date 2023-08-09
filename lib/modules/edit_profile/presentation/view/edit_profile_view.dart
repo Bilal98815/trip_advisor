@@ -76,12 +76,13 @@ class EditProfileView extends StatelessWidget {
                     height: size.maxHeight * 0.11,
                     child: Stack(
                       children: [
-                        BlocBuilder<EditProfileBloc, EditProfileState>(
+                        BlocBuilder<ProfileBloc, ProfileState>(
                             builder: (context, state) {
-                          if (state.img != null) {
+                          if (state.user?.imageUrl != null) {
                             return CircleAvatar(
                               radius: 64,
-                              backgroundImage: MemoryImage(state.img!),
+                              backgroundImage:
+                                  NetworkImage(state.user?.imageUrl ?? ''),
                             );
                           } else {
                             return const CircleAvatar(
