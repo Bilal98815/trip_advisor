@@ -1,41 +1,41 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../models/user_model.dart';
+import 'package:trip_advisor/common/models/user_model.dart';
 
 class Preferences {
   final FirebaseMessaging _messaging = FirebaseMessaging.instance;
 
-  void setEmail(String email) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+  Future<void> setEmail(String email) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('email', email);
   }
 
   Future<String?> getEmail() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('email');
   }
 
-  void removeEmail() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+  Future<void> removeEmail() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove('email');
   }
 
-  void setUserDetails(String email) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+  Future<void> setUserDetails(String email) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = await getFCMToken();
     prefs.setString('email', email);
     prefs.setString('fcm', token!);
   }
 
   Future<UserModel> getSharedPreferenceUser() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     String? name = prefs.getString('name');
     String? email = prefs.getString('email');
     String? fcm = prefs.getString('fcm');
 
-    UserModel user = UserModel();
+    final UserModel user = UserModel();
 
     user.name = name;
     user.email = email;
@@ -51,7 +51,7 @@ class Preferences {
   }
 
   Future clearPreferences() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     prefs.clear();
   }

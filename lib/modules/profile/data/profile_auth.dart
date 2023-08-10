@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../../common/models/user_model.dart';
+import 'package:trip_advisor/common/models/user_model.dart';
 
 class ProfileAuth {
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
@@ -50,8 +50,12 @@ class ProfileAuth {
 
     if (images.isNotEmpty) {
       for (int i = 0; i < images.length; i++) {
-        imageUrls.add(await uploadImagesToFirebaseStorage(
-            'tripImages-${DateTime.now().millisecondsSinceEpoch}', images[i]));
+        imageUrls.add(
+          await uploadImagesToFirebaseStorage(
+            'tripImages-${DateTime.now().millisecondsSinceEpoch}',
+            images[i],
+          ),
+        );
       }
     }
     await FirebaseFirestore.instance.collection('users').doc(email).update({
@@ -61,9 +65,9 @@ class ProfileAuth {
 
   Future uploadImagesToFirebaseStorage(String childName, Uint8List file) async {
     final ref = _firebaseStorage.ref(childName);
-    UploadTask task = ref.putData(file);
-    TaskSnapshot snapshot = await task;
-    String downloadUrl = await snapshot.ref.getDownloadURL();
+    final UploadTask task = ref.putData(file);
+    final TaskSnapshot snapshot = await task;
+    final String downloadUrl = await snapshot.ref.getDownloadURL();
     return downloadUrl;
   }
 }

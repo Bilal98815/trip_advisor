@@ -4,8 +4,7 @@ import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../../../common/models/user_model.dart';
+import 'package:trip_advisor/common/models/user_model.dart';
 
 class EditProfileAuth {
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
@@ -34,11 +33,17 @@ class EditProfileAuth {
     if (file != null) {
       debugPrint('------------->>>>> File is not Empty');
       imageUrl = await uploadImageToStorage(
-          'profilePictures-${DateTime.now().millisecondsSinceEpoch}', file);
+        'profilePictures-${DateTime.now().millisecondsSinceEpoch}',
+        file,
+      ).toString();
     }
 
     final updatedUser = user.copyWith(
-        bio: bio, name: name, website: website, imageUrl: imageUrl);
+      bio: bio,
+      name: name,
+      website: website,
+      imageUrl: imageUrl,
+    );
 
     data = updatedUser.toJson();
 
@@ -58,9 +63,9 @@ class EditProfileAuth {
 
   Future uploadImageToStorage(String childName, Uint8List file) async {
     final ref = _firebaseStorage.ref(childName);
-    UploadTask task = ref.putData(file);
-    TaskSnapshot snapshot = await task;
-    String downloadUrl = await snapshot.ref.getDownloadURL();
+    final UploadTask task = ref.putData(file);
+    final TaskSnapshot snapshot = await task;
+    final String downloadUrl = await snapshot.ref.getDownloadURL();
     return downloadUrl;
   }
 }

@@ -5,7 +5,6 @@ abstract class AccountEvent {}
 class SignOutEvent extends AccountEvent {}
 
 class UpdateSigningCondition extends AccountEvent {
-  final SignOutCondition condition;
-
   UpdateSigningCondition({required this.condition});
+  final SignOutCondition condition;
 }

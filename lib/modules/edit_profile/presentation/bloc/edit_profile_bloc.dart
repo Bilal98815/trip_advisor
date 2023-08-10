@@ -3,15 +3,11 @@ import 'dart:typed_data';
 import 'package:bloc/bloc.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
+import 'package:trip_advisor/modules/edit_profile/domain/repository/edit_profile_repository.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_event.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_state.dart';
 
-import '../../domain/repository/edit_profile_repository.dart';
-
 class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
-  late EditProfileRepository editProfileRepository;
-  final prefs = Preferences();
-
   EditProfileBloc({required this.editProfileRepository})
       : super(const EditProfileState()) {
     on<UpdateCountEvent>((event, emit) {
@@ -44,6 +40,8 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
       isShowLoader(event.isLoading, emit);
     });
   }
+  late EditProfileRepository editProfileRepository;
+  final prefs = Preferences();
 
   void updateCount(int count, Emitter emit) {
     emit(state.copyWith(count: count));
