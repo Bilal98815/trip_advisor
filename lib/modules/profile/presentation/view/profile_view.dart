@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/view/edit_profile_view.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_event.dart';

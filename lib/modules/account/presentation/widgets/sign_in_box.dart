@@ -39,15 +39,10 @@ class SignInBox extends StatelessWidget {
           SizedBox(
             height: size.maxHeight * 0.04,
           ),
-          AuthenticationButton(
-              onTap: () => context.go(OnboardingView.route()),
           PrimaryButton(
               ignoring: false,
               onTap: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const OnboardingView()));
+                context.go(OnboardingView.route());
               },
               color: Colors.white,
               height: size.maxHeight * 0.06,
