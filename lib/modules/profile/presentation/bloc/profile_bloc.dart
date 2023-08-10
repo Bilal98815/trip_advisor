@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_event.dart';
@@ -24,6 +25,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<UploadImagesEvent>((event, emit) async {
       await uploadImages(event.images, emit);
     });
+
+    on<PickImagesEvent>((event, emit) async {
+      await pickMultipleImagesFromGallery(emit);
+    });
   }
 
   Future getUserDetails(Emitter emit) async {
@@ -43,5 +48,16 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     await profileRepository.uploadImagesToFireStore(images, email!);
     await getUserDetails(emit);
     emit(state.copyWith(apiState: ApiState.done, images: images));
+  }
+
+  Future pickMultipleImagesFromGallery(Emitter emit) async {
+    final images = await ImagePicker().pickMultiImage();
+    if (images.isNotEmpty) {
+      List<Uint8List> files = [];
+      for (int i = 0; i < images.length; i++) {
+        files.add(await images[i].readAsBytes());
+      }
+      await uploadImages(files, emit);
+    }
   }
 }

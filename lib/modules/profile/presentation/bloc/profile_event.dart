@@ -6,6 +6,8 @@ abstract class ProfileEvent {}
 
 class GetUserEvent extends ProfileEvent {}
 
+class PickImagesEvent extends ProfileEvent {}
+
 class UploadImagesEvent extends ProfileEvent {
   final List<Uint8List> images;
   UploadImagesEvent({required this.images});
