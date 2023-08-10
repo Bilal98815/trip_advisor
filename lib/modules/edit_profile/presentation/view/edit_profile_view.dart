@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
@@ -29,6 +30,9 @@ class EditProfileView extends StatelessWidget {
     'Pakistan'
   ];
 
+  static const routeName = "edit";
+  static String route() => "/account/profile/edit";
+
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
@@ -42,7 +46,7 @@ class EditProfileView extends StatelessWidget {
             padding: EdgeInsets.only(left: size.maxWidth * 0.5),
             child: InkWell(
               onTap: () {
-                Navigator.pop(context);
+                context.pop();
               },
               child: const Icon(
                 Icons.arrow_back_ios_new,

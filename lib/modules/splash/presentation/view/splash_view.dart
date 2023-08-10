@@ -1,36 +1,10 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
-import 'package:trip_advisor/modules/bottom_bar/presentation/view/bottom_bar_view.dart';
-import 'package:trip_advisor/modules/onboarding/presentation/view/onbaording_view.dart';
 
-class SplashView extends StatefulWidget {
+class SplashView extends StatelessWidget {
   const SplashView({super.key});
 
-  @override
-  State<SplashView> createState() => _SplashViewState();
-}
-
-class _SplashViewState extends State<SplashView> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(const Duration(seconds: 3), () async {
-      final prefs = Preferences();
-      final user = await prefs.getSharedPreferenceUser();
-      if (user.email != null) {
-        debugPrint('----------->In if of Splash');
-        // context.read<LoginBloc>().add(GetUserDetailsEvent(email: user.email!));
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => BottomBarView()));
-      } else {
-        debugPrint('----------->In else of Splash');
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const OnboardingView()));
-      }
-    });
-  }
+  static const routeName = "/";
+  static String route() => "/";
 
   @override
   Widget build(BuildContext context) {

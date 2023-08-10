@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/modules/account/presentation/bloc/account_bloc.dart';
 import 'package:trip_advisor/modules/account/presentation/bloc/account_event.dart';
-import 'package:trip_advisor/modules/bottom_bar/presentation/view/bottom_bar_view.dart';
+import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/view/forgot_password_view.dart';
 import 'package:trip_advisor/modules/signup/presentation/view/signup_view.dart';
 
@@ -19,6 +20,9 @@ class LoginView extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   final passwordController = TextEditingController();
   final emailController = TextEditingController();
+
+  static const routeName = "login";
+  static String route() => "/onboarding/login";
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +47,7 @@ class LoginView extends StatelessWidget {
                       ),
                       InkWell(
                           onTap: () {
-                            Navigator.pop(context);
+                            context.pop();
                           },
                           child: const Icon(
                             Icons.arrow_back_ios_new,
@@ -139,12 +143,7 @@ class LoginView extends StatelessWidget {
                         height: constraints.maxHeight * 0.03,
                       ),
                       InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ForgotPasswordView()));
-                        },
+                        onTap: () => context.go(ForgotPasswordView.route()),
                         child: CommonText(
                             text: 'Forgot password?',
                             color: Colors.purple.shade200,
@@ -169,15 +168,9 @@ class LoginView extends StatelessWidget {
                           } else if (state.authApiState == ApiState.done) {
                             context.read<LoginBloc>().setEmailInPreferences(
                                 emailController.text.trim());
-
-                            // final prefs = Preferences();
-                            // final user = await prefs.getSharedPreferenceUser();
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => BottomBarView(),
-                              ),
-                            );
+                            if (context.mounted) {
+                              context.go(ExploreView.route());
+                            }
                           }
                         },
                         builder: (context, state) {
@@ -216,12 +209,7 @@ class LoginView extends StatelessWidget {
                       ),
                       AuthenticationButton(
                           height: constraints.maxHeight * 0.075,
-                          onTap: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignUpView()));
-                          },
+                          onTap: () => context.go(SignUpView.route()),
                           color: Colors.black12,
                           size: constraints,
                           child: const Center(

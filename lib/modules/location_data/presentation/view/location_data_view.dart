@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/modules/location_data/presentation/bloc/location_data_bloc.dart';
 import 'package:trip_advisor/modules/location_data/presentation/bloc/location_data_event.dart';
@@ -15,6 +16,9 @@ class LocationDataView extends StatelessWidget {
 
   const LocationDataView(
       {super.key, required this.email, required this.password});
+
+  static const routeName = "locationData";
+  static String route() => "/onboarding/signup/locationData";
 
   @override
   Widget build(BuildContext context) {
@@ -67,13 +71,16 @@ class LocationDataView extends StatelessWidget {
                 child: AuthenticationButton(
                     onTap: () async {
                       await getLocation(context);
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => UserDataView(
-                                    email: email,
-                                    password: password,
-                                  )));
+
+                      if (context.mounted) {
+                        context.goNamed(
+                          UserDataView.routeName,
+                          pathParameters: {
+                            'email': email,
+                            'password': password,
+                          },
+                        );
+                      }
                     },
                     height: size.maxHeight * 0.064,
                     color: Colors.white,
@@ -91,15 +98,10 @@ class LocationDataView extends StatelessWidget {
               ),
               Center(
                 child: InkWell(
-                  onTap: () {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => UserDataView(
-                                  email: email,
-                                  password: password,
-                                )));
-                  },
+                  onTap: () => context.goNamed(
+                    UserDataView.routeName,
+                    pathParameters: {'email': email, 'password': password},
+                  ),
                   child: const Text(
                     'Not now',
                     style: TextStyle(

@@ -1,10 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_advisor/common/router/router.dart';
 import 'package:trip_advisor/modules/account/data/account_auth.dart';
 import 'package:trip_advisor/modules/account/domain/repository/account_repository_imp.dart';
 import 'package:trip_advisor/modules/account/presentation/bloc/account_bloc.dart';
-import 'package:trip_advisor/modules/bottom_bar/presentation/bloc/bottom_bar_bloc.dart';
 import 'package:trip_advisor/modules/edit_profile/data/edit_profile_auth.dart';
 import 'package:trip_advisor/modules/edit_profile/domain/repository/edit_profile_repository_imp.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_bloc.dart';
@@ -17,7 +17,6 @@ import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_bloc.
 import 'package:trip_advisor/modules/profile/data/profile_auth.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_bloc.dart';
 import 'package:trip_advisor/modules/review/presentation/bloc/review_bloc.dart';
-import 'package:trip_advisor/modules/splash/presentation/view/splash_view.dart';
 import 'package:trip_advisor/modules/user_data/data/user_data_auth.dart';
 import 'package:trip_advisor/modules/user_data/domain/repository/user_data_repository_imp.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc.dart';
@@ -79,9 +78,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
         BlocProvider(
-          create: (context) => BottomBarBloc(),
-        ),
-        BlocProvider(
           create: (context) => PlanTripBloc(),
         ),
         BlocProvider(
@@ -108,14 +104,14 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
+        routerConfig: AppRouter.router,
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const SplashView(),
       ),
     );
   }

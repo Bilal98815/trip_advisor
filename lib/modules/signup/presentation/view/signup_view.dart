@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trip_advisor/modules/location_data/presentation/view/location_data_view.dart';
 import 'package:trip_advisor/modules/login/presentation/view/login_view.dart';
 import 'package:trip_advisor/modules/signup/presentation/bloc/signup_bloc.dart';
 import 'package:trip_advisor/modules/signup/presentation/bloc/signup_event.dart';
@@ -17,6 +19,9 @@ class SignUpView extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   final passwordController = TextEditingController();
   final emailController = TextEditingController();
+
+  static const routeName = "signup";
+  static String route() => "/onboarding/signup";
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +47,7 @@ class SignUpView extends StatelessWidget {
                       ),
                       InkWell(
                           onTap: () {
-                            Navigator.pop(context);
+                            context.pop();
                           },
                           child: const Icon(
                             Icons.arrow_back_ios_new,
@@ -201,14 +206,12 @@ class SignUpView extends StatelessWidget {
                               ),
                             );
                           } else if (state.registerApiState == ApiState.done) {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LocationDataView(
-                                  email: emailController.text,
-                                  password: passwordController.text,
-                                ),
-                              ),
+                            context.goNamed(
+                              LocationDataView.routeName,
+                              extra: {
+                                'password': passwordController.text,
+                                'email': emailController.text,
+                              },
                             );
                           }
                         },
@@ -245,12 +248,7 @@ class SignUpView extends StatelessWidget {
                       ),
                       AuthenticationButton(
                           height: constraints.maxHeight * 0.075,
-                          onTap: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LoginView()));
-                          },
+                          onTap: () => context.go(LoginView.route()),
                           color: Colors.black12,
                           size: constraints,
                           child: const Center(
