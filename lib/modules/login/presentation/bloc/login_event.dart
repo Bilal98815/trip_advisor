@@ -1,18 +1,18 @@
 abstract class LoginEvent {}
 
 class OnLoginEvent extends LoginEvent {
-  final String email;
-  final String password;
 
   OnLoginEvent({
     required this.email,
     required this.password,
   });
+  final String email;
+  final String password;
 }
 
 class GetUserDetailsFromDb extends LoginEvent {
-  final String email;
   GetUserDetailsFromDb({required this.email});
+  final String email;
 }
 
 class GetUserFromPreferencesEvent extends LoginEvent {}

@@ -25,7 +25,7 @@ class BottomBarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex = getCurrentIndex();
+    final int currentIndex = getCurrentIndex();
 
     return Scaffold(
       bottomNavigationBar: LayoutBuilder(builder: (context, size) {
@@ -48,7 +48,7 @@ class BottomBarView extends StatelessWidget {
             ),
           ),
         );
-      }),
+      },),
       body: SafeArea(child: child),
     );
   }

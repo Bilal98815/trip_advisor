@@ -3,6 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:trip_advisor/common/widgets/common_text_widget.dart';
+import 'package:trip_advisor/modules/profile/presentation/bloc/profile_bloc.dart';
+import 'package:trip_advisor/modules/profile/presentation/bloc/profile_event.dart';
+import 'package:trip_advisor/modules/profile/presentation/bloc/profile_state.dart';
 import 'package:trip_advisor/modules/review/presentation/bloc/review_bloc.dart';
 import 'package:trip_advisor/modules/review/presentation/bloc/review_event.dart';
 import 'package:trip_advisor/modules/review/presentation/bloc/review_state.dart';
@@ -11,16 +15,11 @@ import 'package:trip_advisor/modules/review/presentation/widgets/image_container
 import 'package:trip_advisor/modules/review/presentation/widgets/missing_place_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../common/widgets/common_text_widget.dart';
-import '../../../profile/presentation/bloc/profile_bloc.dart';
-import '../../../profile/presentation/bloc/profile_event.dart';
-import '../../../profile/presentation/bloc/profile_state.dart';
-
 class ReviewView extends StatelessWidget {
   const ReviewView({super.key});
 
-  static const routeName = "/review";
-  static String route() => "/review";
+  static const routeName = '/review';
+  static String route() => '/review';
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +56,7 @@ class ReviewView extends StatelessWidget {
                       text: 'Upload a photo',
                       color: Colors.white,
                       fontsize: 18,
-                      fontWeight: FontWeight.w500)),
+                      fontWeight: FontWeight.w500,),),
               SpeedDialChild(
                   shape: const CircleBorder(),
                   onTap: () {
@@ -73,7 +72,7 @@ class ReviewView extends StatelessWidget {
                       text: 'Write a review',
                       color: Colors.white,
                       fontsize: 18,
-                      fontWeight: FontWeight.w500)),
+                      fontWeight: FontWeight.w500,),),
               SpeedDialChild(
                   shape: const CircleBorder(),
                   onTap: () {
@@ -90,11 +89,11 @@ class ReviewView extends StatelessWidget {
                       text: 'Add a place',
                       color: Colors.white,
                       fontsize: 18,
-                      fontWeight: FontWeight.w500)),
+                      fontWeight: FontWeight.w500,),),
             ],
           );
-        });
-      }),
+        },);
+      },),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, size) {
@@ -112,19 +111,19 @@ class ReviewView extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: size.maxWidth * 0.08),
+                          horizontal: size.maxWidth * 0.08,),
                       child: const CommonText(
                           text: 'Review',
                           color: Colors.white,
                           fontsize: 32,
-                          fontWeight: FontWeight.w900),
+                          fontWeight: FontWeight.w900,),
                     ),
                     SizedBox(
                       height: size.maxHeight * 0.06,
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: size.maxWidth * 0.08),
+                          horizontal: size.maxWidth * 0.08,),
                       child: Row(
                         children: [
                           Container(
@@ -134,14 +133,14 @@ class ReviewView extends StatelessWidget {
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
                                     image: AssetImage('assets/mine.jpg'),
-                                    fit: BoxFit.cover)),
+                                    fit: BoxFit.cover,),),
                           ),
                           SizedBox(
                             width: size.maxWidth * 0.06,
                           ),
                           BlocBuilder<ProfileBloc, ProfileState>(
                               builder: (context, state) {
-                            DateTime time =
+                            final DateTime time =
                                 state.user?.time?.toDate() ?? DateTime.now();
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,15 +149,15 @@ class ReviewView extends StatelessWidget {
                                     text: state.user?.name ?? '',
                                     color: Colors.white,
                                     fontsize: 18,
-                                    fontWeight: FontWeight.w600),
+                                    fontWeight: FontWeight.w600,),
                                 const CommonText(
                                     text: '0 reviews, 0 drafts, 0 photos',
                                     color: Colors.white,
                                     fontsize: 11,
-                                    fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w400,),
                               ],
                             );
-                          })
+                          },)
                         ],
                       ),
                     ),
@@ -167,7 +166,7 @@ class ReviewView extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: size.maxWidth * 0.08),
+                          horizontal: size.maxWidth * 0.08,),
                       child: Row(
                         children: [
                           ActionButton(
@@ -197,19 +196,18 @@ class ReviewView extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: size.maxWidth * 0.08),
+                          horizontal: size.maxWidth * 0.08,),
                       child: const Align(
-                        alignment: Alignment.center,
                         child: CommonText(
                             text: 'Is Tripadvisor missing a place?',
                             color: Colors.white,
                             fontsize: 22,
-                            fontWeight: FontWeight.w600),
+                            fontWeight: FontWeight.w600,),
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: size.maxWidth * 0.08),
+                          horizontal: size.maxWidth * 0.08,),
                       child: const CommonText(
                           text:
                               'Tell us about it so we can improve what we show.',
@@ -217,19 +215,19 @@ class ReviewView extends StatelessWidget {
                           fontsize: 19,
                           textAlign: TextAlign.center,
                           textOverflow: TextOverflow.clip,
-                          fontWeight: FontWeight.w300),
+                          fontWeight: FontWeight.w300,),
                     ),
                     SizedBox(
                       height: size.maxHeight * 0.04,
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: size.maxWidth * 0.08),
+                          horizontal: size.maxWidth * 0.08,),
                       child: MissingPlaceButton(
                           onTap: () {
                             _launchUrl(Uri.parse('https://www.google.com'));
                           },
-                          size: size),
+                          size: size,),
                     ),
                     SizedBox(
                       height: size.maxHeight * 0.04,

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../../../../common/widgets/common_text_widget.dart';
+import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class SupportTile extends StatelessWidget {
-  final BoxConstraints size;
-  final String title;
-  final Function onTap;
 
   const SupportTile(
       {required this.size,
       required this.title,
       required this.onTap,
-      super.key});
+      super.key,});
+  final BoxConstraints size;
+  final String title;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class SupportTile extends StatelessWidget {
                 text: title,
                 color: Colors.white,
                 fontsize: 16,
-                fontWeight: FontWeight.w500),
+                fontWeight: FontWeight.w500,),
             const Spacer(),
             InkWell(
                 onTap: () {
@@ -32,7 +32,7 @@ class SupportTile extends StatelessWidget {
                 child: Image.asset(
                   'assets/diagonal_arrow.png',
                   width: size.maxWidth * 0.03,
-                )),
+                ),),
           ],
         ),
         SizedBox(

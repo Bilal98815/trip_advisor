@@ -7,8 +7,8 @@ import 'package:trip_advisor/modules/login/presentation/view/login_view.dart';
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});
 
-  static const routeName = "/onboarding";
-  static String route() => "/onboarding";
+  static const routeName = '/onboarding';
+  static String route() => '/onboarding';
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +36,14 @@ class OnboardingView extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           color: Colors.white,
                           decorationColor: Colors.white,
-                          decoration: TextDecoration.underline),
+                          decoration: TextDecoration.underline,),
                     ),
                   ),
                   Container(
                     width: size.maxWidth * 0.23,
                     height: size.maxHeight * 0.2,
                     decoration: const BoxDecoration(
-                        color: Colors.green, shape: BoxShape.circle),
+                        color: Colors.green, shape: BoxShape.circle,),
                     padding: const EdgeInsets.all(15.0),
                     child: Center(child: Image.asset('assets/owl.png')),
                   ),
@@ -53,7 +53,7 @@ class OnboardingView extends StatelessWidget {
                       textAlign: TextAlign.left,
                       textOverflow: TextOverflow.clip,
                       fontsize: 30,
-                      fontWeight: FontWeight.w900),
+                      fontWeight: FontWeight.w900,),
                   SizedBox(
                     height: size.maxHeight * 0.02,
                   ),
@@ -70,19 +70,19 @@ class OnboardingView extends StatelessWidget {
                                   fontSize: 15,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700,
-                                  decoration: TextDecoration.underline)),
+                                  decoration: TextDecoration.underline,),),
                           TextSpan(
                               text: 'and confirm you have read our ',
                               style: TextStyle(
                                 fontSize: 15,
-                              )),
+                              ),),
                           TextSpan(
                               text: 'Privacy and Cookie Statement',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700,
-                                  decoration: TextDecoration.underline)),
-                        ]),
+                                  decoration: TextDecoration.underline,),),
+                        ],),
                   ),
                   SizedBox(
                     height: size.maxHeight * 0.04,
@@ -100,12 +100,12 @@ class OnboardingView extends StatelessWidget {
                       size: size,
                       title: 'Continue with Email',
                       onTap: () => context.go(LoginView.route()),
-                      image: 'assets/email.png'),
+                      image: 'assets/email.png',),
                 ],
               ),
             ),
           );
-        }),
+        },),
       ),
     );
   }

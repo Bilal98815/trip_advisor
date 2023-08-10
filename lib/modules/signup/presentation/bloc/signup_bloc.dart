@@ -1,14 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_advisor/common/helpers/enums/enums.dart';
+import 'package:trip_advisor/modules/signup/domain/repository/signup_repository.dart';
 import 'package:trip_advisor/modules/signup/presentation/bloc/signup_bloc_state.dart';
 import 'package:trip_advisor/modules/signup/presentation/bloc/signup_event.dart';
 
-import '../../../../common/helpers/enums/enums.dart';
-import '../../domain/repository/signup_repository.dart';
-
 class SignupBloc extends Bloc<SignupEvent, SignupBlocState> {
-  late SignUpRepository signUpRepository;
 
   SignupBloc({
     required this.signUpRepository,
@@ -21,6 +19,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupBlocState> {
       updateCheckbox(emit);
     });
   }
+  late SignUpRepository signUpRepository;
 
   Future register(String email, String password, Emitter emit) async {
     emit(state.copyWith(registerApiState: ApiState.loading));
@@ -28,10 +27,10 @@ class SignupBloc extends Bloc<SignupEvent, SignupBlocState> {
       await signUpRepository.registerUser(email, password);
       emit(state.copyWith(registerApiState: ApiState.done));
     } on FirebaseException catch (e) {
-      debugPrint('----->>> ${e.toString()}');
+      debugPrint('----->>> $e');
       updateError(e.code);
     } catch (e) {
-      debugPrint('----->>> ${e.toString()}');
+      debugPrint('----->>> $e');
       updateError(e.toString());
     }
   }
@@ -45,31 +44,22 @@ class SignupBloc extends Bloc<SignupEvent, SignupBlocState> {
     switch (exception) {
       case 'Something went wrong':
         error = 'Something went wrong';
-        break;
       case 'Enter correct credentials':
         error = 'Enter correct credentials';
-        break;
       case '[firebase_auth/invalid-email] The email address is badly formatted':
         error = 'Invalid email format';
-        break;
       case 'invalid-email':
         error = 'Invalid email format';
-        break;
       case 'wrong-password':
         error = 'Invalid Password';
-        break;
       case 'user-not-found':
         error = 'User not found';
-        break;
       case 'user-disabled':
         error = 'User account disabled';
-        break;
       case 'email-already-in-use':
         error = 'Email is already in use';
-        break;
       case 'weak-password':
         error = 'Weak Password';
-        break;
     }
     emit(
       state.copyWith(

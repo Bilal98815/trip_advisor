@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_bloc.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_event.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_state.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/widgets/create_trip_button.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/widgets/trip_guidance_tile.dart';
 
-import '../../../../common/widgets/common_text_widget.dart';
-
 class TripsView extends StatelessWidget {
-  final BoxConstraints size;
 
   TripsView({required this.size, super.key});
+  final BoxConstraints size;
 
   final controller = TextEditingController();
 
@@ -26,28 +25,28 @@ class TripsView extends StatelessWidget {
         TripGuidanceTile(
             size: size,
             image: 'assets/heart.png',
-            text: 'Save places you\'d like to visit'),
+            text: "Save places you'd like to visit",),
         SizedBox(
           height: size.maxHeight * 0.03,
         ),
         TripGuidanceTile(
             size: size,
             image: 'assets/placeholder.png',
-            text: 'See your saves on a map'),
+            text: 'See your saves on a map',),
         SizedBox(
           height: size.maxHeight * 0.03,
         ),
         TripGuidanceTile(
             size: size,
             image: 'assets/document.png',
-            text: 'Keep track of notes, links, and more'),
+            text: 'Keep track of notes, links, and more',),
         SizedBox(
           height: size.maxHeight * 0.03,
         ),
         TripGuidanceTile(
             size: size,
             image: 'assets/follow.png',
-            text: 'Share and collaborate on your plans'),
+            text: 'Share and collaborate on your plans',),
         SizedBox(
           height: size.maxHeight * 0.05,
         ),
@@ -60,7 +59,7 @@ class TripsView extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 15,
                       color: Colors.white,
-                      fontWeight: FontWeight.bold)),
+                      fontWeight: FontWeight.bold,),),
               SizedBox(
                 height: size.maxHeight * 0.01,
               ),
@@ -77,9 +76,9 @@ class TripsView extends StatelessWidget {
                   hintStyle: const TextStyle(color: Colors.grey, fontSize: 15),
                   border: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.red),
-                      borderRadius: BorderRadius.circular(8)),
+                      borderRadius: BorderRadius.circular(8),),
                   focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white)),
+                      borderSide: BorderSide(color: Colors.white),),
                 ),
               ),
             ],
@@ -106,9 +105,9 @@ class TripsView extends StatelessWidget {
                           ? Colors.grey.shade600
                           : Colors.black,
                       fontsize: 15,
-                      fontWeight: FontWeight.w500),
-                ));
-          }),
+                      fontWeight: FontWeight.w500,),
+                ),);
+          },),
         )
       ],
     );

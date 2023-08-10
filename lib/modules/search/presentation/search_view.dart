@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
 
-  static const routeName = "/search";
-  static String route() => "/search";
+  static const routeName = '/search';
+  static String route() => '/search';
 
   @override
   Widget build(BuildContext context) {

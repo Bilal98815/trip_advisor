@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/common/widgets/primary_button.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_password_bloc.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_password_event.dart';
 import 'package:trip_advisor/modules/login/presentation/view/login_view.dart';
 
-import '../../../../common/widgets/common_text_widget.dart';
-
 class DialogueBox extends StatelessWidget {
-  final BoxConstraints constraint;
-  final String email;
 
   const DialogueBox({required this.constraint, required this.email, super.key});
+  final BoxConstraints constraint;
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -36,16 +35,16 @@ class DialogueBox extends StatelessWidget {
                   child: const Icon(
                     Icons.close,
                     color: Colors.white,
-                  )),
+                  ),),
             ),
             SizedBox(
               height: constraint.maxHeight * 0.02,
             ),
             const CommonText(
-                text: 'We\'ve sent a password reset email.',
+                text: "We've sent a password reset email.",
                 color: Colors.white,
                 fontsize: 18,
-                fontWeight: FontWeight.w700),
+                fontWeight: FontWeight.w700,),
             SizedBox(
               height: constraint.maxHeight * 0.02,
             ),
@@ -56,7 +55,7 @@ class DialogueBox extends StatelessWidget {
                 textOverflow: TextOverflow.clip,
                 textAlign: TextAlign.center,
                 fontsize: 19,
-                fontWeight: FontWeight.w400),
+                fontWeight: FontWeight.w400,),
             PrimaryButton(
                 ignoring: false,
                 onTap: () {
@@ -70,8 +69,8 @@ class DialogueBox extends StatelessWidget {
                       text: 'Back to sign in',
                       color: Colors.black87,
                       fontsize: 18,
-                      fontWeight: FontWeight.w700),
-                )),
+                      fontWeight: FontWeight.w700,),
+                ),),
             SizedBox(
               height: constraint.maxHeight * 0.01,
             ),
@@ -91,8 +90,8 @@ class DialogueBox extends StatelessWidget {
                       text: 'Resend email',
                       color: Colors.white,
                       fontsize: 18,
-                      fontWeight: FontWeight.w700),
-                )),
+                      fontWeight: FontWeight.w700,),
+                ),),
           ],
         ),
       ),

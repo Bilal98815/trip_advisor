@@ -1,14 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:trip_advisor/common/helpers/enums/enums.dart';
+import 'package:trip_advisor/modules/forgot_password/domain/repository/forgot_password_repository.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_password_bloc_state.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_password_event.dart';
 
-import '../../../../common/helpers/enums/enums.dart';
-import '../../domain/repository/forgot_password_repository.dart';
-
 class ForgotPasswordBloc
     extends Bloc<ForgotPasswordEvent, ForgotPasswordState> {
-  late ForgotPasswordRepository forgotPasswordRepository;
 
   ForgotPasswordBloc({required this.forgotPasswordRepository})
       : super(const ForgotPasswordState()) {
@@ -19,6 +17,7 @@ class ForgotPasswordBloc
       showError(event.error, emit);
     });
   }
+  late ForgotPasswordRepository forgotPasswordRepository;
 
   Future resetPassword(String email, Emitter emit) async {
     try {
@@ -34,18 +33,14 @@ class ForgotPasswordBloc
     switch (exception) {
       case 'user-not-found':
         temp = 'User not found';
-        break;
       case 'invalid-email':
-        temp = "Invalid Email";
-        break;
+        temp = 'Invalid Email';
       case 'too-many-requests':
-        temp = "Please try again later";
-        break;
+        temp = 'Please try again later';
       case 'requires-recent-login':
-        temp = "Login again";
-        break;
+        temp = 'Login again';
     }
     emit(state.copyWith(
-        error: temp, resetPasswordState: ResetPasswordState.failure));
+        error: temp, resetPasswordState: ResetPasswordState.failure,),);
   }
 }

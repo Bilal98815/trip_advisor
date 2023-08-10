@@ -5,6 +5,8 @@ import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/models/user_model.dart';
 
 class ProfileState extends Equatable {
+
+  const ProfileState({this.user, this.apiState = ApiState.idle, this.images});
   @override
   List<Object?> get props => [user, apiState, images];
 
@@ -12,13 +14,11 @@ class ProfileState extends Equatable {
   final ApiState apiState;
   final List<Uint8List>? images;
 
-  const ProfileState({this.user, this.apiState = ApiState.idle, this.images});
-
   ProfileState copyWith(
-      {UserModel? user, ApiState? apiState, List<Uint8List>? images}) {
+      {UserModel? user, ApiState? apiState, List<Uint8List>? images,}) {
     return ProfileState(
         user: user ?? this.user,
         apiState: apiState ?? this.apiState,
-        images: images ?? this.images);
+        images: images ?? this.images,);
   }
 }

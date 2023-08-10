@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../common/widgets/common_text_widget.dart';
-import '../widgets/support_tile.dart';
+import 'package:trip_advisor/common/widgets/common_text_widget.dart';
+import 'package:trip_advisor/modules/support/presentation/widgets/support_tile.dart';
 
 class SupportView extends StatelessWidget {
   const SupportView({super.key});
 
-  static const routeName = "support";
-  static String route() => "/account/support";
+  static const routeName = 'support';
+  static String route() => '/account/support';
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +29,12 @@ class SupportView extends StatelessWidget {
               ),
             ),
           );
-        }),
+        },),
         title: const CommonText(
             text: 'Support',
             color: Colors.white,
             fontsize: 20,
-            fontWeight: FontWeight.w600),
+            fontWeight: FontWeight.w600,),
       ),
       body: SafeArea(child: LayoutBuilder(builder: (context, size) {
         return Container(
@@ -90,11 +90,11 @@ class SupportView extends StatelessWidget {
                 height: size.maxHeight * 0.03,
               ),
               SupportTile(
-                  onTap: () {}, size: size, title: 'Open source licenses'),
+                  onTap: () {}, size: size, title: 'Open source licenses',),
             ],
           ),
         );
-      })),
+      },),),
     );
   }
 }

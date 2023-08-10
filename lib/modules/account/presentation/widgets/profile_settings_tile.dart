@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class ProfileSettingsTile extends StatelessWidget {
-  final String image;
-  final String title;
-  final BoxConstraints size;
-  final Function onTap;
 
   const ProfileSettingsTile(
       {required this.image,
       required this.onTap,
       required this.title,
       required this.size,
-      super.key});
+      super.key,});
+  final String image;
+  final String title;
+  final BoxConstraints size;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class ProfileSettingsTile extends StatelessWidget {
                   text: title,
                   color: Colors.white,
                   fontsize: 15,
-                  fontWeight: FontWeight.w500),
+                  fontWeight: FontWeight.w500,),
               const Spacer(),
               const Icon(
                 Icons.arrow_forward_ios,

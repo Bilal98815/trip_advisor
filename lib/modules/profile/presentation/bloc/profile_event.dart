@@ -9,12 +9,12 @@ class GetUserEvent extends ProfileEvent {}
 class PickImagesEvent extends ProfileEvent {}
 
 class UploadImagesEvent extends ProfileEvent {
-  final List<Uint8List> images;
   UploadImagesEvent({required this.images});
+  final List<Uint8List> images;
 }
 
 class DataSavedEvent extends ProfileEvent {
-  final ApiState apiState;
 
   DataSavedEvent({required this.apiState});
+  final ApiState apiState;
 }

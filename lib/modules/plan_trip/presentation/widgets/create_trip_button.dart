@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CreateTripButton extends StatelessWidget {
-  final Function onTap;
-  final double height;
-  final Color color;
-  final Widget child;
 
   const CreateTripButton(
       {required this.onTap,
       required this.height,
       required this.child,
       required this.color,
-      super.key});
+      super.key,});
+  final Function onTap;
+  final double height;
+  final Color color;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class CreateTripButton extends StatelessWidget {
             color: color,
             borderRadius: const BorderRadius.all(Radius.circular(35)),
           ),
-          child: child),
+          child: child,),
     );
   }
 }

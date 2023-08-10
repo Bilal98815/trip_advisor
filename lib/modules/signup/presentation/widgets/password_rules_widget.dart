@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class PasswordRulesRow extends StatelessWidget {
-  final BoxConstraints size;
-  final String rule;
 
   const PasswordRulesRow({required this.size, required this.rule, super.key});
+  final BoxConstraints size;
+  final String rule;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class PasswordRulesRow extends StatelessWidget {
               child: Icon(
             Icons.close,
             size: 8,
-          )),
+          ),),
         ),
         SizedBox(
           width: size.maxWidth * 0.02,
@@ -31,7 +31,7 @@ class PasswordRulesRow extends StatelessWidget {
             text: rule,
             color: Colors.grey.withOpacity(0.5),
             fontsize: 12,
-            fontWeight: FontWeight.normal),
+            fontWeight: FontWeight.normal,),
       ],
     );
   }

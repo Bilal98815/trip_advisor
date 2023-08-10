@@ -1,4 +1,4 @@
-import '../../../../common/models/user_model.dart';
+import 'package:trip_advisor/common/models/user_model.dart';
 
 abstract class LoginRepository {
   Future<void> signInUser(String email, String password);

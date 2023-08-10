@@ -1,13 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
+import 'package:trip_advisor/modules/account/domain/repository/account_repository.dart';
 import 'package:trip_advisor/modules/account/presentation/bloc/account_event.dart';
-
-import '../../domain/repository/account_repository.dart';
-import 'account_state.dart';
+import 'package:trip_advisor/modules/account/presentation/bloc/account_state.dart';
 
 class AccountBloc extends Bloc<AccountEvent, AccountState> {
-  late AccountRepository accountRepository;
 
   AccountBloc({required this.accountRepository}) : super(const AccountState()) {
     on<SignOutEvent>((event, emit) async {
@@ -18,6 +16,7 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
       updateSigningCondition(event.condition, emit);
     });
   }
+  late AccountRepository accountRepository;
 
   Future signOutUser(Emitter emit) async {
     await accountRepository.signOut();

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class ImageContainer extends StatelessWidget {
-  final BoxConstraints size;
-  final Function onTap;
 
   const ImageContainer({required this.size, required this.onTap, super.key});
+  final BoxConstraints size;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class ImageContainer extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: size.maxWidth * 0.08,
-                  vertical: size.maxHeight * 0.2),
+                  vertical: size.maxHeight * 0.2,),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

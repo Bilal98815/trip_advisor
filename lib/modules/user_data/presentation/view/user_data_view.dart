@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:trip_advisor/common/widgets/common_text_widget.dart';
+import 'package:trip_advisor/common/widgets/primary_button.dart';
 import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_event.dart';
@@ -8,14 +10,11 @@ import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc.
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc_state.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_event.dart';
 
-import '../../../../common/widgets/common_text_widget.dart';
-import '../../../../common/widgets/primary_button.dart';
-
 class UserDataView extends StatelessWidget {
-  final String email;
-  final String password;
 
   UserDataView({super.key, required this.email, required this.password});
+  final String email;
+  final String password;
 
   final nameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
@@ -27,8 +26,8 @@ class UserDataView extends StatelessWidget {
     'Pakistan'
   ];
 
-  static const routeName = "userData";
-  static String route() => "/onboarding/signup/locationData/userData";
+  static const routeName = 'userData';
+  static String route() => '/onboarding/signup/locationData/userData';
 
   @override
   Widget build(BuildContext context) {
@@ -55,13 +54,13 @@ class UserDataView extends StatelessWidget {
                       width: size.maxWidth * 0.3,
                       height: size.maxHeight * 0.1,
                       decoration: BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.red.shade300),
+                          shape: BoxShape.circle, color: Colors.red.shade300,),
                       child: Center(
                           child: Image.asset(
                         'assets/man.png',
                         width: size.maxWidth * 0.15,
                         height: size.maxHeight * 0.07,
-                      )),
+                      ),),
                     ),
                   ),
                   SizedBox(
@@ -72,12 +71,12 @@ class UserDataView extends StatelessWidget {
                         EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
                     child: const CommonText(
                         text:
-                            'Let\'s get the basics so we can give you the goods.',
+                            "Let's get the basics so we can give you the goods.",
                         color: Colors.white,
                         textOverflow: TextOverflow.clip,
                         textAlign: TextAlign.left,
                         fontsize: 31,
-                        fontWeight: FontWeight.w800),
+                        fontWeight: FontWeight.w800,),
                   ),
                   SizedBox(
                     height: size.maxHeight * 0.04,
@@ -92,23 +91,23 @@ class UserDataView extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold)),
+                                fontWeight: FontWeight.bold,),),
                         SizedBox(
                           height: size.maxHeight * 0.01,
                         ),
                         TextFormField(
                           controller: nameController,
                           validator: (val) =>
-                              val!.isEmpty ? "Enter name!" : null,
+                              val!.isEmpty ? 'Enter name!' : null,
                           style: const TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                             hintText: 'Name',
                             hintStyle: const TextStyle(color: Colors.grey),
                             border: OutlineInputBorder(
                                 borderSide: const BorderSide(color: Colors.red),
-                                borderRadius: BorderRadius.circular(8)),
+                                borderRadius: BorderRadius.circular(8),),
                             focusedBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white)),
+                                borderSide: BorderSide(color: Colors.white),),
                           ),
                         ),
                       ],
@@ -127,7 +126,7 @@ class UserDataView extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold)),
+                                fontWeight: FontWeight.bold,),),
                         SizedBox(
                           height: size.maxHeight * 0.01,
                         ),
@@ -136,11 +135,11 @@ class UserDataView extends StatelessWidget {
                             height: size.maxHeight * 0.08,
                             padding: EdgeInsets.symmetric(
                                 vertical: size.maxHeight * 0.01,
-                                horizontal: size.maxWidth * 0.03),
+                                horizontal: size.maxWidth * 0.03,),
                             decoration: BoxDecoration(
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(10)),
-                                border: Border.all(color: Colors.grey)),
+                                border: Border.all(color: Colors.grey),),
                             child: BlocBuilder<UserDataBloc, UserDataBlocState>(
                               builder: (context, state) {
                                 debugPrint('---->> Country: ${state.country}');
@@ -153,7 +152,7 @@ class UserDataView extends StatelessWidget {
                                     style: const TextStyle(
                                         color: Colors.grey,
                                         fontSize: 15,
-                                        fontWeight: FontWeight.w500),
+                                        fontWeight: FontWeight.w500,),
                                   ),
                                   dropdownColor: Colors.black87,
                                   style: const TextStyle(color: Colors.white),
@@ -165,18 +164,18 @@ class UserDataView extends StatelessWidget {
                                   }).toList(),
                                   onChanged: (value) {
                                     context.read<UserDataBloc>().add(
-                                        UpdateCountryEvent(country: value!));
+                                        UpdateCountryEvent(country: value!),);
                                     context.read<UserDataBloc>().add(
                                         StoreCountryDB(
-                                            country: value, email: email));
+                                            country: value, email: email,),);
                                     debugPrint(
-                                        '---->> Selected Country: $value');
+                                        '---->> Selected Country: $value',);
                                     debugPrint(
-                                        '---->> Country: ${state.country}');
+                                        '---->> Country: ${state.country}',);
                                   },
                                 );
                               },
-                            )),
+                            ),),
                       ],
                     ),
                   ),
@@ -185,7 +184,7 @@ class UserDataView extends StatelessWidget {
                   ),
                   Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: size.maxWidth * 0.08),
+                          horizontal: size.maxWidth * 0.08,),
                       child: BlocBuilder<UserDataBloc, UserDataBlocState>(
                         builder: (context, state) {
                           return PrimaryButton(
@@ -199,11 +198,11 @@ class UserDataView extends StatelessWidget {
                                       .add(UpdateNameEvent(
                                         name: nameController.text,
                                         email: email,
-                                      ));
+                                      ),);
                                   context.read<LoginBloc>().add(OnLoginEvent(
                                         email: email,
                                         password: password,
-                                      ));
+                                      ),);
                                   context.go(ExploreView.route());
                                 }
                               },
@@ -215,10 +214,10 @@ class UserDataView extends StatelessWidget {
                                     text: 'Next',
                                     color: Colors.black87,
                                     fontsize: 20,
-                                    fontWeight: FontWeight.w500),
-                              ));
+                                    fontWeight: FontWeight.w500,),
+                              ),);
                         },
-                      )),
+                      ),),
                   SizedBox(
                     height: size.maxHeight * 0.05,
                   ),
@@ -226,8 +225,8 @@ class UserDataView extends StatelessWidget {
               ),
             ),
           );
-        }),
-      )),
+        },),
+      ),),
     );
   }
 }

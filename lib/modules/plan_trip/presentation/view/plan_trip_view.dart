@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/widgets/trips_view.dart';
-
-import '../../../../common/widgets/common_text_widget.dart';
 
 class PlanTripView extends StatelessWidget {
   const PlanTripView({super.key});
 
-  static const routeName = "/plan";
-  static String route() => "/plan";
+  static const routeName = '/plan';
+  static String route() => '/plan';
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: 0,
       length: 2,
       child: Scaffold(
         body: SafeArea(child: LayoutBuilder(builder: (context, size) {
@@ -34,7 +32,7 @@ class PlanTripView extends StatelessWidget {
                       text: 'Plan',
                       color: Colors.white,
                       fontsize: 32,
-                      fontWeight: FontWeight.w900),
+                      fontWeight: FontWeight.w900,),
                 ),
                 SizedBox(
                   height: size.maxHeight * 0.03,
@@ -52,14 +50,14 @@ class PlanTripView extends StatelessWidget {
                             text: 'Trips',
                             color: Colors.white,
                             fontsize: 16,
-                            fontWeight: FontWeight.w600),
+                            fontWeight: FontWeight.w600,),
                       ),
                       Tab(
                         child: CommonText(
                             text: 'Saves',
                             color: Colors.white,
                             fontsize: 16,
-                            fontWeight: FontWeight.w600),
+                            fontWeight: FontWeight.w600,),
                       ),
                     ],
                   ),
@@ -77,12 +75,12 @@ class PlanTripView extends StatelessWidget {
                               text: 'No Saves yet',
                               color: Colors.white,
                               fontsize: 16,
-                              fontWeight: FontWeight.w700),
+                              fontWeight: FontWeight.w700,),
                           const CommonText(
                               text: 'Places you save will appear here.',
                               color: Colors.white,
                               fontsize: 15,
-                              fontWeight: FontWeight.w300),
+                              fontWeight: FontWeight.w300,),
                         ],
                       ),
                     ],
@@ -91,7 +89,7 @@ class PlanTripView extends StatelessWidget {
               ],
             ),
           );
-        })),
+        },),),
       ),
     );
   }

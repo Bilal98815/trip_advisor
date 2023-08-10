@@ -5,15 +5,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
+import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/common/widgets/primary_button.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_bloc.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_event.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_state.dart';
-
-import '../../../../common/widgets/common_text_widget.dart';
-import '../../../profile/presentation/bloc/profile_bloc.dart';
-import '../../../profile/presentation/bloc/profile_event.dart';
-import '../../../profile/presentation/bloc/profile_state.dart';
+import 'package:trip_advisor/modules/profile/presentation/bloc/profile_bloc.dart';
+import 'package:trip_advisor/modules/profile/presentation/bloc/profile_event.dart';
+import 'package:trip_advisor/modules/profile/presentation/bloc/profile_state.dart';
 
 class EditProfileView extends StatelessWidget {
   EditProfileView({super.key});
@@ -30,8 +29,8 @@ class EditProfileView extends StatelessWidget {
     'Pakistan'
   ];
 
-  static const routeName = "edit";
-  static String route() => "/account/profile/edit";
+  static const routeName = 'edit';
+  static String route() => '/account/profile/edit';
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +53,12 @@ class EditProfileView extends StatelessWidget {
               ),
             ),
           );
-        }),
+        },),
         title: const CommonText(
             text: 'Edit profile',
             color: Colors.white,
             fontsize: 20,
-            fontWeight: FontWeight.w600),
+            fontWeight: FontWeight.w600,),
       ),
       body: SafeArea(
         child: LayoutBuilder(builder: (context, size) {
@@ -75,7 +74,7 @@ class EditProfileView extends StatelessWidget {
                   SizedBox(
                     height: size.maxHeight * 0.04,
                   ),
-                  Container(
+                  SizedBox(
                     width: size.maxWidth * 0.2,
                     height: size.maxHeight * 0.11,
                     child: Stack(
@@ -94,7 +93,7 @@ class EditProfileView extends StatelessWidget {
                               backgroundImage: AssetImage('assets/mine.jpg'),
                             );
                           }
-                        }),
+                        },),
                         Positioned(
                           bottom: 1,
                           left: 50,
@@ -113,12 +112,12 @@ class EditProfileView extends StatelessWidget {
                                 padding: const EdgeInsets.all(5),
                                 decoration: const BoxDecoration(
                                     color: Colors.white,
-                                    shape: BoxShape.circle),
+                                    shape: BoxShape.circle,),
                                 child: const Icon(
                                   Icons.camera_alt_outlined,
                                   color: Colors.black,
                                   size: 17,
-                                )),
+                                ),),
                           ),
                         )
                       ],
@@ -134,7 +133,7 @@ class EditProfileView extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 15,
                               color: Colors.white,
-                              fontWeight: FontWeight.bold)),
+                              fontWeight: FontWeight.bold,),),
                       SizedBox(
                         height: size.maxHeight * 0.01,
                       ),
@@ -146,15 +145,15 @@ class EditProfileView extends StatelessWidget {
                           decoration: InputDecoration(
                             hintText: state.user?.name ?? 'Name',
                             hintStyle: const TextStyle(
-                                color: Colors.grey, fontSize: 15),
+                                color: Colors.grey, fontSize: 15,),
                             border: OutlineInputBorder(
                                 borderSide: const BorderSide(color: Colors.red),
-                                borderRadius: BorderRadius.circular(8)),
+                                borderRadius: BorderRadius.circular(8),),
                             focusedBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white)),
+                                borderSide: BorderSide(color: Colors.white),),
                           ),
                         );
-                      }),
+                      },),
                       SizedBox(
                         height: size.maxHeight * 0.03,
                       ),
@@ -162,7 +161,7 @@ class EditProfileView extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 15,
                               color: Colors.white,
-                              fontWeight: FontWeight.bold)),
+                              fontWeight: FontWeight.bold,),),
                       SizedBox(
                         height: size.maxHeight * 0.01,
                       ),
@@ -171,11 +170,11 @@ class EditProfileView extends StatelessWidget {
                           height: size.maxHeight * 0.08,
                           padding: EdgeInsets.symmetric(
                               vertical: size.maxHeight * 0.01,
-                              horizontal: size.maxWidth * 0.03),
+                              horizontal: size.maxWidth * 0.03,),
                           decoration: BoxDecoration(
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(10)),
-                              border: Border.all(color: Colors.grey)),
+                              border: Border.all(color: Colors.grey),),
                           child: BlocBuilder<EditProfileBloc, EditProfileState>(
                             builder: (context, state) {
                               debugPrint('---->> Country: ${state.country}');
@@ -188,7 +187,7 @@ class EditProfileView extends StatelessWidget {
                                   style: const TextStyle(
                                       color: Colors.grey,
                                       fontSize: 15,
-                                      fontWeight: FontWeight.w500),
+                                      fontWeight: FontWeight.w500,),
                                 ),
                                 dropdownColor: Colors.black87,
                                 style: const TextStyle(color: Colors.white),
@@ -207,11 +206,11 @@ class EditProfileView extends StatelessWidget {
                                       .add(StoreCountryDbEvent(country: value));
                                   debugPrint('---->> Selected Country: $value');
                                   debugPrint(
-                                      '---->> Country: ${state.country}');
+                                      '---->> Country: ${state.country}',);
                                 },
                               );
                             },
-                          )),
+                          ),),
                       SizedBox(
                         height: size.maxHeight * 0.03,
                       ),
@@ -219,7 +218,7 @@ class EditProfileView extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 15,
                               color: Colors.white,
-                              fontWeight: FontWeight.bold)),
+                              fontWeight: FontWeight.bold,),),
                       SizedBox(
                         height: size.maxHeight * 0.01,
                       ),
@@ -232,9 +231,9 @@ class EditProfileView extends StatelessWidget {
                               const TextStyle(color: Colors.grey, fontSize: 15),
                           border: OutlineInputBorder(
                               borderSide: const BorderSide(color: Colors.red),
-                              borderRadius: BorderRadius.circular(8)),
+                              borderRadius: BorderRadius.circular(8),),
                           focusedBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white)),
+                              borderSide: BorderSide(color: Colors.white),),
                         ),
                       ),
                       SizedBox(
@@ -244,7 +243,7 @@ class EditProfileView extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 15,
                               color: Colors.white,
-                              fontWeight: FontWeight.bold)),
+                              fontWeight: FontWeight.bold,),),
                       SizedBox(
                         height: size.maxHeight * 0.01,
                       ),
@@ -253,10 +252,10 @@ class EditProfileView extends StatelessWidget {
                         decoration: BoxDecoration(
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(8)),
-                            border: Border.all(color: Colors.grey)),
+                            border: Border.all(color: Colors.grey),),
                         padding: EdgeInsets.symmetric(
                             vertical: size.maxHeight * 0.005,
-                            horizontal: size.maxWidth * 0.03),
+                            horizontal: size.maxWidth * 0.03,),
                         child: TextFormField(
                           controller: aboutController,
                           maxLines: null,
@@ -286,9 +285,9 @@ class EditProfileView extends StatelessWidget {
                               text: '${state.count}/160',
                               color: Colors.white,
                               fontsize: 12,
-                              fontWeight: FontWeight.w400),
+                              fontWeight: FontWeight.w400,),
                         );
-                      })
+                      },)
                     ],
                   ),
                   SizedBox(
@@ -324,7 +323,7 @@ class EditProfileView extends StatelessWidget {
                               website: websiteController.text.isEmpty
                                   ? null
                                   : websiteController.text,
-                              file: img));
+                              file: img,),);
                         },
                         color: Colors.white,
                         height: size.maxHeight * 0.08,
@@ -336,9 +335,9 @@ class EditProfileView extends StatelessWidget {
                                     text: 'Save',
                                     color: Colors.black,
                                     fontsize: 18,
-                                    fontWeight: FontWeight.w500),
-                              ));
-                  }),
+                                    fontWeight: FontWeight.w500,),
+                              ),);
+                  },),
                   SizedBox(
                     height: size.maxHeight * 0.06,
                   ),
@@ -346,7 +345,7 @@ class EditProfileView extends StatelessWidget {
               ),
             ),
           );
-        }),
+        },),
       ),
     );
   }
@@ -356,5 +355,6 @@ class EditProfileView extends StatelessWidget {
     if (image != null) {
       return await image.readAsBytes();
     }
+    return null;
   }
 }

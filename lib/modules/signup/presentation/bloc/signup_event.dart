@@ -1,13 +1,13 @@
 abstract class SignupEvent {}
 
 class RegisterEvent extends SignupEvent {
-  final String email;
-  final String password;
 
   RegisterEvent({
     required this.email,
     required this.password,
   });
+  final String email;
+  final String password;
 }
 
 class CheckBoxEvent extends SignupEvent {}

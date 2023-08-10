@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {
-  final BoxConstraints size;
-  final Color color;
-  final Function onTap;
-  final double height;
-  final bool ignoring;
-  final Widget child;
 
   const PrimaryButton(
       {required this.onTap,
@@ -15,7 +9,13 @@ class PrimaryButton extends StatelessWidget {
       required this.ignoring,
       required this.child,
       required this.size,
-      super.key});
+      super.key,});
+  final BoxConstraints size;
+  final Color color;
+  final Function onTap;
+  final double height;
+  final bool ignoring;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class PrimaryButton extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(35)),
               border: Border.all(color: Colors.white, width: 2),
             ),
-            child: child),
+            child: child,),
       ),
     );
   }
