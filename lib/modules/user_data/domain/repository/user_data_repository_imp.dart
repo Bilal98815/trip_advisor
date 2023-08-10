@@ -6,12 +6,12 @@ class UserDataRepositoryImp implements UserDataRepository {
   late UserDataAuth userDataAuth;
 
   @override
-  Future updateStatus(String email, String name) {
+  Future<void> updateStatus(String email, String name) {
     return userDataAuth.updateStatus(email, name);
   }
 
   @override
-  Future updateCountry(String email, String country) {
+  Future<void> updateCountry(String email, String country) {
     return userDataAuth.updateCountry(email, country);
   }
 }

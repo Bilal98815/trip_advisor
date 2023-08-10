@@ -17,7 +17,7 @@ class ActionForm extends StatelessWidget {
   });
   final int number;
   final String actionTitle;
-  final Function onTap;
+  final VoidCallback onTap;
   final BoxConstraints size;
   final bool isTextWidget;
   final String buttonText;

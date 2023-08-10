@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class MoreOptionTile extends StatelessWidget {
@@ -10,7 +9,7 @@ class MoreOptionTile extends StatelessWidget {
     super.key,
   });
   final String title;
-  final Function onTap;
+  final VoidCallback onTap;
   final BoxConstraints size;
 
   @override
@@ -27,9 +26,7 @@ class MoreOptionTile extends StatelessWidget {
             ),
             const Spacer(),
             InkWell(
-              onTap: () {
-                onTap.call();
-              },
+              onTap: onTap,
               child: const Icon(
                 Icons.arrow_forward_ios,
                 color: Colors.white,

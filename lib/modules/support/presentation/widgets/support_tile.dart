@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class SupportTile extends StatelessWidget {
@@ -11,7 +10,7 @@ class SupportTile extends StatelessWidget {
   });
   final BoxConstraints size;
   final String title;
-  final Function onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +26,7 @@ class SupportTile extends StatelessWidget {
             ),
             const Spacer(),
             InkWell(
-              onTap: () {
-                onTap.call();
-              },
+              onTap: onTap,
               child: Image.asset(
                 'assets/diagonal_arrow.png',
                 width: size.maxWidth * 0.03,

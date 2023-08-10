@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
+import 'package:trip_advisor/common/models/user_model.dart';
 import 'package:trip_advisor/modules/login/domain/repository/login_repository.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc_state.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_event.dart';
@@ -26,12 +26,16 @@ class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
 
   final prefs = Preferences();
 
-  Future login(String email, String password, Emitter emit) async {
+  Future<void> login(
+    String email,
+    String password,
+    Emitter<LoginBlocState> emit,
+  ) async {
     emit(state.copyWith(authApiState: ApiState.loading));
     //String? token = await authService.getFCMToken();
     try {
       await loginRepository.signInUser(email, password);
-      String? token = await prefs.getFCMToken();
+      final String? token = await prefs.getFCMToken();
       await loginRepository.updateUser(token!, email);
       //await authService.updateUser(token!, email, 'online');
       emit(state.copyWith(authApiState: ApiState.done));
@@ -44,11 +48,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
     }
   }
 
-  Future getUserDetailsFromDb(String email) async {
+  Future<void> getUserDetailsFromDb(String email) async {
     await loginRepository.getUserDetails(email);
   }
 
-  Future getUserFromPreferences() async {
+  Future<UserModel> getUserFromPreferences() async {
     final user = await prefs.getSharedPreferenceUser();
     return user;
   }

@@ -4,7 +4,7 @@ import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 class ImageContainer extends StatelessWidget {
   const ImageContainer({required this.size, required this.onTap, super.key});
   final BoxConstraints size;
-  final Function onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -65,9 +65,7 @@ class ImageContainer extends StatelessWidget {
                     height: size.maxHeight * 0.02,
                   ),
                   InkWell(
-                    onTap: () {
-                      onTap.call();
-                    },
+                    onTap: onTap,
                     child: Container(
                       width: size.maxWidth * 0.4,
                       height: size.maxHeight * 0.07,

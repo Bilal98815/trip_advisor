@@ -8,7 +8,7 @@ class CreateTripButton extends StatelessWidget {
     required this.color,
     super.key,
   });
-  final Function onTap;
+  final VoidCallback onTap;
   final double height;
   final Color color;
   final Widget child;
@@ -16,9 +16,7 @@ class CreateTripButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        onTap.call();
-      },
+      onTap: onTap,
       child: Container(
         width: double.infinity,
         height: height,

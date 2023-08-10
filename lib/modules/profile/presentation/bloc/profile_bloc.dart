@@ -29,29 +29,32 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   late ProfileRepository profileRepository;
   final prefs = Preferences();
 
-  Future getUserDetails(Emitter emit) async {
-    String? email = await prefs.getEmail();
+  Future<void> getUserDetails(Emitter<ProfileState> emit) async {
+    final String? email = await prefs.getEmail();
     emit(state.copyWith(apiState: ApiState.loading));
     final user = await profileRepository.getUserDetails(email!);
     emit(state.copyWith(user: user, apiState: ApiState.done));
   }
 
-  void isDataSaved(ApiState apiState, Emitter emit) {
+  void isDataSaved(ApiState apiState, Emitter<ProfileState> emit) {
     emit(state.copyWith(apiState: apiState));
   }
 
-  Future uploadImages(List<Uint8List> images, Emitter emit) async {
-    String? email = await prefs.getEmail();
+  Future<void> uploadImages(
+    List<Uint8List> images,
+    Emitter<ProfileState> emit,
+  ) async {
+    final String? email = await prefs.getEmail();
     emit(state.copyWith(apiState: ApiState.loading));
     await profileRepository.uploadImagesToFireStore(images, email!);
     await getUserDetails(emit);
     emit(state.copyWith(apiState: ApiState.done, images: images));
   }
 
-  Future pickMultipleImagesFromGallery(Emitter emit) async {
+  Future<void> pickMultipleImagesFromGallery(Emitter<ProfileState> emit) async {
     final images = await ImagePicker().pickMultiImage();
     if (images.isNotEmpty) {
-      List<Uint8List> files = [];
+      final List<Uint8List> files = [];
       for (int i = 0; i < images.length; i++) {
         files.add(await images[i].readAsBytes());
       }

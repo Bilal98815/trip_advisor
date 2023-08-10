@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:trip_advisor/common/models/user_model.dart';
 
 class SignupAuthService {
@@ -18,14 +17,7 @@ class SignupAuthService {
     await addUserDetails(user);
   }
 
-  Future addUserDetails(UserModel user) async {
-    // // creating an empty collection
-    // CollectionReference collectionReference = FirebaseFirestore.instance
-    //     .collection('users')
-    //     .doc(user.email)
-    //     .collection('photos');
-    // collectionReference.doc();
-
+  Future<void> addUserDetails(UserModel user) async {
     final Timestamp time = Timestamp.fromDate(DateTime.now());
     await FirebaseFirestore.instance.collection('users').doc(user.email).set({
       'email': user.email,

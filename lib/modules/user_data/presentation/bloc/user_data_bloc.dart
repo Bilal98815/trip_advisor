@@ -21,17 +21,21 @@ class UserDataBloc extends Bloc<UserDataEvent, UserDataBlocState> {
 
   final prefs = Preferences();
 
-  Future updateName(String name, String email, Emitter emit) async {
+  Future<void> updateName(
+    String name,
+    String email,
+    Emitter<UserDataBlocState> emit,
+  ) async {
     //String? email = await prefs.getEmail();
     await userDataRepository.updateStatus(email, name);
   }
 
-  Future updateCountryDB(String country, String email) async {
+  Future<void> updateCountryDB(String country, String email) async {
     // String? email = await prefs.getEmail();
     await userDataRepository.updateCountry(email, country);
   }
 
-  void updateCountry(String country, Emitter emit) {
+  void updateCountry(String country, Emitter<UserDataBlocState> emit) {
     emit(state.copyWith(country: country));
   }
 }

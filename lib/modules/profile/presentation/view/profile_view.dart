@@ -253,7 +253,7 @@ class ProfileView extends StatelessWidget {
     );
   }
 
-  _launchUrl(Uri url) async {
+  Future<void> _launchUrl(Uri url) async {
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {

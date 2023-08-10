@@ -17,18 +17,21 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
   }
   late AccountRepository accountRepository;
 
-  Future signOutUser(Emitter emit) async {
+  Future<void> signOutUser(Emitter<AccountState> emit) async {
     await accountRepository.signOut();
     await clearPrefs();
     emit(state.copyWith(signOutCondition: SignOutCondition.signOut));
   }
 
-  Future clearPrefs() async {
+  Future<void> clearPrefs() async {
     final prefs = Preferences();
     await prefs.clearPreferences();
   }
 
-  void updateSigningCondition(SignOutCondition condition, Emitter emit) {
+  void updateSigningCondition(
+    SignOutCondition condition,
+    Emitter<AccountState> emit,
+  ) {
     emit(state.copyWith(signOutCondition: condition));
   }
 }

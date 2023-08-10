@@ -22,7 +22,7 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
 
 class AppRouter {
-  static final GoRouter _router = GoRouter(
+  final GoRouter _router = GoRouter(
     initialLocation: SplashView.route(),
     navigatorKey: _rootNavigatorKey,
     routes: [
@@ -61,11 +61,11 @@ class AppRouter {
                 path: LocationDataView.routeName,
                 name: LocationDataView.routeName,
                 builder: (context, state) {
-                  final params = state.extra as Map<String, String>;
+                  final params = state.extra! as Map<String, String>;
 
                   return LocationDataView(
-                    email: params['email'] as String,
-                    password: params['password'] as String,
+                    email: params['email']!,
+                    password: params['password']!,
                   );
                 },
                 routes: [
@@ -73,10 +73,10 @@ class AppRouter {
                     path: UserDataView.routeName,
                     name: UserDataView.routeName,
                     builder: (context, state) {
-                      final params = state.extra as Map<String, String>;
+                      final params = state.extra! as Map<String, String>;
                       return UserDataView(
-                        email: params['email'] as String,
-                        password: params['password'] as String,
+                        email: params['email']!,
+                        password: params['password']!,
                       );
                     },
                   ),
@@ -134,7 +134,7 @@ class AppRouter {
     ],
   );
 
-  static GoRouter get router => _router;
+  GoRouter get router => _router;
 
   static Future<bool> isUserAuthenticated(BuildContext context) async {
     final prefs = Preferences();
