@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../../../../common/widgets/common_text_widget.dart';
+import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class MissingPlaceButton extends StatelessWidget {
+  const MissingPlaceButton({
+    required this.onTap,
+    required this.size,
+    super.key,
+  });
   final Function onTap;
   final BoxConstraints size;
-
-  const MissingPlaceButton(
-      {required this.onTap, required this.size, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +21,10 @@ class MissingPlaceButton extends StatelessWidget {
         width: size.maxWidth,
         height: size.maxHeight * 0.06,
         decoration: BoxDecoration(
-            color: Colors.black12,
-            borderRadius: const BorderRadius.all(Radius.circular(35)),
-            border: Border.all(color: Colors.white)),
+          color: Colors.black12,
+          borderRadius: const BorderRadius.all(Radius.circular(35)),
+          border: Border.all(color: Colors.white),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

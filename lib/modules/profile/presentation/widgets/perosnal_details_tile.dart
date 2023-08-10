@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../../../../common/widgets/common_text_widget.dart';
+import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class PersonalDetailTile extends StatelessWidget {
+  const PersonalDetailTile({
+    required this.size,
+    required this.text,
+    required this.onTap,
+    required this.image,
+    super.key,
+  });
   final BoxConstraints size;
   final String text;
   final String image;
   final Function onTap;
-
-  const PersonalDetailTile(
-      {required this.size,
-      required this.text,
-      required this.onTap,
-      required this.image,
-      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +31,11 @@ class PersonalDetailTile extends StatelessWidget {
             width: size.maxWidth * 0.04,
           ),
           CommonText(
-              text: text,
-              color: Colors.grey[350]!,
-              fontsize: 14,
-              fontWeight: FontWeight.w400),
+            text: text,
+            color: Colors.grey[350]!,
+            fontsize: 14,
+            fontWeight: FontWeight.w400,
+          ),
         ],
       ),
     );

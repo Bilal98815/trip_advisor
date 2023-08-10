@@ -1,18 +1,17 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../common/helpers/enums/enums.dart';
+import 'package:trip_advisor/common/helpers/enums/enums.dart';
 
 class LoginBlocState extends Equatable {
+  const LoginBlocState({
+    this.errorMessage = '',
+    this.authApiState = ApiState.idle,
+  });
   @override
   List<Object?> get props => [authApiState, errorMessage];
 
   final String errorMessage;
   final ApiState authApiState;
-
-  const LoginBlocState({
-    this.errorMessage = '',
-    this.authApiState = ApiState.idle,
-  });
 
   LoginBlocState copyWith({
     String? errorMessage,

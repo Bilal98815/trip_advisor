@@ -16,7 +16,7 @@ class BottomBarView extends StatelessWidget {
 
   int getCurrentIndex() {
     for (int i = 0; i < tabs.length; i++) {
-      if (tabs[i].iconTab.route == currentRoute) {
+      if (currentRoute.contains(tabs[i].iconTab.route)) {
         return i;
       }
     }
@@ -25,30 +25,32 @@ class BottomBarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex = getCurrentIndex();
+    final int currentIndex = getCurrentIndex();
 
     return Scaffold(
-      bottomNavigationBar: LayoutBuilder(builder: (context, size) {
-        return BottomNavigationBar(
-          backgroundColor: Colors.black87,
-          type: BottomNavigationBarType.fixed,
-          currentIndex: currentIndex,
-          onTap: (val) => context.go(tabs[val].iconTab.route),
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.grey.withOpacity(0.7),
-          items: List.generate(
-            tabs.length,
-            (index) => BottomNavigationBarItem(
-              icon: NavBarIcon(
-                iconTab: tabs[index].iconTab,
-                isActive: currentIndex == index,
-                size: size,
+      bottomNavigationBar: LayoutBuilder(
+        builder: (context, size) {
+          return BottomNavigationBar(
+            backgroundColor: Colors.black87,
+            type: BottomNavigationBarType.fixed,
+            currentIndex: currentIndex,
+            onTap: (val) => context.go(tabs[val].iconTab.route),
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey.withOpacity(0.7),
+            items: List.generate(
+              tabs.length,
+              (index) => BottomNavigationBarItem(
+                icon: NavBarIcon(
+                  iconTab: tabs[index].iconTab,
+                  isActive: currentIndex == index,
+                  size: size,
+                ),
+                label: tabs[index].iconTab.label,
               ),
-              label: tabs[index].iconTab.label,
             ),
-          ),
-        );
-      }),
+          );
+        },
+      ),
       body: SafeArea(child: child),
     );
   }
