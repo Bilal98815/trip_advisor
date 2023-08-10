@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:go_router/go_router.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/view/edit_profile_view.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_event.dart';
@@ -16,6 +18,9 @@ import '../bloc/profile_bloc.dart';
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
 
+  static const routeName = "profile";
+  static String route() => "/account/profile";
+
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
@@ -30,15 +35,9 @@ class ProfileView extends StatelessWidget {
               padding: const EdgeInsets.only(right: 20),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => EditProfileView()));
+                  context.go(EditProfileView.route());
                 },
-                child: const Icon(
-                  Icons.create,
-                  color: Colors.white,
-                ),
+                child: const Icon(Icons.create, color: Colors.white),
               ),
             );
           }),
@@ -48,7 +47,7 @@ class ProfileView extends StatelessWidget {
             padding: EdgeInsets.only(left: size.maxWidth * 0.5),
             child: InkWell(
               onTap: () {
-                Navigator.pop(context);
+                context.pop();
               },
               child: const Icon(
                 Icons.arrow_back_ios_new,
@@ -141,13 +140,7 @@ class ProfileView extends StatelessWidget {
                               text: state.user?.country == ''
                                   ? 'No city selected.'
                                   : state.user?.country ?? '',
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            EditProfileView()));
-                              },
+                              onTap: () => context.go(EditProfileView.route()),
                               image: 'assets/placeholder.png'),
                           SizedBox(
                             height: size.maxHeight * 0.025,
@@ -157,13 +150,7 @@ class ProfileView extends StatelessWidget {
                               text: state.user?.website == ''
                                   ? 'No website added.'
                                   : state.user?.website ?? '',
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            EditProfileView()));
-                              },
+                              onTap: () => context.go(EditProfileView.route()),
                               image: 'assets/link.png'),
                           SizedBox(
                             height: size.maxHeight * 0.06,

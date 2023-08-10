@@ -4,7 +4,10 @@ import 'package:trip_advisor/modules/plan_trip/presentation/widgets/trips_view.d
 import '../../../../common/widgets/common_text_widget.dart';
 
 class PlanTripView extends StatelessWidget {
-  PlanTripView({super.key});
+  const PlanTripView({super.key});
+
+  static const routeName = "/plan";
+  static String route() => "/plan";
 
   @override
   Widget build(BuildContext context) {

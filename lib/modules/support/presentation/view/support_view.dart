@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../common/widgets/common_text_widget.dart';
 import '../widgets/support_tile.dart';
 
 class SupportView extends StatelessWidget {
   const SupportView({super.key});
+
+  static const routeName = "support";
+  static String route() => "/account/support";
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +21,7 @@ class SupportView extends StatelessWidget {
             padding: EdgeInsets.only(left: size.maxWidth * 0.5),
             child: InkWell(
               onTap: () {
-                Navigator.pop(context);
+                context.pop();
               },
               child: const Icon(
                 Icons.arrow_back_ios_new,

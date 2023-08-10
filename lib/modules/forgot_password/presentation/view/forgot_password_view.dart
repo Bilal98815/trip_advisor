@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/common/widgets/primary_button.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_password_bloc.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_password_bloc_state.dart';
@@ -15,6 +17,9 @@ class ForgotPasswordView extends StatelessWidget {
 
   final _key = GlobalKey<FormState>();
   final emailController = TextEditingController();
+
+  static const routeName = "forgotPassword";
+  static String route() => "/onboarding/login/forgotPassword";
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +43,7 @@ class ForgotPasswordView extends StatelessWidget {
                       ),
                       InkWell(
                           onTap: () {
-                            Navigator.pop(context);
+                            context.pop();
                           },
                           child: const Icon(
                             Icons.arrow_back_ios_new,

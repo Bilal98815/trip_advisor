@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trip_advisor/modules/bottom_bar/presentation/view/bottom_bar_view.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_event.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc.dart';
@@ -25,6 +26,9 @@ class UserDataView extends StatelessWidget {
     'Australia',
     'Pakistan'
   ];
+
+  static const routeName = "userData";
+  static String route() => "/onboarding/signup/locationData/userData";
 
   @override
   Widget build(BuildContext context) {
@@ -190,17 +194,17 @@ class UserDataView extends StatelessWidget {
                                 if (!formKey.currentState!.validate()) {
                                   debugPrint('------Enter Name');
                                 } else {
-                                  context.read<UserDataBloc>().add(
-                                      UpdateNameEvent(
-                                          name: nameController.text,
-                                          email: email));
+                                  context
+                                      .read<UserDataBloc>()
+                                      .add(UpdateNameEvent(
+                                        name: nameController.text,
+                                        email: email,
+                                      ));
                                   context.read<LoginBloc>().add(OnLoginEvent(
-                                      email: email, password: password));
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              BottomBarView()));
+                                        email: email,
+                                        password: password,
+                                      ));
+                                  context.go(ExploreView.route());
                                 }
                               },
                               height: size.maxHeight * 0.064,

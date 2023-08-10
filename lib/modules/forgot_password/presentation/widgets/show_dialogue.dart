@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_advisor/common/widgets/primary_button.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_password_bloc.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_password_event.dart';
+import 'package:trip_advisor/modules/login/presentation/view/login_view.dart';
 
 import '../../../../common/widgets/common_text_widget.dart';
-import '../../../login/presentation/view/login_view.dart';
 
 class DialogueBox extends StatelessWidget {
   final BoxConstraints constraint;
@@ -62,6 +64,8 @@ class DialogueBox extends StatelessWidget {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => LoginView()));
                 },
+            AuthenticationButton(
+                onTap: () => context.go(LoginView.route()),
                 color: Colors.white,
                 height: constraint.maxHeight * 0.06,
                 size: constraint,

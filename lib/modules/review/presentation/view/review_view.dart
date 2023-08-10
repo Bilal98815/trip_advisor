@@ -19,6 +19,9 @@ import '../../../profile/presentation/bloc/profile_state.dart';
 class ReviewView extends StatelessWidget {
   const ReviewView({super.key});
 
+  static const routeName = "/review";
+  static String route() => "/review";
+
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
