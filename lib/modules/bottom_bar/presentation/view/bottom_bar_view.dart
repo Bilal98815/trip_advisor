@@ -16,7 +16,7 @@ class BottomBarView extends StatelessWidget {
 
   int getCurrentIndex() {
     for (int i = 0; i < tabs.length; i++) {
-      if (tabs[i].iconTab.route == currentRoute) {
+      if (currentRoute.contains(tabs[i].iconTab.route)) {
         return i;
       }
     }
