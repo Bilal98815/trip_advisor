@@ -88,7 +88,10 @@ class AppRouter {
       ),
       ShellRoute(
         navigatorKey: _shellNavigatorKey,
-        builder: (context, state, child) => BottomBarView(child: child),
+        builder: (context, state, child) => BottomBarView(
+          currentRoute: state.matchedLocation,
+          child: child,
+        ),
         routes: [
           GoRoute(
             path: ExploreView.routeName,

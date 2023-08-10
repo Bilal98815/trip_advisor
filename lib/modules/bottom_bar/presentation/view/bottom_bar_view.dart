@@ -1,86 +1,90 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/modules/account/presentation/view/account_view.dart';
-import 'package:trip_advisor/modules/bottom_bar/presentation/bloc/bottom_bar_bloc.dart';
-import 'package:trip_advisor/modules/bottom_bar/presentation/bloc/bottom_bar_event.dart';
 import 'package:trip_advisor/modules/bottom_bar/presentation/models/icon_tab.dart';
 import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/view/plan_trip_view.dart';
 import 'package:trip_advisor/modules/review/presentation/view/review_view.dart';
 import 'package:trip_advisor/modules/search/presentation/search_view.dart';
 
-import '../bloc/bottom_bar_state.dart';
-
 class BottomBarView extends StatelessWidget {
-  BottomBarView({super.key, required this.child});
+  BottomBarView({
+    super.key,
+    required this.child,
+    required this.currentRoute,
+  });
 
   final Widget child;
+  final String currentRoute;
 
   final List<IconTab> tabs = [
     IconTab(
       index: 0,
       label: 'Explore',
       icon: Icons.home_rounded,
-      location: ExploreView.route(),
+      route: ExploreView.route(),
     ),
     IconTab(
       index: 1,
       label: 'Search',
       icon: Icons.search,
-      location: SearchView.route(),
+      route: SearchView.route(),
     ),
     IconTab(
       index: 2,
       label: 'Plan',
       icon: Icons.favorite,
-      location: PlanTripView.route(),
+      route: PlanTripView.route(),
     ),
     IconTab(
       index: 3,
       label: 'Review',
       icon: Icons.create,
-      location: ReviewView.route(),
+      route: ReviewView.route(),
     ),
     IconTab(
       index: 4,
       label: 'Account',
       icon: Icons.home_rounded,
-      location: AccountView.route(),
+      route: AccountView.route(),
     ),
   ];
 
+  int getCurrentIndex() {
+    for (int i = 0; i < tabs.length; i++) {
+      if (tabs[i].route == currentRoute) {
+        return i;
+      }
+    }
+    return 0;
+  }
+
   @override
   Widget build(BuildContext context) {
+    int currentIndex = getCurrentIndex();
+
     return Scaffold(
-      bottomNavigationBar: BlocBuilder<BottomBarBloc, BottomBarState>(
-        builder: (context, state) {
-          return LayoutBuilder(builder: (context, size) {
-            return BottomNavigationBar(
-              backgroundColor: Colors.black87,
-              type: BottomNavigationBarType.fixed,
-              currentIndex: state.index,
-              onTap: (val) {
-                context.read<BottomBarBloc>().add(BottomBarEvent(index: val));
-                context.go(tabs[val].location);
-              },
-              selectedItemColor: Colors.white,
-              unselectedItemColor: Colors.grey.withOpacity(0.7),
-              items: List.generate(
-                tabs.length,
-                (index) => BottomNavigationBarItem(
-                  icon: NavBarIcon(
-                    iconTab: tabs[index],
-                    currentIndex: state.index,
-                    size: size,
-                  ),
-                  label: tabs[index].label,
-                ),
+      bottomNavigationBar: LayoutBuilder(builder: (context, size) {
+        return BottomNavigationBar(
+          backgroundColor: Colors.black87,
+          type: BottomNavigationBarType.fixed,
+          currentIndex: currentIndex,
+          onTap: (val) => context.go(tabs[val].route),
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.grey.withOpacity(0.7),
+          items: List.generate(
+            tabs.length,
+            (index) => BottomNavigationBarItem(
+              icon: NavBarIcon(
+                iconTab: tabs[index],
+                isActive: currentIndex == index,
+                size: size,
               ),
-            );
-          });
-        },
-      ),
+              label: tabs[index].label,
+            ),
+          ),
+        );
+      }),
       body: SafeArea(child: child),
     );
   }
@@ -90,17 +94,17 @@ class NavBarIcon extends StatelessWidget {
   const NavBarIcon({
     super.key,
     required this.iconTab,
-    required this.currentIndex,
+    required this.isActive,
     required this.size,
   });
 
   final IconTab iconTab;
-  final int currentIndex;
+  final bool isActive;
   final BoxConstraints size;
 
   @override
   Widget build(BuildContext context) {
-    return currentIndex == iconTab.index
+    return isActive
         ? Column(
             children: [
               Container(

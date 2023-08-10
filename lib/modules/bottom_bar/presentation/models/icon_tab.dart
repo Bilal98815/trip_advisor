@@ -5,11 +5,11 @@ class IconTab {
     required this.index,
     required this.label,
     required this.icon,
-    required this.location,
+    required this.route,
   });
 
   final int index;
   final String label;
   final IconData icon;
-  final String location;
+  final String route;
 }
