@@ -8,7 +8,7 @@ import 'package:trip_advisor/modules/bottom_bar/presentation/view/bottom_bar_vie
 import 'package:trip_advisor/modules/edit_profile/presentation/view/edit_profile_view.dart';
 import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/view/forgot_password_view.dart';
-import 'package:trip_advisor/modules/location_data/presentation/view/location_data_view.dart';
+import 'package:trip_advisor/modules/location_data/presentation/view/view.dart';
 import 'package:trip_advisor/modules/login/presentation/view/login_view.dart';
 import 'package:trip_advisor/modules/onboarding/presentation/view/onbaording_view.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/view/plan_trip_view.dart';
@@ -18,7 +18,7 @@ import 'package:trip_advisor/modules/search/presentation/search_view.dart';
 import 'package:trip_advisor/modules/signup/presentation/view/view.dart';
 import 'package:trip_advisor/modules/splash/presentation/view/splash_view.dart';
 import 'package:trip_advisor/modules/support/presentation/view/support_view.dart';
-import 'package:trip_advisor/modules/user_data/presentation/view/user_data_view.dart';
+import 'package:trip_advisor/modules/user_data/presentation/view/view.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
@@ -60,23 +60,22 @@ class AppRouter {
             builder: (context, state) => const SignUpPage(),
             routes: [
               GoRoute(
-                path: LocationDataView.routeName,
-                name: LocationDataView.routeName,
+                path: LocationDataPage.routeName,
+                name: LocationDataPage.routeName,
                 builder: (context, state) {
                   final params = state.extra! as Map<String, String>;
-
-                  return LocationDataView(
+                  return LocationDataPage(
                     email: params['email']!,
                     password: params['password']!,
                   );
                 },
                 routes: [
                   GoRoute(
-                    path: UserDataView.routeName,
-                    name: UserDataView.routeName,
+                    path: UserDataPage.routeName,
+                    name: UserDataPage.routeName,
                     builder: (context, state) {
                       final params = state.extra! as Map<String, String>;
-                      return UserDataView(
+                      return UserDataPage(
                         email: params['email']!,
                         password: params['password']!,
                       );

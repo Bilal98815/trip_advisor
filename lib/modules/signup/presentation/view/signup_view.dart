@@ -210,7 +210,7 @@ class SignUpView extends StatelessWidget {
                             } else if (state.registerApiState ==
                                 ApiState.done) {
                               context.goNamed(
-                                LocationDataView.routeName,
+                                LocationDataPage.routeName,
                                 extra: {
                                   'password': passwordController.text,
                                   'email': emailController.text,

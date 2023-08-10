@@ -21,11 +21,5 @@ import 'package:trip_advisor/modules/profile/data/profile_auth.dart';
 import 'package:trip_advisor/modules/profile/domain/repository/profile_repository_imp.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_bloc.dart';
 import 'package:trip_advisor/modules/review/presentation/bloc/review_bloc.dart';
-import 'package:trip_advisor/modules/signup/data/signup_auth_service.dart';
-import 'package:trip_advisor/modules/signup/domain/repository/signup_repository_imp.dart';
-import 'package:trip_advisor/modules/signup/presentation/bloc/signup_bloc.dart';
-import 'package:trip_advisor/modules/user_data/data/user_data_auth.dart';
-import 'package:trip_advisor/modules/user_data/domain/repository/user_data_repository_imp.dart';
-import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc.dart';
 
 part 'trip_advisor_app.dart';

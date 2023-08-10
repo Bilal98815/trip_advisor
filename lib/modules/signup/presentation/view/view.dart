@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/common/widgets/primary_button.dart';
-import 'package:trip_advisor/modules/location_data/presentation/view/location_data_view.dart';
+import 'package:trip_advisor/modules/location_data/presentation/view/view.dart';
 import 'package:trip_advisor/modules/login/presentation/view/login_view.dart';
 import 'package:trip_advisor/modules/signup/data/signup_auth_service.dart';
 import 'package:trip_advisor/modules/signup/domain/repository/signup_repository_imp.dart';

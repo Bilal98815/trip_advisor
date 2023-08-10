@@ -14,23 +14,9 @@ class MyApp extends StatelessWidget {
           ),
         ),
         BlocProvider(
-          create: (context) => UserDataBloc(
-            userDataRepository: UserDataRepositoryImp(
-              userDataAuth: UserDataAuth(),
-            ),
-          ),
-        ),
-        BlocProvider(
           create: (context) => ForgotPasswordBloc(
             forgotPasswordRepository: ForgotPasswordRepositoryImp(
               forgotPasswordAuth: ForgotPasswordAuth(),
-            ),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => LocationDataBloc(
-            locationDataRepository: LocationDataRepositoryImp(
-              locationDataAuth: LocationDataAuth(),
             ),
           ),
         ),
