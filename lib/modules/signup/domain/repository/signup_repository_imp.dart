@@ -3,7 +3,6 @@ import 'package:trip_advisor/modules/signup/data/signup_auth_service.dart';
 import 'package:trip_advisor/modules/signup/domain/repository/signup_repository.dart';
 
 class SignUpRepositoryImp implements SignUpRepository {
-
   SignUpRepositoryImp({
     required this.signupAuthService,
   });

@@ -6,7 +6,6 @@ import 'package:trip_advisor/modules/account/presentation/bloc/account_event.dar
 import 'package:trip_advisor/modules/account/presentation/bloc/account_state.dart';
 
 class AccountBloc extends Bloc<AccountEvent, AccountState> {
-
   AccountBloc({required this.accountRepository}) : super(const AccountState()) {
     on<SignOutEvent>((event, emit) async {
       await signOutUser(emit);

@@ -7,7 +7,6 @@ import 'package:trip_advisor/modules/location_data/presentation/bloc/location_da
 import 'package:trip_advisor/modules/location_data/presentation/bloc/location_data_state.dart';
 
 class LocationDataBloc extends Bloc<LocationDataEvent, LocationDataState> {
-
   LocationDataBloc({required this.locationDataRepository})
       : super(const LocationDataState()) {
     on<LocationDataEvent>((event, emit) async {

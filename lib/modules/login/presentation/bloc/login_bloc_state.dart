@@ -3,7 +3,6 @@ import 'package:equatable/equatable.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 
 class LoginBlocState extends Equatable {
-
   const LoginBlocState({
     this.errorMessage = '',
     this.authApiState = ApiState.idle,

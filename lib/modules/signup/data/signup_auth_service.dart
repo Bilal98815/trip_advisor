@@ -8,7 +8,9 @@ class SignupAuthService {
 
   Future<void> registerUser(String email, String password) async {
     await _auth.createUserWithEmailAndPassword(
-        email: email, password: password,);
+      email: email,
+      password: password,
+    );
     final UserModel user = UserModel(
       email: email,
       name: '',

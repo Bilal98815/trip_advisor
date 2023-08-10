@@ -5,7 +5,6 @@ import 'package:trip_advisor/modules/edit_profile/data/edit_profile_auth.dart';
 import 'package:trip_advisor/modules/edit_profile/domain/repository/edit_profile_repository.dart';
 
 class EditProfileRepositoryImp implements EditProfileRepository {
-
   EditProfileRepositoryImp({required this.editProfileAuth});
   late EditProfileAuth editProfileAuth;
 
@@ -15,12 +14,13 @@ class EditProfileRepositoryImp implements EditProfileRepository {
   }
 
   @override
-  Future updateUser(
-      {String? bio,
-      String? name,
-      String? website,
-      String? email,
-      Uint8List? file,}) {
+  Future updateUser({
+    String? bio,
+    String? name,
+    String? website,
+    String? email,
+    Uint8List? file,
+  }) {
     return editProfileAuth.updateUser(
       bio: bio,
       name: name,

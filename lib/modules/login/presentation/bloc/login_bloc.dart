@@ -9,7 +9,6 @@ import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc_state.da
 import 'package:trip_advisor/modules/login/presentation/bloc/login_event.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
-
   LoginBloc({required this.loginRepository}) : super(const LoginBlocState()) {
     on<OnLoginEvent>((event, emit) async {
       await login(event.email, event.password, emit);
@@ -82,9 +81,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
       case 'weak-password':
         error = 'Weak Password';
     }
-    emit(state.copyWith(
-      errorMessage: error,
-      authApiState: ApiState.error,
-    ),);
+    emit(
+      state.copyWith(
+        errorMessage: error,
+        authApiState: ApiState.error,
+      ),
+    );
   }
 }

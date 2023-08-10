@@ -50,8 +50,12 @@ class ProfileAuth {
 
     if (images.isNotEmpty) {
       for (int i = 0; i < images.length; i++) {
-        imageUrls.add(await uploadImagesToFirebaseStorage(
-            'tripImages-${DateTime.now().millisecondsSinceEpoch}', images[i],),);
+        imageUrls.add(
+          await uploadImagesToFirebaseStorage(
+            'tripImages-${DateTime.now().millisecondsSinceEpoch}',
+            images[i],
+          ),
+        );
       }
     }
     await FirebaseFirestore.instance.collection('users').doc(email).update({

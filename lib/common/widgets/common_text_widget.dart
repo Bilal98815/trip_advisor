@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CommonText extends StatelessWidget {
-
-  const CommonText(
-      {required this.text,
-      required this.color,
-      required this.fontsize,
-      required this.fontWeight,
-        this.textAlign,
-        this.textOverflow,
-        super.key,});
+  const CommonText({
+    required this.text,
+    required this.color,
+    required this.fontsize,
+    required this.fontWeight,
+    this.textAlign,
+    this.textOverflow,
+    super.key,
+  });
   final String text;
   final Color color;
   final double fontsize;

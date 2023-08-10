@@ -1,7 +1,6 @@
 abstract class SignupEvent {}
 
 class RegisterEvent extends SignupEvent {
-
   RegisterEvent({
     required this.email,
     required this.password,

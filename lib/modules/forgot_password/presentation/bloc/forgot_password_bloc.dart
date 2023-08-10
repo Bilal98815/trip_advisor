@@ -7,7 +7,6 @@ import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_pa
 
 class ForgotPasswordBloc
     extends Bloc<ForgotPasswordEvent, ForgotPasswordState> {
-
   ForgotPasswordBloc({required this.forgotPasswordRepository})
       : super(const ForgotPasswordState()) {
     on<ResetPassword>((event, emit) async {
@@ -40,7 +39,11 @@ class ForgotPasswordBloc
       case 'requires-recent-login':
         temp = 'Login again';
     }
-    emit(state.copyWith(
-        error: temp, resetPasswordState: ResetPasswordState.failure,),);
+    emit(
+      state.copyWith(
+        error: temp,
+        resetPasswordState: ResetPasswordState.failure,
+      ),
+    );
   }
 }

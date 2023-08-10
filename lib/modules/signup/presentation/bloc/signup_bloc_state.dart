@@ -3,7 +3,6 @@ import 'package:equatable/equatable.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 
 class SignupBlocState extends Equatable {
-
   const SignupBlocState({
     this.errorMessage = '',
     this.isChecked = true,

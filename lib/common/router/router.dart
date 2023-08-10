@@ -114,14 +114,15 @@ class AppRouter {
             builder: (context, state) => const AccountView(),
             routes: [
               GoRoute(
-                  path: ProfileView.routeName,
-                  builder: (context, state) => const ProfileView(),
-                  routes: [
-                    GoRoute(
-                      path: EditProfileView.routeName,
-                      builder: (context, state) => EditProfileView(),
-                    )
-                  ],),
+                path: ProfileView.routeName,
+                builder: (context, state) => const ProfileView(),
+                routes: [
+                  GoRoute(
+                    path: EditProfileView.routeName,
+                    builder: (context, state) => EditProfileView(),
+                  )
+                ],
+              ),
               GoRoute(
                 path: SupportView.routeName,
                 builder: (context, state) => const SupportView(),

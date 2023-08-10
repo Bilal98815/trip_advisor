@@ -3,7 +3,6 @@ import 'package:equatable/equatable.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 
 class AccountState extends Equatable {
-
   const AccountState({this.signOutCondition = SignOutCondition.signIn});
   @override
   List<Object?> get props => [signOutCondition];
@@ -12,6 +11,7 @@ class AccountState extends Equatable {
 
   AccountState copyWith({SignOutCondition? signOutCondition}) {
     return AccountState(
-        signOutCondition: signOutCondition ?? this.signOutCondition,);
+      signOutCondition: signOutCondition ?? this.signOutCondition,
+    );
   }
 }

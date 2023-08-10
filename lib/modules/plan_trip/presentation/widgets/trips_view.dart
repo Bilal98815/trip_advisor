@@ -8,7 +8,6 @@ import 'package:trip_advisor/modules/plan_trip/presentation/widgets/create_trip_
 import 'package:trip_advisor/modules/plan_trip/presentation/widgets/trip_guidance_tile.dart';
 
 class TripsView extends StatelessWidget {
-
   TripsView({required this.size, super.key});
   final BoxConstraints size;
 
@@ -23,30 +22,34 @@ class TripsView extends StatelessWidget {
           height: size.maxHeight * 0.06,
         ),
         TripGuidanceTile(
-            size: size,
-            image: 'assets/heart.png',
-            text: "Save places you'd like to visit",),
+          size: size,
+          image: 'assets/heart.png',
+          text: "Save places you'd like to visit",
+        ),
         SizedBox(
           height: size.maxHeight * 0.03,
         ),
         TripGuidanceTile(
-            size: size,
-            image: 'assets/placeholder.png',
-            text: 'See your saves on a map',),
+          size: size,
+          image: 'assets/placeholder.png',
+          text: 'See your saves on a map',
+        ),
         SizedBox(
           height: size.maxHeight * 0.03,
         ),
         TripGuidanceTile(
-            size: size,
-            image: 'assets/document.png',
-            text: 'Keep track of notes, links, and more',),
+          size: size,
+          image: 'assets/document.png',
+          text: 'Keep track of notes, links, and more',
+        ),
         SizedBox(
           height: size.maxHeight * 0.03,
         ),
         TripGuidanceTile(
-            size: size,
-            image: 'assets/follow.png',
-            text: 'Share and collaborate on your plans',),
+          size: size,
+          image: 'assets/follow.png',
+          text: 'Share and collaborate on your plans',
+        ),
         SizedBox(
           height: size.maxHeight * 0.05,
         ),
@@ -55,11 +58,14 @@ class TripsView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Trip name?',
-                  style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,),),
+              const Text(
+                'Trip name?',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               SizedBox(
                 height: size.maxHeight * 0.01,
               ),
@@ -75,10 +81,12 @@ class TripsView extends StatelessWidget {
                   hintText: 'Ex: Weekend in NYC',
                   hintStyle: const TextStyle(color: Colors.grey, fontSize: 15),
                   border: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red),
-                      borderRadius: BorderRadius.circular(8),),
+                    borderSide: const BorderSide(color: Colors.red),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                   focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),),
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
                 ),
               ),
             ],
@@ -90,8 +98,8 @@ class TripsView extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: size.maxWidth * 0.06),
           child: BlocBuilder<PlanTripBloc, PlanTripState>(
-              builder: (context, state) {
-            return CreateTripButton(
+            builder: (context, state) {
+              return CreateTripButton(
                 onTap: () {
                   if (controller.text != '') {}
                 },
@@ -100,14 +108,17 @@ class TripsView extends StatelessWidget {
                     controller.text == '' ? Colors.grey.shade700 : Colors.white,
                 child: Center(
                   child: CommonText(
-                      text: 'Create a Trip',
-                      color: controller.text == ''
-                          ? Colors.grey.shade600
-                          : Colors.black,
-                      fontsize: 15,
-                      fontWeight: FontWeight.w500,),
-                ),);
-          },),
+                    text: 'Create a Trip',
+                    color: controller.text == ''
+                        ? Colors.grey.shade600
+                        : Colors.black,
+                    fontsize: 15,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              );
+            },
+          ),
         )
       ],
     );

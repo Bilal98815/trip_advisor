@@ -14,7 +14,6 @@ class UploadImagesEvent extends ProfileEvent {
 }
 
 class DataSavedEvent extends ProfileEvent {
-
   DataSavedEvent({required this.apiState});
   final ApiState apiState;
 }

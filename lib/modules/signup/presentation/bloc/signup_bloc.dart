@@ -7,7 +7,6 @@ import 'package:trip_advisor/modules/signup/presentation/bloc/signup_bloc_state.
 import 'package:trip_advisor/modules/signup/presentation/bloc/signup_event.dart';
 
 class SignupBloc extends Bloc<SignupEvent, SignupBlocState> {
-
   SignupBloc({
     required this.signUpRepository,
   }) : super(const SignupBlocState()) {

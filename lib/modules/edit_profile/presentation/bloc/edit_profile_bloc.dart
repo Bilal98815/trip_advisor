@@ -8,7 +8,6 @@ import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_state.dart';
 
 class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
-
   EditProfileBloc({required this.editProfileRepository})
       : super(const EditProfileState()) {
     on<UpdateCountEvent>((event, emit) {

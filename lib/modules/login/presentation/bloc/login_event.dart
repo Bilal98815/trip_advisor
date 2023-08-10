@@ -1,7 +1,6 @@
 abstract class LoginEvent {}
 
 class OnLoginEvent extends LoginEvent {
-
   OnLoginEvent({
     required this.email,
     required this.password,

@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 
 class ReviewState extends Equatable {
-
   const ReviewState({this.isChangeIcon = false});
   @override
   List<Object?> get props => [isChangeIcon];

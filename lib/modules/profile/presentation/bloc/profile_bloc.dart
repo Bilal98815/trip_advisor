@@ -9,7 +9,6 @@ import 'package:trip_advisor/modules/profile/presentation/bloc/profile_event.dar
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_state.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
-
   ProfileBloc({required this.profileRepository}) : super(const ProfileState()) {
     on<GetUserEvent>((event, emit) async {
       await getUserDetails(emit);

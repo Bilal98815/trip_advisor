@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class ActionButton extends StatelessWidget {
-
-  const ActionButton(
-      {required this.size, required this.text, required this.onTap, super.key,});
+  const ActionButton({
+    required this.size,
+    required this.text,
+    required this.onTap,
+    super.key,
+  });
   final BoxConstraints size;
   final String text;
   final Function onTap;
@@ -25,10 +28,11 @@ class ActionButton extends StatelessWidget {
         ),
         child: Center(
           child: CommonText(
-              text: text,
-              color: Colors.white,
-              fontsize: 17,
-              fontWeight: FontWeight.w700,),
+            text: text,
+            color: Colors.white,
+            fontsize: 17,
+            fontWeight: FontWeight.w700,
+          ),
         ),
       ),
     );

@@ -5,7 +5,6 @@ import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc_
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_event.dart';
 
 class UserDataBloc extends Bloc<UserDataEvent, UserDataBlocState> {
-
   UserDataBloc({required this.userDataRepository})
       : super(const UserDataBlocState()) {
     on<UpdateNameEvent>((event, emit) async {

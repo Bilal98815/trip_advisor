@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class ProfileSettingsTile extends StatelessWidget {
-
-  const ProfileSettingsTile(
-      {required this.image,
-      required this.onTap,
-      required this.title,
-      required this.size,
-      super.key,});
+  const ProfileSettingsTile({
+    required this.image,
+    required this.onTap,
+    required this.title,
+    required this.size,
+    super.key,
+  });
   final String image;
   final String title;
   final BoxConstraints size;
@@ -32,10 +32,11 @@ class ProfileSettingsTile extends StatelessWidget {
                 width: size.maxWidth * 0.06,
               ),
               CommonText(
-                  text: title,
-                  color: Colors.white,
-                  fontsize: 15,
-                  fontWeight: FontWeight.w500,),
+                text: title,
+                color: Colors.white,
+                fontsize: 15,
+                fontWeight: FontWeight.w500,
+              ),
               const Spacer(),
               const Icon(
                 Icons.arrow_forward_ios,
