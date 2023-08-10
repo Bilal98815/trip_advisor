@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
-import 'package:trip_advisor/common/widgets/authentication_button.dart';
+import 'package:trip_advisor/common/widgets/primary_button.dart';
 import 'package:trip_advisor/modules/location_data/presentation/bloc/location_data_bloc.dart';
 import 'package:trip_advisor/modules/location_data/presentation/bloc/location_data_event.dart';
 import 'package:trip_advisor/modules/user_data/presentation/view/user_data_view.dart';
@@ -68,7 +68,8 @@ class LocationDataView extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
-                child: AuthenticationButton(
+                child: PrimaryButton(
+                    ignoring: false,
                     onTap: () async {
                       await getLocation(context);
 

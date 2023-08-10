@@ -8,8 +8,8 @@ import 'package:trip_advisor/modules/signup/presentation/bloc/signup_event.dart'
 import 'package:trip_advisor/modules/signup/presentation/widgets/password_rules_widget.dart';
 
 import '../../../../common/helpers/enums/enums.dart';
-import '../../../../common/widgets/authentication_button.dart';
 import '../../../../common/widgets/common_text_widget.dart';
+import '../../../../common/widgets/primary_button.dart';
 import '../../../location_data/presentation/view/location_data_view.dart';
 import '../bloc/signup_bloc_state.dart';
 
@@ -216,7 +216,8 @@ class SignUpView extends StatelessWidget {
                           }
                         },
                         builder: (context, state) {
-                          return AuthenticationButton(
+                          return PrimaryButton(
+                            ignoring: false,
                             height: constraints.maxHeight * 0.075,
                             onTap: () {
                               if (!formKey.currentState!.validate()) {
@@ -246,7 +247,8 @@ class SignUpView extends StatelessWidget {
                       SizedBox(
                         height: constraints.maxHeight * 0.03,
                       ),
-                      AuthenticationButton(
+                      PrimaryButton(
+                          ignoring: false,
                           height: constraints.maxHeight * 0.075,
                           onTap: () => context.go(LoginView.route()),
                           color: Colors.black12,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
+import 'package:trip_advisor/common/widgets/primary_button.dart';
 import 'package:trip_advisor/modules/account/presentation/bloc/account_bloc.dart';
 import 'package:trip_advisor/modules/account/presentation/bloc/account_event.dart';
 import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
@@ -174,7 +174,8 @@ class LoginView extends StatelessWidget {
                           }
                         },
                         builder: (context, state) {
-                          return AuthenticationButton(
+                          return PrimaryButton(
+                            ignoring: false,
                             height: constraints.maxHeight * 0.075,
                             onTap: () {
                               if (!formKey.currentState!.validate()) {
@@ -207,7 +208,8 @@ class LoginView extends StatelessWidget {
                       SizedBox(
                         height: constraints.maxHeight * 0.03,
                       ),
-                      AuthenticationButton(
+                      PrimaryButton(
+                          ignoring: false,
                           height: constraints.maxHeight * 0.075,
                           onTap: () => context.go(SignUpView.route()),
                           color: Colors.black12,

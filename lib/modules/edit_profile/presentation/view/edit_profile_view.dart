@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
-import 'package:trip_advisor/common/widgets/authentication_button.dart';
+import 'package:trip_advisor/common/widgets/primary_button.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_bloc.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_event.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_state.dart';
@@ -311,23 +311,20 @@ class EditProfileView extends StatelessWidget {
                       );
                     }
                   }, builder: (context, state) {
-                    return AuthenticationButton(
+                    return PrimaryButton(
+                        ignoring: state.apiState == ApiState.loading,
                         onTap: () {
-                          if (state.apiState == ApiState.loading) {
-                            null;
-                          } else {
-                            context.read<EditProfileBloc>().add(UpdateUserEvent(
-                                bio: aboutController.text.isEmpty
-                                    ? null
-                                    : aboutController.text,
-                                name: nameController.text.isEmpty
-                                    ? null
-                                    : nameController.text,
-                                website: websiteController.text.isEmpty
-                                    ? null
-                                    : websiteController.text,
-                                file: img));
-                          }
+                          context.read<EditProfileBloc>().add(UpdateUserEvent(
+                              bio: aboutController.text.isEmpty
+                                  ? null
+                                  : aboutController.text,
+                              name: nameController.text.isEmpty
+                                  ? null
+                                  : nameController.text,
+                              website: websiteController.text.isEmpty
+                                  ? null
+                                  : websiteController.text,
+                              file: img));
                         },
                         color: Colors.white,
                         height: size.maxHeight * 0.08,
