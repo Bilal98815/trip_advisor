@@ -86,7 +86,7 @@ class LocationDataView extends StatelessWidget {
                         if (context.mounted) {
                           context.goNamed(
                             UserDataView.routeName,
-                            pathParameters: {
+                            extra: {
                               'email': email,
                               'password': password,
                             },
@@ -113,7 +113,7 @@ class LocationDataView extends StatelessWidget {
                     child: InkWell(
                       onTap: () => context.goNamed(
                         UserDataView.routeName,
-                        pathParameters: {'email': email, 'password': password},
+                        extra: {'email': email, 'password': password},
                       ),
                       child: const Text(
                         'Not now',

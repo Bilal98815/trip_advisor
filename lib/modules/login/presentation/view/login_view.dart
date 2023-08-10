@@ -11,7 +11,7 @@ import 'package:trip_advisor/modules/forgot_password/presentation/view/forgot_pa
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc_state.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_event.dart';
-import 'package:trip_advisor/modules/signup/presentation/view/signup_view.dart';
+import 'package:trip_advisor/modules/signup/presentation/view/view.dart';
 
 class LoginView extends StatelessWidget {
   LoginView({super.key});
@@ -229,7 +229,7 @@ class LoginView extends StatelessWidget {
                         PrimaryButton(
                           ignoring: false,
                           height: constraints.maxHeight * 0.075,
-                          onTap: () => context.go(SignUpView.route()),
+                          onTap: () => context.go(SignUpPage.route()),
                           color: Colors.black12,
                           size: constraints,
                           child: const Center(

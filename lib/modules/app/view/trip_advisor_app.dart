@@ -14,13 +14,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
         BlocProvider(
-          create: (context) => SignupBloc(
-            signUpRepository: SignUpRepositoryImp(
-              signupAuthService: SignupAuthService(),
-            ),
-          ),
-        ),
-        BlocProvider(
           create: (context) => UserDataBloc(
             userDataRepository: UserDataRepositoryImp(
               userDataAuth: UserDataAuth(),

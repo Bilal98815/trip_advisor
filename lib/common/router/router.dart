@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_classes_with_only_static_members
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
@@ -13,7 +15,7 @@ import 'package:trip_advisor/modules/plan_trip/presentation/view/plan_trip_view.
 import 'package:trip_advisor/modules/profile/presentation/view/profile_view.dart';
 import 'package:trip_advisor/modules/review/presentation/view/review_view.dart';
 import 'package:trip_advisor/modules/search/presentation/search_view.dart';
-import 'package:trip_advisor/modules/signup/presentation/view/signup_view.dart';
+import 'package:trip_advisor/modules/signup/presentation/view/view.dart';
 import 'package:trip_advisor/modules/splash/presentation/view/splash_view.dart';
 import 'package:trip_advisor/modules/support/presentation/view/support_view.dart';
 import 'package:trip_advisor/modules/user_data/presentation/view/user_data_view.dart';
@@ -54,18 +56,18 @@ class AppRouter {
             ],
           ),
           GoRoute(
-            path: SignUpView.routeName,
-            builder: (context, state) => SignUpView(),
+            path: SignUpPage.routeName,
+            builder: (context, state) => const SignUpPage(),
             routes: [
               GoRoute(
                 path: LocationDataView.routeName,
                 name: LocationDataView.routeName,
                 builder: (context, state) {
-                  final params = state.extra as Map<String, String>;
+                  final params = state.extra! as Map<String, String>;
 
                   return LocationDataView(
-                    email: params['email'] as String,
-                    password: params['password'] as String,
+                    email: params['email']!,
+                    password: params['password']!,
                   );
                 },
                 routes: [
@@ -73,10 +75,10 @@ class AppRouter {
                     path: UserDataView.routeName,
                     name: UserDataView.routeName,
                     builder: (context, state) {
-                      final params = state.extra as Map<String, String>;
+                      final params = state.extra! as Map<String, String>;
                       return UserDataView(
-                        email: params['email'] as String,
-                        password: params['password'] as String,
+                        email: params['email']!,
+                        password: params['password']!,
                       );
                     },
                   ),
