@@ -34,7 +34,9 @@ class AppRouter {
         },
         redirect: (context, state) async {
           final bool userAuthenticated = await isUserAuthenticated(context);
-          return userAuthenticated ? '/explore' : OnboardingView.route();
+          return userAuthenticated
+              ? ExploreView.route()
+              : OnboardingView.route();
         },
       ),
       GoRoute(

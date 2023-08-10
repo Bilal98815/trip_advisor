@@ -5,6 +5,7 @@ import 'package:trip_advisor/common/widgets/authentication_button.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/modules/account/presentation/bloc/account_bloc.dart';
 import 'package:trip_advisor/modules/account/presentation/bloc/account_event.dart';
+import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/view/forgot_password_view.dart';
 import 'package:trip_advisor/modules/signup/presentation/view/signup_view.dart';
 
@@ -167,7 +168,9 @@ class LoginView extends StatelessWidget {
                           } else if (state.authApiState == ApiState.done) {
                             context.read<LoginBloc>().setEmailInPreferences(
                                 emailController.text.trim());
-                            if (context.mounted) context.go('/explore');
+                            if (context.mounted) {
+                              context.go(ExploreView.route());
+                            }
                           }
                         },
                         builder: (context, state) {

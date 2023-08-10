@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_event.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc.dart';
@@ -202,7 +203,7 @@ class UserDataView extends StatelessWidget {
                                         email: email,
                                         password: password,
                                       ));
-                                  context.go('/explore');
+                                  context.go(ExploreView.route());
                                 }
                               },
                               height: size.maxHeight * 0.064,
