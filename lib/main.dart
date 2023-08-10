@@ -5,7 +5,6 @@ import 'package:trip_advisor/common/router/router.dart';
 import 'package:trip_advisor/modules/account/data/account_auth.dart';
 import 'package:trip_advisor/modules/account/domain/repository/account_repository_imp.dart';
 import 'package:trip_advisor/modules/account/presentation/bloc/account_bloc.dart';
-import 'package:trip_advisor/modules/bottom_bar/presentation/bloc/bottom_bar_bloc.dart';
 import 'package:trip_advisor/modules/edit_profile/data/edit_profile_auth.dart';
 import 'package:trip_advisor/modules/edit_profile/domain/repository/edit_profile_repository_imp.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_bloc.dart';
@@ -77,9 +76,6 @@ class MyApp extends StatelessWidget {
               locationDataAuth: LocationDataAuth(),
             ),
           ),
-        ),
-        BlocProvider(
-          create: (context) => BottomBarBloc(),
         ),
         BlocProvider(
           create: (context) => PlanTripBloc(),
