@@ -14,13 +14,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
         BlocProvider(
-          create: (context) => ForgotPasswordBloc(
-            forgotPasswordRepository: ForgotPasswordRepositoryImp(
-              forgotPasswordAuth: ForgotPasswordAuth(),
-            ),
-          ),
-        ),
-        BlocProvider(
           create: (context) => PlanTripBloc(),
         ),
         BlocProvider(

@@ -7,7 +7,7 @@ import 'package:trip_advisor/common/widgets/primary_button.dart';
 import 'package:trip_advisor/modules/account/presentation/bloc/account_bloc.dart';
 import 'package:trip_advisor/modules/account/presentation/bloc/account_event.dart';
 import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
-import 'package:trip_advisor/modules/forgot_password/presentation/view/forgot_password_view.dart';
+import 'package:trip_advisor/modules/forgot_password/presentation/view/view.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc_state.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_event.dart';
@@ -153,7 +153,7 @@ class LoginView extends StatelessWidget {
                           height: constraints.maxHeight * 0.03,
                         ),
                         InkWell(
-                          onTap: () => context.go(ForgotPasswordView.route()),
+                          onTap: () => context.go(ForgotPasswordPage.route()),
                           child: CommonText(
                             text: 'Forgot password?',
                             color: Colors.purple.shade200,
