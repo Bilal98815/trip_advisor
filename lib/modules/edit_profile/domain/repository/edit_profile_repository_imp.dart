@@ -1,8 +1,4 @@
-import 'dart:typed_data';
-
-import 'package:trip_advisor/modules/edit_profile/data/edit_profile_auth.dart';
-
-import 'package:trip_advisor/modules/edit_profile/domain/repository/edit_profile_repository.dart';
+part of 'repository.dart';
 
 class EditProfileRepositoryImp implements EditProfileRepository {
   EditProfileRepositoryImp({required this.editProfileAuth});

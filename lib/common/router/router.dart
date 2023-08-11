@@ -6,7 +6,7 @@ import 'package:trip_advisor/common/helpers/shared_preferences/shared_preference
 import 'package:trip_advisor/modules/account/account.dart';
 import 'package:trip_advisor/modules/bottom_bar/bottom_bar.dart';
 
-import 'package:trip_advisor/modules/edit_profile/presentation/view/view.dart';
+import 'package:trip_advisor/modules/edit_profile/edit_profile.dart';
 import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/view/view.dart';
 import 'package:trip_advisor/modules/location_data/presentation/view/view.dart';

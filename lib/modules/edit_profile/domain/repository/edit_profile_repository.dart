@@ -1,4 +1,4 @@
-import 'dart:typed_data';
+part of 'repository.dart';
 
 abstract class EditProfileRepository {
   Future updateUser({
