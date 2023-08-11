@@ -3,6 +3,9 @@ part of 'view.dart';
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
 
+  static const routeName = 'profile';
+  static String route() => '/account/profile';
+
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
@@ -18,10 +21,7 @@ class ProfileView extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 20),
                 child: InkWell(
                   onTap: () {
-                    context.go(
-                      EditProfilePage.route(),
-                      extra: BlocProvider.of<ProfileBloc>(context),
-                    );
+                    context.go(EditProfilePage.route());
                   },
                   child: const Icon(Icons.create, color: Colors.white),
                 ),
@@ -137,10 +137,7 @@ class ProfileView extends StatelessWidget {
                             text: state.user?.country == ''
                                 ? 'No city selected.'
                                 : state.user?.country ?? '',
-                            onTap: () => context.go(
-                              EditProfilePage.route(),
-                              extra: BlocProvider.of<ProfileBloc>(context),
-                            ),
+                            onTap: () => context.go(EditProfilePage.route()),
                             image: 'assets/placeholder.png',
                           ),
                           SizedBox(
@@ -151,10 +148,7 @@ class ProfileView extends StatelessWidget {
                             text: state.user?.website == ''
                                 ? 'No website added.'
                                 : state.user?.website ?? '',
-                            onTap: () => context.go(
-                              EditProfilePage.route(),
-                              extra: BlocProvider.of<ProfileBloc>(context),
-                            ),
+                            onTap: () => context.go(EditProfilePage.route()),
                             image: 'assets/link.png',
                           ),
                           SizedBox(

@@ -5,8 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/view/view.dart';
-import 'package:trip_advisor/modules/profile/data/profile_auth.dart';
-import 'package:trip_advisor/modules/profile/domain/repository/profile_repository_imp.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_bloc.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_event.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_state.dart';
@@ -15,5 +13,4 @@ import 'package:trip_advisor/modules/profile/presentation/widgets/more_options_t
 import 'package:trip_advisor/modules/profile/presentation/widgets/perosnal_details_tile.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-part 'profile_page.dart';
 part 'profile_view.dart';

@@ -78,7 +78,7 @@ class AccountView extends StatelessWidget {
                         ),
                         ProfileSettingsTile(
                           image: 'assets/user.png',
-                          onTap: () => context.go(ProfilePage.route()),
+                          onTap: () => context.go(ProfileView.route()),
                           title: 'Profile',
                           size: size,
                         ),
