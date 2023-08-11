@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+part of 'data.dart';
 
 class AccountAuth {
   Future signOut() async {

@@ -1,6 +1,4 @@
-import 'package:equatable/equatable.dart';
-
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
+part of 'account_bloc.dart';
 
 class AccountState extends Equatable {
   const AccountState({this.signOutCondition = SignOutCondition.signIn});

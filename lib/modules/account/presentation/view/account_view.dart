@@ -1,18 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:go_router/go_router.dart';
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
-import 'package:trip_advisor/common/widgets/common_text_widget.dart';
-import 'package:trip_advisor/common/widgets/primary_button.dart';
-import 'package:trip_advisor/modules/account/presentation/bloc/account_bloc.dart';
-import 'package:trip_advisor/modules/account/presentation/bloc/account_state.dart';
-import 'package:trip_advisor/modules/account/presentation/widgets/profile_settings_tile.dart';
-import 'package:trip_advisor/modules/account/presentation/widgets/sign_in_box.dart';
-import 'package:trip_advisor/modules/account/presentation/widgets/signout_dialoge_box.dart';
-import 'package:trip_advisor/modules/profile/presentation/view/view.dart';
-import 'package:trip_advisor/modules/support/presentation/view/support_view.dart';
-import 'package:url_launcher/url_launcher.dart';
+part of 'view.dart';
 
 class AccountView extends StatelessWidget {
   const AccountView({super.key});
