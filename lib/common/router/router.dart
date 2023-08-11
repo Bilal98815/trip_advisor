@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
 import 'package:trip_advisor/modules/account/presentation/view/account_view.dart';
-import 'package:trip_advisor/modules/bottom_bar/presentation/view/view.dart';
+import 'package:trip_advisor/modules/bottom_bar/bottom_bar.dart';
+
 import 'package:trip_advisor/modules/edit_profile/presentation/view/view.dart';
 import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/view/view.dart';
