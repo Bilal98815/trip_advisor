@@ -1,23 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:go_router/go_router.dart';
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
-import 'package:trip_advisor/common/widgets/common_text_widget.dart';
-import 'package:trip_advisor/modules/edit_profile/presentation/view/view.dart';
-import 'package:trip_advisor/modules/profile/presentation/bloc/profile_bloc.dart';
-import 'package:trip_advisor/modules/profile/presentation/bloc/profile_event.dart';
-import 'package:trip_advisor/modules/profile/presentation/bloc/profile_state.dart';
-import 'package:trip_advisor/modules/profile/presentation/widgets/action_form.dart';
-import 'package:trip_advisor/modules/profile/presentation/widgets/more_options_tile.dart';
-import 'package:trip_advisor/modules/profile/presentation/widgets/perosnal_details_tile.dart';
-import 'package:url_launcher/url_launcher.dart';
+part of 'view.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
-
-  static const routeName = 'profile';
-  static String route() => '/account/profile';
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +18,10 @@ class ProfileView extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 20),
                 child: InkWell(
                   onTap: () {
-                    context.go(EditProfilePage.route());
+                    context.go(
+                      EditProfilePage.route(),
+                      extra: BlocProvider.of<ProfileBloc>(context),
+                    );
                   },
                   child: const Icon(Icons.create, color: Colors.white),
                 ),
@@ -150,7 +137,10 @@ class ProfileView extends StatelessWidget {
                             text: state.user?.country == ''
                                 ? 'No city selected.'
                                 : state.user?.country ?? '',
-                            onTap: () => context.go(EditProfilePage.route()),
+                            onTap: () => context.go(
+                              EditProfilePage.route(),
+                              extra: BlocProvider.of<ProfileBloc>(context),
+                            ),
                             image: 'assets/placeholder.png',
                           ),
                           SizedBox(
@@ -161,7 +151,10 @@ class ProfileView extends StatelessWidget {
                             text: state.user?.website == ''
                                 ? 'No website added.'
                                 : state.user?.website ?? '',
-                            onTap: () => context.go(EditProfilePage.route()),
+                            onTap: () => context.go(
+                              EditProfilePage.route(),
+                              extra: BlocProvider.of<ProfileBloc>(context),
+                            ),
                             image: 'assets/link.png',
                           ),
                           SizedBox(

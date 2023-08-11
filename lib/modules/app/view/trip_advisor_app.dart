@@ -20,13 +20,6 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        BlocProvider(
-          create: (context) => ProfileBloc(
-            profileRepository: ProfileRepositoryImp(
-              profileAuth: ProfileAuth(),
-            ),
-          ),
-        ),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

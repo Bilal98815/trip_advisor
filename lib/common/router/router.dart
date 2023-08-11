@@ -12,7 +12,8 @@ import 'package:trip_advisor/modules/location_data/presentation/view/view.dart';
 import 'package:trip_advisor/modules/login/presentation/view/login_view.dart';
 import 'package:trip_advisor/modules/onboarding/presentation/view/onbaording_view.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/view/view.dart';
-import 'package:trip_advisor/modules/profile/presentation/view/profile_view.dart';
+import 'package:trip_advisor/modules/profile/presentation/bloc/profile_bloc.dart';
+import 'package:trip_advisor/modules/profile/presentation/view/view.dart';
 import 'package:trip_advisor/modules/review/presentation/view/view.dart';
 import 'package:trip_advisor/modules/search/presentation/search_view.dart';
 import 'package:trip_advisor/modules/signup/presentation/view/view.dart';
@@ -115,12 +116,14 @@ class AppRouter {
             builder: (context, state) => const AccountView(),
             routes: [
               GoRoute(
-                path: ProfileView.routeName,
-                builder: (context, state) => const ProfileView(),
+                path: ProfilePage.routeName,
+                builder: (context, state) => const ProfilePage(),
                 routes: [
                   GoRoute(
                     path: EditProfilePage.routeName,
-                    builder: (context, state) => const EditProfilePage(),
+                    builder: (context, state) => EditProfilePage(
+                      profileBloc: state.extra! as ProfileBloc,
+                    ),
                   )
                 ],
               ),
