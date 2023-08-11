@@ -5,7 +5,7 @@ import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/common/widgets/primary_button.dart';
 import 'package:trip_advisor/modules/account/account.dart';
-import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
+import 'package:trip_advisor/modules/explore/explore.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/view/view.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc_state.dart';
