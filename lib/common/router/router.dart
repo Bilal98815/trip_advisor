@@ -11,7 +11,7 @@ import 'package:trip_advisor/modules/forgot_password/presentation/view/view.dart
 import 'package:trip_advisor/modules/location_data/presentation/view/view.dart';
 import 'package:trip_advisor/modules/login/presentation/view/login_view.dart';
 import 'package:trip_advisor/modules/onboarding/presentation/view/onbaording_view.dart';
-import 'package:trip_advisor/modules/plan_trip/presentation/view/plan_trip_view.dart';
+import 'package:trip_advisor/modules/plan_trip/presentation/view/view.dart';
 import 'package:trip_advisor/modules/profile/presentation/view/profile_view.dart';
 import 'package:trip_advisor/modules/review/presentation/view/review_view.dart';
 import 'package:trip_advisor/modules/search/presentation/search_view.dart';
@@ -103,8 +103,8 @@ class AppRouter {
             builder: (context, state) => const SearchView(),
           ),
           GoRoute(
-            path: PlanTripView.routeName,
-            builder: (context, state) => const PlanTripView(),
+            path: PlanTripPage.routeName,
+            builder: (context, state) => const PlanTripPage(),
           ),
           GoRoute(
             path: ReviewView.routeName,

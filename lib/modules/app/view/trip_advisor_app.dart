@@ -14,9 +14,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
         BlocProvider(
-          create: (context) => PlanTripBloc(),
-        ),
-        BlocProvider(
           create: (context) => ReviewBloc(),
         ),
         BlocProvider(

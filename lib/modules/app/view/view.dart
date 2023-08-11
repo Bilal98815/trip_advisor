@@ -7,9 +7,6 @@ import 'package:trip_advisor/modules/account/presentation/bloc/account_bloc.dart
 import 'package:trip_advisor/modules/edit_profile/data/edit_profile_auth.dart';
 import 'package:trip_advisor/modules/edit_profile/domain/repository/edit_profile_repository_imp.dart';
 import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_bloc.dart';
-import 'package:trip_advisor/modules/forgot_password/data/forgot_password_auth.dart';
-import 'package:trip_advisor/modules/forgot_password/domain/repository/forgot_password_repository_imp.dart';
-import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_password_bloc.dart';
 import 'package:trip_advisor/modules/login/data/login_auth_service.dart';
 import 'package:trip_advisor/modules/login/domain/repository/login_repository_imp.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc.dart';
