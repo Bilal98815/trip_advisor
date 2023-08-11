@@ -27,12 +27,6 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        BlocProvider(
-          create: (context) => EditProfileBloc(
-            editProfileRepository:
-                EditProfileRepositoryImp(editProfileAuth: EditProfileAuth()),
-          ),
-        ),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

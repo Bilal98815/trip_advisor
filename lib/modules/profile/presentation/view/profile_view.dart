@@ -4,7 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
-import 'package:trip_advisor/modules/edit_profile/presentation/view/edit_profile_view.dart';
+import 'package:trip_advisor/modules/edit_profile/presentation/view/view.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_bloc.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_event.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_state.dart';
@@ -34,7 +34,7 @@ class ProfileView extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 20),
                 child: InkWell(
                   onTap: () {
-                    context.go(EditProfileView.route());
+                    context.go(EditProfilePage.route());
                   },
                   child: const Icon(Icons.create, color: Colors.white),
                 ),
@@ -150,7 +150,7 @@ class ProfileView extends StatelessWidget {
                             text: state.user?.country == ''
                                 ? 'No city selected.'
                                 : state.user?.country ?? '',
-                            onTap: () => context.go(EditProfileView.route()),
+                            onTap: () => context.go(EditProfilePage.route()),
                             image: 'assets/placeholder.png',
                           ),
                           SizedBox(
@@ -161,7 +161,7 @@ class ProfileView extends StatelessWidget {
                             text: state.user?.website == ''
                                 ? 'No website added.'
                                 : state.user?.website ?? '',
-                            onTap: () => context.go(EditProfileView.route()),
+                            onTap: () => context.go(EditProfilePage.route()),
                             image: 'assets/link.png',
                           ),
                           SizedBox(

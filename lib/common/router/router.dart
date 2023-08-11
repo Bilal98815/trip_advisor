@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
 import 'package:trip_advisor/modules/account/presentation/view/account_view.dart';
 import 'package:trip_advisor/modules/bottom_bar/presentation/view/bottom_bar_view.dart';
-import 'package:trip_advisor/modules/edit_profile/presentation/view/edit_profile_view.dart';
+import 'package:trip_advisor/modules/edit_profile/presentation/view/view.dart';
 import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
 import 'package:trip_advisor/modules/forgot_password/presentation/view/view.dart';
 import 'package:trip_advisor/modules/location_data/presentation/view/view.dart';
@@ -119,8 +119,8 @@ class AppRouter {
                 builder: (context, state) => const ProfileView(),
                 routes: [
                   GoRoute(
-                    path: EditProfileView.routeName,
-                    builder: (context, state) => EditProfileView(),
+                    path: EditProfilePage.routeName,
+                    builder: (context, state) => const EditProfilePage(),
                   )
                 ],
               ),
