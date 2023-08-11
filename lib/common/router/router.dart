@@ -13,7 +13,7 @@ import 'package:trip_advisor/modules/login/presentation/view/login_view.dart';
 import 'package:trip_advisor/modules/onboarding/presentation/view/onbaording_view.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/view/view.dart';
 import 'package:trip_advisor/modules/profile/presentation/view/profile_view.dart';
-import 'package:trip_advisor/modules/review/presentation/view/review_view.dart';
+import 'package:trip_advisor/modules/review/presentation/view/view.dart';
 import 'package:trip_advisor/modules/search/presentation/search_view.dart';
 import 'package:trip_advisor/modules/signup/presentation/view/view.dart';
 import 'package:trip_advisor/modules/splash/presentation/view/splash_view.dart';
@@ -107,8 +107,8 @@ class AppRouter {
             builder: (context, state) => const PlanTripPage(),
           ),
           GoRoute(
-            path: ReviewView.routeName,
-            builder: (context, state) => const ReviewView(),
+            path: ReviewPage.routeName,
+            builder: (context, state) => const ReviewPage(),
           ),
           GoRoute(
             path: AccountView.routeName,

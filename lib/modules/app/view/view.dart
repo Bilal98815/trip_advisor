@@ -10,10 +10,8 @@ import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile
 import 'package:trip_advisor/modules/login/data/login_auth_service.dart';
 import 'package:trip_advisor/modules/login/domain/repository/login_repository_imp.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc.dart';
-import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_bloc.dart';
 import 'package:trip_advisor/modules/profile/data/profile_auth.dart';
 import 'package:trip_advisor/modules/profile/domain/repository/profile_repository_imp.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_bloc.dart';
-import 'package:trip_advisor/modules/review/presentation/bloc/review_bloc.dart';
 
 part 'trip_advisor_app.dart';

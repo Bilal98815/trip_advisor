@@ -14,9 +14,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
         BlocProvider(
-          create: (context) => ReviewBloc(),
-        ),
-        BlocProvider(
           create: (context) => AccountBloc(
             accountRepository: AccountRepositoryImp(
               accountAuth: AccountAuth(),
