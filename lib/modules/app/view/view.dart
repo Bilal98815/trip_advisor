@@ -9,3 +9,4 @@ import 'package:trip_advisor/modules/login/domain/repository/login_repository_im
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc.dart';
 
 part 'trip_advisor_app.dart';
+part 'trip_advisor_app_view.dart';

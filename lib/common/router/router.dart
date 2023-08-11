@@ -89,7 +89,7 @@ class AppRouter {
       ),
       ShellRoute(
         navigatorKey: _shellNavigatorKey,
-        builder: (context, state, child) => BottomBarView(
+        builder: (context, state, child) => BottomBarPage(
           currentRoute: state.matchedLocation,
           child: child,
         ),
