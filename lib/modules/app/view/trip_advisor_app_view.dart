@@ -13,7 +13,7 @@ class TripAdvisorAppView extends StatelessWidget {
       supportedLocales: localizationPackage.supportedLocales,
       locale: localizationPackage.locale(context),
       routerConfig: AppRouter().router,
-      title: localizationPackage.translation('name'),
+      title: 'Trip Advisor',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
