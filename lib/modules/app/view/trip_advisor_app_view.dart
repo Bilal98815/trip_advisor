@@ -6,6 +6,9 @@ class TripAdvisorAppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      localizationsDelegates: const [],
+      supportedLocales: const [Locale('en', 'US'), Locale('en', 'GB')],
+      locale: const Locale('en', 'US'),
       routerConfig: AppRouter().router,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
