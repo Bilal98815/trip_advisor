@@ -1,3 +1,5 @@
 {
-  "name": "Bill!"
+  "name": "Bill!",
+  "title_text": "{title}",
+  "button_title": "{title}"
 }

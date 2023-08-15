@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/easy_localization.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class MissingPlaceButton extends StatelessWidget {
@@ -32,8 +33,12 @@ class MissingPlaceButton extends StatelessWidget {
             SizedBox(
               width: size.maxWidth * 0.03,
             ),
-            const CommonText(
-              text: 'Add a missing place',
+            CommonText(
+              text: Localization().argumentTextTranslation(
+                'button_title',
+                'title',
+                'Add a missing place',
+              ),
               color: Colors.white,
               fontsize: 18,
               fontWeight: FontWeight.w500,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localization/easy_localization.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/common/widgets/primary_button.dart';
@@ -18,6 +19,7 @@ class AccountView extends StatelessWidget {
   const AccountView({super.key});
 
   static const routeName = '/account';
+
   static String route() => '/account';
 
   @override
@@ -43,8 +45,12 @@ class AccountView extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const CommonText(
-                              text: 'Account',
+                            CommonText(
+                              text: Localization().argumentTextTranslation(
+                                'title_text',
+                                'title',
+                                'Account',
+                              ),
                               color: Colors.white,
                               fontsize: 32,
                               fontWeight: FontWeight.w900,
@@ -138,9 +144,13 @@ class AccountView extends StatelessWidget {
                           color: Colors.black12,
                           height: size.maxHeight * 0.075,
                           size: size,
-                          child: const Center(
+                          child: Center(
                             child: CommonText(
-                              text: 'Sign out',
+                              text: Localization().argumentTextTranslation(
+                                'button_title',
+                                'title',
+                                'Sign out',
+                              ),
                               color: Colors.white,
                               fontsize: 16,
                               fontWeight: FontWeight.w500,

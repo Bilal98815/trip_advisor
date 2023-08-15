@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/easy_localization.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class ImageContainer extends StatelessWidget {
@@ -73,9 +74,13 @@ class ImageContainer extends StatelessWidget {
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(35)),
                       ),
-                      child: const Center(
+                      child: Center(
                         child: CommonText(
-                          text: 'What to know',
+                          text: Localization().argumentTextTranslation(
+                            'button_title',
+                            'title',
+                            'What to know',
+                          ),
                           color: Colors.black,
                           fontsize: 18,
                           fontWeight: FontWeight.w500,

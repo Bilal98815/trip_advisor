@@ -26,8 +26,12 @@ class PlanTripView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.07,
                       ),
-                      child: const CommonText(
-                        text: 'Plan',
+                      child: CommonText(
+                        text: Localization().argumentTextTranslation(
+                          'title_text',
+                          'title',
+                          'Plan',
+                        ),
                         color: Colors.white,
                         fontsize: 32,
                         fontWeight: FontWeight.w900,
@@ -40,14 +44,18 @@ class PlanTripView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.03,
                       ),
-                      child: const TabBar(
+                      child: TabBar(
                         indicatorColor: Colors.white,
                         dividerColor: Colors.transparent,
                         isScrollable: true,
                         tabs: [
                           Tab(
                             child: CommonText(
-                              text: 'Trips',
+                              text: Localization().argumentTextTranslation(
+                                'title_text',
+                                'title',
+                                'Trips',
+                              ),
                               color: Colors.white,
                               fontsize: 16,
                               fontWeight: FontWeight.w600,
@@ -55,7 +63,11 @@ class PlanTripView extends StatelessWidget {
                           ),
                           Tab(
                             child: CommonText(
-                              text: 'Saves',
+                              text: Localization().argumentTextTranslation(
+                                'title_text',
+                                'title',
+                                'Saves',
+                              ),
                               color: Colors.white,
                               fontsize: 16,
                               fontWeight: FontWeight.w600,

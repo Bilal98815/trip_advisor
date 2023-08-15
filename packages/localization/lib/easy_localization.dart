@@ -12,12 +12,17 @@ class Localization {
 
   Locale locale(BuildContext context) {
     debugPrint('In locale');
+    debugPrint('Locale: -------->>>> ${context.locale}');
     return context.locale;
   }
 
   String translation(String key) {
-    debugPrint('In translation method');
     return key.tr();
+  }
+
+  String argumentTextTranslation(
+      String key, String namedArgument, String argumentText) {
+    return key.tr(namedArgs: {namedArgument: argumentText});
   }
 
   void initializeLocalization({required Widget app}) async {
@@ -26,7 +31,7 @@ class Localization {
       EasyLocalization(
         child: app,
         supportedLocales: [Locale('en', 'US'), Locale('en', 'GB')],
-        path: 'assets/translations',
+        path: 'packages/localization/assets/translations',
         fallbackLocale: Locale('en', 'US'),
       ),
     );

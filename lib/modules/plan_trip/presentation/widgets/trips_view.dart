@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:localization/easy_localization.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_bloc.dart';
 import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_event.dart';
@@ -108,7 +109,11 @@ class TripsView extends StatelessWidget {
                     controller.text == '' ? Colors.grey.shade700 : Colors.white,
                 child: Center(
                   child: CommonText(
-                    text: 'Create a Trip',
+                    text: Localization().argumentTextTranslation(
+                      'button_title',
+                      'title',
+                      'Create a Trip',
+                    ),
                     color: controller.text == ''
                         ? Colors.grey.shade600
                         : Colors.black,

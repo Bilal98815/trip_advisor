@@ -38,8 +38,12 @@ class ReviewView extends StatelessWidget {
                       'assets/gallery.png',
                       width: size.maxWidth * 0.045,
                     ),
-                    labelWidget: const CommonText(
-                      text: 'Upload a photo',
+                    labelWidget: CommonText(
+                      text: Localization().argumentTextTranslation(
+                        'title_text',
+                        'title',
+                        'Upload a photo',
+                      ),
                       color: Colors.white,
                       fontsize: 18,
                       fontWeight: FontWeight.w500,
@@ -56,8 +60,12 @@ class ReviewView extends StatelessWidget {
                       'assets/pen.png',
                       width: size.maxWidth * 0.045,
                     ),
-                    labelWidget: const CommonText(
-                      text: 'Write a review',
+                    labelWidget: CommonText(
+                      text: Localization().argumentTextTranslation(
+                        'title_text',
+                        'title',
+                        'Write a review',
+                      ),
                       color: Colors.white,
                       fontsize: 18,
                       fontWeight: FontWeight.w500,
@@ -75,8 +83,12 @@ class ReviewView extends StatelessWidget {
                       'assets/pin_black.png',
                       width: size.maxWidth * 0.045,
                     ),
-                    labelWidget: const CommonText(
-                      text: 'Add a place',
+                    labelWidget: CommonText(
+                      text: Localization().argumentTextTranslation(
+                        'title_text',
+                        'title',
+                        'Add a place',
+                      ),
                       color: Colors.white,
                       fontsize: 18,
                       fontWeight: FontWeight.w500,
@@ -107,8 +119,12 @@ class ReviewView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.08,
                       ),
-                      child: const CommonText(
-                        text: 'Review',
+                      child: CommonText(
+                        text: Localization().argumentTextTranslation(
+                          'title_text',
+                          'title',
+                          'Review',
+                        ),
                         color: Colors.white,
                         fontsize: 32,
                         fontWeight: FontWeight.w900,
@@ -172,7 +188,11 @@ class ReviewView extends StatelessWidget {
                         children: [
                           ActionButton(
                             size: size,
-                            text: 'Write a review',
+                            text: Localization().argumentTextTranslation(
+                              'button_title',
+                              'title',
+                              'Write a review',
+                            ),
                             onTap: () {},
                           ),
                           SizedBox(
@@ -180,7 +200,11 @@ class ReviewView extends StatelessWidget {
                           ),
                           ActionButton(
                             size: size,
-                            text: 'Upload a photo',
+                            text: Localization().argumentTextTranslation(
+                              'button_title',
+                              'title',
+                              'Upload a photo',
+                            ),
                             onTap: () {
                               _pickImageFromGallery();
                             },
