@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:trip_advisor/common/widgets/common_text_widget.dart';
+part of 'widgets.dart';
 
 class ImageContainer extends StatelessWidget {
   const ImageContainer({required this.size, required this.onTap, super.key});

@@ -5,6 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
+import 'package:trip_advisor/common/models/user_model.dart';
 import 'package:trip_advisor/modules/profile/profile.dart';
 
 part 'profile_event.dart';

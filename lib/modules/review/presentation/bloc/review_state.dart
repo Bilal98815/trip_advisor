@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+part of 'review_bloc.dart';
 
 class ReviewState extends Equatable {
   const ReviewState({this.isChangeIcon = false});
