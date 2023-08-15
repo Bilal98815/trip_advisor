@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+part of 'data.dart';
 
 class LocationDataAuth {
   Future updateLocation(String email, GeoPoint location) async {
