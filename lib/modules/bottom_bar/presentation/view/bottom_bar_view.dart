@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:trip_advisor/modules/bottom_bar/presentation/models/icon_tab.dart';
+part of 'view.dart';
 
 class BottomBarView extends StatelessWidget {
   BottomBarView({

@@ -10,7 +10,7 @@ import 'package:trip_advisor/modules/account/presentation/bloc/account_state.dar
 import 'package:trip_advisor/modules/account/presentation/widgets/profile_settings_tile.dart';
 import 'package:trip_advisor/modules/account/presentation/widgets/sign_in_box.dart';
 import 'package:trip_advisor/modules/account/presentation/widgets/signout_dialoge_box.dart';
-import 'package:trip_advisor/modules/profile/presentation/view/profile_view.dart';
+import 'package:trip_advisor/modules/profile/presentation/view/view.dart';
 import 'package:trip_advisor/modules/support/presentation/view/support_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
