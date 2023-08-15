@@ -1,18 +1,4 @@
-import 'dart:typed_data';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
-import 'package:trip_advisor/common/widgets/common_text_widget.dart';
-import 'package:trip_advisor/common/widgets/primary_button.dart';
-import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_bloc.dart';
-import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_event.dart';
-import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_state.dart';
-import 'package:trip_advisor/modules/profile/presentation/bloc/profile_bloc.dart';
-import 'package:trip_advisor/modules/profile/presentation/bloc/profile_event.dart';
-import 'package:trip_advisor/modules/profile/presentation/bloc/profile_state.dart';
+part of 'view.dart';
 
 //ignore: must_be_immutable
 class EditProfileView extends StatelessWidget {
@@ -29,9 +15,6 @@ class EditProfileView extends StatelessWidget {
     'Australia',
     'Pakistan'
   ];
-
-  static const routeName = 'edit';
-  static String route() => '/account/profile/edit';
 
   @override
   Widget build(BuildContext context) {

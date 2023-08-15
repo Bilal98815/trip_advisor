@@ -17,10 +17,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
     on<GetUserDetailsFromDb>((event, emit) async {
       await getUserDetailsFromDb(event.email);
     });
-
-    // on<GetUserFromPreferencesEvent>((event, emit) async {
-    //   return getUserFromPreferences();
-    // });
   }
   late LoginRepository loginRepository;
 
@@ -32,14 +28,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
     Emitter<LoginBlocState> emit,
   ) async {
     emit(state.copyWith(authApiState: ApiState.loading));
-    //String? token = await authService.getFCMToken();
+
     try {
       await loginRepository.signInUser(email, password);
       final String? token = await prefs.getFCMToken();
       await loginRepository.updateUser(token!, email);
-      //await authService.updateUser(token!, email, 'online');
+
       emit(state.copyWith(authApiState: ApiState.done));
-      //emailId = email;
     } on FirebaseException catch (e) {
       debugPrint('----->>> $e');
       updateError(e.code);

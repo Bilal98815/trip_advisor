@@ -1,13 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:go_router/go_router.dart';
-import 'package:trip_advisor/common/widgets/common_text_widget.dart';
-import 'package:trip_advisor/common/widgets/primary_button.dart';
-import 'package:trip_advisor/modules/location_data/presentation/bloc/location_data_bloc.dart';
-import 'package:trip_advisor/modules/location_data/presentation/bloc/location_data_event.dart';
-import 'package:trip_advisor/modules/user_data/presentation/view/user_data_view.dart';
+part of 'view.dart';
 
 class LocationDataView extends StatelessWidget {
   const LocationDataView({
@@ -17,9 +8,6 @@ class LocationDataView extends StatelessWidget {
   });
   final String email;
   final String password;
-
-  static const routeName = 'locationData';
-  static String route() => '/onboarding/signup/locationData';
 
   @override
   Widget build(BuildContext context) {
@@ -85,8 +73,8 @@ class LocationDataView extends StatelessWidget {
 
                         if (context.mounted) {
                           context.goNamed(
-                            UserDataView.routeName,
-                            pathParameters: {
+                            UserDataPage.routeName,
+                            extra: {
                               'email': email,
                               'password': password,
                             },
@@ -112,8 +100,8 @@ class LocationDataView extends StatelessWidget {
                   Center(
                     child: InkWell(
                       onTap: () => context.goNamed(
-                        UserDataView.routeName,
-                        pathParameters: {'email': email, 'password': password},
+                        UserDataPage.routeName,
+                        extra: {'email': email, 'password': password},
                       ),
                       child: const Text(
                         'Not now',

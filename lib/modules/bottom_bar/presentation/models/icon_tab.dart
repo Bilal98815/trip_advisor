@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:trip_advisor/modules/account/presentation/view/account_view.dart';
 import 'package:trip_advisor/modules/explore/presentation/view/explore_view.dart';
-import 'package:trip_advisor/modules/plan_trip/presentation/view/plan_trip_view.dart';
-import 'package:trip_advisor/modules/review/presentation/view/review_view.dart';
+import 'package:trip_advisor/modules/plan_trip/presentation/view/view.dart';
+import 'package:trip_advisor/modules/review/presentation/view/view.dart';
 import 'package:trip_advisor/modules/search/presentation/search_view.dart';
 
 enum Tabs { explore, search, plan, review, account }
@@ -26,13 +26,13 @@ extension TabsX on Tabs {
         return IconTab(
           label: 'Plan',
           icon: Icons.favorite,
-          route: PlanTripView.route(),
+          route: PlanTripPage.route(),
         );
       case Tabs.review:
         return IconTab(
           label: 'Review',
           icon: Icons.create,
-          route: ReviewView.route(),
+          route: ReviewPage.route(),
         );
       case Tabs.account:
         return IconTab(

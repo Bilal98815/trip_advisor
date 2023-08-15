@@ -1,15 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
-import 'package:trip_advisor/common/widgets/common_text_widget.dart';
-import 'package:trip_advisor/common/widgets/primary_button.dart';
-import 'package:trip_advisor/modules/location_data/presentation/view/location_data_view.dart';
-import 'package:trip_advisor/modules/login/presentation/view/login_view.dart';
-import 'package:trip_advisor/modules/signup/presentation/bloc/signup_bloc.dart';
-import 'package:trip_advisor/modules/signup/presentation/bloc/signup_bloc_state.dart';
-import 'package:trip_advisor/modules/signup/presentation/bloc/signup_event.dart';
-import 'package:trip_advisor/modules/signup/presentation/widgets/password_rules_widget.dart';
+part of 'view.dart';
 
 class SignUpView extends StatelessWidget {
   SignUpView({super.key});
@@ -17,9 +6,6 @@ class SignUpView extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   final passwordController = TextEditingController();
   final emailController = TextEditingController();
-
-  static const routeName = 'signup';
-  static String route() => '/onboarding/signup';
 
   @override
   Widget build(BuildContext context) {
@@ -224,7 +210,7 @@ class SignUpView extends StatelessWidget {
                             } else if (state.registerApiState ==
                                 ApiState.done) {
                               context.goNamed(
-                                LocationDataView.routeName,
+                                LocationDataPage.routeName,
                                 extra: {
                                   'password': passwordController.text,
                                   'email': emailController.text,

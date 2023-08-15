@@ -1,12 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:trip_advisor/common/widgets/common_text_widget.dart';
-import 'package:trip_advisor/modules/plan_trip/presentation/widgets/trips_view.dart';
+part of 'view.dart';
 
 class PlanTripView extends StatelessWidget {
   const PlanTripView({super.key});
-
-  static const routeName = '/plan';
-  static String route() => '/plan';
 
   @override
   Widget build(BuildContext context) {
