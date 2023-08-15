@@ -6,22 +6,29 @@ class Localization {
 
   List<LocalizationsDelegate<dynamic>> localizationDelegates(
       BuildContext context) {
+    debugPrint('In localization delegates');
     return context.localizationDelegates;
   }
 
   Locale locale(BuildContext context) {
+    debugPrint('In locale');
     return context.locale;
+  }
+
+  String translation(String key) {
+    debugPrint('In translation method');
+    return key.tr();
   }
 
   void initializeLocalization({required Widget app}) async {
     await EasyLocalization.ensureInitialized();
-
     runApp(
       EasyLocalization(
-          child: app,
-          supportedLocales: [Locale('en', 'US'), Locale('en', 'GB')],
-          fallbackLocale: Locale('en', 'US'),
-          path: 'assets/translations'),
+        child: app,
+        supportedLocales: [Locale('en', 'US'), Locale('en', 'GB')],
+        path: 'assets/translations',
+        fallbackLocale: Locale('en', 'US'),
+      ),
     );
   }
 }

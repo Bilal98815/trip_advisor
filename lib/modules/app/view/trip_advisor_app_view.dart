@@ -10,7 +10,7 @@ class TripAdvisorAppView extends StatelessWidget {
       supportedLocales: Localization().supportedLocales,
       locale: Localization().locale(context),
       routerConfig: AppRouter().router,
-      title: 'Flutter Demo',
+      title: Localization().translation('name'),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
