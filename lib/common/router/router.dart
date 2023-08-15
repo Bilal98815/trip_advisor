@@ -19,7 +19,7 @@ import 'package:trip_advisor/modules/search/search.dart';
 import 'package:trip_advisor/modules/signup/signup.dart';
 import 'package:trip_advisor/modules/splash/splash.dart';
 import 'package:trip_advisor/modules/support/support.dart';
-import 'package:trip_advisor/modules/user_data/presentation/view/view.dart';
+import 'package:trip_advisor/modules/user_data/user_data.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
