@@ -13,7 +13,7 @@ import 'package:trip_advisor/modules/location_data/location_data.dart';
 import 'package:trip_advisor/modules/login/login.dart';
 import 'package:trip_advisor/modules/onboarding/onboarding.dart';
 import 'package:trip_advisor/modules/plan_trip/plan_trip.dart';
-import 'package:trip_advisor/modules/profile/presentation/view/view.dart';
+import 'package:trip_advisor/modules/profile/profile.dart';
 import 'package:trip_advisor/modules/review/presentation/view/view.dart';
 import 'package:trip_advisor/modules/search/presentation/search_view.dart';
 import 'package:trip_advisor/modules/signup/presentation/view/view.dart';

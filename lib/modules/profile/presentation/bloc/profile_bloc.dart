@@ -1,12 +1,14 @@
 import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
-import 'package:trip_advisor/modules/profile/domain/repository/profile_repository.dart';
-import 'package:trip_advisor/modules/profile/presentation/bloc/profile_event.dart';
-import 'package:trip_advisor/modules/profile/presentation/bloc/profile_state.dart';
+import 'package:trip_advisor/modules/profile/profile.dart';
+
+part 'profile_event.dart';
+part 'profile_state.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc({required this.profileRepository}) : super(const ProfileState()) {

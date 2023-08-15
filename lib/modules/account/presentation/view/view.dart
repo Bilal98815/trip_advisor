@@ -8,7 +8,7 @@ import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/common/widgets/primary_button.dart';
 import 'package:trip_advisor/modules/account/account.dart';
 
-import 'package:trip_advisor/modules/profile/presentation/view/view.dart';
+import 'package:trip_advisor/modules/profile/profile.dart';
 import 'package:trip_advisor/modules/support/presentation/view/support_view.dart';
 
 import 'package:url_launcher/url_launcher.dart';

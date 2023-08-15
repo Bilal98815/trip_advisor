@@ -1,8 +1,4 @@
-import 'dart:typed_data';
-
-import 'package:equatable/equatable.dart';
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
-import 'package:trip_advisor/common/models/user_model.dart';
+part of 'profile_bloc.dart';
 
 class ProfileState extends Equatable {
   const ProfileState({this.user, this.apiState = ApiState.idle, this.images});
