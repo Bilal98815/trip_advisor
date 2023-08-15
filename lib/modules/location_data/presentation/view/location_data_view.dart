@@ -124,7 +124,7 @@ class LocationDataView extends StatelessWidget {
     );
   }
 
-  getLocation(BuildContext context) async {
+  Future<void> getLocation(BuildContext context) async {
     await Geolocator.checkPermission();
     await Geolocator.requestPermission();
     final Position position = await Geolocator.getCurrentPosition(

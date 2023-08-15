@@ -1,3 +1,3 @@
 abstract class AccountRepository {
-  Future signOut();
+  Future<void> signOut();
 }

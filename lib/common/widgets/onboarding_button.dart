@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class OnboardingButton extends StatelessWidget {
@@ -13,14 +12,12 @@ class OnboardingButton extends StatelessWidget {
   final String image;
   final String title;
   final BoxConstraints size;
-  final Function onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        onTap.call();
-      },
+      onTap: onTap,
       child: Container(
         width: double.infinity,
         padding: EdgeInsets.symmetric(

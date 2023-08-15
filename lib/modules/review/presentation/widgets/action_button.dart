@@ -10,14 +10,12 @@ class ActionButton extends StatelessWidget {
   });
   final BoxConstraints size;
   final String text;
-  final Function onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        onTap.call;
-      },
+      onTap: onTap,
       child: Container(
         width: size.maxWidth * 0.4,
         height: size.maxHeight * 0.06,

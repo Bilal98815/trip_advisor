@@ -1,5 +1,4 @@
 import 'package:trip_advisor/common/models/user_model.dart';
-
 import 'package:trip_advisor/modules/login/data/login_auth_service.dart';
 import 'package:trip_advisor/modules/login/domain/repository/login_repository.dart';
 
@@ -15,7 +14,7 @@ class LoginRepositoryImp implements LoginRepository {
   }
 
   @override
-  Future updateUser(String token, String email) {
+  Future<void> updateUser(String token, String email) {
     return loginAuthService.updateUser(token, email);
   }
 

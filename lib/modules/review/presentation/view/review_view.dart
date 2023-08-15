@@ -139,8 +139,6 @@ class ReviewView extends StatelessWidget {
                           ),
                           BlocBuilder<ProfileBloc, ProfileState>(
                             builder: (context, state) {
-                              final DateTime time =
-                                  state.user?.time?.toDate() ?? DateTime.now();
                               return Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -251,7 +249,7 @@ class ReviewView extends StatelessWidget {
     );
   }
 
-  _launchUrl(Uri url) async {
+  Future<void> _launchUrl(Uri url) async {
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
@@ -259,7 +257,7 @@ class ReviewView extends StatelessWidget {
     }
   }
 
-  _pickImageFromGallery() async {
+  Future<void> _pickImageFromGallery() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
   }
 }

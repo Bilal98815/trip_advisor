@@ -20,7 +20,11 @@ class SignupBloc extends Bloc<SignupEvent, SignupBlocState> {
   }
   late SignUpRepository signUpRepository;
 
-  Future register(String email, String password, Emitter emit) async {
+  Future<void> register(
+    String email,
+    String password,
+    Emitter<SignupBlocState> emit,
+  ) async {
     emit(state.copyWith(registerApiState: ApiState.loading));
     try {
       await signUpRepository.registerUser(email, password);
@@ -34,7 +38,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupBlocState> {
     }
   }
 
-  void updateCheckbox(Emitter emit) {
+  void updateCheckbox(Emitter<SignupBlocState> emit) {
     emit(state.copyWith(isChecked: !state.isChecked));
   }
 

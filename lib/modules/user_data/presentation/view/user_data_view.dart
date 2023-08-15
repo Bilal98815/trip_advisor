@@ -36,7 +36,8 @@ class UserDataView extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: size.maxWidth * 0.03),
+                          horizontal: size.maxWidth * 0.03,
+                        ),
                         child: Container(
                           width: size.maxWidth * 0.3,
                           height: size.maxHeight * 0.1,
@@ -58,7 +59,8 @@ class UserDataView extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: size.maxWidth * 0.08),
+                          horizontal: size.maxWidth * 0.08,
+                        ),
                         child: const CommonText(
                           text:
                               "Let's get the basics so we can give you the goods.",
@@ -74,7 +76,8 @@ class UserDataView extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: size.maxWidth * 0.08),
+                          horizontal: size.maxWidth * 0.08,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -115,7 +118,8 @@ class UserDataView extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: size.maxWidth * 0.08),
+                          horizontal: size.maxWidth * 0.08,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -146,7 +150,8 @@ class UserDataView extends StatelessWidget {
                                   BlocBuilder<UserDataBloc, UserDataBlocState>(
                                 builder: (context, state) {
                                   debugPrint(
-                                      '---->> Country: ${state.country}');
+                                    '---->> Country: ${state.country}',
+                                  );
                                   return DropdownButton(
                                     icon: const SizedBox.shrink(),
                                     underline: const SizedBox.shrink(),

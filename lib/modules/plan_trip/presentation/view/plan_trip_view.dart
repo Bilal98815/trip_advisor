@@ -24,7 +24,8 @@ class PlanTripView extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: size.maxWidth * 0.07),
+                        horizontal: size.maxWidth * 0.07,
+                      ),
                       child: const CommonText(
                         text: 'Plan',
                         color: Colors.white,
@@ -37,7 +38,8 @@ class PlanTripView extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: size.maxWidth * 0.03),
+                        horizontal: size.maxWidth * 0.03,
+                      ),
                       child: const TabBar(
                         indicatorColor: Colors.white,
                         dividerColor: Colors.transparent,

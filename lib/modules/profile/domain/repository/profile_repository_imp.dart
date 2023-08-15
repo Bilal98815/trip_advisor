@@ -14,7 +14,7 @@ class ProfileRepositoryImp implements ProfileRepository {
   }
 
   @override
-  Future uploadImagesToFireStore(List<Uint8List> images, String email) {
+  Future<void> uploadImagesToFireStore(List<Uint8List> images, String email) {
     return profileAuth.uploadImagesToFireStore(images, email);
   }
 }

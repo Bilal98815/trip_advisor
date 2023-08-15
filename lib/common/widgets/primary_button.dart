@@ -12,7 +12,7 @@ class PrimaryButton extends StatelessWidget {
   });
   final BoxConstraints size;
   final Color color;
-  final Function onTap;
+  final VoidCallback onTap;
   final double height;
   final bool ignoring;
   final Widget child;
@@ -22,9 +22,7 @@ class PrimaryButton extends StatelessWidget {
     return IgnorePointer(
       ignoring: ignoring,
       child: InkWell(
-        onTap: () {
-          onTap.call();
-        },
+        onTap: onTap,
         child: Container(
           width: double.infinity,
           height: height,

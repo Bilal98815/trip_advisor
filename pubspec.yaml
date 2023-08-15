@@ -51,6 +51,9 @@ dependencies:
   url_launcher: ^6.1.12
   cached_network_image: ^3.2.3
   go_router: ^10.0.0
+  localization:
+    path: packages/localization
+  
 
 dev_dependencies:
   flutter_test:
@@ -67,7 +70,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

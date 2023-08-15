@@ -6,7 +6,7 @@ class AccountRepositoryImp implements AccountRepository {
   late AccountAuth accountAuth;
 
   @override
-  Future signOut() {
+  Future<void> signOut() {
     return accountAuth.signOut();
   }
 }

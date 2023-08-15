@@ -9,7 +9,7 @@ class PlanTripBloc extends Bloc<PlanTripEvent, PlanTripState> {
     });
   }
 
-  void updateTripName(String name, Emitter emit) {
+  void updateTripName(String name, Emitter<PlanTripState> emit) {
     emit(state.copyWith(tripName: name));
   }
 }

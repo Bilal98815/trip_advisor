@@ -1,5 +1,6 @@
 part of 'view.dart';
 
+//ignore: must_be_immutable
 class EditProfileView extends StatelessWidget {
   EditProfileView({super.key});
 
@@ -239,7 +240,9 @@ class EditProfileView extends StatelessWidget {
                           decoration: InputDecoration(
                             hintText: 'Add a website',
                             hintStyle: const TextStyle(
-                                color: Colors.grey, fontSize: 15),
+                              color: Colors.grey,
+                              fontSize: 15,
+                            ),
                             border: OutlineInputBorder(
                               borderSide: const BorderSide(color: Colors.red),
                               borderRadius: BorderRadius.circular(8),
@@ -381,7 +384,7 @@ class EditProfileView extends StatelessWidget {
   Future<Uint8List?> pickImageFromGallery() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (image != null) {
-      return await image.readAsBytes();
+      return image.readAsBytes();
     }
     return null;
   }

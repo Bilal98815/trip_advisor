@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/modules/support/presentation/widgets/support_tile.dart';
 
@@ -87,7 +86,10 @@ class SupportView extends StatelessWidget {
                     height: size.maxHeight * 0.03,
                   ),
                   SupportTile(
-                      onTap: () {}, size: size, title: 'Privacy policy'),
+                    onTap: () {},
+                    size: size,
+                    title: 'Privacy policy',
+                  ),
                   SizedBox(
                     height: size.maxHeight * 0.03,
                   ),
