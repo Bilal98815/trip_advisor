@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:localization/easy_localization.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:localization/localization.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class ImageContainer extends StatelessWidget {
@@ -9,6 +10,8 @@ class ImageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizationPackage = RepositoryProvider.of<Localization>(context);
+
     return SizedBox(
       width: size.maxWidth,
       height: size.maxHeight * 0.7,
@@ -76,7 +79,7 @@ class ImageContainer extends StatelessWidget {
                       ),
                       child: Center(
                         child: CommonText(
-                          text: Localization().argumentTextTranslation(
+                          text: localizationPackage.argumentTextTranslation(
                             'button_title',
                             'title',
                             'What to know',

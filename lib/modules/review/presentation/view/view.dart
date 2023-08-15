@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:localization/easy_localization.dart';
+import 'package:localization/localization.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_bloc.dart';
 import 'package:trip_advisor/modules/profile/presentation/bloc/profile_event.dart';

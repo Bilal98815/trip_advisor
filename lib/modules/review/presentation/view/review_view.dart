@@ -7,6 +7,8 @@ class ReviewView extends StatelessWidget {
   Widget build(BuildContext context) {
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
 
+    final localizationPackage = RepositoryProvider.of<Localization>(context);
+
     return Scaffold(
       floatingActionButton: LayoutBuilder(
         builder: (context, size) {
@@ -39,7 +41,7 @@ class ReviewView extends StatelessWidget {
                       width: size.maxWidth * 0.045,
                     ),
                     labelWidget: CommonText(
-                      text: Localization().argumentTextTranslation(
+                      text: localizationPackage.argumentTextTranslation(
                         'title_text',
                         'title',
                         'Upload a photo',
@@ -61,7 +63,7 @@ class ReviewView extends StatelessWidget {
                       width: size.maxWidth * 0.045,
                     ),
                     labelWidget: CommonText(
-                      text: Localization().argumentTextTranslation(
+                      text: localizationPackage.argumentTextTranslation(
                         'title_text',
                         'title',
                         'Write a review',
@@ -84,7 +86,7 @@ class ReviewView extends StatelessWidget {
                       width: size.maxWidth * 0.045,
                     ),
                     labelWidget: CommonText(
-                      text: Localization().argumentTextTranslation(
+                      text: localizationPackage.argumentTextTranslation(
                         'title_text',
                         'title',
                         'Add a place',
@@ -120,7 +122,7 @@ class ReviewView extends StatelessWidget {
                         horizontal: size.maxWidth * 0.08,
                       ),
                       child: CommonText(
-                        text: Localization().argumentTextTranslation(
+                        text: localizationPackage.argumentTextTranslation(
                           'title_text',
                           'title',
                           'Review',
@@ -188,7 +190,7 @@ class ReviewView extends StatelessWidget {
                         children: [
                           ActionButton(
                             size: size,
-                            text: Localization().argumentTextTranslation(
+                            text: localizationPackage.argumentTextTranslation(
                               'button_title',
                               'title',
                               'Write a review',
@@ -200,7 +202,7 @@ class ReviewView extends StatelessWidget {
                           ),
                           ActionButton(
                             size: size,
-                            text: Localization().argumentTextTranslation(
+                            text: localizationPackage.argumentTextTranslation(
                               'button_title',
                               'title',
                               'Upload a photo',

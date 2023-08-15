@@ -5,6 +5,8 @@ class PlanTripView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizationPackage = RepositoryProvider.of<Localization>(context);
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -27,7 +29,7 @@ class PlanTripView extends StatelessWidget {
                         horizontal: size.maxWidth * 0.07,
                       ),
                       child: CommonText(
-                        text: Localization().argumentTextTranslation(
+                        text: localizationPackage.argumentTextTranslation(
                           'title_text',
                           'title',
                           'Plan',
@@ -51,7 +53,7 @@ class PlanTripView extends StatelessWidget {
                         tabs: [
                           Tab(
                             child: CommonText(
-                              text: Localization().argumentTextTranslation(
+                              text: localizationPackage.argumentTextTranslation(
                                 'title_text',
                                 'title',
                                 'Trips',
@@ -63,7 +65,7 @@ class PlanTripView extends StatelessWidget {
                           ),
                           Tab(
                             child: CommonText(
-                              text: Localization().argumentTextTranslation(
+                              text: localizationPackage.argumentTextTranslation(
                                 'title_text',
                                 'title',
                                 'Saves',

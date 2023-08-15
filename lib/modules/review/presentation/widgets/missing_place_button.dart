@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:localization/easy_localization.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:localization/localization.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class MissingPlaceButton extends StatelessWidget {
@@ -13,6 +14,8 @@ class MissingPlaceButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizationPackage = RepositoryProvider.of<Localization>(context);
+
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -34,7 +37,7 @@ class MissingPlaceButton extends StatelessWidget {
               width: size.maxWidth * 0.03,
             ),
             CommonText(
-              text: Localization().argumentTextTranslation(
+              text: localizationPackage.argumentTextTranslation(
                 'button_title',
                 'title',
                 'Add a missing place',

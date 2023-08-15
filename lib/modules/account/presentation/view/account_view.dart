@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
-import 'package:localization/easy_localization.dart';
+import 'package:localization/localization.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/common/widgets/primary_button.dart';
@@ -24,6 +24,8 @@ class AccountView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizationPackage = RepositoryProvider.of<Localization>(context);
+
     return Scaffold(
       body: SafeArea(
         child: LayoutBuilder(
@@ -46,7 +48,7 @@ class AccountView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CommonText(
-                              text: Localization().argumentTextTranslation(
+                              text: localizationPackage.argumentTextTranslation(
                                 'title_text',
                                 'title',
                                 'Account',
@@ -146,7 +148,7 @@ class AccountView extends StatelessWidget {
                           size: size,
                           child: Center(
                             child: CommonText(
-                              text: Localization().argumentTextTranslation(
+                              text: localizationPackage.argumentTextTranslation(
                                 'button_title',
                                 'title',
                                 'Sign out',
