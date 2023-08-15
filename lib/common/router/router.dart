@@ -12,7 +12,7 @@ import 'package:trip_advisor/modules/forgot_password/forgot_password.dart';
 import 'package:trip_advisor/modules/location_data/location_data.dart';
 import 'package:trip_advisor/modules/login/login.dart';
 import 'package:trip_advisor/modules/onboarding/onboarding.dart';
-import 'package:trip_advisor/modules/plan_trip/presentation/view/view.dart';
+import 'package:trip_advisor/modules/plan_trip/plan_trip.dart';
 import 'package:trip_advisor/modules/profile/presentation/view/view.dart';
 import 'package:trip_advisor/modules/review/presentation/view/view.dart';
 import 'package:trip_advisor/modules/search/presentation/search_view.dart';
