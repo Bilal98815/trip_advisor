@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
-import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
+import 'package:trip_advisor/common/helpers/helpers.dart';
 import 'package:trip_advisor/modules/location_data/location_data.dart';
 
 part 'location_data_event.dart';

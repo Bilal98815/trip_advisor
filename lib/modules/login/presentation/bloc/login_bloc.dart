@@ -2,9 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
-import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
-import 'package:trip_advisor/common/models/user_model.dart';
+
+import 'package:trip_advisor/common/common.dart';
 import 'package:trip_advisor/modules/login/login.dart';
 
 part 'login_event.dart';

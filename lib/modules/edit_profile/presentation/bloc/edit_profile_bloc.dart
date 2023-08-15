@@ -2,8 +2,7 @@ import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
-import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
+import 'package:trip_advisor/common/helpers/helpers.dart';
 import 'package:trip_advisor/modules/edit_profile/edit_profile.dart';
 
 part 'edit_profile_event.dart';

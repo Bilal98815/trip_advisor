@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
+import 'package:trip_advisor/common/helpers/helpers.dart';
 import 'package:trip_advisor/modules/user_data/user_data.dart';
 
 part 'user_data_event.dart';
