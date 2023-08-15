@@ -11,6 +11,6 @@ import 'package:trip_advisor/modules/explore/explore.dart';
 import 'package:trip_advisor/modules/forgot_password/forgot_password.dart';
 import 'package:trip_advisor/modules/login/login.dart';
 
-import 'package:trip_advisor/modules/signup/presentation/view/view.dart';
+import 'package:trip_advisor/modules/signup/signup.dart';
 
 part 'login_view.dart';

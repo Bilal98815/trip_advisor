@@ -1,6 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:trip_advisor/common/models/user_model.dart';
+part of 'data.dart';
 
 class SignupAuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;

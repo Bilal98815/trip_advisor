@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:trip_advisor/common/widgets/common_text_widget.dart';
+part of 'widgets.dart';
 
 class PasswordRulesRow extends StatelessWidget {
   const PasswordRulesRow({required this.size, required this.rule, super.key});

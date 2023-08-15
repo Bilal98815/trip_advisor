@@ -1,6 +1,4 @@
-import 'package:equatable/equatable.dart';
-
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
+part of 'signup_bloc.dart';
 
 class SignupBlocState extends Equatable {
   const SignupBlocState({
