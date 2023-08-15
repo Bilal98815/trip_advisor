@@ -6,7 +6,7 @@ import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 import 'package:trip_advisor/common/widgets/primary_button.dart';
 import 'package:trip_advisor/modules/account/account.dart';
 import 'package:trip_advisor/modules/explore/explore.dart';
-import 'package:trip_advisor/modules/forgot_password/presentation/view/view.dart';
+import 'package:trip_advisor/modules/forgot_password/forgot_password.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_bloc_state.dart';
 import 'package:trip_advisor/modules/login/presentation/bloc/login_event.dart';

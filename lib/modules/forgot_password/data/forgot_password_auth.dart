@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+part of 'data.dart';
 
 class ForgotPasswordAuth {
   Future sendResetPasswordEmail(String email) async {

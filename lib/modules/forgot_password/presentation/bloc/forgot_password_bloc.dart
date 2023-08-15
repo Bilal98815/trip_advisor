@@ -1,9 +1,11 @@
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:trip_advisor/common/helpers/enums/enums.dart';
-import 'package:trip_advisor/modules/forgot_password/domain/repository/forgot_password_repository.dart';
-import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_password_bloc_state.dart';
-import 'package:trip_advisor/modules/forgot_password/presentation/bloc/forgot_password_event.dart';
+import 'package:trip_advisor/modules/forgot_password/forgot_password.dart';
+
+part 'forgot_password_event.dart';
+part 'forgot_password_state.dart';
 
 class ForgotPasswordBloc
     extends Bloc<ForgotPasswordEvent, ForgotPasswordState> {
