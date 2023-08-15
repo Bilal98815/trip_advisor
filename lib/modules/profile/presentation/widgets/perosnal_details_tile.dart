@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class PersonalDetailTile extends StatelessWidget {
@@ -13,14 +12,12 @@ class PersonalDetailTile extends StatelessWidget {
   final BoxConstraints size;
   final String text;
   final String image;
-  final Function onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        onTap.call();
-      },
+      onTap: onTap,
       child: Row(
         children: [
           Image.asset(

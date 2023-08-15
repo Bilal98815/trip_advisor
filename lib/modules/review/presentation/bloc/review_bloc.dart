@@ -9,7 +9,7 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
     });
   }
 
-  void changeIcon(bool isChange, Emitter emit) {
+  void changeIcon(bool isChange, Emitter<ReviewState> emit) {
     emit(state.copyWith(isChangeIcon: isChange));
   }
 }

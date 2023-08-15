@@ -1,6 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:trip_advisor/common/models/user_model.dart';
 
 class Preferences {
@@ -23,7 +22,7 @@ class Preferences {
 
   Future<void> setUserDetails(String email) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? token = await getFCMToken();
+    final String? token = await getFCMToken();
     prefs.setString('email', email);
     prefs.setString('fcm', token!);
   }
@@ -31,9 +30,9 @@ class Preferences {
   Future<UserModel> getSharedPreferenceUser() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    String? name = prefs.getString('name');
-    String? email = prefs.getString('email');
-    String? fcm = prefs.getString('fcm');
+    final String? name = prefs.getString('name');
+    final String? email = prefs.getString('email');
+    final String? fcm = prefs.getString('fcm');
 
     final UserModel user = UserModel();
 
@@ -46,11 +45,11 @@ class Preferences {
 
   Future<String?> getFCMToken() async {
     // NotificationSettings settings = await _messaging.requestPermission();
-    String? token = await _messaging.getToken();
+    final String? token = await _messaging.getToken();
     return token;
   }
 
-  Future clearPreferences() async {
+  Future<void> clearPreferences() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     prefs.clear();

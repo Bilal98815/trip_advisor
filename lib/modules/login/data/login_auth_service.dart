@@ -9,7 +9,7 @@ class LoginAuthService {
     prefs.setUserDetails(email);
   }
 
-  Future updateUser(String token, String email) async {
+  Future<void> updateUser(String token, String email) async {
     debugPrint('------------->>>>>>>> TOKEN: $token');
     await FirebaseFirestore.instance.collection('users').doc(email).update({
       'fcm': token,

@@ -18,7 +18,7 @@ class LocationDataBloc extends Bloc<LocationDataEvent, LocationDataState> {
 
   final prefs = Preferences();
 
-  Future updateLocation(GeoPoint location, String email) async {
+  Future<void> updateLocation(GeoPoint location, String email) async {
     await locationDataRepository.updateLocation(email, location);
   }
 }

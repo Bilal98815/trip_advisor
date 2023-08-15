@@ -5,12 +5,12 @@ class EditProfileRepositoryImp implements EditProfileRepository {
   late EditProfileAuth editProfileAuth;
 
   @override
-  Future updateCountry(String country, String email) {
+  Future<void> updateCountry(String country, String email) {
     return editProfileAuth.updateCountry(country, email);
   }
 
   @override
-  Future updateUser({
+  Future<void> updateUser({
     String? bio,
     String? name,
     String? website,

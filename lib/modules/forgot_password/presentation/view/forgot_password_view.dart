@@ -102,7 +102,7 @@ class ForgotPasswordView extends StatelessWidget {
                               );
                             } else if (state.resetPasswordState ==
                                 ResetPasswordState.success) {
-                              showDialog(
+                              showDialog<void>(
                                 context: context,
                                 builder: (context) {
                                   return DialogueBox(
@@ -131,7 +131,7 @@ class ForgotPasswordView extends StatelessWidget {
                                           email: emailController.text.trim(),
                                         ),
                                       );
-                                  showDialog(
+                                  showDialog<void>(
                                     context: context,
                                     builder: (context) {
                                       return DialogueBox(

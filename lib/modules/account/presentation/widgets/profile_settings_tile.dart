@@ -11,16 +11,14 @@ class ProfileSettingsTile extends StatelessWidget {
   final String image;
   final String title;
   final BoxConstraints size;
-  final Function onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         InkWell(
-          onTap: () {
-            onTap.call();
-          },
+          onTap: onTap,
           child: Row(
             children: [
               Image.asset(

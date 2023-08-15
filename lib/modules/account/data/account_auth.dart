@@ -1,7 +1,7 @@
 part of 'data.dart';
 
 class AccountAuth {
-  Future signOut() async {
+  Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
   }
 }

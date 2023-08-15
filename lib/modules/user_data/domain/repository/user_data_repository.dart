@@ -1,4 +1,4 @@
 abstract class UserDataRepository {
-  Future updateStatus(String email, String name);
-  Future updateCountry(String email, String country);
+  Future<void> updateStatus(String email, String name);
+  Future<void> updateCountry(String email, String country);
 }

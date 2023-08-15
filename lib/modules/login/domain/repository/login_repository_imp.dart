@@ -12,7 +12,7 @@ class LoginRepositoryImp implements LoginRepository {
   }
 
   @override
-  Future updateUser(String token, String email) {
+  Future<void> updateUser(String token, String email) {
     return loginAuthService.updateUser(token, email);
   }
 

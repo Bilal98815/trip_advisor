@@ -114,7 +114,7 @@ class AccountView extends StatelessWidget {
                         PrimaryButton(
                           ignoring: false,
                           onTap: () {
-                            showDialog(
+                            showDialog<void>(
                               context: context,
                               builder: (context) {
                                 return SignoutDialogBox(size: size);
@@ -241,7 +241,7 @@ class AccountView extends StatelessWidget {
     );
   }
 
-  _launchUrl(Uri url) async {
+  Future<void> _launchUrl(Uri url) async {
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {

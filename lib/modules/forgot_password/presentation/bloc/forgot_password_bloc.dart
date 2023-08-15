@@ -20,7 +20,10 @@ class ForgotPasswordBloc
   }
   late ForgotPasswordRepository forgotPasswordRepository;
 
-  Future resetPassword(String email, Emitter emit) async {
+  Future<void> resetPassword(
+    String email,
+    Emitter<ForgotPasswordState> emit,
+  ) async {
     try {
       await forgotPasswordRepository.sendResetPasswordEmail(email);
       emit(state.copyWith(resetPasswordState: ResetPasswordState.success));
@@ -29,7 +32,7 @@ class ForgotPasswordBloc
     }
   }
 
-  void showError(String exception, Emitter emit) {
+  void showError(String exception, Emitter<ForgotPasswordState> emit) {
     String temp = '';
     switch (exception) {
       case 'user-not-found':

@@ -124,7 +124,7 @@ class LocationDataView extends StatelessWidget {
     );
   }
 
-  getLocation(BuildContext context) async {
+  Future<void> getLocation(BuildContext context) async {
     await Geolocator.checkPermission();
     await Geolocator.requestPermission();
     final Position position = await Geolocator.getCurrentPosition(
@@ -132,11 +132,14 @@ class LocationDataView extends StatelessWidget {
     );
 
     debugPrint('------ Position: $position');
-    context.read<LocationDataBloc>().add(
-          LocationDataEvent(
-            location: GeoPoint(position.latitude, position.longitude),
-            email: email,
-          ),
-        );
+
+    if (context.mounted) {
+      context.read<LocationDataBloc>().add(
+            LocationDataEvent(
+              location: GeoPoint(position.latitude, position.longitude),
+              email: email,
+            ),
+          );
+    }
   }
 }

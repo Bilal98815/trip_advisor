@@ -5,7 +5,7 @@ class ForgotPasswordRepositoryImp implements ForgotPasswordRepository {
   late ForgotPasswordAuth forgotPasswordAuth;
 
   @override
-  Future sendResetPasswordEmail(String email) {
+  Future<void> sendResetPasswordEmail(String email) {
     return forgotPasswordAuth.sendResetPasswordEmail(email);
   }
 }

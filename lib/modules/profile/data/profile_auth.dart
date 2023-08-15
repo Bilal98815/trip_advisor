@@ -3,7 +3,6 @@ import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
-
 import 'package:trip_advisor/common/models/user_model.dart';
 
 class ProfileAuth {
@@ -32,7 +31,10 @@ class ProfileAuth {
     }
   }
 
-  Future uploadImagesToFireStore(List<Uint8List> images, String email) async {
+  Future<void> uploadImagesToFireStore(
+    List<Uint8List> images,
+    String email,
+  ) async {
     final snapShot = await FirebaseFirestore.instance
         .collection('users')
         .where('email', isEqualTo: email)
@@ -63,7 +65,10 @@ class ProfileAuth {
     });
   }
 
-  Future uploadImagesToFirebaseStorage(String childName, Uint8List file) async {
+  Future<String> uploadImagesToFirebaseStorage(
+    String childName,
+    Uint8List file,
+  ) async {
     final ref = _firebaseStorage.ref(childName);
     final UploadTask task = ref.putData(file);
     final TaskSnapshot snapshot = await task;

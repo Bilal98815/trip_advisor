@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:trip_advisor/common/widgets/common_text_widget.dart';
 
 class MissingPlaceButton extends StatelessWidget {
@@ -8,15 +7,13 @@ class MissingPlaceButton extends StatelessWidget {
     required this.size,
     super.key,
   });
-  final Function onTap;
+  final VoidCallback onTap;
   final BoxConstraints size;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        onTap.call();
-      },
+      onTap: onTap,
       child: Container(
         width: size.maxWidth,
         height: size.maxHeight * 0.06,

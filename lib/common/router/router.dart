@@ -25,7 +25,7 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
 
 class AppRouter {
-  static final GoRouter _router = GoRouter(
+  final GoRouter _router = GoRouter(
     initialLocation: SplashView.route(),
     navigatorKey: _rootNavigatorKey,
     routes: [
@@ -136,7 +136,7 @@ class AppRouter {
     ],
   );
 
-  static GoRouter get router => _router;
+  GoRouter get router => _router;
 
   static Future<bool> isUserAuthenticated(BuildContext context) async {
     final prefs = Preferences();

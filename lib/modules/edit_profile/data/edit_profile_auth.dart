@@ -3,7 +3,7 @@ part of 'data.dart';
 class EditProfileAuth {
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
 
-  Future updateUser({
+  Future<void> updateUser({
     String? bio,
     String? name,
     String? website,
@@ -26,7 +26,7 @@ class EditProfileAuth {
 
     if (file != null) {
       debugPrint('------------->>>>> File is not Empty');
-      imageUrl = await uploadImageToStorage(
+      imageUrl = uploadImageToStorage(
         'profilePictures-${DateTime.now().millisecondsSinceEpoch}',
         file,
       ).toString();
@@ -49,13 +49,13 @@ class EditProfileAuth {
     }
   }
 
-  Future updateCountry(String country, String email) async {
+  Future<void> updateCountry(String country, String email) async {
     await FirebaseFirestore.instance.collection('users').doc(email).update({
       'country': country,
     });
   }
 
-  Future uploadImageToStorage(String childName, Uint8List file) async {
+  Future<String> uploadImageToStorage(String childName, Uint8List file) async {
     final ref = _firebaseStorage.ref(childName);
     final UploadTask task = ref.putData(file);
     final TaskSnapshot snapshot = await task;
