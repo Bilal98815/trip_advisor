@@ -21,4 +21,11 @@ class LocaleStrings {
 
   static String get version => 'account.version'.tr();
   static String get deviceId => 'account.device_id'.tr();
+
+  //bottom bar
+  static String get exploreTab => 'bottom_bar_tabs.explore'.tr();
+  static String get searchTab => 'bottom_bar_tabs.search'.tr();
+  static String get planTab => 'bottom_bar_tabs.plan'.tr();
+  static String get reviewTab => 'bottom_bar_tabs.review'.tr();
+  static String get accountTab => 'bottom_bar_tabs.account'.tr();
 }

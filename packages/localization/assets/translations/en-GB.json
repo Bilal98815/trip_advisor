@@ -20,5 +20,13 @@
 
     "version": "Version: v53.5 build 230724021",
     "device_id": "Device ID: a31b370e-c00e-417c-94a0-7f5023fcc573"
+  },
+
+  "bottom_bar_tabs": {
+    "explore": "Explore",
+    "search": "Search",
+    "plan": "Plan",
+    "review": "Review",
+    "account": "Account"
   }
 }
