@@ -1,7 +1,4 @@
-import 'dart:typed_data';
-
-import 'package:equatable/equatable.dart';
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
+part of 'edit_profile_bloc.dart';
 
 class EditProfileState extends Equatable {
   const EditProfileState({

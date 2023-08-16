@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+part of 'data.dart';
 
 class UserDataAuth {
   Future<void> updateStatus(String email, String name) async {

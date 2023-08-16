@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+part of 'models.dart';
 
 class UserModel {
   UserModel({

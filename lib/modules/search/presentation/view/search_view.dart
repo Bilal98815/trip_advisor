@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of 'view.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});

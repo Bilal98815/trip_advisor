@@ -1,3 +1,5 @@
+part of 'user_data_bloc.dart';
+
 abstract class UserDataEvent {}
 
 class UpdateNameEvent extends UserDataEvent {

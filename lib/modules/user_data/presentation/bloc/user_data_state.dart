@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+part of 'user_data_bloc.dart';
 
 class UserDataBlocState extends Equatable {
   const UserDataBlocState({this.name = '', this.country = 'Hometown'});

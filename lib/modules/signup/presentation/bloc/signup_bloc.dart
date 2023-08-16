@@ -1,10 +1,12 @@
+import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
-import 'package:trip_advisor/modules/signup/domain/repository/signup_repository.dart';
-import 'package:trip_advisor/modules/signup/presentation/bloc/signup_bloc_state.dart';
-import 'package:trip_advisor/modules/signup/presentation/bloc/signup_event.dart';
+import 'package:trip_advisor/common/helpers/helpers.dart';
+import 'package:trip_advisor/modules/signup/signup.dart';
+
+part 'signup_bloc_state.dart';
+part 'signup_event.dart';
 
 class SignupBloc extends Bloc<SignupEvent, SignupBlocState> {
   SignupBloc({

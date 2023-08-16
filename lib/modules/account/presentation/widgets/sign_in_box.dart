@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:trip_advisor/common/widgets/common_text_widget.dart';
-import 'package:trip_advisor/common/widgets/primary_button.dart';
-import 'package:trip_advisor/modules/onboarding/presentation/view/onboarding_view.dart';
+part of 'widgets.dart';
 
 class SignInBox extends StatelessWidget {
   const SignInBox({required this.size, super.key});

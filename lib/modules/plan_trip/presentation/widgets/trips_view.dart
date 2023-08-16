@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trip_advisor/common/widgets/common_text_widget.dart';
-import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_bloc.dart';
-import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_event.dart';
-import 'package:trip_advisor/modules/plan_trip/presentation/bloc/plan_trip_state.dart';
-import 'package:trip_advisor/modules/plan_trip/presentation/widgets/create_trip_button.dart';
-import 'package:trip_advisor/modules/plan_trip/presentation/widgets/trip_guidance_tile.dart';
+part of 'widgets.dart';
 
 class TripsView extends StatelessWidget {
   TripsView({required this.size, super.key});

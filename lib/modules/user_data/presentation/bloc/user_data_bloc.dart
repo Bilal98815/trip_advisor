@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
-import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
-import 'package:trip_advisor/modules/user_data/domain/repository/user_data_repository.dart';
-import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc_state.dart';
-import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_event.dart';
+import 'package:equatable/equatable.dart';
+import 'package:trip_advisor/common/helpers/helpers.dart';
+import 'package:trip_advisor/modules/user_data/user_data.dart';
+
+part 'user_data_event.dart';
+part 'user_data_state.dart';
 
 class UserDataBloc extends Bloc<UserDataEvent, UserDataBlocState> {
   UserDataBloc({required this.userDataRepository})
