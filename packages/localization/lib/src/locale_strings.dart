@@ -1,4 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
+part of 'localization.dart';
 
 class LocaleStrings {
   LocaleStrings._();
