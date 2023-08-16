@@ -28,6 +28,22 @@
     "plan": "Plan",
     "review": "Review",
     "account": "Account"
+  },
+
+  "edit_profile": {
+    "title": "Edit Profile",
+    "save_button": "Save",
+
+    "name_textfield_label": "Name",
+    "city_textfield_label": "Current City",
+    "website_textfield_label": "Website",
+    "about_textfield_label": "About You",
+
+    "name_textfield_hint": "Name",
+    "website_textfield_hint": "Add a website",
+    "about_textfield_hint": "Write some details about yourself",
+
+    "error": "Something went wrong!"
   }
 
   

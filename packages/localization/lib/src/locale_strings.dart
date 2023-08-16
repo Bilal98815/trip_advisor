@@ -28,4 +28,19 @@ class LocaleStrings {
   static String get planTab => 'bottom_bar_tabs.plan'.tr();
   static String get reviewTab => 'bottom_bar_tabs.review'.tr();
   static String get accountTab => 'bottom_bar_tabs.account'.tr();
+
+  //edit profile
+  static String get editProfileTitle => 'edit_profile.title'.tr();
+  static String get editProfileSaveButton => 'edit_profile.save_button'.tr();
+
+  static String get editProfileError => 'edit_profile.error'.tr();
+
+  static String get nameLabel => 'edit_profile.name_textfield_label'.tr();
+  static String get cityLabel => 'edit_profile.city_textfield_label'.tr();
+  static String get websiteLabel => 'edit_profile.website_textfield_label'.tr();
+  static String get aboutLabel => 'edit_profile.about_textfield_label'.tr();
+
+  static String get nameHint => 'edit_profile.name_textfield_hint'.tr();
+  static String get websiteHint => 'edit_profile.website_textfield_hint'.tr();
+  static String get aboutHint => 'edit_profile.about_textfield_hint'.tr();
 }
