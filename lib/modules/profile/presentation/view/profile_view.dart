@@ -163,13 +163,12 @@ class ProfileView extends StatelessWidget {
                           else
                             ActionForm(
                               onTap: () {
-                                // context
-                                //     .read<ProfileBloc>()
-                                //     .add(PickImagesEvent());
+                                context
+                                    .read<ProfileBloc>()
+                                    .add(PickImagesEvent());
                               },
                               size: size,
-                              isTextWidget: false,
-                              //true, //state.user?.photos?.isEmpty ?? true,
+                              isTextWidget: state.user?.photos?.isEmpty ?? true,
                               buttonText: 'Upload a photo',
                               number: state.user?.photos?.length ?? 0,
                               actionTitle: 'photos',

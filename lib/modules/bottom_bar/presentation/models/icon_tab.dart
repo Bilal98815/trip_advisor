@@ -32,7 +32,7 @@ extension TabsX on Tabs {
       case Tabs.account:
         return IconTab(
           label: 'Account',
-          icon: Icons.home_rounded,
+          icon: Icons.person,
           route: AccountView.route(),
         );
       default:

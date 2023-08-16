@@ -57,7 +57,7 @@ class AccountView extends StatelessWidget {
                           onTap: () {
                             _launchUrl(Uri.parse('https://www.google.com'));
                           },
-                          title: 'Bookings',
+                          title: LocaleStrings.bookingsTile,
                           size: size,
                         ),
                         SizedBox(
@@ -66,7 +66,7 @@ class AccountView extends StatelessWidget {
                         ProfileSettingsTile(
                           image: 'assets/user.png',
                           onTap: () => context.go(ProfileView.route()),
-                          title: 'Profile',
+                          title: LocaleStrings.profileTile,
                           size: size,
                         ),
                         SizedBox(
@@ -77,7 +77,7 @@ class AccountView extends StatelessWidget {
                           onTap: () {
                             _launchUrl(Uri.parse('https://www.google.com'));
                           },
-                          title: 'Messages',
+                          title: LocaleStrings.messagesTile,
                           size: size,
                         ),
                         SizedBox(
@@ -86,7 +86,7 @@ class AccountView extends StatelessWidget {
                         ProfileSettingsTile(
                           image: 'assets/settings.png',
                           onTap: () {},
-                          title: 'Preferences',
+                          title: LocaleStrings.preferencesTile,
                           size: size,
                         ),
                         SizedBox(
@@ -95,7 +95,7 @@ class AccountView extends StatelessWidget {
                         ProfileSettingsTile(
                           image: 'assets/question.png',
                           onTap: () => context.go(SupportView.route()),
-                          title: 'Support',
+                          title: LocaleStrings.supportTile,
                           size: size,
                         ),
                         SizedBox(
@@ -106,7 +106,7 @@ class AccountView extends StatelessWidget {
                           onTap: () {
                             _launchUrl(Uri.parse('https://www.google.com'));
                           },
-                          title: 'Tripadvisor Plus',
+                          title: LocaleStrings.tripAdvisorTile,
                           size: size,
                         ),
                         SizedBox(
@@ -137,15 +137,14 @@ class AccountView extends StatelessWidget {
                         SizedBox(
                           height: size.maxHeight * 0.03,
                         ),
-                        const CommonText(
-                          text: 'Version: v53.5 build 230724021',
+                        CommonText(
+                          text: LocaleStrings.version,
                           color: Colors.white,
                           fontsize: 11,
                           fontWeight: FontWeight.w300,
                         ),
-                        const CommonText(
-                          text:
-                              'Device ID: a31b370e-c00e-417c-94a0-7f5023fcc573',
+                        CommonText(
+                          text: LocaleStrings.deviceId,
                           color: Colors.white,
                           fontsize: 11,
                           fontWeight: FontWeight.w300,
@@ -191,7 +190,7 @@ class AccountView extends StatelessWidget {
                         ProfileSettingsTile(
                           image: 'assets/settings.png',
                           onTap: () {},
-                          title: 'Preferences',
+                          title: LocaleStrings.preferencesTile,
                           size: size,
                         ),
                         SizedBox(
@@ -200,7 +199,7 @@ class AccountView extends StatelessWidget {
                         ProfileSettingsTile(
                           image: 'assets/question.png',
                           onTap: () => context.go(SupportView.route()),
-                          title: 'Support',
+                          title: LocaleStrings.supportTile,
                           size: size,
                         ),
                         SizedBox(
@@ -211,21 +210,20 @@ class AccountView extends StatelessWidget {
                           onTap: () {
                             _launchUrl(Uri.parse('https://www.google.com'));
                           },
-                          title: 'Tripadvisor Plus',
+                          title: LocaleStrings.tripAdvisorTile,
                           size: size,
                         ),
                         SizedBox(
                           height: size.maxHeight * 0.03,
                         ),
-                        const CommonText(
-                          text: 'Version: v53.5 build 230724021',
+                        CommonText(
+                          text: LocaleStrings.version,
                           color: Colors.white,
                           fontsize: 11,
                           fontWeight: FontWeight.w300,
                         ),
-                        const CommonText(
-                          text:
-                              'Device ID: a31b370e-c00e-417c-94a0-7f5023fcc573',
+                        CommonText(
+                          text: LocaleStrings.deviceId,
                           color: Colors.white,
                           fontsize: 11,
                           fontWeight: FontWeight.w300,
@@ -246,7 +244,9 @@ class AccountView extends StatelessWidget {
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
-      Fluttertoast.showToast(msg: 'Could not launch $url');
+      Fluttertoast.showToast(
+        msg: LocaleStrings.urlLauncherError(url.toString()),
+      );
     }
   }
 }

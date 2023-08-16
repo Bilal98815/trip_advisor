@@ -3,8 +3,24 @@
   "title_text": "{title}",
   "button_title": "{title}",
 
+  "url_launcher_error": "Could not launch {url} US",
+
   "account": {
     "title": "Account US",
-    "signoutButton": "Sign Out US"
+    "signout_button": "Sign Out US",
+
+    "profile_tiles": {
+      "bookings": "Bookings US",
+      "profile": "Profile US",
+      "messages": "Messages US",
+      "preferences": "Preferences US",
+      "support": "Support US",
+      "tripadvisor": "Trip Advisor Plus US"
+    },
+
+    "version": "Version: v53.5 build 230724021",
+    "device_id": "Device ID: a31b370e-c00e-417c-94a0-7f5023fcc573"
   }
+
+  
 }
