@@ -25,13 +25,10 @@ class EasyLocalizationPackage extends Localization {
   List<LocalizationsDelegate<dynamic>> localizationDelegates(
     BuildContext context,
   ) {
-    debugPrint('In localization delegates');
     return context.localizationDelegates;
   }
 
   Locale locale(BuildContext context) {
-    debugPrint('In locale');
-    debugPrint('Locale: -------->>>> ${context.locale}');
     return context.locale;
   }
 
@@ -40,7 +37,14 @@ class EasyLocalizationPackage extends Localization {
   }
 
   String argumentTextTranslation(
-      String key, String namedArgument, String argumentText) {
+    String key,
+    String namedArgument,
+    String argumentText,
+  ) {
     return key.tr(namedArgs: {namedArgument: argumentText});
+  }
+
+  void setLocale(BuildContext context, {required Locale locale}) {
+    context.setLocale(locale);
   }
 }

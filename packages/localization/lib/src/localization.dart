@@ -11,6 +11,7 @@ abstract class Localization {
   List<Locale> get supportedLocales;
 
   Locale locale(BuildContext context);
+  void setLocale(BuildContext context, {required Locale locale});
 
   String translation(String key);
 
