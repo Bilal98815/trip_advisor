@@ -9,8 +9,6 @@ class AccountView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localizationPackage = RepositoryProvider.of<Localization>(context);
-
     return Scaffold(
       body: SafeArea(
         child: LayoutBuilder(
@@ -33,11 +31,7 @@ class AccountView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CommonText(
-                              text: localizationPackage.argumentTextTranslation(
-                                'title_text',
-                                'title',
-                                'Account',
-                              ),
+                              text: LocaleStrings.accountTitle(),
                               color: Colors.white,
                               fontsize: 32,
                               fontWeight: FontWeight.w900,
@@ -133,11 +127,7 @@ class AccountView extends StatelessWidget {
                           size: size,
                           child: Center(
                             child: CommonText(
-                              text: localizationPackage.argumentTextTranslation(
-                                'button_title',
-                                'title',
-                                'Sign out',
-                              ),
+                              text: LocaleStrings.accountSignoutButton(),
                               color: Colors.white,
                               fontsize: 16,
                               fontWeight: FontWeight.w500,
@@ -172,8 +162,8 @@ class AccountView extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const CommonText(
-                              text: 'Account',
+                            CommonText(
+                              text: LocaleStrings.accountTitle(),
                               color: Colors.white,
                               fontsize: 32,
                               fontWeight: FontWeight.w900,

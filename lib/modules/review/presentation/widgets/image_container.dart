@@ -7,8 +7,6 @@ class ImageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localizationPackage = RepositoryProvider.of<Localization>(context);
-
     return SizedBox(
       width: size.maxWidth,
       height: size.maxHeight * 0.7,
@@ -74,13 +72,9 @@ class ImageContainer extends StatelessWidget {
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(35)),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: CommonText(
-                          text: localizationPackage.argumentTextTranslation(
-                            'button_title',
-                            'title',
-                            'What to know',
-                          ),
+                          text: 'What to know',
                           color: Colors.black,
                           fontsize: 18,
                           fontWeight: FontWeight.w500,

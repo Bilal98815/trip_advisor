@@ -168,7 +168,8 @@ class ProfileView extends StatelessWidget {
                                     .add(PickImagesEvent());
                               },
                               size: size,
-                              isTextWidget: state.user?.photos?.isEmpty ?? true,
+                              isTextWidget: false,
+                              //true, //state.user?.photos?.isEmpty ?? true,
                               buttonText: 'Upload a photo',
                               number: state.user?.photos?.length ?? 0,
                               actionTitle: 'photos',

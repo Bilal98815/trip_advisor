@@ -5,8 +5,6 @@ class PlanTripView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localizationPackage = RepositoryProvider.of<Localization>(context);
-
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -28,12 +26,8 @@ class PlanTripView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.07,
                       ),
-                      child: CommonText(
-                        text: localizationPackage.argumentTextTranslation(
-                          'title_text',
-                          'title',
-                          'Plan',
-                        ),
+                      child: const CommonText(
+                        text: 'Plan',
                         color: Colors.white,
                         fontsize: 32,
                         fontWeight: FontWeight.w900,
@@ -46,18 +40,14 @@ class PlanTripView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.03,
                       ),
-                      child: TabBar(
+                      child: const TabBar(
                         indicatorColor: Colors.white,
                         dividerColor: Colors.transparent,
                         isScrollable: true,
                         tabs: [
                           Tab(
                             child: CommonText(
-                              text: localizationPackage.argumentTextTranslation(
-                                'title_text',
-                                'title',
-                                'Trips',
-                              ),
+                              text: 'Trips',
                               color: Colors.white,
                               fontsize: 16,
                               fontWeight: FontWeight.w600,
@@ -65,11 +55,7 @@ class PlanTripView extends StatelessWidget {
                           ),
                           Tab(
                             child: CommonText(
-                              text: localizationPackage.argumentTextTranslation(
-                                'title_text',
-                                'title',
-                                'Saves',
-                              ),
+                              text: 'Saves',
                               color: Colors.white,
                               fontsize: 16,
                               fontWeight: FontWeight.w600,

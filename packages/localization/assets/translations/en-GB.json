@@ -1,5 +1,10 @@
 {
   "name": "Bill!",
   "title_text": "{title}",
-  "button_title": "{title}"
+  "button_title": "{title}",
+
+  "account": {
+    "title": "Account",
+    "signoutButton": "Sign Out"
+  }
 }

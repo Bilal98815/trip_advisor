@@ -5,19 +5,26 @@ class TripAdvisorAppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localizationPackage = RepositoryProvider.of<Localization>(context);
-
-    return MaterialApp.router(
-      localizationsDelegates:
-          localizationPackage.localizationDelegates(context),
-      supportedLocales: localizationPackage.supportedLocales,
-      locale: localizationPackage.locale(context),
-      routerConfig: AppRouter().router,
-      title: 'Trip Advisor',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return EasyLocalization(
+      supportedLocales: kSupportedLocales,
+      path: kPath,
+      fallbackLocale: kFallbackLocale,
+      startLocale: kStartingLocale,
+      child: Builder(
+        builder: (context) {
+          return MaterialApp.router(
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            routerConfig: AppRouter().router,
+            title: LocaleStrings.appTitle,
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
+            ),
+          );
+        },
       ),
     );
   }

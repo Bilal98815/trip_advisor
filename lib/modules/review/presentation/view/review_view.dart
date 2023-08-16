@@ -7,8 +7,6 @@ class ReviewView extends StatelessWidget {
   Widget build(BuildContext context) {
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
 
-    final localizationPackage = RepositoryProvider.of<Localization>(context);
-
     return Scaffold(
       floatingActionButton: LayoutBuilder(
         builder: (context, size) {
@@ -40,12 +38,8 @@ class ReviewView extends StatelessWidget {
                       'assets/gallery.png',
                       width: size.maxWidth * 0.045,
                     ),
-                    labelWidget: CommonText(
-                      text: localizationPackage.argumentTextTranslation(
-                        'title_text',
-                        'title',
-                        'Upload a photo',
-                      ),
+                    labelWidget: const CommonText(
+                      text: 'Upload a photo',
                       color: Colors.white,
                       fontsize: 18,
                       fontWeight: FontWeight.w500,
@@ -62,12 +56,8 @@ class ReviewView extends StatelessWidget {
                       'assets/pen.png',
                       width: size.maxWidth * 0.045,
                     ),
-                    labelWidget: CommonText(
-                      text: localizationPackage.argumentTextTranslation(
-                        'title_text',
-                        'title',
-                        'Write a review',
-                      ),
+                    labelWidget: const CommonText(
+                      text: 'Write a review',
                       color: Colors.white,
                       fontsize: 18,
                       fontWeight: FontWeight.w500,
@@ -85,12 +75,8 @@ class ReviewView extends StatelessWidget {
                       'assets/pin_black.png',
                       width: size.maxWidth * 0.045,
                     ),
-                    labelWidget: CommonText(
-                      text: localizationPackage.argumentTextTranslation(
-                        'title_text',
-                        'title',
-                        'Add a place',
-                      ),
+                    labelWidget: const CommonText(
+                      text: 'Add a place',
                       color: Colors.white,
                       fontsize: 18,
                       fontWeight: FontWeight.w500,
@@ -121,12 +107,8 @@ class ReviewView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.08,
                       ),
-                      child: CommonText(
-                        text: localizationPackage.argumentTextTranslation(
-                          'title_text',
-                          'title',
-                          'Review',
-                        ),
+                      child: const CommonText(
+                        text: 'Review',
                         color: Colors.white,
                         fontsize: 32,
                         fontWeight: FontWeight.w900,
@@ -190,11 +172,7 @@ class ReviewView extends StatelessWidget {
                         children: [
                           ActionButton(
                             size: size,
-                            text: localizationPackage.argumentTextTranslation(
-                              'button_title',
-                              'title',
-                              'Write a review',
-                            ),
+                            text: 'Write a review',
                             onTap: () {},
                           ),
                           SizedBox(
@@ -202,11 +180,7 @@ class ReviewView extends StatelessWidget {
                           ),
                           ActionButton(
                             size: size,
-                            text: localizationPackage.argumentTextTranslation(
-                              'button_title',
-                              'title',
-                              'Upload a photo',
-                            ),
+                            text: 'Upload a photo',
                             onTap: () {
                               _pickImageFromGallery();
                             },

@@ -8,8 +8,6 @@ class TripsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localizationPackage = RepositoryProvider.of<Localization>(context);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -103,11 +101,7 @@ class TripsView extends StatelessWidget {
                     controller.text == '' ? Colors.grey.shade700 : Colors.white,
                 child: Center(
                   child: CommonText(
-                    text: localizationPackage.argumentTextTranslation(
-                      'button_title',
-                      'title',
-                      'Create a Trip',
-                    ),
+                    text: 'Create a Trip',
                     color: controller.text == ''
                         ? Colors.grey.shade600
                         : Colors.black,

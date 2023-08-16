@@ -1,23 +1,30 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-part 'easy_localization.dart';
+class EasyLocalizationPackage extends StatelessWidget {
+  const EasyLocalizationPackage({
+    super.key,
+    required this.supportedLocales,
+    required this.path,
+    required this.fallbackLocale,
+    required this.startLocale,
+    required this.child,
+  });
 
-abstract class Localization {
-  List<LocalizationsDelegate<dynamic>> localizationDelegates(
-    BuildContext context,
-  );
+  final List<Locale> supportedLocales;
+  final String path;
+  final Locale fallbackLocale;
+  final Locale startLocale;
+  final Widget child;
 
-  List<Locale> get supportedLocales;
-
-  Locale locale(BuildContext context);
-  void setLocale(BuildContext context, {required Locale locale});
-
-  String translation(String key);
-
-  String argumentTextTranslation(
-    String key,
-    String namedArgument,
-    String argumentText,
-  );
+  @override
+  Widget build(BuildContext context) {
+    return EasyLocalization(
+      supportedLocales: supportedLocales,
+      path: path,
+      fallbackLocale: fallbackLocale,
+      startLocale: startLocale,
+      child: child,
+    );
+  }
 }

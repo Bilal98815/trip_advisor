@@ -11,8 +11,6 @@ class MissingPlaceButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localizationPackage = RepositoryProvider.of<Localization>(context);
-
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -33,12 +31,8 @@ class MissingPlaceButton extends StatelessWidget {
             SizedBox(
               width: size.maxWidth * 0.03,
             ),
-            CommonText(
-              text: localizationPackage.argumentTextTranslation(
-                'button_title',
-                'title',
-                'Add a missing place',
-              ),
+            const CommonText(
+              text: 'Add a missing place',
               color: Colors.white,
               fontsize: 18,
               fontWeight: FontWeight.w500,
