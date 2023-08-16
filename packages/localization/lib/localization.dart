@@ -1,1 +1,1 @@
-export 'src/locale_strings.dart';
+export 'src/localization.dart';

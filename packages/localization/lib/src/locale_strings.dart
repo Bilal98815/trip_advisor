@@ -1,4 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
+part of 'localization.dart';
 
 class LocaleStrings {
   static const String appTitle = 'Trip Advisor';
@@ -6,6 +6,6 @@ class LocaleStrings {
   static String name() => 'name'.tr();
 
   //account
-  static String accountTitle() => 'account.title'.tr();
-  static String accountSignoutButton() => 'account.signoutButton'.tr();
+  static String get accountTitle => 'account.title'.tr();
+  static String get accountSignoutButton => 'account.signoutButton'.tr();
 }
