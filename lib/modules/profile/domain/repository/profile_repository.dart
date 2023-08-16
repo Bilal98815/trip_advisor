@@ -1,6 +1,4 @@
-import 'dart:typed_data';
-
-import 'package:trip_advisor/common/models/user_model.dart';
+part of 'repository.dart';
 
 abstract class ProfileRepository {
   Future<UserModel?> getUserDetails(String email);

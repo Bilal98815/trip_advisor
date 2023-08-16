@@ -1,4 +1,4 @@
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
+part of 'account_bloc.dart';
 
 abstract class AccountEvent {}
 

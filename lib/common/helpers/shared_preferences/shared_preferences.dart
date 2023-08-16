@@ -1,6 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:trip_advisor/common/models/user_model.dart';
+import 'package:trip_advisor/common/models/models.dart';
 
 class Preferences {
   final FirebaseMessaging _messaging = FirebaseMessaging.instance;

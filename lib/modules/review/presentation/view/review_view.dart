@@ -284,6 +284,6 @@ class ReviewView extends StatelessWidget {
   }
 
   Future<void> _pickImageFromGallery() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    await ImagePicker().pickImage(source: ImageSource.gallery);
   }
 }

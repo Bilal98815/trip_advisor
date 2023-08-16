@@ -1,4 +1,4 @@
-import 'package:trip_advisor/common/models/user_model.dart';
+part of 'repository.dart';
 
 abstract class SignUpRepository {
   Future<void> registerUser(String email, String password);

@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+part of 'location_data_bloc.dart';
 
 class LocationDataEvent {
   LocationDataEvent({required this.location, required this.email});

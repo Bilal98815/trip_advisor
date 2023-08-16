@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of 'view.dart';
 
 class ExploreView extends StatelessWidget {
   const ExploreView({super.key});

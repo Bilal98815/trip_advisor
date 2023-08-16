@@ -1,6 +1,4 @@
-import 'package:trip_advisor/common/models/user_model.dart';
-import 'package:trip_advisor/modules/login/data/login_auth_service.dart';
-import 'package:trip_advisor/modules/login/domain/repository/login_repository.dart';
+part of 'repository.dart';
 
 class LoginRepositoryImp implements LoginRepository {
   LoginRepositoryImp({

@@ -1,5 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:equatable/equatable.dart';
+part of 'location_data_bloc.dart';
 
 class LocationDataState extends Equatable {
   const LocationDataState({this.location = const GeoPoint(0, 0)});

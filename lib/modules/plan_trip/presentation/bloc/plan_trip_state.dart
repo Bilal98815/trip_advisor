@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+part of 'plan_trip_bloc.dart';
 
 class PlanTripState extends Equatable {
   const PlanTripState({this.tripName = ''});

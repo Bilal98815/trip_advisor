@@ -1,11 +1,12 @@
 import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
-import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
-import 'package:trip_advisor/modules/edit_profile/domain/repository/edit_profile_repository.dart';
-import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_event.dart';
-import 'package:trip_advisor/modules/edit_profile/presentation/bloc/edit_profile_state.dart';
+import 'package:equatable/equatable.dart';
+import 'package:trip_advisor/common/helpers/helpers.dart';
+import 'package:trip_advisor/modules/edit_profile/edit_profile.dart';
+
+part 'edit_profile_event.dart';
+part 'edit_profile_state.dart';
 
 class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
   EditProfileBloc({required this.editProfileRepository})

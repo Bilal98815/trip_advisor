@@ -1,6 +1,4 @@
-import 'dart:typed_data';
-
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
+part of 'profile_bloc.dart';
 
 abstract class ProfileEvent {}
 

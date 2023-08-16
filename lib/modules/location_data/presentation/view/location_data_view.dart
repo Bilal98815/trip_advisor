@@ -132,11 +132,14 @@ class LocationDataView extends StatelessWidget {
     );
 
     debugPrint('------ Position: $position');
-    context.read<LocationDataBloc>().add(
-          LocationDataEvent(
-            location: GeoPoint(position.latitude, position.longitude),
-            email: email,
-          ),
-        );
+
+    if (context.mounted) {
+      context.read<LocationDataBloc>().add(
+            LocationDataEvent(
+              location: GeoPoint(position.latitude, position.longitude),
+              email: email,
+            ),
+          );
+    }
   }
 }

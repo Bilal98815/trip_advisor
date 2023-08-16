@@ -1,5 +1,4 @@
-import 'package:trip_advisor/modules/account/data/account_auth.dart';
-import 'package:trip_advisor/modules/account/domain/repository/account_repository.dart';
+part of 'repository.dart';
 
 class AccountRepositoryImp implements AccountRepository {
   AccountRepositoryImp({required this.accountAuth});

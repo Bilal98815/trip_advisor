@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:localization/localization.dart';
-import 'package:trip_advisor/common/widgets/common_text_widget.dart';
+part of 'widgets.dart';
 
 class MissingPlaceButton extends StatelessWidget {
   const MissingPlaceButton({

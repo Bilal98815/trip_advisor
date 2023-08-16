@@ -1,6 +1,4 @@
-import 'package:equatable/equatable.dart';
-
-import 'package:trip_advisor/common/helpers/enums/enums.dart';
+part of 'forgot_password_bloc.dart';
 
 class ForgotPasswordState extends Equatable {
   const ForgotPasswordState({
