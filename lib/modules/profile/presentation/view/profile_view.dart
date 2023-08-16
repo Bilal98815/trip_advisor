@@ -163,9 +163,9 @@ class ProfileView extends StatelessWidget {
                           else
                             ActionForm(
                               onTap: () {
-                                context
-                                    .read<ProfileBloc>()
-                                    .add(PickImagesEvent());
+                                // context
+                                //     .read<ProfileBloc>()
+                                //     .add(PickImagesEvent());
                               },
                               size: size,
                               isTextWidget: false,
