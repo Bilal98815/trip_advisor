@@ -31,7 +31,7 @@ class AccountView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CommonText(
-                              text: LocaleStrings.accountTitle(),
+                              text: LocaleStrings.accountTitle,
                               color: Colors.white,
                               fontsize: 32,
                               fontWeight: FontWeight.w900,
@@ -127,7 +127,7 @@ class AccountView extends StatelessWidget {
                           size: size,
                           child: Center(
                             child: CommonText(
-                              text: LocaleStrings.accountSignoutButton(),
+                              text: LocaleStrings.accountSignoutButton,
                               color: Colors.white,
                               fontsize: 16,
                               fontWeight: FontWeight.w500,
@@ -163,7 +163,7 @@ class AccountView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CommonText(
-                              text: LocaleStrings.accountTitle(),
+                              text: LocaleStrings.accountTitle,
                               color: Colors.white,
                               fontsize: 32,
                               fontWeight: FontWeight.w900,

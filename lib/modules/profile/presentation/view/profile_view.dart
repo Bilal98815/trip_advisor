@@ -45,8 +45,8 @@ class ProfileView extends StatelessWidget {
             );
           },
         ),
-        title: const CommonText(
-          text: 'Profile',
+        title: CommonText(
+          text: LocaleStrings.profileTitle,
           color: Colors.white,
           fontsize: 20,
           fontWeight: FontWeight.w600,
@@ -101,13 +101,15 @@ class ProfileView extends StatelessWidget {
                                     fontWeight: FontWeight.w700,
                                   ),
                                   CommonText(
-                                    text: 'Joined in ${time.year}',
+                                    text:
+                                        '${LocaleStrings.profileJoiningText} ${time.year}',
                                     color: Colors.white,
                                     fontsize: 14,
                                     fontWeight: FontWeight.w400,
                                   ),
-                                  const CommonText(
-                                    text: '0 contributions',
+                                  CommonText(
+                                    text:
+                                        '0 ${LocaleStrings.profileContributionText}',
                                     color: Colors.white,
                                     fontsize: 14,
                                     fontWeight: FontWeight.w400,
@@ -121,7 +123,7 @@ class ProfileView extends StatelessWidget {
                           ),
                           CommonText(
                             text: state.user?.bio == ''
-                                ? 'Share a little about yourself so other travelers can get to know you!'
+                                ? LocaleStrings.profileBio
                                 : state.user?.bio ?? '',
                             color: Colors.grey.shade400,
                             textAlign: TextAlign.start,
@@ -135,7 +137,7 @@ class ProfileView extends StatelessWidget {
                           PersonalDetailTile(
                             size: size,
                             text: state.user?.country == ''
-                                ? 'No city selected.'
+                                ? LocaleStrings.profileCity
                                 : state.user?.country ?? '',
                             onTap: () => context.go(EditProfilePage.route()),
                             image: 'assets/placeholder.png',
@@ -146,7 +148,7 @@ class ProfileView extends StatelessWidget {
                           PersonalDetailTile(
                             size: size,
                             text: state.user?.website == ''
-                                ? 'No website added.'
+                                ? LocaleStrings.profileWebsite
                                 : state.user?.website ?? '',
                             onTap: () => context.go(EditProfilePage.route()),
                             image: 'assets/link.png',
@@ -162,25 +164,24 @@ class ProfileView extends StatelessWidget {
                             const Center(child: CircularProgressIndicator())
                           else
                             ActionForm(
-                              onTap: () {
-                                // context
-                                //     .read<ProfileBloc>()
-                                //     .add(PickImagesEvent());
-                              },
-                              size: size,
-                              isTextWidget: false,
-                              //true, //state.user?.photos?.isEmpty ?? true,
-                              buttonText: 'Upload a photo',
-                              number: state.user?.photos?.length ?? 0,
-                              actionTitle: 'photos',
-                            ),
+                                onTap: () {
+                                  context
+                                      .read<ProfileBloc>()
+                                      .add(PickImagesEvent());
+                                },
+                                size: size,
+                                isTextWidget:
+                                    state.user?.photos?.isEmpty ?? true,
+                                buttonText: LocaleStrings.profilePhotosButton,
+                                number: state.user?.photos?.length ?? 0,
+                                actionTitle: LocaleStrings.profilePhotosTitle),
                           ActionForm(
                             onTap: () {},
                             size: size,
                             isTextWidget: true,
-                            buttonText: 'Write a review',
+                            buttonText: LocaleStrings.profileReviewButton,
                             number: 0,
-                            actionTitle: 'reviews',
+                            actionTitle: LocaleStrings.profileReviewTitle,
                           ),
                           ActionForm(
                             onTap: () {
@@ -188,15 +189,15 @@ class ProfileView extends StatelessWidget {
                             },
                             size: size,
                             isTextWidget: true,
-                            buttonText: 'Post to a forum',
+                            buttonText: LocaleStrings.profilePostsButton,
                             number: 0,
-                            actionTitle: 'forum posts',
+                            actionTitle: LocaleStrings.profilePostsTitle,
                           ),
                           SizedBox(
                             height: size.maxHeight * 0.05,
                           ),
-                          const CommonText(
-                            text: 'More',
+                          CommonText(
+                            text: LocaleStrings.profileMoreTitle,
                             color: Colors.white,
                             fontsize: 22,
                             fontWeight: FontWeight.w700,
@@ -209,7 +210,7 @@ class ProfileView extends StatelessWidget {
                               _launchUrl(Uri.parse('https://www.google.com'));
                             },
                             size: size,
-                            title: 'Badges',
+                            title: LocaleStrings.profileBadgesTile,
                           ),
                           SizedBox(
                             height: size.maxHeight * 0.02,
@@ -219,7 +220,7 @@ class ProfileView extends StatelessWidget {
                               _launchUrl(Uri.parse('https://www.google.com'));
                             },
                             size: size,
-                            title: 'Travel map',
+                            title: LocaleStrings.profileTravelTile,
                           ),
                           SizedBox(
                             height: size.maxHeight * 0.07,

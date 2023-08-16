@@ -28,32 +28,16 @@ class ImageContainer extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CommonText(
-                    text: 'We want you to',
+                  CommonText(
+                    text: LocaleStrings.reviewImageContainerHeading,
                     color: Colors.white,
                     fontsize: 40,
                     fontWeight: FontWeight.w900,
                     textOverflow: TextOverflow.clip,
                     textAlign: TextAlign.start,
                   ),
-                  const CommonText(
-                    text: 'write us a review',
-                    color: Colors.white,
-                    fontsize: 40,
-                    fontWeight: FontWeight.w900,
-                    textOverflow: TextOverflow.clip,
-                    textAlign: TextAlign.start,
-                  ),
-                  const CommonText(
-                    text: 'Because who else we turn to for',
-                    color: Colors.white,
-                    fontsize: 20,
-                    fontWeight: FontWeight.w500,
-                    textOverflow: TextOverflow.clip,
-                    textAlign: TextAlign.start,
-                  ),
-                  const CommonText(
-                    text: 'travel advice?',
+                  CommonText(
+                    text: LocaleStrings.reviewImageContainerSubHeading,
                     color: Colors.white,
                     fontsize: 20,
                     fontWeight: FontWeight.w500,
@@ -72,9 +56,9 @@ class ImageContainer extends StatelessWidget {
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(35)),
                       ),
-                      child: const Center(
+                      child: Center(
                         child: CommonText(
-                          text: 'What to know',
+                          text: LocaleStrings.reviewImageContainerButton,
                           color: Colors.black,
                           fontsize: 18,
                           fontWeight: FontWeight.w500,

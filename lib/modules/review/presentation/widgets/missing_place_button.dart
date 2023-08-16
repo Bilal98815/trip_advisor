@@ -31,8 +31,8 @@ class MissingPlaceButton extends StatelessWidget {
             SizedBox(
               width: size.maxWidth * 0.03,
             ),
-            const CommonText(
-              text: 'Add a missing place',
+            CommonText(
+              text: LocaleStrings.reviewMissingPlaceButton,
               color: Colors.white,
               fontsize: 18,
               fontWeight: FontWeight.w500,

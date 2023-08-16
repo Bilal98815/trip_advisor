@@ -42,8 +42,8 @@ class SignUpView extends StatelessWidget {
                         SizedBox(
                           height: constraints.maxHeight * 0.04,
                         ),
-                        const CommonText(
-                          text: 'Become a Tripadvisor member.',
+                        CommonText(
+                          text: LocaleStrings.signupTitle,
                           color: Colors.white,
                           fontsize: 28,
                           textOverflow: TextOverflow.clip,
@@ -56,9 +56,9 @@ class SignUpView extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              'Email address',
-                              style: TextStyle(
+                            Text(
+                              LocaleStrings.signupEmailFieldTitle,
+                              style: const TextStyle(
                                 fontSize: 15,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -73,7 +73,7 @@ class SignUpView extends StatelessWidget {
                                   val!.isEmpty ? 'Enter email!' : null,
                               style: const TextStyle(color: Colors.white),
                               decoration: InputDecoration(
-                                hintText: 'Email address',
+                                hintText: LocaleStrings.signupEmailFieldTitle,
                                 hintStyle: const TextStyle(color: Colors.grey),
                                 border: OutlineInputBorder(
                                   borderSide:
@@ -95,9 +95,9 @@ class SignUpView extends StatelessWidget {
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text(
-                                  'Password',
-                                  style: TextStyle(
+                                Text(
+                                  LocaleStrings.signupPasswordFieldTitle,
+                                  style: const TextStyle(
                                     fontSize: 15,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -120,7 +120,8 @@ class SignUpView extends StatelessWidget {
                                     }
                                   },
                                   decoration: InputDecoration(
-                                    hintText: 'password',
+                                    hintText:
+                                        LocaleStrings.signupPasswordFieldTitle,
                                     hintStyle:
                                         const TextStyle(color: Colors.grey),
                                     border: OutlineInputBorder(
@@ -140,14 +141,14 @@ class SignUpView extends StatelessWidget {
                         ),
                         PasswordRulesRow(
                           size: constraints,
-                          rule: 'At least 6 characters',
+                          rule: LocaleStrings.characterNumbersText,
                         ),
                         SizedBox(
                           height: constraints.maxHeight * 0.01,
                         ),
                         PasswordRulesRow(
                           size: constraints,
-                          rule: 'Contains a special character',
+                          rule: LocaleStrings.specialCharacterText,
                         ),
                         SizedBox(
                           height: constraints.maxHeight * 0.03,
@@ -168,26 +169,25 @@ class SignUpView extends StatelessWidget {
                                 );
                               },
                             ),
-                            const Column(
+                            Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 CommonText(
-                                  text:
-                                      'Yes, inform me on deals & new features. I',
+                                  text: LocaleStrings.signupCheckbox,
                                   color: Colors.white,
                                   fontsize: 15,
                                   textOverflow: TextOverflow.clip,
                                   textAlign: TextAlign.left,
                                   fontWeight: FontWeight.normal,
                                 ),
-                                CommonText(
-                                  text: 'can opt out at any time',
-                                  color: Colors.white,
-                                  fontsize: 15,
-                                  textOverflow: TextOverflow.clip,
-                                  textAlign: TextAlign.left,
-                                  fontWeight: FontWeight.normal,
-                                ),
+                                // CommonText(
+                                //   text: 'can opt out at any time',
+                                //   color: Colors.white,
+                                //   fontsize: 15,
+                                //   textOverflow: TextOverflow.clip,
+                                //   textAlign: TextAlign.left,
+                                //   fontWeight: FontWeight.normal,
+                                // ),
                               ],
                             ),
                           ],
@@ -242,8 +242,8 @@ class SignUpView extends StatelessWidget {
                                 child:
                                     state.registerApiState == ApiState.loading
                                         ? const CircularProgressIndicator()
-                                        : const CommonText(
-                                            text: 'Sign up',
+                                        : CommonText(
+                                            text: LocaleStrings.signupButton,
                                             color: Colors.black87,
                                             fontsize: 20,
                                             fontWeight: FontWeight.w500,
@@ -261,9 +261,9 @@ class SignUpView extends StatelessWidget {
                           onTap: () => context.go(LoginView.route()),
                           color: Colors.black12,
                           size: constraints,
-                          child: const Center(
+                          child: Center(
                             child: CommonText(
-                              text: 'Sign in',
+                              text: LocaleStrings.signInButton,
                               color: Colors.white,
                               fontsize: 20,
                               fontWeight: FontWeight.w500,
