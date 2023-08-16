@@ -43,4 +43,7 @@ class LocaleStrings {
   static String get nameHint => 'edit_profile.name_textfield_hint'.tr();
   static String get websiteHint => 'edit_profile.website_textfield_hint'.tr();
   static String get aboutHint => 'edit_profile.about_textfield_hint'.tr();
+
+  //explore
+  static String get exploreTitle => 'explore.title'.tr();
 }

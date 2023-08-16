@@ -44,5 +44,9 @@
     "about_textfield_hint": "Write some details about yourself",
     
     "error": "Something went wrong!"
+  },
+
+  "explore": {
+    "title": "Explore"
   }
 }

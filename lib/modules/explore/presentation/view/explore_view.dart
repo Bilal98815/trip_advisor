@@ -8,6 +8,6 @@ class ExploreView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Explore'));
+    return Center(child: Text(LocaleStrings.exploreTitle));
   }
 }
