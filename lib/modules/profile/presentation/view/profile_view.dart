@@ -75,7 +75,7 @@ class ProfileView extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              if (state.user?.imageUrl != null)
+                              if (state.user?.imageUrl != '')
                                 CircleAvatar(
                                   radius: 50,
                                   backgroundImage: NetworkImage(

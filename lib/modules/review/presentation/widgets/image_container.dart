@@ -28,21 +28,27 @@ class ImageContainer extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CommonText(
-                    text: LocaleStrings.reviewImageContainerHeading,
-                    color: Colors.white,
-                    fontsize: 40,
-                    fontWeight: FontWeight.w900,
-                    textOverflow: TextOverflow.clip,
-                    textAlign: TextAlign.start,
+                  SizedBox(
+                    width: size.maxWidth * 0.9,
+                    child: CommonText(
+                      text: LocaleStrings.reviewImageContainerHeading,
+                      color: Colors.white,
+                      fontsize: 40,
+                      fontWeight: FontWeight.w900,
+                      textOverflow: TextOverflow.clip,
+                      textAlign: TextAlign.start,
+                    ),
                   ),
-                  CommonText(
-                    text: LocaleStrings.reviewImageContainerSubHeading,
-                    color: Colors.white,
-                    fontsize: 20,
-                    fontWeight: FontWeight.w500,
-                    textOverflow: TextOverflow.clip,
-                    textAlign: TextAlign.start,
+                  SizedBox(
+                    width: size.maxWidth * 0.9,
+                    child: CommonText(
+                      text: LocaleStrings.reviewImageContainerSubHeading,
+                      color: Colors.white,
+                      fontsize: 20,
+                      fontWeight: FontWeight.w500,
+                      textOverflow: TextOverflow.clip,
+                      textAlign: TextAlign.start,
+                    ),
                   ),
                   SizedBox(
                     height: size.maxHeight * 0.02,
