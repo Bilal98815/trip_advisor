@@ -181,9 +181,11 @@ class LoginView extends StatelessWidget {
                               height: constraints.maxHeight * 0.075,
                               onTap: () {
                                 if (!formKey.currentState!.validate()) {
-                                  context
-                                      .read<LoginBloc>()
-                                      .updateError(LocaleStrings.loginError);
+                                  context.read<LoginBloc>().add(
+                                        LoginErrorUpdated(
+                                          LocaleStrings.loginError,
+                                        ),
+                                      );
                                 } else {
                                   context.read<LoginBloc>().add(
                                         OnLoginEvent(

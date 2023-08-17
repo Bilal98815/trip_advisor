@@ -94,25 +94,20 @@
     "password_textfield_label": "Password",
     "password_textfield_hint": "Password", 
     "password_textfield_empty_error": "Enter password!",
-    "password_textfield_length_error": "please enter more than 6 digits",
+    "password_textfield_length_error": "Please enter more than 6 digits",
 
     "forgot_password": "Forgot password?",
     "signin_button": "Sign In",
     "signup_button": "Sign Up",
 
-    "error": "Enter correct credentials",
+    "error": "Please enter correct credentials",
 
     "exceptions": {
-      "something_wrong": "Something went wrong",
-      "network": "Network Error!", 
-      "empty": "Enter correct credentials", 
-      "credentials": "Enter correct credentials",
-      "invalid_email": "Invalid email format",
+      "something_wrong": "Something went wrong.", 
       "wrong_password": "Invalid Password",
-      "user_not_found": "User not found",
-      "user_disabled": "User account disabled", 
-      "email_exists": "Email is already in use", 
-      "weak_password": "Weak Password"
+      "user_not_found": "Incorrect credentials",
+      "user_disabled": "This user has been disabled",
+      "invalid_email": "Email is not valid or badly formatted"
     }
   },
 

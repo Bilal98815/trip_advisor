@@ -114,10 +114,6 @@ class LocaleStrings {
 
   static String get loginExceptionSomethingWrong =>
       'login.exceptions.something_wrong'.tr();
-  static String get loginExceptionNetwork => 'login.exceptions.network'.tr();
-  static String get loginExceptionEmpty => 'login.exceptions.empty'.tr();
-  static String get loginExceptionCredentials =>
-      'login.exceptions.credentials'.tr();
   static String get loginExceptionInvalidEmail =>
       'login.exceptions.invalid_email'.tr();
   static String get loginExceptionWrongPassword =>
@@ -126,10 +122,6 @@ class LocaleStrings {
       'login.exceptions.user_not_found'.tr();
   static String get loginExceptionDisabledUser =>
       'login.exceptions.user_disabled'.tr();
-  static String get loginExceptionEmailExists =>
-      'login.exceptions.email_exists'.tr();
-  static String get loginExceptionWeakPassword =>
-      'login.exceptions.weak_password'.tr();
 
   //onboarding
   static String get onboardingSkip => 'onboarding.skip'.tr();
