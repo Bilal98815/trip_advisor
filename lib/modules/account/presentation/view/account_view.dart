@@ -144,7 +144,9 @@ class AccountView extends StatelessWidget {
                           fontWeight: FontWeight.w300,
                         ),
                         CommonText(
-                          text: LocaleStrings.deviceId,
+                          text: LocaleStrings.deviceId(
+                            'a31b370e-c00e-417c-94a0-7f5023fcc573',
+                          ),
                           color: Colors.white,
                           fontsize: 11,
                           fontWeight: FontWeight.w300,
@@ -223,7 +225,9 @@ class AccountView extends StatelessWidget {
                           fontWeight: FontWeight.w300,
                         ),
                         CommonText(
-                          text: LocaleStrings.deviceId,
+                          text: LocaleStrings.deviceId(
+                            'a31b370e-c00e-417c-94a0-7f5023fcc573',
+                          ),
                           color: Colors.white,
                           fontsize: 11,
                           fontWeight: FontWeight.w300,

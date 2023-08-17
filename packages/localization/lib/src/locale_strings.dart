@@ -29,7 +29,8 @@ class LocaleStrings {
   static String get signoutDialogButton => 'account.signout_dialog.button'.tr();
 
   static String get version => 'account.version'.tr();
-  static String get deviceId => 'account.device_id'.tr();
+  static String deviceId(String id) =>
+      'account.device_id'.tr(namedArgs: {'id': id});
 
   //bottom bar
   static String get exploreTab => 'bottom_bar_tabs.explore'.tr();
