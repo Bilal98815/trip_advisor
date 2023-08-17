@@ -28,8 +28,8 @@ class SupportView extends StatelessWidget {
             );
           },
         ),
-        title: const CommonText(
-          text: 'Support',
+        title: CommonText(
+          text: LocaleStrings.supportTitle,
           color: Colors.white,
           fontsize: 20,
           fontWeight: FontWeight.w600,
@@ -74,30 +74,42 @@ class SupportView extends StatelessWidget {
                   SizedBox(
                     height: size.maxHeight * 0.05,
                   ),
-                  SupportTile(onTap: () {}, size: size, title: 'Help center'),
-                  SizedBox(
-                    height: size.maxHeight * 0.03,
+                  SupportTile(
+                    onTap: () {},
+                    size: size,
+                    title: LocaleStrings.supportHelpCenter,
                   ),
-                  SupportTile(onTap: () {}, size: size, title: 'App feedback'),
                   SizedBox(
                     height: size.maxHeight * 0.03,
                   ),
                   SupportTile(
                     onTap: () {},
                     size: size,
-                    title: 'Privacy policy',
+                    title: LocaleStrings.supportAppFeedback,
                   ),
-                  SizedBox(
-                    height: size.maxHeight * 0.03,
-                  ),
-                  SupportTile(onTap: () {}, size: size, title: 'Terms of use'),
                   SizedBox(
                     height: size.maxHeight * 0.03,
                   ),
                   SupportTile(
                     onTap: () {},
                     size: size,
-                    title: 'Open source licenses',
+                    title: LocaleStrings.supportPrivacyPolicy,
+                  ),
+                  SizedBox(
+                    height: size.maxHeight * 0.03,
+                  ),
+                  SupportTile(
+                    onTap: () {},
+                    size: size,
+                    title: LocaleStrings.supportTerms,
+                  ),
+                  SizedBox(
+                    height: size.maxHeight * 0.03,
+                  ),
+                  SupportTile(
+                    onTap: () {},
+                    size: size,
+                    title: LocaleStrings.supportLicenses,
                   ),
                 ],
               ),

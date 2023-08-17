@@ -17,7 +17,7 @@ class TripsView extends StatelessWidget {
         TripGuidanceTile(
           size: size,
           image: 'assets/heart.png',
-          text: "Save places you'd like to visit",
+          text: LocaleStrings.tripsTabFavouritePlace,
         ),
         SizedBox(
           height: size.maxHeight * 0.03,
@@ -25,7 +25,7 @@ class TripsView extends StatelessWidget {
         TripGuidanceTile(
           size: size,
           image: 'assets/placeholder.png',
-          text: 'See your saves on a map',
+          text: LocaleStrings.tripsTabLocation,
         ),
         SizedBox(
           height: size.maxHeight * 0.03,
@@ -33,7 +33,7 @@ class TripsView extends StatelessWidget {
         TripGuidanceTile(
           size: size,
           image: 'assets/document.png',
-          text: 'Keep track of notes, links, and more',
+          text: LocaleStrings.tripsTabNotes,
         ),
         SizedBox(
           height: size.maxHeight * 0.03,
@@ -41,7 +41,7 @@ class TripsView extends StatelessWidget {
         TripGuidanceTile(
           size: size,
           image: 'assets/follow.png',
-          text: 'Share and collaborate on your plans',
+          text: LocaleStrings.tripsTabShare,
         ),
         SizedBox(
           height: size.maxHeight * 0.05,
@@ -51,9 +51,9 @@ class TripsView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Trip name?',
-                style: TextStyle(
+              Text(
+                LocaleStrings.tripsTabFieldTitle,
+                style: const TextStyle(
                   fontSize: 15,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -71,7 +71,7 @@ class TripsView extends StatelessWidget {
                 },
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                  hintText: 'Ex: Weekend in NYC',
+                  hintText: LocaleStrings.tripsTabFieldHint,
                   hintStyle: const TextStyle(color: Colors.grey, fontSize: 15),
                   border: OutlineInputBorder(
                     borderSide: const BorderSide(color: Colors.red),
@@ -101,7 +101,7 @@ class TripsView extends StatelessWidget {
                     controller.text == '' ? Colors.grey.shade700 : Colors.white,
                 child: Center(
                   child: CommonText(
-                    text: 'Create a Trip',
+                    text: LocaleStrings.tripsTabButton,
                     color: controller.text == ''
                         ? Colors.grey.shade600
                         : Colors.black,

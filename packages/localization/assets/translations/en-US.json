@@ -85,7 +85,6 @@
   },
 
   "login": {
-
     "heading": "Welcome Back",
 
     "email_textfield_label": "Email Address",
@@ -128,5 +127,90 @@
     }, 
     "google_button": "Continue with Google", 
     "email_button": "Continue with Email"
+  },
+
+  "plan_trip": {
+    "title": "Plan",
+    "tab_title_trips":"Trips",
+    "tab_title_saves": "Saves",
+    "trips": {
+      "favorite_places_text": "Save places you'd like to visit",
+      "location_text": "See your saves on a map",
+      "notes_text": "Keep track of notes, links, and more",
+      "share_text": "Share and collaborate on your plans",
+      "trip_field_title": "Trip name?",
+      "field_hint": "Ex: Weekend in NYC",
+      "trip_button_text": "Create a Trip"
+    },
+    "saves": {
+      "saves_text": "No Saves yet",
+      "places_text": "Places you save will appear here."
+    }
+  },
+
+  "profile": {
+    "title": "Profile",
+    "joining_text": "Joined in",
+    "contribution_text": "contributions",
+    "bio": "Share a little about yourself so other travelers can get to know you",
+    "city": "No city selected.",
+    "website_text": "No website added.",
+    "photos_title": "photos",
+    "photos_text": "You have no photos yet.",
+    "photo_button_text": "Upload a photo",
+    "review_title": "reviews",
+    "reviews_text": "You have no reviews yet.",
+    "review_button_text": "Write a review",
+    "posts_title": "forum posts",
+    "posts_text": "You have no forum posts yet.",
+    "post_button_text": "Post to a forum",
+    "more_title": "More",
+    "badges_tile_text": "Badges",
+    "travel_map_text": "Travel map"
+  },
+
+  "review": {
+    "title": "Review",
+    "review_text": "reviews",
+    "drafts_text": "drafts",
+    "photos_text": "photos",
+    "write_review_button_text": "Write a review",
+    "upload_photo_button_text": "Upload a photo",
+    "image_container_heading": "We want you to write us a review",
+    "image_container_subheading": "Because who else we turn to for travel advice?",
+    "image_container_button_text": "What to know",
+    "missing_place_text": "Is Tripadvisor missing a place?",
+    "about_text": "Tell us about it so we can improve what we show.",
+    "missing_place_button_text": "Add a missing place",
+    "add_place_button_text": "Add a place"
+  },
+  
+  "signup": {
+    "title": "Become a Tripadvisor member.",
+    "email_field_title": "Email address",
+    "password_field_title": "Password",
+    "character_numbers_text": "At least 6 characters",
+    "special_character_text": "Contains a special character",
+    "checkbox": "Yes, inform me on deals & new features. I can opt out at any time",
+    "signUp_button": "Sign up",
+    "signIn_button": "Sign in"
+  },
+
+  "support": {
+    "title": "Support",
+    "help_center": "Help center",
+    "App_feedback": "App feedback",
+    "privacy_policy": "Privacy policy",
+    "terms": "Terms of use",
+    "open_source_license": "Open source licenses"
+  },
+
+  "user_data": {
+    "heading": "Let's get the basics so we can give you the goods",
+    "name_field_title": "What should we call you?",
+    "name_field_hint": "Name",
+    "location_field_title": "Where do you live?(Optional)",
+    "location_field_hint": "Hometown",
+    "button": "Next"
   }
 }

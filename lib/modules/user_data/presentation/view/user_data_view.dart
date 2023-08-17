@@ -61,9 +61,8 @@ class UserDataView extends StatelessWidget {
                         padding: EdgeInsets.symmetric(
                           horizontal: size.maxWidth * 0.08,
                         ),
-                        child: const CommonText(
-                          text:
-                              "Let's get the basics so we can give you the goods.",
+                        child: CommonText(
+                          text: LocaleStrings.userDataHeading,
                           color: Colors.white,
                           textOverflow: TextOverflow.clip,
                           textAlign: TextAlign.left,
@@ -81,9 +80,9 @@ class UserDataView extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              'What should we call you?',
-                              style: TextStyle(
+                            Text(
+                              LocaleStrings.userDataNameFieldTitle,
+                              style: const TextStyle(
                                 fontSize: 15,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -98,7 +97,7 @@ class UserDataView extends StatelessWidget {
                                   val!.isEmpty ? 'Enter name!' : null,
                               style: const TextStyle(color: Colors.white),
                               decoration: InputDecoration(
-                                hintText: 'Name',
+                                hintText: LocaleStrings.userDataNameFieldHint,
                                 hintStyle: const TextStyle(color: Colors.grey),
                                 border: OutlineInputBorder(
                                   borderSide:
@@ -123,9 +122,9 @@ class UserDataView extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              'Where do you live?(Optional)',
-                              style: TextStyle(
+                            Text(
+                              LocaleStrings.userDataLocationFieldTitle,
+                              style: const TextStyle(
                                 fontSize: 15,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -229,9 +228,9 @@ class UserDataView extends StatelessWidget {
                               height: size.maxHeight * 0.064,
                               color: Colors.white,
                               size: size,
-                              child: const Center(
+                              child: Center(
                                 child: CommonText(
-                                  text: 'Next',
+                                  text: LocaleStrings.userDataButton,
                                   color: Colors.black87,
                                   fontsize: 20,
                                   fontWeight: FontWeight.w500,
