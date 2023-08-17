@@ -24,11 +24,11 @@ class OnboardingView extends StatelessWidget {
                     SizedBox(
                       height: size.maxHeight * 0.04,
                     ),
-                    const Align(
+                    Align(
                       alignment: Alignment.topRight,
                       child: Text(
-                        'Skip',
-                        style: TextStyle(
+                        LocaleStrings.onboardingSkip,
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                           color: Colors.white,
@@ -47,8 +47,8 @@ class OnboardingView extends StatelessWidget {
                       padding: const EdgeInsets.all(15.0),
                       child: Center(child: Image.asset('assets/owl.png')),
                     ),
-                    const CommonText(
-                      text: 'Sign in to start planning your trip.',
+                    CommonText(
+                      text: LocaleStrings.onboardingHeading,
                       color: Colors.white,
                       textAlign: TextAlign.left,
                       textOverflow: TextOverflow.clip,
@@ -59,15 +59,15 @@ class OnboardingView extends StatelessWidget {
                       height: size.maxHeight * 0.02,
                     ),
                     RichText(
-                      text: const TextSpan(
-                        text: 'By Proceeding, you agree to our ',
-                        style: TextStyle(
+                      text: TextSpan(
+                        text: LocaleStrings.onboardingTextLine1,
+                        style: const TextStyle(
                           fontSize: 15,
                         ),
                         children: [
                           TextSpan(
-                            text: 'Terms of Use ',
-                            style: TextStyle(
+                            text: LocaleStrings.onboardingTextTerms,
+                            style: const TextStyle(
                               fontSize: 15,
                               color: Colors.white,
                               fontWeight: FontWeight.w700,
@@ -75,14 +75,12 @@ class OnboardingView extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: 'and confirm you have read our ',
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
+                            text: LocaleStrings.onboardingTextLine2,
+                            style: const TextStyle(fontSize: 15),
                           ),
                           TextSpan(
-                            text: 'Privacy and Cookie Statement',
-                            style: TextStyle(
+                            text: LocaleStrings.onboardingTextPrivacy,
+                            style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w700,
                               decoration: TextDecoration.underline,
@@ -96,7 +94,7 @@ class OnboardingView extends StatelessWidget {
                     ),
                     OnboardingButton(
                       size: size,
-                      title: 'Continue with Google',
+                      title: LocaleStrings.onboardingGoogleButton,
                       image: 'assets/google.png',
                       onTap: () {},
                     ),
@@ -105,7 +103,7 @@ class OnboardingView extends StatelessWidget {
                     ),
                     OnboardingButton(
                       size: size,
-                      title: 'Continue with Email',
+                      title: LocaleStrings.onboardingEmailButton,
                       onTap: () => context.go(LoginView.route()),
                       image: 'assets/email.png',
                     ),

@@ -128,4 +128,16 @@ class LocaleStrings {
       'login.exceptions.email_exists'.tr();
   static String get loginExceptionWeakPassword =>
       'login.exceptions.weak_password'.tr();
+
+  //onboarding
+  static String get onboardingSkip => 'onboarding.skip'.tr();
+  static String get onboardingHeading => 'onboarding.heading'.tr();
+
+  static String get onboardingTextLine1 => 'onboarding.text.line1'.tr();
+  static String get onboardingTextTerms => 'onboarding.text.terms'.tr();
+  static String get onboardingTextLine2 => 'onboarding.text.line2'.tr();
+  static String get onboardingTextPrivacy => 'onboarding.text.privacy'.tr();
+
+  static String get onboardingGoogleButton => 'onboarding.google_button'.tr();
+  static String get onboardingEmailButton => 'onboarding.email_button'.tr();
 }

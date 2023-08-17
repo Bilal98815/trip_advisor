@@ -114,5 +114,18 @@
       "email_exists": "Email is already in use", 
       "weak_password": "Weak Password"
     }
+  }, 
+
+  "onboarding": {
+    "skip": "Skip",
+    "heading": "Sign in to start planning your trip",
+    "text": {
+      "line1": "By Proceeding, you agree to our ", 
+      "terms": "Terms of Use ", 
+      "line2": "and confirm you have read our ",
+      "privacy": "Privacy and Cookie Statement"
+    }, 
+    "google_button": "Continue with Google", 
+    "email_button": "Continue with Email"
   }
 }
