@@ -19,6 +19,13 @@ class LocaleStrings {
   static String get supportTile => 'account.profile_tiles.support'.tr();
   static String get tripAdvisorTile => 'account.profile_tiles.tripadvisor'.tr();
 
+  static String get accountSigninInfo1 => 'account.signin_box.info1'.tr();
+  static String get accountSigninInfo2 => 'account.signin_box.info2'.tr();
+  static String get accountSigninButton => 'account.signin_box.button'.tr();
+
+  static String get signoutDialogText => 'account.signout_dialog.message'.tr();
+  static String get signoutDialogButton => 'account.signout_dialog.button'.tr();
+
   static String get version => 'account.version'.tr();
   static String get deviceId => 'account.device_id'.tr();
 

@@ -29,9 +29,7 @@ class ForgotPasswordView extends StatelessWidget {
                           height: size.maxHeight * 0.03,
                         ),
                         InkWell(
-                          onTap: () {
-                            context.pop();
-                          },
+                          onTap: () => context.pop(),
                           child: const Icon(
                             Icons.arrow_back_ios_new,
                             color: Colors.white,

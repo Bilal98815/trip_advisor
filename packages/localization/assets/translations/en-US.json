@@ -18,6 +18,17 @@
       "tripadvisor": "Trip Advisor Plus US"
     },
 
+    "signin_box": {
+      "info1": "Sign in to manage your bookings and",
+      "info2": "easily plan your next trip",
+      "button": "Sign In"
+    },
+
+    "signout_dialog": {
+      "message": "Are you sure you want to sign out?",
+      "button": "Sign Out"
+    },
+
     "version": "Version: v53.5 build 230724021",
     "device_id": "Device ID: a31b370e-c00e-417c-94a0-7f5023fcc573"
   },
