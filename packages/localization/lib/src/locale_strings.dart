@@ -84,4 +84,9 @@ class LocaleStrings {
       'forgot_password.dialog.back_button'.tr();
   static String get forgotPasswordDialogResendButton =>
       'forgot_password.dialog.resend_button'.tr();
+
+  //location data
+  static String get locationDataHeading => 'location_data.heading'.tr();
+  static String get locationDataAllow => 'location_data.allow'.tr();
+  static String get locationDataNotNow => 'location_data.not_now'.tr();
 }

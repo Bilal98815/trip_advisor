@@ -50,9 +50,8 @@ class LocationDataView extends StatelessWidget {
                   Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
-                    child: const CommonText(
-                      text:
-                          'Discover traveler recommended spots near you, wherever you are.',
+                    child: CommonText(
+                      text: LocaleStrings.locationDataHeading,
                       color: Colors.white,
                       textOverflow: TextOverflow.clip,
                       textAlign: TextAlign.left,
@@ -84,9 +83,9 @@ class LocationDataView extends StatelessWidget {
                       height: size.maxHeight * 0.064,
                       color: Colors.white,
                       size: size,
-                      child: const Center(
+                      child: Center(
                         child: CommonText(
-                          text: 'Allow location data',
+                          text: LocaleStrings.locationDataAllow,
                           color: Colors.black87,
                           fontsize: 18,
                           fontWeight: FontWeight.w500,
@@ -103,9 +102,9 @@ class LocationDataView extends StatelessWidget {
                         UserDataPage.routeName,
                         extra: {'email': email, 'password': password},
                       ),
-                      child: const Text(
-                        'Not now',
-                        style: TextStyle(
+                      child: Text(
+                        LocaleStrings.locationDataNotNow,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
@@ -133,13 +132,11 @@ class LocationDataView extends StatelessWidget {
 
     debugPrint('------ Position: $position');
 
-    if (context.mounted) {
-      context.read<LocationDataBloc>().add(
-            LocationDataEvent(
-              location: GeoPoint(position.latitude, position.longitude),
-              email: email,
-            ),
-          );
-    }
+    context.read<LocationDataBloc>().add(
+          LocationDataEvent(
+            location: GeoPoint(position.latitude, position.longitude),
+            email: email,
+          ),
+        );
   }
 }

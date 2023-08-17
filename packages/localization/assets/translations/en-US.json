@@ -76,6 +76,11 @@
       "back_button": "Back to Sign In",
       "resend_button": "Resend Email"
     }
+  },
+
+  "location_data": {
+    "heading": "Discover traveler recommended spots near you, wherever you are",
+    "allow": "Allow Location Data",
+    "not_now": "Not Now"
   }
-  
 }
