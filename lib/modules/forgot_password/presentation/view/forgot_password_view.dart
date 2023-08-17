@@ -29,9 +29,7 @@ class ForgotPasswordView extends StatelessWidget {
                           height: size.maxHeight * 0.03,
                         ),
                         InkWell(
-                          onTap: () {
-                            context.pop();
-                          },
+                          onTap: () => context.pop(),
                           child: const Icon(
                             Icons.arrow_back_ios_new,
                             color: Colors.white,
@@ -40,8 +38,8 @@ class ForgotPasswordView extends StatelessWidget {
                         SizedBox(
                           height: size.maxHeight * 0.04,
                         ),
-                        const CommonText(
-                          text: 'Enter the email address you used to sign up.',
+                        CommonText(
+                          text: LocaleStrings.forgotPasswordHeading,
                           color: Colors.white,
                           fontsize: 28,
                           textAlign: TextAlign.left,
@@ -54,9 +52,9 @@ class ForgotPasswordView extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              'Email address',
-                              style: TextStyle(
+                            Text(
+                              LocaleStrings.forgotPasswordEmailLabel,
+                              style: const TextStyle(
                                 fontSize: 15,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -67,11 +65,12 @@ class ForgotPasswordView extends StatelessWidget {
                             ),
                             TextFormField(
                               controller: emailController,
-                              validator: (val) =>
-                                  val!.isEmpty ? 'Enter email!' : null,
+                              validator: (val) => val!.isEmpty
+                                  ? LocaleStrings.forgotPasswordEmailError
+                                  : null,
                               style: const TextStyle(color: Colors.white),
                               decoration: InputDecoration(
-                                hintText: 'Email address',
+                                hintText: LocaleStrings.forgotPasswordEmailHint,
                                 hintStyle: const TextStyle(color: Colors.grey),
                                 border: OutlineInputBorder(
                                   borderSide:
@@ -121,7 +120,7 @@ class ForgotPasswordView extends StatelessWidget {
                                   context.read<ForgotPasswordBloc>().add(
                                         ShowError(
                                           error:
-                                              'Please enter correct Credentials',
+                                              LocaleStrings.forgotPasswordError,
                                         ),
                                       );
                                   debugPrint('------> Enter email');
@@ -145,9 +144,9 @@ class ForgotPasswordView extends StatelessWidget {
                               color: Colors.white,
                               height: size.maxHeight * 0.075,
                               size: size,
-                              child: const Center(
+                              child: Center(
                                 child: CommonText(
-                                  text: 'Send email',
+                                  text: LocaleStrings.forgotPasswordButton,
                                   color: Colors.black87,
                                   fontsize: 20,
                                   fontWeight: FontWeight.w500,
@@ -159,8 +158,8 @@ class ForgotPasswordView extends StatelessWidget {
                         SizedBox(
                           height: size.maxHeight * 0.035,
                         ),
-                        const CommonText(
-                          text: "We'll send you a password reset email.",
+                        CommonText(
+                          text: LocaleStrings.forgotPasswordInformation,
                           color: Colors.white,
                           fontsize: 16,
                           fontWeight: FontWeight.w400,

@@ -20,14 +20,14 @@ class SignInBox extends StatelessWidget {
           SizedBox(
             height: size.maxHeight * 0.04,
           ),
-          const CommonText(
-            text: 'Sign in to manage your bookings and',
+          CommonText(
+            text: LocaleStrings.accountSigninInfo1,
             color: Colors.white,
             fontsize: 15,
             fontWeight: FontWeight.w300,
           ),
-          const CommonText(
-            text: 'easily plan your next trip',
+          CommonText(
+            text: LocaleStrings.accountSigninInfo2,
             color: Colors.white,
             fontsize: 15,
             fontWeight: FontWeight.w300,
@@ -43,9 +43,9 @@ class SignInBox extends StatelessWidget {
             color: Colors.white,
             height: size.maxHeight * 0.06,
             size: size,
-            child: const Center(
+            child: Center(
               child: CommonText(
-                text: 'Sign in',
+                text: LocaleStrings.accountSigninButton,
                 color: Colors.black87,
                 fontsize: 15,
                 fontWeight: FontWeight.w700,

@@ -9,10 +9,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
-  intl: any
+  easy_localization: ^3.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+
+flutter:
+  assets:
+    - assets/translations/

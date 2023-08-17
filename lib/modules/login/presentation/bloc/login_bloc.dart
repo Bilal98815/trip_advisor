@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:localization/localization.dart';
 
 import 'package:trip_advisor/common/common.dart';
 import 'package:trip_advisor/modules/login/login.dart';
@@ -17,6 +16,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
 
     on<GetUserDetailsFromDb>((event, emit) async {
       await getUserDetailsFromDb(event.email);
+    });
+
+    on<LoginErrorUpdated>((event, emit) {
+      updateError(event.error, emit);
     });
   }
   late LoginRepository loginRepository;
@@ -36,12 +39,30 @@ class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
       await loginRepository.updateUser(token!, email);
 
       emit(state.copyWith(authApiState: ApiState.done));
-    } on FirebaseException catch (e) {
-      debugPrint('----->>> $e');
-      updateError(e.code);
-    } catch (e) {
-      updateError(e.toString());
+    } on LogInWithEmailAndPasswordFailure catch (e) {
+      emit(
+        state.copyWith(
+          authApiState: ApiState.error,
+          errorMessage: e.message,
+        ),
+      );
+    } catch (_) {
+      emit(
+        state.copyWith(
+          authApiState: ApiState.error,
+          errorMessage: LocaleStrings.loginExceptionSomethingWrong,
+        ),
+      );
     }
+  }
+
+  void updateError(String error, Emitter<LoginBlocState> emit) {
+    emit(
+      state.copyWith(
+        errorMessage: error,
+        authApiState: ApiState.error,
+      ),
+    );
   }
 
   Future<void> getUserDetailsFromDb(String email) async {
@@ -55,37 +76,5 @@ class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
 
   void setEmailInPreferences(String email) {
     prefs.setEmail(email);
-  }
-
-  void updateError(String exception) {
-    String error = '';
-    switch (exception) {
-      case 'Something went wrong':
-        error = 'Something went wrong';
-      case '[firebase_auth/network-request-failed] A network error (such as timeout, interrupted connection or unreachable host) has occurred':
-        error = 'Network Error!';
-      case '[firebase_auth/unknown] Given String is empty or null':
-        error = 'Enter correct credentials';
-      case 'Enter correct credentials':
-        error = 'Enter correct credentials';
-      case 'invalid-email':
-        error = 'Invalid email format';
-      case 'wrong-password':
-        error = 'Invalid Password';
-      case 'user-not-found':
-        error = 'User not found';
-      case 'user-disabled':
-        error = 'User account disabled';
-      case 'email-already-in-use':
-        error = 'Email is already in use';
-      case 'weak-password':
-        error = 'Weak Password';
-    }
-    emit(
-      state.copyWith(
-        errorMessage: error,
-        authApiState: ApiState.error,
-      ),
-    );
   }
 }

@@ -5,13 +5,26 @@ class TripAdvisorAppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: AppRouter().router,
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return EasyLocalization(
+      supportedLocales: kSupportedLocales,
+      path: kPath,
+      fallbackLocale: kFallbackLocale,
+      startLocale: kStartingLocale,
+      child: Builder(
+        builder: (context) {
+          return MaterialApp.router(
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            routerConfig: AppRouter().router,
+            title: LocaleStrings.appTitle,
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
+            ),
+          );
+        },
       ),
     );
   }

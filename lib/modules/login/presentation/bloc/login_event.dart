@@ -16,4 +16,9 @@ class GetUserDetailsFromDb extends LoginEvent {
   final String email;
 }
 
+final class LoginErrorUpdated extends LoginEvent {
+  LoginErrorUpdated(this.error);
+  final String error;
+}
+
 class GetUserFromPreferencesEvent extends LoginEvent {}

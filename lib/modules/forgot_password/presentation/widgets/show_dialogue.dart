@@ -33,8 +33,8 @@ class DialogueBox extends StatelessWidget {
             SizedBox(
               height: constraint.maxHeight * 0.02,
             ),
-            const CommonText(
-              text: "We've sent a password reset email.",
+            CommonText(
+              text: LocaleStrings.forgotPasswordDialogTitle,
               color: Colors.white,
               fontsize: 18,
               fontWeight: FontWeight.w700,
@@ -42,9 +42,8 @@ class DialogueBox extends StatelessWidget {
             SizedBox(
               height: constraint.maxHeight * 0.02,
             ),
-            const CommonText(
-              text:
-                  'Check your inbox for an email from Tripadvisor and follow the instructions to reset your password',
+            CommonText(
+              text: LocaleStrings.forgotPasswordDialogText,
               color: Colors.white,
               textOverflow: TextOverflow.clip,
               textAlign: TextAlign.center,
@@ -59,9 +58,9 @@ class DialogueBox extends StatelessWidget {
               color: Colors.white,
               height: constraint.maxHeight * 0.06,
               size: constraint,
-              child: const Center(
+              child: Center(
                 child: CommonText(
-                  text: 'Back to sign in',
+                  text: LocaleStrings.forgotPasswordDialogBackButton,
                   color: Colors.black87,
                   fontsize: 18,
                   fontWeight: FontWeight.w700,
@@ -82,9 +81,9 @@ class DialogueBox extends StatelessWidget {
               color: Colors.black87,
               height: constraint.maxHeight * 0.06,
               size: constraint,
-              child: const Center(
+              child: Center(
                 child: CommonText(
-                  text: 'Resend email',
+                  text: LocaleStrings.forgotPasswordDialogResendButton,
                   color: Colors.white,
                   fontsize: 18,
                   fontWeight: FontWeight.w700,

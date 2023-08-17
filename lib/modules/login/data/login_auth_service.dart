@@ -5,8 +5,14 @@ class LoginAuthService {
   final prefs = Preferences();
 
   Future<void> signInUser(String email, String password) async {
-    await _auth.signInWithEmailAndPassword(email: email, password: password);
-    prefs.setUserDetails(email);
+    try {
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
+      prefs.setUserDetails(email);
+    } on FirebaseAuthException catch (e) {
+      throw LogInWithEmailAndPasswordFailure.fromCode(e.code);
+    } catch (e) {
+      throw LogInWithEmailAndPasswordFailure();
+    }
   }
 
   Future<void> updateUser(String token, String email) async {

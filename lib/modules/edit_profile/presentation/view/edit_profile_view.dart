@@ -29,9 +29,7 @@ class EditProfileView extends StatelessWidget {
             return Padding(
               padding: EdgeInsets.only(left: size.maxWidth * 0.5),
               child: InkWell(
-                onTap: () {
-                  context.pop();
-                },
+                onTap: () => context.pop(),
                 child: const Icon(
                   Icons.arrow_back_ios_new,
                   color: Colors.white,
@@ -40,8 +38,8 @@ class EditProfileView extends StatelessWidget {
             );
           },
         ),
-        title: const CommonText(
-          text: 'Edit profile',
+        title: CommonText(
+          text: LocaleStrings.editProfileTitle,
           color: Colors.white,
           fontsize: 20,
           fontWeight: FontWeight.w600,
@@ -121,9 +119,9 @@ class EditProfileView extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Name',
-                          style: TextStyle(
+                        Text(
+                          LocaleStrings.editProfileNameLabel,
+                          style: const TextStyle(
                             fontSize: 15,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -138,7 +136,8 @@ class EditProfileView extends StatelessWidget {
                               controller: nameController,
                               style: const TextStyle(color: Colors.white),
                               decoration: InputDecoration(
-                                hintText: state.user?.name ?? 'Name',
+                                hintText: state.user?.name ??
+                                    LocaleStrings.editProfileNameHint,
                                 hintStyle: const TextStyle(
                                   color: Colors.grey,
                                   fontSize: 15,
@@ -158,9 +157,9 @@ class EditProfileView extends StatelessWidget {
                         SizedBox(
                           height: size.maxHeight * 0.03,
                         ),
-                        const Text(
-                          'Current city',
-                          style: TextStyle(
+                        Text(
+                          LocaleStrings.editProfileCityLabel,
+                          style: const TextStyle(
                             fontSize: 15,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -187,7 +186,6 @@ class EditProfileView extends StatelessWidget {
                               return DropdownButton(
                                 icon: const SizedBox.shrink(),
                                 underline: const SizedBox.shrink(),
-                                //value: state.country,
                                 hint: Text(
                                   state.country,
                                   style: const TextStyle(
@@ -223,9 +221,9 @@ class EditProfileView extends StatelessWidget {
                         SizedBox(
                           height: size.maxHeight * 0.03,
                         ),
-                        const Text(
-                          'Website',
-                          style: TextStyle(
+                        Text(
+                          LocaleStrings.editProfileWebsiteLabel,
+                          style: const TextStyle(
                             fontSize: 15,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -238,7 +236,7 @@ class EditProfileView extends StatelessWidget {
                           controller: websiteController,
                           style: const TextStyle(color: Colors.white),
                           decoration: InputDecoration(
-                            hintText: 'Add a website',
+                            hintText: LocaleStrings.editProfileWebsiteHint,
                             hintStyle: const TextStyle(
                               color: Colors.grey,
                               fontSize: 15,
@@ -255,9 +253,9 @@ class EditProfileView extends StatelessWidget {
                         SizedBox(
                           height: size.maxHeight * 0.03,
                         ),
-                        const Text(
-                          'About you',
-                          style: TextStyle(
+                        Text(
+                          LocaleStrings.editProfileAboutLabel,
+                          style: const TextStyle(
                             fontSize: 15,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -287,10 +285,12 @@ class EditProfileView extends StatelessWidget {
                                   .add(UpdateCountEvent(count: val.length));
                             },
                             style: const TextStyle(color: Colors.white),
-                            decoration: const InputDecoration(
-                              hintText: 'Write some details about yourself',
-                              hintStyle:
-                                  TextStyle(color: Colors.grey, fontSize: 15),
+                            decoration: InputDecoration(
+                              hintText: LocaleStrings.editProfileAboutHint,
+                              hintStyle: const TextStyle(
+                                color: Colors.grey,
+                                fontSize: 15,
+                              ),
                               border: InputBorder.none,
                             ),
                           ),
@@ -323,11 +323,11 @@ class EditProfileView extends StatelessWidget {
                           Navigator.pop(context);
                         } else if (state.apiState == ApiState.error) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
+                            SnackBar(
                               backgroundColor: Colors.red,
                               content: Text(
-                                'Something went wrong!',
-                                style: TextStyle(color: Colors.white),
+                                LocaleStrings.editProfileError,
+                                style: const TextStyle(color: Colors.white),
                               ),
                             ),
                           );
@@ -357,9 +357,9 @@ class EditProfileView extends StatelessWidget {
                           size: size,
                           child: state.apiState == ApiState.loading
                               ? const Center(child: CircularProgressIndicator())
-                              : const Center(
+                              : Center(
                                   child: CommonText(
-                                    text: 'Save',
+                                    text: LocaleStrings.editProfileSaveButton,
                                     color: Colors.black,
                                     fontsize: 18,
                                     fontWeight: FontWeight.w500,

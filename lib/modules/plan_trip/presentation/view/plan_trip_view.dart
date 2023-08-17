@@ -26,8 +26,8 @@ class PlanTripView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.07,
                       ),
-                      child: const CommonText(
-                        text: 'Plan',
+                      child: CommonText(
+                        text: LocaleStrings.planTitle,
                         color: Colors.white,
                         fontsize: 32,
                         fontWeight: FontWeight.w900,
@@ -40,14 +40,14 @@ class PlanTripView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.03,
                       ),
-                      child: const TabBar(
+                      child: TabBar(
                         indicatorColor: Colors.white,
                         dividerColor: Colors.transparent,
                         isScrollable: true,
                         tabs: [
                           Tab(
                             child: CommonText(
-                              text: 'Trips',
+                              text: LocaleStrings.tripsTabTitle,
                               color: Colors.white,
                               fontsize: 16,
                               fontWeight: FontWeight.w600,
@@ -55,7 +55,7 @@ class PlanTripView extends StatelessWidget {
                           ),
                           Tab(
                             child: CommonText(
-                              text: 'Saves',
+                              text: LocaleStrings.savesTabTitle,
                               color: Colors.white,
                               fontsize: 16,
                               fontWeight: FontWeight.w600,
@@ -73,14 +73,14 @@ class PlanTripView extends StatelessWidget {
                               SizedBox(
                                 height: size.maxHeight * 0.03,
                               ),
-                              const CommonText(
-                                text: 'No Saves yet',
+                              CommonText(
+                                text: LocaleStrings.savesTabHeading,
                                 color: Colors.white,
                                 fontsize: 16,
                                 fontWeight: FontWeight.w700,
                               ),
-                              const CommonText(
-                                text: 'Places you save will appear here.',
+                              CommonText(
+                                text: LocaleStrings.savesTabPlace,
                                 color: Colors.white,
                                 fontsize: 15,
                                 fontWeight: FontWeight.w300,

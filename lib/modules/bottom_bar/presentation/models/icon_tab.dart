@@ -7,37 +7,37 @@ extension TabsX on Tabs {
     switch (this) {
       case Tabs.explore:
         return IconTab(
-          label: 'Explore',
+          label: LocaleStrings.exploreTab,
           icon: Icons.home_rounded,
           route: ExploreView.route(),
         );
       case Tabs.search:
         return IconTab(
-          label: 'Search',
+          label: LocaleStrings.searchTab,
           icon: Icons.search,
           route: SearchView.route(),
         );
       case Tabs.plan:
         return IconTab(
-          label: 'Plan',
+          label: LocaleStrings.planTab,
           icon: Icons.favorite,
           route: PlanTripPage.route(),
         );
       case Tabs.review:
         return IconTab(
-          label: 'Review',
+          label: LocaleStrings.reviewTab,
           icon: Icons.create,
           route: ReviewPage.route(),
         );
       case Tabs.account:
         return IconTab(
-          label: 'Account',
-          icon: Icons.home_rounded,
+          label: LocaleStrings.accountTab,
+          icon: Icons.person,
           route: AccountView.route(),
         );
       default:
         return IconTab(
-          label: 'Explore',
+          label: LocaleStrings.exploreTab,
           icon: Icons.home_rounded,
           route: ExploreView.route(),
         );

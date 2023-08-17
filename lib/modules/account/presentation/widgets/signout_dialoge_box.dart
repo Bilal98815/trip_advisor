@@ -32,8 +32,8 @@ class SignoutDialogBox extends StatelessWidget {
             SizedBox(
               height: size.maxHeight * 0.02,
             ),
-            const CommonText(
-              text: 'Are you sure you want to sign out?',
+            CommonText(
+              text: LocaleStrings.signoutDialogText,
               color: Colors.white,
               fontsize: 15,
               fontWeight: FontWeight.w300,
@@ -50,9 +50,9 @@ class SignoutDialogBox extends StatelessWidget {
               color: Colors.white,
               height: size.maxHeight * 0.06,
               size: size,
-              child: const Center(
+              child: Center(
                 child: CommonText(
-                  text: 'Sign out',
+                  text: LocaleStrings.signoutDialogButton,
                   color: Colors.black87,
                   fontsize: 15,
                   fontWeight: FontWeight.w700,

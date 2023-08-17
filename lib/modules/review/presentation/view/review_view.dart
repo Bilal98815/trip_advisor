@@ -38,8 +38,8 @@ class ReviewView extends StatelessWidget {
                       'assets/gallery.png',
                       width: size.maxWidth * 0.045,
                     ),
-                    labelWidget: const CommonText(
-                      text: 'Upload a photo',
+                    labelWidget: CommonText(
+                      text: LocaleStrings.uploadPhotoButton,
                       color: Colors.white,
                       fontsize: 18,
                       fontWeight: FontWeight.w500,
@@ -56,8 +56,8 @@ class ReviewView extends StatelessWidget {
                       'assets/pen.png',
                       width: size.maxWidth * 0.045,
                     ),
-                    labelWidget: const CommonText(
-                      text: 'Write a review',
+                    labelWidget: CommonText(
+                      text: LocaleStrings.writeReviewButton,
                       color: Colors.white,
                       fontsize: 18,
                       fontWeight: FontWeight.w500,
@@ -75,8 +75,8 @@ class ReviewView extends StatelessWidget {
                       'assets/pin_black.png',
                       width: size.maxWidth * 0.045,
                     ),
-                    labelWidget: const CommonText(
-                      text: 'Add a place',
+                    labelWidget: CommonText(
+                      text: LocaleStrings.reviewAddPlaceButton,
                       color: Colors.white,
                       fontsize: 18,
                       fontWeight: FontWeight.w500,
@@ -107,8 +107,8 @@ class ReviewView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.08,
                       ),
-                      child: const CommonText(
-                        text: 'Review',
+                      child: CommonText(
+                        text: LocaleStrings.reviewTitle,
                         color: Colors.white,
                         fontsize: 32,
                         fontWeight: FontWeight.w900,
@@ -148,8 +148,9 @@ class ReviewView extends StatelessWidget {
                                     fontsize: 18,
                                     fontWeight: FontWeight.w600,
                                   ),
-                                  const CommonText(
-                                    text: '0 reviews, 0 drafts, 0 photos',
+                                  CommonText(
+                                    text:
+                                        '0 ${LocaleStrings.reviews}, 0 ${LocaleStrings.drafts}, 0 ${LocaleStrings.photos}',
                                     color: Colors.white,
                                     fontsize: 11,
                                     fontWeight: FontWeight.w400,
@@ -172,7 +173,7 @@ class ReviewView extends StatelessWidget {
                         children: [
                           ActionButton(
                             size: size,
-                            text: 'Write a review',
+                            text: LocaleStrings.writeReviewButton,
                             onTap: () {},
                           ),
                           SizedBox(
@@ -180,7 +181,7 @@ class ReviewView extends StatelessWidget {
                           ),
                           ActionButton(
                             size: size,
-                            text: 'Upload a photo',
+                            text: LocaleStrings.uploadPhotoButton,
                             onTap: () {
                               _pickImageFromGallery();
                             },
@@ -199,9 +200,9 @@ class ReviewView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.08,
                       ),
-                      child: const Align(
+                      child: Align(
                         child: CommonText(
-                          text: 'Is Tripadvisor missing a place?',
+                          text: LocaleStrings.reviewMissingPlace,
                           color: Colors.white,
                           fontsize: 22,
                           fontWeight: FontWeight.w600,
@@ -212,9 +213,8 @@ class ReviewView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.08,
                       ),
-                      child: const CommonText(
-                        text:
-                            'Tell us about it so we can improve what we show.',
+                      child: CommonText(
+                        text: LocaleStrings.reviewAbout,
                         color: Colors.white,
                         fontsize: 19,
                         textAlign: TextAlign.center,
@@ -253,7 +253,9 @@ class ReviewView extends StatelessWidget {
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
-      Fluttertoast.showToast(msg: 'Could not launch $url');
+      Fluttertoast.showToast(
+        msg: LocaleStrings.urlLauncherError(url.toString()),
+      );
     }
   }
 

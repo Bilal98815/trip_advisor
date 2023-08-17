@@ -1,4 +1,5 @@
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:localization/localization.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UrlLauncher {
@@ -6,7 +7,9 @@ class UrlLauncher {
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
-      Fluttertoast.showToast(msg: 'Could not launch $url');
+      Fluttertoast.showToast(
+        msg: LocaleStrings.urlLauncherError(url.toString()),
+      );
     }
   }
 }

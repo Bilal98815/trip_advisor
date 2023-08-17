@@ -4,15 +4,21 @@ class SignupAuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> registerUser(String email, String password) async {
-    await _auth.createUserWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-    final UserModel user = UserModel(
-      email: email,
-      name: '',
-    );
-    await addUserDetails(user);
+    try {
+      await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      final UserModel user = UserModel(
+        email: email,
+        name: '',
+      );
+      await addUserDetails(user);
+    } on FirebaseAuthException catch (e) {
+      throw SignUpWithEmailAndPasswordFailure.fromCode(e.code);
+    } catch (e) {
+      throw SignUpWithEmailAndPasswordFailure();
+    }
   }
 
   Future<void> addUserDetails(UserModel user) async {
@@ -24,6 +30,7 @@ class SignupAuthService {
       'location': const GeoPoint(0, 0),
       'fcm': '',
       'time': time,
+      'photos': <dynamic>[],
       'bio': '',
       'website': '',
       'imageUrl': '',
