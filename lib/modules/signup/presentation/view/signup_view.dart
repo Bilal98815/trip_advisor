@@ -224,9 +224,11 @@ class SignUpView extends StatelessWidget {
                               height: constraints.maxHeight * 0.075,
                               onTap: () {
                                 if (!formKey.currentState!.validate()) {
-                                  context
-                                      .read<SignupBloc>()
-                                      .updateError('Enter correct credentials');
+                                  context.read<SignupBloc>().add(
+                                        SignupErrorUpdated(
+                                          LocaleStrings.signupError,
+                                        ),
+                                      );
                                 } else {
                                   context.read<SignupBloc>().add(
                                         RegisterEvent(

@@ -188,7 +188,18 @@
     "special_character_text": "Contains a special character",
     "checkbox": "Yes, inform me on deals & new features. I can opt out at any time",
     "signUp_button": "Sign up",
-    "signIn_button": "Sign in"
+    "signIn_button": "Sign in",
+
+    "error": "Invalid credential format",
+
+    "exceptions": {
+      "something_wrong": "Something went wrong.", 
+      "user_disabled": "This user has been disabled",
+      "invalid_email": "Email is not valid or badly formatted",
+      "account_exists": "An account already exists for this email",
+      "unallowed_operation": "Operation is not allowed", 
+      "weak_password": "Please enter a stronger password"
+    }
   },
 
   "support": {

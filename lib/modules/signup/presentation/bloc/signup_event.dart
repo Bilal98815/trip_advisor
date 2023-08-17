@@ -11,4 +11,9 @@ class RegisterEvent extends SignupEvent {
   final String password;
 }
 
+final class SignupErrorUpdated extends SignupEvent {
+  SignupErrorUpdated(this.error);
+  final String error;
+}
+
 class CheckBoxEvent extends SignupEvent {}

@@ -203,6 +203,21 @@ class LocaleStrings {
   static String get signupButton => 'signup.signUp_button'.tr();
   static String get signInButton => 'signup.signIn_button'.tr();
 
+  static String get signupError => 'signup.error'.tr();
+
+  static String get signupExceptionSomethingWrong =>
+      'signup.exceptions.something_wrong'.tr();
+  static String get signupExceptionInvalidEmail =>
+      'signup.exceptions.invalid_email'.tr();
+  static String get signupExceptionDisabledUser =>
+      'signup.exceptions.user_disabled'.tr();
+  static String get signupExceptionAccountExists =>
+      'signup.exceptions.account_exists'.tr();
+  static String get signupExceptionOperationNotAllowed =>
+      'signup.exceptions.unallowed_operation'.tr();
+  static String get signupExceptionWeakPassword =>
+      'signup.exceptions.weak_password'.tr();
+
   // support
   static String get supportTitle => 'support.title'.tr();
   static String get supportHelpCenter => 'support.help_center'.tr();

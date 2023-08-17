@@ -23,9 +23,7 @@ class LogInWithEmailAndPasswordFailure implements Exception {
           LocaleStrings.loginExceptionWrongPassword,
         );
       default:
-        return LogInWithEmailAndPasswordFailure(
-          LocaleStrings.loginExceptionSomethingWrong,
-        );
+        return LogInWithEmailAndPasswordFailure();
     }
   }
 

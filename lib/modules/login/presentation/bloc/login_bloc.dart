@@ -56,10 +56,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
     }
   }
 
-  void updateError(
-    String error,
-    Emitter<LoginBlocState> emit,
-  ) {
+  void updateError(String error, Emitter<LoginBlocState> emit) {
     emit(
       state.copyWith(
         errorMessage: error,
