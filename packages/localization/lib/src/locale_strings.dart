@@ -42,15 +42,46 @@ class LocaleStrings {
 
   static String get editProfileError => 'edit_profile.error'.tr();
 
-  static String get nameLabel => 'edit_profile.name_textfield_label'.tr();
-  static String get cityLabel => 'edit_profile.city_textfield_label'.tr();
-  static String get websiteLabel => 'edit_profile.website_textfield_label'.tr();
-  static String get aboutLabel => 'edit_profile.about_textfield_label'.tr();
+  static String get editProfileNameLabel =>
+      'edit_profile.name_textfield_label'.tr();
+  static String get editProfileCityLabel =>
+      'edit_profile.city_textfield_label'.tr();
+  static String get editProfileWebsiteLabel =>
+      'edit_profile.website_textfield_label'.tr();
+  static String get editProfileAboutLabel =>
+      'edit_profile.about_textfield_label'.tr();
 
-  static String get nameHint => 'edit_profile.name_textfield_hint'.tr();
-  static String get websiteHint => 'edit_profile.website_textfield_hint'.tr();
-  static String get aboutHint => 'edit_profile.about_textfield_hint'.tr();
+  static String get editProfileNameHint =>
+      'edit_profile.name_textfield_hint'.tr();
+  static String get editProfileWebsiteHint =>
+      'edit_profile.website_textfield_hint'.tr();
+  static String get editProfileAboutHint =>
+      'edit_profile.about_textfield_hint'.tr();
 
   //explore
   static String get exploreTitle => 'explore.title'.tr();
+
+  //forgot password
+  static String get forgotPasswordHeading => 'forgot_password.heading'.tr();
+
+  static String get forgotPasswordEmailLabel =>
+      'forgot_password.email_textfield_label'.tr();
+  static String get forgotPasswordEmailHint =>
+      'forgot_password.email_textfield_hint'.tr();
+  static String get forgotPasswordEmailError =>
+      'forgot_password.email_textfield_error'.tr();
+
+  static String get forgotPasswordButton => 'forgot_password.button'.tr();
+  static String get forgotPasswordInformation =>
+      'forgot_password.information'.tr();
+  static String get forgotPasswordError => 'forgot_password.error'.tr();
+
+  static String get forgotPasswordDialogTitle =>
+      'forgot_password.dialog.title'.tr();
+  static String get forgotPasswordDialogText =>
+      'forgot_password.dialog.text'.tr();
+  static String get forgotPasswordDialogBackButton =>
+      'forgot_password.dialog.back_button'.tr();
+  static String get forgotPasswordDialogResendButton =>
+      'forgot_password.dialog.resend_button'.tr();
 }

@@ -120,7 +120,7 @@ class EditProfileView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          LocaleStrings.nameLabel,
+                          LocaleStrings.editProfileNameLabel,
                           style: const TextStyle(
                             fontSize: 15,
                             color: Colors.white,
@@ -136,8 +136,8 @@ class EditProfileView extends StatelessWidget {
                               controller: nameController,
                               style: const TextStyle(color: Colors.white),
                               decoration: InputDecoration(
-                                hintText:
-                                    state.user?.name ?? LocaleStrings.nameHint,
+                                hintText: state.user?.name ??
+                                    LocaleStrings.editProfileNameHint,
                                 hintStyle: const TextStyle(
                                   color: Colors.grey,
                                   fontSize: 15,
@@ -158,7 +158,7 @@ class EditProfileView extends StatelessWidget {
                           height: size.maxHeight * 0.03,
                         ),
                         Text(
-                          LocaleStrings.cityLabel,
+                          LocaleStrings.editProfileCityLabel,
                           style: const TextStyle(
                             fontSize: 15,
                             color: Colors.white,
@@ -222,7 +222,7 @@ class EditProfileView extends StatelessWidget {
                           height: size.maxHeight * 0.03,
                         ),
                         Text(
-                          LocaleStrings.websiteLabel,
+                          LocaleStrings.editProfileWebsiteLabel,
                           style: const TextStyle(
                             fontSize: 15,
                             color: Colors.white,
@@ -236,7 +236,7 @@ class EditProfileView extends StatelessWidget {
                           controller: websiteController,
                           style: const TextStyle(color: Colors.white),
                           decoration: InputDecoration(
-                            hintText: LocaleStrings.websiteHint,
+                            hintText: LocaleStrings.editProfileWebsiteHint,
                             hintStyle: const TextStyle(
                               color: Colors.grey,
                               fontSize: 15,
@@ -254,7 +254,7 @@ class EditProfileView extends StatelessWidget {
                           height: size.maxHeight * 0.03,
                         ),
                         Text(
-                          LocaleStrings.aboutLabel,
+                          LocaleStrings.editProfileAboutLabel,
                           style: const TextStyle(
                             fontSize: 15,
                             color: Colors.white,
@@ -286,7 +286,7 @@ class EditProfileView extends StatelessWidget {
                             },
                             style: const TextStyle(color: Colors.white),
                             decoration: InputDecoration(
-                              hintText: LocaleStrings.aboutHint,
+                              hintText: LocaleStrings.editProfileAboutHint,
                               hintStyle: const TextStyle(
                                 color: Colors.grey,
                                 fontSize: 15,

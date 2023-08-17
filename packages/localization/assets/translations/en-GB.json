@@ -59,5 +59,22 @@
 
   "explore": {
     "title": "Explore"
+  },
+
+  "forgot_password": {
+    "heading": "Enter the email address you used to sign up",
+    "email_textfield_label": "Email Address",
+    "email_textfield_hint": "Email address", 
+    "email_textfield_error": "Enter email!",
+    "button": "Send Email",
+    "information": "We'll send you a password reset email",
+    "error": "Please enter correct credentials",
+
+    "dialog": {
+      "title": "We've sent a password reset email.",
+      "text": "Check your inbox for an email from Tripadvisor and follow the instructions to reset your password",
+      "back_button": "Back to Sign In",
+      "resend_button": "Resend Email"
+    }
   }
 }
