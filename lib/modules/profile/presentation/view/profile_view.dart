@@ -246,7 +246,9 @@ class ProfileView extends StatelessWidget {
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
-      Fluttertoast.showToast(msg: 'Could not launch $url');
+      Fluttertoast.showToast(
+        msg: LocaleStrings.urlLauncherError(url.toString()),
+      );
     }
   }
 }
