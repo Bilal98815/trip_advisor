@@ -82,5 +82,38 @@
     "heading": "Discover traveler recommended spots near you, wherever you are",
     "allow": "Allow Location Data",
     "not_now": "Not Now"
+  },
+
+  "login": {
+
+    "heading": "Welcome Back",
+
+    "email_textfield_label": "Email Address",
+    "email_textfield_hint": "Email address", 
+    "email_textfield_error": "Enter email!",
+    
+    "password_textfield_label": "Password",
+    "password_textfield_hint": "Password", 
+    "password_textfield_empty_error": "Enter password!",
+    "password_textfield_length_error": "please enter more than 6 digits",
+
+    "forgot_password": "Forgot password?",
+    "signin_button": "Sign In",
+    "signup_button": "Sign Up",
+
+    "error": "Enter correct credentials",
+
+    "exceptions": {
+      "something_wrong": "Something went wrong",
+      "network": "Network Error!", 
+      "empty": "Enter correct credentials", 
+      "credentials": "Enter correct credentials",
+      "invalid_email": "Invalid email format",
+      "wrong_password": "Invalid Password",
+      "user_not_found": "User not found",
+      "user_disabled": "User account disabled", 
+      "email_exists": "Email is already in use", 
+      "weak_password": "Weak Password"
+    }
   }
 }

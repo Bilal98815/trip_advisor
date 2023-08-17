@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:localization/localization.dart';
 
 import 'package:trip_advisor/common/common.dart';
 import 'package:trip_advisor/modules/login/login.dart';
@@ -61,25 +62,25 @@ class LoginBloc extends Bloc<LoginEvent, LoginBlocState> {
     String error = '';
     switch (exception) {
       case 'Something went wrong':
-        error = 'Something went wrong';
+        error = LocaleStrings.loginExceptionSomethingWrong;
       case '[firebase_auth/network-request-failed] A network error (such as timeout, interrupted connection or unreachable host) has occurred':
-        error = 'Network Error!';
+        error = LocaleStrings.loginExceptionNetwork;
       case '[firebase_auth/unknown] Given String is empty or null':
-        error = 'Enter correct credentials';
+        error = LocaleStrings.loginExceptionEmpty;
       case 'Enter correct credentials':
-        error = 'Enter correct credentials';
+        error = LocaleStrings.loginExceptionCredentials;
       case 'invalid-email':
-        error = 'Invalid email format';
+        error = LocaleStrings.loginExceptionInvalidEmail;
       case 'wrong-password':
-        error = 'Invalid Password';
+        error = LocaleStrings.loginExceptionWrongPassword;
       case 'user-not-found':
-        error = 'User not found';
+        error = LocaleStrings.loginExceptionNoUser;
       case 'user-disabled':
-        error = 'User account disabled';
+        error = LocaleStrings.loginExceptionDisabledUser;
       case 'email-already-in-use':
-        error = 'Email is already in use';
+        error = LocaleStrings.loginExceptionEmailExists;
       case 'weak-password':
-        error = 'Weak Password';
+        error = LocaleStrings.loginExceptionWeakPassword;
     }
     emit(
       state.copyWith(

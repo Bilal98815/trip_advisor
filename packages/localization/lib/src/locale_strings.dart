@@ -89,4 +89,43 @@ class LocaleStrings {
   static String get locationDataHeading => 'location_data.heading'.tr();
   static String get locationDataAllow => 'location_data.allow'.tr();
   static String get locationDataNotNow => 'location_data.not_now'.tr();
+
+  //login
+  static String get loginHeading => 'login.heading'.tr();
+
+  static String get loginEmailLabel => 'login.email_textfield_label'.tr();
+  static String get loginEmailHint => 'login.email_textfield_hint'.tr();
+  static String get loginEmailError => 'login.email_textfield_error'.tr();
+
+  static String get loginPasswordLabel => 'login.password_textfield_label'.tr();
+  static String get loginPasswordHint => 'login.password_textfield_hint'.tr();
+  static String get loginPasswordEmptyError =>
+      'login.password_textfield_empty_error'.tr();
+  static String get loginPasswordLengthError =>
+      'login.password_textfield_length_error'.tr();
+
+  static String get loginForgotPassword => 'login.forgot_password'.tr();
+  static String get loginSigninButton => 'login.signin_button'.tr();
+  static String get loginSignupButton => 'login.signup_button'.tr();
+
+  static String get loginError => 'login.error'.tr();
+
+  static String get loginExceptionSomethingWrong =>
+      'login.exceptions.something_wrong'.tr();
+  static String get loginExceptionNetwork => 'login.exceptions.network'.tr();
+  static String get loginExceptionEmpty => 'login.exceptions.empty'.tr();
+  static String get loginExceptionCredentials =>
+      'login.exceptions.credentials'.tr();
+  static String get loginExceptionInvalidEmail =>
+      'login.exceptions.invalid_email'.tr();
+  static String get loginExceptionWrongPassword =>
+      'login.exceptions.wrong_password'.tr();
+  static String get loginExceptionNoUser =>
+      'login.exceptions.user_not_found'.tr();
+  static String get loginExceptionDisabledUser =>
+      'login.exceptions.user_disabled'.tr();
+  static String get loginExceptionEmailExists =>
+      'login.exceptions.email_exists'.tr();
+  static String get loginExceptionWeakPassword =>
+      'login.exceptions.weak_password'.tr();
 }
