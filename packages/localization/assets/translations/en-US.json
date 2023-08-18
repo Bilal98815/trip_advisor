@@ -78,6 +78,11 @@
     }
   },
 
+  "language_preferences": {
+    "english_uk": "English (United Kingdom)", 
+    "english_us": "English (US)"
+  },
+
   "location_data": {
     "heading": "Discover traveler recommended spots near you, wherever you are",
     "allow": "Allow Location Data",

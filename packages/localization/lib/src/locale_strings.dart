@@ -166,6 +166,10 @@ class LocaleStrings {
       'preferences.tiles.notifications'.tr();
   static String get preferencesTilePrivacy => 'preferences.tiles.privacy'.tr();
 
+  //language preferences
+  static String get languageEnglishUK => 'language_preferences.english_uk'.tr();
+  static String get languageEnglishUS => 'language_preferences.english_us'.tr();
+
   // profile
   static String get profileTitle => 'profile.title'.tr();
   static String get profileJoiningText => 'profile.joining_text'.tr();

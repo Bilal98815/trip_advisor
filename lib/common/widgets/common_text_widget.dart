@@ -49,3 +49,37 @@ class HeadingText extends StatelessWidget {
     );
   }
 }
+
+class TileTitleText extends StatelessWidget {
+  const TileTitleText({super.key, required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return CommonText(
+      textAlign: TextAlign.start,
+      text: title,
+      color: Colors.white,
+      fontsize: 15,
+      fontWeight: FontWeight.w500,
+    );
+  }
+}
+
+class TileSubtitleText extends StatelessWidget {
+  const TileSubtitleText({super.key, required this.subtitle});
+
+  final String subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return CommonText(
+      textAlign: TextAlign.start,
+      text: subtitle,
+      color: const Color.fromARGB(220, 220, 220, 220),
+      fontsize: 13,
+      fontWeight: FontWeight.w400,
+    );
+  }
+}

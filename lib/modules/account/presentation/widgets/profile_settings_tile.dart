@@ -27,12 +27,7 @@ class ProfileSettingsTile extends StatelessWidget {
                   Image.asset(image!, width: 18),
                   const SizedBox(width: 20),
                 ],
-                CommonText(
-                  text: title,
-                  color: Colors.white,
-                  fontsize: 15,
-                  fontWeight: FontWeight.w500,
-                ),
+                TileTitleText(title: title),
                 const Spacer(),
                 const Icon(
                   Icons.arrow_forward_ios,

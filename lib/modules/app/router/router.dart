@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
+import 'package:trip_advisor/modules/language_preferences/language_preferences.dart';
 import 'package:trip_advisor/modules/modules.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -110,6 +111,13 @@ class AppRouter {
               GoRoute(
                 path: PreferencesView.routeName,
                 builder: (context, state) => const PreferencesView(),
+                routes: [
+                  GoRoute(
+                    path: LanguagePreferencesPage.routeName,
+                    builder: (context, state) =>
+                        const LanguagePreferencesPage(),
+                  )
+                ],
               ),
               GoRoute(
                 path: SupportView.routeName,
