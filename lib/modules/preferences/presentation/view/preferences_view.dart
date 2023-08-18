@@ -24,7 +24,9 @@ class PreferencesView extends StatelessWidget {
               const SizedBox(height: 15),
               ProfileSettingsTile(
                 title: LocaleStrings.preferencesTileAccountInfo,
-                onTap: () {},
+                onTap: () => UrlLauncher().launchCustomUrl(
+                  Uri.parse('https://www.google.com'),
+                ),
               ),
               ProfileSettingsTile(
                 title: LocaleStrings.preferencesTileAccountLanguage,
