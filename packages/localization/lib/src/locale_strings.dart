@@ -156,8 +156,8 @@ class LocaleStrings {
   static String get preferencesTitle => 'preferences.title'.tr();
   static String get preferencesTileAccountInfo =>
       'preferences.tiles.account_info'.tr();
-  static String get preferencesTileAccountLanguage =>
-      'preferences.tiles.account_language'.tr();
+  static String get preferencesTileLanguage =>
+      'preferences.tiles.language'.tr();
   static String get preferencesTileCurrency =>
       'preferences.tiles.currency'.tr();
   static String get preferencesTileUnits => 'preferences.tiles.units'.tr();

@@ -29,7 +29,7 @@ class PreferencesView extends StatelessWidget {
                 ),
               ),
               ProfileSettingsTile(
-                title: LocaleStrings.preferencesTileAccountLanguage,
+                title: LocaleStrings.preferencesTileLanguage,
                 onTap: () {},
               ),
               ProfileSettingsTile(
@@ -42,7 +42,9 @@ class PreferencesView extends StatelessWidget {
               ),
               ProfileSettingsTile(
                 title: LocaleStrings.preferencesTilePayment,
-                onTap: () {},
+                onTap: () => UrlLauncher().launchCustomUrl(
+                  Uri.parse('https://www.google.com'),
+                ),
               ),
               ProfileSettingsTile(
                 title: LocaleStrings.preferencesTileNotifications,

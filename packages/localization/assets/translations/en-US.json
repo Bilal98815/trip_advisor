@@ -147,7 +147,7 @@
     "title": "Preferences", 
     "tiles": {
       "account_info": "Account Info", 
-      "account_language": "Account Language", 
+      "language": "Language", 
       "currency": "Currency", 
       "units": "Units", 
       "payment": "Payment Preferences", 
