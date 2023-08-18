@@ -25,6 +25,7 @@ class TripAdvisorTheme {
       hintColor: Colors.grey,
       disabledColor: Colors.grey.shade700,
       primaryTextTheme: const TextTheme(
+        // used in titles on Account, review, plan trips screen
         titleLarge: TextStyle(
           color: Colors.white,
           fontSize: 32,
@@ -34,26 +35,37 @@ class TripAdvisorTheme {
           fontSize: 16,
           fontWeight: FontWeight.w500,
         ),
+
+        // used in imageContainer widget in review screen
         displayLarge: TextStyle(
           color: Colors.white,
           fontSize: 40,
           fontWeight: FontWeight.w900,
           overflow: TextOverflow.clip,
         ),
+
+        // used for version, device id in account screen
         displaySmall: TextStyle(
           color: Colors.white,
           fontSize: 11,
           fontWeight: FontWeight.w300,
         ),
       ),
+      // main bg color of app
       primaryColor: Colors.black87,
+      // bg color of buttons
       primaryColorDark: Colors.black12,
+      // border color of buttons when bg color is black
       primaryColorLight: Colors.white,
       colorScheme: const ColorScheme.dark(
         secondaryContainer: Colors.black12,
+        // used in bottom bar above active item
         tertiary: Colors.lightGreenAccent,
+        // used in trips tab in plan_trip screen
         tertiaryContainer: Color(0xFF235347),
+        // used when there is error in validation in text field
         onError: Colors.red,
+        // used in text field when there is no error
         onPrimary: Colors.white,
       ),
       dividerTheme: const DividerThemeData(
