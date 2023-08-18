@@ -31,3 +31,21 @@ class CommonText extends StatelessWidget {
     );
   }
 }
+
+class HeadingText extends StatelessWidget {
+  const HeadingText({super.key, required this.heading});
+
+  final String heading;
+
+  @override
+  Widget build(BuildContext context) {
+    return CommonText(
+      text: heading,
+      color: Colors.white,
+      fontsize: 31,
+      textAlign: TextAlign.left,
+      textOverflow: TextOverflow.clip,
+      fontWeight: FontWeight.w800,
+    );
+  }
+}

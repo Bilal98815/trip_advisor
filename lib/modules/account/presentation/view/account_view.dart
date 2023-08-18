@@ -17,40 +17,37 @@ class AccountView extends StatelessWidget {
               width: size.maxWidth,
               height: size.maxHeight,
               color: Colors.black87,
-              padding: EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: BlocBuilder<AccountBloc, AccountState>(
                 builder: (context, state) {
                   if (state.signOutCondition == SignOutCondition.signIn) {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          height: size.maxHeight * 0.04,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CommonText(
-                              text: LocaleStrings.accountTitle,
-                              color: Colors.white,
-                              fontsize: 32,
-                              fontWeight: FontWeight.w900,
-                            ),
-                            Container(
-                              width: size.maxWidth * 0.11,
-                              height: size.maxHeight * 0.1,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  image: AssetImage('assets/mine.jpg'),
-                                  fit: BoxFit.cover,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              CommonText(
+                                text: LocaleStrings.accountTitle,
+                                color: Colors.white,
+                                fontsize: 32,
+                                fontWeight: FontWeight.w900,
+                              ),
+                              Container(
+                                width: size.maxWidth * 0.11,
+                                height: size.maxHeight * 0.1,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    image: AssetImage('assets/mine.jpg'),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: size.maxHeight * 0.05,
+                            ],
+                          ),
                         ),
                         ProfileSettingsTile(
                           image: 'assets/invoice.png',
@@ -60,17 +57,11 @@ class AccountView extends StatelessWidget {
                           title: LocaleStrings.bookingsTile,
                           size: size,
                         ),
-                        SizedBox(
-                          height: size.maxHeight * 0.03,
-                        ),
                         ProfileSettingsTile(
                           image: 'assets/user.png',
                           onTap: () => context.go(ProfileView.route()),
                           title: LocaleStrings.profileTile,
                           size: size,
-                        ),
-                        SizedBox(
-                          height: size.maxHeight * 0.03,
                         ),
                         ProfileSettingsTile(
                           image: 'assets/mail.png',
@@ -80,26 +71,17 @@ class AccountView extends StatelessWidget {
                           title: LocaleStrings.messagesTile,
                           size: size,
                         ),
-                        SizedBox(
-                          height: size.maxHeight * 0.03,
-                        ),
                         ProfileSettingsTile(
                           image: 'assets/settings.png',
-                          onTap: () {},
+                          onTap: () => context.go(PreferencesView.route()),
                           title: LocaleStrings.preferencesTile,
                           size: size,
-                        ),
-                        SizedBox(
-                          height: size.maxHeight * 0.03,
                         ),
                         ProfileSettingsTile(
                           image: 'assets/question.png',
                           onTap: () => context.go(SupportView.route()),
                           title: LocaleStrings.supportTile,
                           size: size,
-                        ),
-                        SizedBox(
-                          height: size.maxHeight * 0.03,
                         ),
                         ProfileSettingsTile(
                           image: 'assets/owl_white.png',
@@ -109,9 +91,7 @@ class AccountView extends StatelessWidget {
                           title: LocaleStrings.tripAdvisorTile,
                           size: size,
                         ),
-                        SizedBox(
-                          height: size.maxHeight * 0.05,
-                        ),
+                        SizedBox(height: size.maxHeight * 0.05),
                         PrimaryButton(
                           ignoring: false,
                           onTap: () {

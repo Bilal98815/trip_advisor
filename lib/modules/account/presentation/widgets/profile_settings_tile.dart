@@ -2,15 +2,15 @@ part of 'widgets.dart';
 
 class ProfileSettingsTile extends StatelessWidget {
   const ProfileSettingsTile({
-    required this.image,
+    this.image,
     required this.onTap,
     required this.title,
-    required this.size,
+    this.size,
     super.key,
   });
-  final String image;
+  final String? image;
   final String title;
-  final BoxConstraints size;
+  final BoxConstraints? size;
   final VoidCallback onTap;
 
   @override
@@ -19,32 +19,29 @@ class ProfileSettingsTile extends StatelessWidget {
       children: [
         InkWell(
           onTap: onTap,
-          child: Row(
-            children: [
-              Image.asset(
-                image,
-                width: size.maxWidth * 0.045,
-              ),
-              SizedBox(
-                width: size.maxWidth * 0.06,
-              ),
-              CommonText(
-                text: title,
-                color: Colors.white,
-                fontsize: 15,
-                fontWeight: FontWeight.w500,
-              ),
-              const Spacer(),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 18,
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              children: [
+                if (image != null) ...[
+                  Image.asset(image!, width: 18),
+                  const SizedBox(width: 20),
+                ],
+                CommonText(
+                  text: title,
+                  color: Colors.white,
+                  fontsize: 15,
+                  fontWeight: FontWeight.w500,
+                ),
+                const Spacer(),
+                const Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.white,
+                  size: 18,
+                ),
+              ],
+            ),
           ),
-        ),
-        SizedBox(
-          height: size.maxHeight * 0.01,
         ),
         const Divider(
           thickness: 0.3,

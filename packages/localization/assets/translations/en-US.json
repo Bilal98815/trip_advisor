@@ -143,6 +143,19 @@
     }
   },
 
+  "preferences": {
+    "title": "Preferences", 
+    "tiles": {
+      "account_info": "Account Info", 
+      "account_language": "Account Language", 
+      "currency": "Currency", 
+      "units": "Units", 
+      "payment": "Payment Preferences", 
+      "notifications": "Notifications", 
+      "privacy": "Manage Privacy"
+    }
+  },
+
   "profile": {
     "title": "Profile",
     "joining_text": "Joined in",

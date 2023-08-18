@@ -152,6 +152,20 @@ class LocaleStrings {
   static String get savesTabHeading => 'plan_trip.saves.saves_text'.tr();
   static String get savesTabPlace => 'plan_trip.saves.places_text'.tr();
 
+  //preferences
+  static String get preferencesTitle => 'preferences.title'.tr();
+  static String get preferencesTileAccountInfo =>
+      'preferences.tiles.account_info'.tr();
+  static String get preferencesTileAccountLanguage =>
+      'preferences.tiles.account_language'.tr();
+  static String get preferencesTileCurrency =>
+      'preferences.tiles.currency'.tr();
+  static String get preferencesTileUnits => 'preferences.tiles.units'.tr();
+  static String get preferencesTilePayment => 'preferences.tiles.payment'.tr();
+  static String get preferencesTileNotifications =>
+      'preferences.tiles.notifications'.tr();
+  static String get preferencesTilePrivacy => 'preferences.tiles.privacy'.tr();
+
   // profile
   static String get profileTitle => 'profile.title'.tr();
   static String get profileJoiningText => 'profile.joining_text'.tr();

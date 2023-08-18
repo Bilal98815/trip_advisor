@@ -46,31 +46,6 @@ class SupportView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   children: [
-                  //     Expanded(
-                  //       child: InkWell(
-                  //         onTap: () {
-                  //           Navigator.pop(context);
-                  //         },
-                  //         child: const Icon(
-                  //           Icons.arrow_back_ios_new,
-                  //           color: Colors.white,
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     const Spacer(),
-                  //     const CommonText(
-                  //         text: 'Support',
-                  //         color: Colors.white,
-                  //         fontsize: 20,
-                  //         fontWeight: FontWeight.w600),
-                  //     const Spacer(
-                  //       flex: 2,
-                  //     ),
-                  //   ],
-                  // ),
                   SizedBox(
                     height: size.maxHeight * 0.05,
                   ),

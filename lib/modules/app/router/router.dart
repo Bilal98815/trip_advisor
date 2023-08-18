@@ -1,25 +1,7 @@
-// ignore_for_file: avoid_classes_with_only_static_members
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
-import 'package:trip_advisor/modules/account/account.dart';
-import 'package:trip_advisor/modules/bottom_bar/bottom_bar.dart';
-
-import 'package:trip_advisor/modules/edit_profile/edit_profile.dart';
-import 'package:trip_advisor/modules/explore/explore.dart';
-import 'package:trip_advisor/modules/forgot_password/forgot_password.dart';
-import 'package:trip_advisor/modules/location_data/location_data.dart';
-import 'package:trip_advisor/modules/login/login.dart';
-import 'package:trip_advisor/modules/onboarding/onboarding.dart';
-import 'package:trip_advisor/modules/plan_trip/plan_trip.dart';
-import 'package:trip_advisor/modules/profile/profile.dart';
-import 'package:trip_advisor/modules/review/review.dart';
-import 'package:trip_advisor/modules/search/search.dart';
-import 'package:trip_advisor/modules/signup/signup.dart';
-import 'package:trip_advisor/modules/splash/splash.dart';
-import 'package:trip_advisor/modules/support/support.dart';
-import 'package:trip_advisor/modules/user_data/user_data.dart';
+import 'package:trip_advisor/modules/modules.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
@@ -124,6 +106,10 @@ class AppRouter {
                     builder: (context, state) => const EditProfilePage(),
                   )
                 ],
+              ),
+              GoRoute(
+                path: PreferencesView.routeName,
+                builder: (context, state) => const PreferencesView(),
               ),
               GoRoute(
                 path: SupportView.routeName,
