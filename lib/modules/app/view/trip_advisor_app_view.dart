@@ -19,10 +19,9 @@ class TripAdvisorAppView extends StatelessWidget {
             routerConfig: AppRouter().router,
             title: LocaleStrings.appTitle,
             debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
+            theme: TripAdvisorTheme.light,
+            darkTheme: TripAdvisorTheme.dark,
+            themeMode: ThemeMode.dark,
           );
         },
       ),
