@@ -4,7 +4,16 @@ import 'package:flutter/material.dart';
 
 class TripAdvisorTheme {
   static ThemeData get light {
-    return ThemeData(useMaterial3: true);
+    return ThemeData(
+      useMaterial3: true,
+      textTheme: const TextTheme(
+        labelMedium: TextStyle(
+          fontSize: 15,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
   }
 
   static ThemeData get dark {
@@ -68,10 +77,7 @@ class TripAdvisorTheme {
         // used in text field when there is no error
         onPrimary: Colors.white,
       ),
-      dividerTheme: const DividerThemeData(
-        color: Colors.grey,
-        thickness: 0.4,
-      ),
+      dividerTheme: const DividerThemeData(color: Colors.grey, thickness: 0.4),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: Colors.black87,
         type: BottomNavigationBarType.fixed,
