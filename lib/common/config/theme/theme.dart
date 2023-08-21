@@ -100,8 +100,8 @@ class TripAdvisorTheme {
       textTheme: textTheme,
       colorScheme: const ColorScheme.dark(
         background: kBlack,
-        primary: kLightGreen,
-        secondary: kPurple,
+        primary: kPurple,
+        secondary: kLightGreen,
         primaryContainer: kDarkerGrey,
         secondaryContainer: kDarkGreen,
         tertiaryContainer: kGreen,
