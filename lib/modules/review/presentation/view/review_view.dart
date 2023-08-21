@@ -69,7 +69,9 @@ class ReviewView extends StatelessWidget {
                       context
                           .read<ReviewBloc>()
                           .add(IsChangeEvent(isChange: false));
-                      _launchUrl(Uri.parse('https://www.google.com'));
+                      UrlLauncher().launchCustomUrl(
+                        Uri.parse('https://www.google.com'),
+                      );
                     },
                     child: Image.asset(
                       'assets/pin_black.png',
@@ -230,9 +232,9 @@ class ReviewView extends StatelessWidget {
                         horizontal: size.maxWidth * 0.08,
                       ),
                       child: MissingPlaceButton(
-                        onTap: () {
-                          _launchUrl(Uri.parse('https://www.google.com'));
-                        },
+                        onTap: () => UrlLauncher().launchCustomUrl(
+                          Uri.parse('https://www.google.com'),
+                        ),
                         size: size,
                       ),
                     ),
@@ -247,16 +249,6 @@ class ReviewView extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<void> _launchUrl(Uri url) async {
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    } else {
-      Fluttertoast.showToast(
-        msg: LocaleStrings.urlLauncherError(url.toString()),
-      );
-    }
   }
 
   Future<void> _pickImageFromGallery() async {

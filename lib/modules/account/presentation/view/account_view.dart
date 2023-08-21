@@ -48,9 +48,9 @@ class AccountView extends StatelessWidget {
                           SignOutCondition.signIn) ...[
                         ProfileSettingsTile(
                           image: 'assets/invoice.png',
-                          onTap: () {
-                            _launchUrl(Uri.parse('https://www.google.com'));
-                          },
+                          onTap: () => UrlLauncher().launchCustomUrl(
+                            Uri.parse('https://www.google.com'),
+                          ),
                           title: LocaleStrings.bookingsTile,
                         ),
                         ProfileSettingsTile(
@@ -60,9 +60,9 @@ class AccountView extends StatelessWidget {
                         ),
                         ProfileSettingsTile(
                           image: 'assets/mail.png',
-                          onTap: () {
-                            _launchUrl(Uri.parse('https://www.google.com'));
-                          },
+                          onTap: () => UrlLauncher().launchCustomUrl(
+                            Uri.parse('https://www.google.com'),
+                          ),
                           title: LocaleStrings.messagesTile,
                         ),
                       ],
@@ -83,9 +83,9 @@ class AccountView extends StatelessWidget {
                       ),
                       ProfileSettingsTile(
                         image: 'assets/owl_white.png',
-                        onTap: () {
-                          _launchUrl(Uri.parse('https://www.google.com'));
-                        },
+                        onTap: () => UrlLauncher().launchCustomUrl(
+                          Uri.parse('https://www.google.com'),
+                        ),
                         title: LocaleStrings.tripAdvisorTile,
                       ),
                       if (state.signOutCondition ==
@@ -131,15 +131,5 @@ class AccountView extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<void> _launchUrl(Uri url) async {
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    } else {
-      Fluttertoast.showToast(
-        msg: LocaleStrings.urlLauncherError(url.toString()),
-      );
-    }
   }
 }

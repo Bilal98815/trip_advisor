@@ -184,9 +184,9 @@ class ProfileView extends StatelessWidget {
                             actionTitle: LocaleStrings.profileReviewTitle,
                           ),
                           ActionForm(
-                            onTap: () {
-                              _launchUrl(Uri.parse('https://www.google.com'));
-                            },
+                            onTap: () => UrlLauncher().launchCustomUrl(
+                              Uri.parse('https://www.google.com'),
+                            ),
                             size: size,
                             isTextWidget: true,
                             buttonText: LocaleStrings.profilePostsButton,
@@ -206,9 +206,9 @@ class ProfileView extends StatelessWidget {
                             height: size.maxHeight * 0.05,
                           ),
                           MoreOptionTile(
-                            onTap: () {
-                              _launchUrl(Uri.parse('https://www.google.com'));
-                            },
+                            onTap: () => UrlLauncher().launchCustomUrl(
+                              Uri.parse('https://www.google.com'),
+                            ),
                             size: size,
                             title: LocaleStrings.profileBadgesTile,
                           ),
@@ -216,9 +216,9 @@ class ProfileView extends StatelessWidget {
                             height: size.maxHeight * 0.02,
                           ),
                           MoreOptionTile(
-                            onTap: () {
-                              _launchUrl(Uri.parse('https://www.google.com'));
-                            },
+                            onTap: () => UrlLauncher().launchCustomUrl(
+                              Uri.parse('https://www.google.com'),
+                            ),
                             size: size,
                             title: LocaleStrings.profileTravelTile,
                           ),
@@ -240,15 +240,5 @@ class ProfileView extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<void> _launchUrl(Uri url) async {
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    } else {
-      Fluttertoast.showToast(
-        msg: LocaleStrings.urlLauncherError(url.toString()),
-      );
-    }
   }
 }
