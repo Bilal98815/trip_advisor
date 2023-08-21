@@ -49,6 +49,7 @@ class LoginView extends StatelessWidget {
                           ),
                           SizedBox(height: constraints.maxHeight * 0.01),
                           CustomTextFormField(
+                            hintText: LocaleStrings.loginEmailHint,
                             controller: emailController,
                             validator: (val) => val!.isEmpty
                                 ? LocaleStrings.loginEmailError
@@ -73,6 +74,7 @@ class LoginView extends StatelessWidget {
                               ),
                               CustomTextFormField(
                                 obscureText: true,
+                                hintText: LocaleStrings.loginPasswordHint,
                                 controller: passwordController,
                                 validator: (val) {
                                   return val!.isEmpty

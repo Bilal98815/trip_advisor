@@ -5,11 +5,13 @@ class CustomTextFormField extends StatelessWidget {
     super.key,
     required this.controller,
     required this.validator,
+    required this.hintText,
     this.obscureText = false,
   });
 
   final TextEditingController controller;
   final String? Function(String?)? validator;
+  final String hintText;
   final bool obscureText;
 
   @override
@@ -21,13 +23,13 @@ class CustomTextFormField extends StatelessWidget {
       validator: validator,
       obscureText: obscureText,
       decoration: InputDecoration(
-        hintText: LocaleStrings.loginEmailHint,
+        hintText: hintText,
         border: OutlineInputBorder(
           borderSide: BorderSide(color: colorScheme.error),
           borderRadius: BorderRadius.circular(8),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: colorScheme.primaryContainer),
+          borderSide: BorderSide(color: colorScheme.outline),
           borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: OutlineInputBorder(

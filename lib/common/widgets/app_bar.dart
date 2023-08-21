@@ -23,11 +23,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         padding: const EdgeInsets.only(left: 5),
         child: GestureDetector(
           onTap: () => onBack ?? context.pop(),
-          child: const Icon(
-            Icons.arrow_back_ios_new,
-            color: Colors.white,
-            size: 20,
-          ),
+          child: const Icon(Icons.arrow_back_ios_new),
         ),
       ),
       actions: actions,

@@ -39,6 +39,7 @@ class ForgotPasswordView extends StatelessWidget {
                           ),
                           SizedBox(height: size.maxHeight * 0.01),
                           CustomTextFormField(
+                            hintText: LocaleStrings.forgotPasswordEmailHint,
                             controller: emailController,
                             validator: (val) => val!.isEmpty
                                 ? LocaleStrings.forgotPasswordEmailError

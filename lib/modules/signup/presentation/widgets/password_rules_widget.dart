@@ -7,6 +7,9 @@ class PasswordRulesRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final TextTheme textTheme = Theme.of(context).textTheme;
+
     return Row(
       children: [
         Container(
@@ -14,23 +17,19 @@ class PasswordRulesRow extends StatelessWidget {
           height: size.maxHeight * 0.02,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.grey.withOpacity(0.5),
+            color: colorScheme.tertiary.withOpacity(0.5),
           ),
-          child: const Center(
-            child: Icon(
-              Icons.close,
-              size: 8,
-            ),
-          ),
+          child: const Center(child: Icon(Icons.close, size: 8)),
         ),
         SizedBox(
           width: size.maxWidth * 0.02,
         ),
-        CommonText(
-          text: rule,
-          color: Colors.grey.withOpacity(0.5),
-          fontsize: 12,
-          fontWeight: FontWeight.normal,
+        Text(
+          rule,
+          style: textTheme.bodyMedium?.copyWith(
+            fontSize: 12,
+            color: colorScheme.tertiary.withOpacity(0.5),
+          ),
         ),
       ],
     );

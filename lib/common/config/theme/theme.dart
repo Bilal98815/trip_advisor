@@ -66,24 +66,26 @@ class TripAdvisorTheme {
       appBarTheme: const AppBarTheme(
         centerTitle: true,
         backgroundColor: kWhite,
-        iconTheme: IconThemeData(color: kBlack),
+        iconTheme: IconThemeData(color: kBlack, size: 20),
         titleTextStyle: TextStyle(
           color: kBlack,
           fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
       ),
-      hintColor: kGrey,
+      hintColor: kDarkGrey,
       disabledColor: kDarkGrey,
       textTheme: textTheme,
       colorScheme: const ColorScheme.light(
         primary: kPurple,
         secondary: kBrightGreen,
+        tertiary: kDarkGrey,
         primaryContainer: kDarkerGrey,
         secondaryContainer: kDarkGreen,
         tertiaryContainer: kGreen,
         error: kRed,
         onBackground: kBlack,
+        outline: kDarkGrey,
       ),
       dividerTheme: const DividerThemeData(color: kGrey, thickness: 0.4),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -101,7 +103,7 @@ class TripAdvisorTheme {
       appBarTheme: const AppBarTheme(
         centerTitle: true,
         backgroundColor: kBlack,
-        iconTheme: IconThemeData(color: kWhite),
+        iconTheme: IconThemeData(color: kWhite, size: 20),
         titleTextStyle: TextStyle(
           color: kWhite,
           fontSize: 20,
@@ -115,11 +117,13 @@ class TripAdvisorTheme {
         background: kBlack,
         primary: kPurple,
         secondary: kLightGreen,
+        tertiary: kGrey,
         primaryContainer: kDarkerGrey,
         secondaryContainer: kDarkGreen,
         tertiaryContainer: kGreen,
         error: kRed,
         onPrimary: kWhite,
+        outline: kDarkGrey,
       ),
       dividerTheme: const DividerThemeData(color: kGrey, thickness: 0.4),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
