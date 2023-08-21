@@ -122,6 +122,7 @@ class TripAdvisorTheme {
         secondaryContainer: kDarkGreen,
         tertiaryContainer: kGreen,
         error: kRed,
+        onError: kWhite,
         onPrimary: kWhite,
         outline: kDarkGrey,
       ),
