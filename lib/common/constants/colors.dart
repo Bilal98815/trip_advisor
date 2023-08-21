@@ -1,5 +1,6 @@
 part of 'constants.dart';
 
+const Color kGreen = Colors.green;
 const Color kDarkGreen = Color(0xFF235347);
 const Color kLightGreen = Colors.lightGreenAccent;
 

@@ -107,6 +107,12 @@ class TripAdvisorTheme {
           fontWeight: FontWeight.bold,
         ),
 
+        labelLarge: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+          color: Colors.white,
+        ),
+
         displayMedium: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w500,
@@ -123,12 +129,12 @@ class TripAdvisorTheme {
       colorScheme: const ColorScheme.dark(
         background: kBlack,
         primary: kLightGreen,
+        secondary: kPurple,
+        primaryContainer: kDarkerGrey,
         secondaryContainer: kDarkGreen,
+        tertiaryContainer: kGreen,
         error: kRed,
         onPrimary: kWhite,
-
-        //see what this is
-        primaryContainer: kDarkerGrey,
       ),
       dividerTheme: const DividerThemeData(color: kGrey, thickness: 0.4),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
