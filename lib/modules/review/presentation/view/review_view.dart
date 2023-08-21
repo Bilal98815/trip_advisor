@@ -13,8 +13,8 @@ class ReviewView extends StatelessWidget {
           return BlocBuilder<ReviewBloc, ReviewState>(
             builder: (context, state) {
               return SpeedDial(
-                backgroundColor: Colors.white,
-                overlayColor: Colors.transparent,
+                backgroundColor: Theme.of(context).colorScheme.onBackground,
+                overlayColor: kTransparent,
                 icon: state.isChangeIcon ? Icons.close : Icons.add,
                 onOpen: () {
                   context.read<ReviewBloc>().add(IsChangeEvent(isChange: true));
@@ -28,6 +28,7 @@ class ReviewView extends StatelessWidget {
                 children: [
                   SpeedDialChild(
                     shape: const CircleBorder(),
+                    backgroundColor: Theme.of(context).colorScheme.onBackground,
                     onTap: () {
                       context
                           .read<ReviewBloc>()
@@ -38,15 +39,16 @@ class ReviewView extends StatelessWidget {
                       'assets/gallery.png',
                       width: size.maxWidth * 0.045,
                     ),
-                    labelWidget: CommonText(
-                      text: LocaleStrings.uploadPhotoButton,
-                      color: Colors.white,
-                      fontsize: 18,
-                      fontWeight: FontWeight.w500,
+                    labelWidget: Text(
+                      LocaleStrings.uploadPhotoButton,
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
                     ),
                   ),
                   SpeedDialChild(
                     shape: const CircleBorder(),
+                    backgroundColor: Theme.of(context).colorScheme.onBackground,
                     onTap: () {
                       context
                           .read<ReviewBloc>()
@@ -56,15 +58,16 @@ class ReviewView extends StatelessWidget {
                       'assets/pen.png',
                       width: size.maxWidth * 0.045,
                     ),
-                    labelWidget: CommonText(
-                      text: LocaleStrings.writeReviewButton,
-                      color: Colors.white,
-                      fontsize: 18,
-                      fontWeight: FontWeight.w500,
+                    labelWidget: Text(
+                      LocaleStrings.writeReviewButton,
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
                     ),
                   ),
                   SpeedDialChild(
                     shape: const CircleBorder(),
+                    backgroundColor: Theme.of(context).colorScheme.onBackground,
                     onTap: () {
                       context
                           .read<ReviewBloc>()
@@ -77,11 +80,11 @@ class ReviewView extends StatelessWidget {
                       'assets/pin_black.png',
                       width: size.maxWidth * 0.045,
                     ),
-                    labelWidget: CommonText(
-                      text: LocaleStrings.reviewAddPlaceButton,
-                      color: Colors.white,
-                      fontsize: 18,
-                      fontWeight: FontWeight.w500,
+                    labelWidget: Text(
+                      LocaleStrings.reviewAddPlaceButton,
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
                     ),
                   ),
                 ],
@@ -96,7 +99,7 @@ class ReviewView extends StatelessWidget {
             return Container(
               width: size.maxWidth,
               height: size.maxHeight,
-              color: Colors.black87,
+              color: Theme.of(context).colorScheme.background,
               child: SingleChildScrollView(
                 physics: const ScrollPhysics(),
                 child: Column(
@@ -109,11 +112,9 @@ class ReviewView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.08,
                       ),
-                      child: CommonText(
-                        text: LocaleStrings.reviewTitle,
-                        color: Colors.white,
-                        fontsize: 32,
-                        fontWeight: FontWeight.w900,
+                      child: Text(
+                        LocaleStrings.reviewTitle,
+                        style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ),
                     SizedBox(
@@ -144,18 +145,19 @@ class ReviewView extends StatelessWidget {
                               return Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  CommonText(
-                                    text: state.user?.name ?? '',
-                                    color: Colors.white,
-                                    fontsize: 18,
-                                    fontWeight: FontWeight.w600,
+                                  Text(
+                                    state.user?.name ?? '',
+                                    style:
+                                        Theme.of(context).textTheme.labelLarge,
                                   ),
-                                  CommonText(
-                                    text:
-                                        '0 ${LocaleStrings.reviews}, 0 ${LocaleStrings.drafts}, 0 ${LocaleStrings.photos}',
-                                    color: Colors.white,
-                                    fontsize: 11,
-                                    fontWeight: FontWeight.w400,
+                                  Text(
+                                    '0 ${LocaleStrings.reviews}, 0 ${LocaleStrings.drafts}, 0 ${LocaleStrings.photos}',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall
+                                        ?.copyWith(
+                                          fontWeight: FontWeight.w400,
+                                        ),
                                   ),
                                 ],
                               );
@@ -203,11 +205,12 @@ class ReviewView extends StatelessWidget {
                         horizontal: size.maxWidth * 0.08,
                       ),
                       child: Align(
-                        child: CommonText(
-                          text: LocaleStrings.reviewMissingPlace,
-                          color: Colors.white,
-                          fontsize: 22,
-                          fontWeight: FontWeight.w600,
+                        child: Text(
+                          LocaleStrings.reviewMissingPlace,
+                          style:
+                              Theme.of(context).textTheme.titleSmall?.copyWith(
+                                    fontSize: 22,
+                                  ),
                         ),
                       ),
                     ),
@@ -215,13 +218,15 @@ class ReviewView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.08,
                       ),
-                      child: CommonText(
-                        text: LocaleStrings.reviewAbout,
-                        color: Colors.white,
-                        fontsize: 19,
+                      child: Text(
+                        LocaleStrings.reviewAbout,
+                        style:
+                            Theme.of(context).textTheme.displayMedium?.copyWith(
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.w300,
+                                  overflow: TextOverflow.clip,
+                                ),
                         textAlign: TextAlign.center,
-                        textOverflow: TextOverflow.clip,
-                        fontWeight: FontWeight.w300,
                       ),
                     ),
                     SizedBox(

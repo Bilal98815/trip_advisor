@@ -6,6 +6,7 @@ class MissingPlaceButton extends StatelessWidget {
     required this.size,
     super.key,
   });
+
   final VoidCallback onTap;
   final BoxConstraints size;
 
@@ -17,9 +18,11 @@ class MissingPlaceButton extends StatelessWidget {
         width: size.maxWidth,
         height: size.maxHeight * 0.06,
         decoration: BoxDecoration(
-          color: Colors.black12,
+          color: Theme.of(context).colorScheme.background,
           borderRadius: const BorderRadius.all(Radius.circular(35)),
-          border: Border.all(color: Colors.white),
+          border: Border.all(
+            color: Theme.of(context).colorScheme.onPrimary,
+          ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -31,11 +34,9 @@ class MissingPlaceButton extends StatelessWidget {
             SizedBox(
               width: size.maxWidth * 0.03,
             ),
-            CommonText(
-              text: LocaleStrings.reviewMissingPlaceButton,
-              color: Colors.white,
-              fontsize: 18,
-              fontWeight: FontWeight.w500,
+            Text(
+              LocaleStrings.reviewMissingPlaceButton,
+              style: Theme.of(context).textTheme.labelMedium,
             ),
           ],
         ),

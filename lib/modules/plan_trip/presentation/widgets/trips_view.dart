@@ -2,6 +2,7 @@ part of 'widgets.dart';
 
 class TripsView extends StatelessWidget {
   TripsView({required this.size, super.key});
+
   final BoxConstraints size;
 
   final controller = TextEditingController();
@@ -53,11 +54,7 @@ class TripsView extends StatelessWidget {
             children: [
               Text(
                 LocaleStrings.tripsTabFieldTitle,
-                style: const TextStyle(
-                  fontSize: 15,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               SizedBox(
                 height: size.maxHeight * 0.01,
@@ -69,16 +66,30 @@ class TripsView extends StatelessWidget {
                       .read<PlanTripBloc>()
                       .add(UpdateTripName(tripName: controller.text));
                 },
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onBackground,
+                ),
                 decoration: InputDecoration(
                   hintText: LocaleStrings.tripsTabFieldHint,
-                  hintStyle: const TextStyle(color: Colors.grey, fontSize: 15),
+                  hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Theme.of(context).hintColor,
+                        fontWeight: FontWeight.normal,
+                      ),
                   border: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.red),
+                    borderSide:
+                        BorderSide(color: Theme.of(context).colorScheme.error),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Theme.of(context).colorScheme.primaryContainer,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
                   ),
                 ),
               ),
@@ -97,16 +108,18 @@ class TripsView extends StatelessWidget {
                   if (controller.text != '') {}
                 },
                 height: size.maxHeight * 0.075,
-                color:
-                    controller.text == '' ? Colors.grey.shade700 : Colors.white,
+                color: controller.text == ''
+                    ? Theme.of(context).disabledColor
+                    : Theme.of(context).colorScheme.onBackground,
                 child: Center(
-                  child: CommonText(
-                    text: LocaleStrings.tripsTabButton,
-                    color: controller.text == ''
-                        ? Colors.grey.shade600
-                        : Colors.black,
-                    fontsize: 15,
-                    fontWeight: FontWeight.w500,
+                  child: Text(
+                    LocaleStrings.tripsTabButton,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: controller.text == ''
+                              ? Theme.of(context).colorScheme.onPrimaryContainer
+                              : Theme.of(context).colorScheme.background,
+                          fontWeight: FontWeight.w500,
+                        ),
                   ),
                 ),
               );

@@ -7,12 +7,18 @@ const Color kBrightGreen = Color(0xFF82CF2A);
 
 const Color kGrey = Colors.grey;
 const Color kDarkGrey = Color(0xFF616161);
+Color kShadedGrey = Colors.grey.shade600;
 const Color kDarkerGrey = Color(0xFF303030);
 
 const Color kBlack = Colors.black87;
 const Color kLighterBlack = Colors.black12;
 
 const Color kWhite = Colors.white;
+
 const Color kRed = Colors.red;
+Color kShadedRed = Colors.red.shade300;
 const Color kLightRed = Color(0xFFFFCBC4);
+
 const Color kPurple = Color(0xFFCE93D8);
+
+const Color kTransparent = Colors.transparent;

@@ -7,6 +7,7 @@ class TripGuidanceTile extends StatelessWidget {
     required this.text,
     super.key,
   });
+
   final BoxConstraints size;
   final String image;
   final String text;
@@ -18,8 +19,8 @@ class TripGuidanceTile extends StatelessWidget {
         Container(
           width: size.maxWidth * 0.2,
           height: size.maxHeight * 0.05,
-          decoration: const BoxDecoration(
-            color: Color(0xFF235347),
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.secondaryContainer,
             shape: BoxShape.circle,
           ),
           child: Center(
@@ -29,11 +30,9 @@ class TripGuidanceTile extends StatelessWidget {
             ),
           ),
         ),
-        CommonText(
-          text: text,
-          color: Colors.white,
-          fontsize: 15,
-          fontWeight: FontWeight.w400,
+        Text(
+          text,
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
       ],
     );
