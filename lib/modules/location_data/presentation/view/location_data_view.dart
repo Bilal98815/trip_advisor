@@ -6,116 +6,98 @@ class LocationDataView extends StatelessWidget {
     required this.email,
     required this.password,
   });
+
   final String email;
   final String password;
 
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, size) {
-            return Container(
-              width: size.maxWidth,
-              height: size.maxHeight,
-              color: Colors.black87,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: size.maxHeight * 0.07,
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: size.maxWidth * 0.03),
-                    child: Container(
-                      width: size.maxWidth * 0.25,
-                      height: size.maxHeight * 0.09,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xFFFFCBC4),
-                      ),
-                      child: Center(
-                        child: Image.asset(
-                          'assets/location.png',
-                          width: size.maxWidth * 0.1,
-                          height: size.maxHeight * 0.07,
-                        ),
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: size.maxHeight * 0.07),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: size.maxWidth * 0.03),
+                  child: Container(
+                    width: size.maxWidth * 0.25,
+                    height: size.maxHeight * 0.09,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: kLightRed,
+                    ),
+                    child: Center(
+                      child: Image.asset(
+                        'assets/location.png',
+                        width: size.maxWidth * 0.1,
+                        height: size.maxHeight * 0.07,
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: size.maxHeight * 0.04,
+                ),
+                SizedBox(height: size.maxHeight * 0.04),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
+                  child: Text(
+                    LocaleStrings.locationDataHeading,
+                    style: textTheme.titleLarge,
+                    overflow: TextOverflow.clip,
+                    textAlign: TextAlign.left,
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
-                    child: CommonText(
-                      text: LocaleStrings.locationDataHeading,
-                      color: Colors.white,
-                      textOverflow: TextOverflow.clip,
-                      textAlign: TextAlign.left,
-                      fontsize: 31,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  SizedBox(
-                    height: size.maxHeight * 0.3,
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
-                    child: PrimaryButton(
-                      ignoring: false,
-                      onTap: () async {
-                        await getLocation(context);
+                ),
+                SizedBox(height: size.maxHeight * 0.3),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
+                  child: PrimaryButton(
+                    ignoring: false,
+                    onTap: () async {
+                      await getLocation(context);
 
-                        if (context.mounted) {
-                          context.goNamed(
-                            UserDataPage.routeName,
-                            extra: {
-                              'email': email,
-                              'password': password,
-                            },
-                          );
-                        }
-                      },
-                      height: size.maxHeight * 0.064,
-                      color: Colors.white,
-                      size: size,
-                      child: Center(
-                        child: CommonText(
-                          text: LocaleStrings.locationDataAllow,
-                          color: Colors.black87,
-                          fontsize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: size.maxHeight * 0.05,
-                  ),
-                  Center(
-                    child: InkWell(
-                      onTap: () => context.goNamed(
-                        UserDataPage.routeName,
-                        extra: {'email': email, 'password': password},
-                      ),
+                      if (context.mounted) {
+                        context.goNamed(
+                          UserDataPage.routeName,
+                          extra: {'email': email, 'password': password},
+                        );
+                      }
+                    },
+                    height: size.maxHeight * 0.064,
+                    color: colorScheme.onBackground,
+                    size: size,
+                    child: Center(
                       child: Text(
-                        LocaleStrings.locationDataNotNow,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                          decoration: TextDecoration.underline,
-                          decorationColor: Colors.white,
+                        LocaleStrings.locationDataAllow,
+                        style: textTheme.displayMedium?.copyWith(
+                          color: colorScheme.background,
                         ),
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                ),
+                SizedBox(height: size.maxHeight * 0.05),
+                Center(
+                  child: InkWell(
+                    onTap: () => context.goNamed(
+                      UserDataPage.routeName,
+                      extra: {'email': email, 'password': password},
+                    ),
+                    child: Text(
+                      LocaleStrings.locationDataNotNow,
+                      style: textTheme.titleSmall?.copyWith(
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                )
+              ],
             );
           },
         ),

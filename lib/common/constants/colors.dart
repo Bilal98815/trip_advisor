@@ -14,4 +14,5 @@ const Color kLighterBlack = Colors.black12;
 
 const Color kWhite = Colors.white;
 const Color kRed = Colors.red;
+const Color kLightRed = Color(0xFFFFCBC4);
 const Color kPurple = Color(0xFFCE93D8);

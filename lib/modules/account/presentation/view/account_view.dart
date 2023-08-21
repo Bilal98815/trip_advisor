@@ -88,29 +88,32 @@ class AccountView extends StatelessWidget {
                         },
                         title: LocaleStrings.tripAdvisorTile,
                       ),
-                      SizedBox(
-                        height: size.maxHeight * 0.05,
-                      ),
-                      PrimaryButton(
-                        ignoring: false,
-                        size: size,
-                        onTap: () {
-                          showDialog<void>(
-                            context: context,
-                            builder: (context) {
-                              return SignoutDialogBox(size: size);
-                            },
-                          );
-                        },
-                        color: colorScheme.background,
-                        height: size.maxHeight * 0.075,
-                        child: Center(
-                          child: Text(
-                            LocaleStrings.accountSignoutButton,
-                            style: textTheme.displayMedium,
+                      if (state.signOutCondition ==
+                          SignOutCondition.signIn) ...[
+                        SizedBox(
+                          height: size.maxHeight * 0.05,
+                        ),
+                        PrimaryButton(
+                          ignoring: false,
+                          size: size,
+                          onTap: () {
+                            showDialog<void>(
+                              context: context,
+                              builder: (context) {
+                                return SignoutDialogBox(size: size);
+                              },
+                            );
+                          },
+                          color: colorScheme.background,
+                          height: size.maxHeight * 0.075,
+                          child: Center(
+                            child: Text(
+                              LocaleStrings.accountSignoutButton,
+                              style: textTheme.displayMedium,
+                            ),
                           ),
                         ),
-                      ),
+                      ],
                       SizedBox(height: size.maxHeight * 0.03),
                       Text(LocaleStrings.version, style: textTheme.bodySmall),
                       Text(
