@@ -6,6 +6,9 @@ class SignInBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+
     return Container(
       width: size.maxWidth,
       height: size.maxHeight * 0.24,
@@ -21,41 +24,24 @@ class SignInBox extends StatelessWidget {
           SizedBox(
             height: size.maxHeight * 0.04,
           ),
-          CommonText(
-            text: LocaleStrings.accountSigninInfo1,
-            color: Colors.white,
-            fontsize: 15,
-            fontWeight: FontWeight.w300,
-          ),
-          CommonText(
-            text: LocaleStrings.accountSigninInfo2,
-            color: Colors.white,
-            fontsize: 15,
-            fontWeight: FontWeight.w300,
-          ),
-          SizedBox(
-            height: size.maxHeight * 0.04,
-          ),
+          Text(LocaleStrings.accountSigninInfo1, style: textTheme.bodyMedium),
+          Text(LocaleStrings.accountSigninInfo2, style: textTheme.bodyMedium),
+          SizedBox(height: size.maxHeight * 0.04),
           PrimaryButton(
             ignoring: false,
-            onTap: () {
-              context.go(OnboardingView.route());
-            },
-            color: Colors.white,
+            onTap: () => context.go(OnboardingView.route()),
+            color: colorScheme.onBackground,
             height: size.maxHeight * 0.06,
             size: size,
             child: Center(
-              child: CommonText(
-                text: LocaleStrings.accountSigninButton,
-                color: Colors.black87,
-                fontsize: 15,
-                fontWeight: FontWeight.w700,
+              child: Text(
+                LocaleStrings.accountSigninButton,
+                style: textTheme.displayMedium
+                    ?.copyWith(color: colorScheme.background),
               ),
             ),
           ),
-          SizedBox(
-            height: size.maxHeight * 0.03,
-          ),
+          SizedBox(height: size.maxHeight * 0.03),
         ],
       ),
     );
