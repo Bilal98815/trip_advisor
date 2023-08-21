@@ -67,7 +67,7 @@ class OnboardingView extends StatelessWidget {
                         ),
                         TextSpan(
                           text: LocaleStrings.onboardingTextPrivacy,
-                          style: textTheme.labelMedium?.copyWith(
+                          style: textTheme.labelSmall?.copyWith(
                             decoration: TextDecoration.underline,
                           ),
                         ),

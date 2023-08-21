@@ -70,7 +70,7 @@ class NavBarIcon extends StatelessWidget {
               Container(
                 width: size.maxWidth * 0.13,
                 height: size.maxHeight * 0.003,
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.secondary,
               ),
               SizedBox(
                 height: size.maxHeight * 0.005,

@@ -13,6 +13,7 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextTheme textTheme = Theme.of(context).textTheme;
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: const CustomAppBar(),
@@ -44,7 +45,7 @@ class LoginView extends StatelessWidget {
                         children: [
                           Text(
                             LocaleStrings.loginEmailLabel,
-                            style: textTheme.labelMedium,
+                            style: textTheme.labelSmall,
                           ),
                           SizedBox(
                             height: constraints.maxHeight * 0.01,
@@ -54,16 +55,24 @@ class LoginView extends StatelessWidget {
                             validator: (val) => val!.isEmpty
                                 ? LocaleStrings.loginEmailError
                                 : null,
-                            style: const TextStyle(color: Colors.white),
                             decoration: InputDecoration(
                               hintText: LocaleStrings.loginEmailHint,
-                              hintStyle: const TextStyle(color: Colors.grey),
                               border: OutlineInputBorder(
-                                borderSide: const BorderSide(color: Colors.red),
+                                borderSide:
+                                    BorderSide(color: colorScheme.error),
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              focusedBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: colorScheme.primaryContainer,
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: colorScheme.onBackground,
+                                ),
+                                borderRadius: BorderRadius.circular(8),
                               ),
                             ),
                           ),
@@ -79,7 +88,7 @@ class LoginView extends StatelessWidget {
                             children: [
                               Text(
                                 LocaleStrings.loginPasswordLabel,
-                                style: textTheme.labelMedium,
+                                style: textTheme.labelSmall,
                               ),
                               SizedBox(
                                 height: constraints.maxHeight * 0.01,
@@ -101,15 +110,22 @@ class LoginView extends StatelessWidget {
                                 },
                                 decoration: InputDecoration(
                                   hintText: LocaleStrings.loginPasswordHint,
-                                  hintStyle:
-                                      const TextStyle(color: Colors.grey),
                                   border: OutlineInputBorder(
                                     borderSide:
-                                        const BorderSide(color: Colors.red),
+                                        BorderSide(color: colorScheme.error),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
-                                  focusedBorder: const OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: colorScheme.primaryContainer,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: colorScheme.onBackground,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
                               ),
@@ -122,11 +138,11 @@ class LoginView extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () => context.go(ForgotPasswordPage.route()),
-                        child: CommonText(
-                          text: LocaleStrings.loginForgotPassword,
-                          color: Colors.purple.shade200,
-                          fontsize: 22,
-                          fontWeight: FontWeight.w700,
+                        child: Text(
+                          LocaleStrings.loginForgotPassword,
+                          style: textTheme.labelMedium?.copyWith(
+                            color: colorScheme.primary,
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -137,10 +153,10 @@ class LoginView extends StatelessWidget {
                           if (state.authApiState == ApiState.error) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                backgroundColor: Colors.red,
+                                backgroundColor: colorScheme.error,
                                 content: Text(
                                   state.errorMessage,
-                                  style: const TextStyle(color: Colors.white),
+                                  style: TextStyle(color: colorScheme.onError),
                                 ),
                               ),
                             );

@@ -25,9 +25,16 @@ class TripAdvisorTheme {
       fontWeight: FontWeight.w300,
     ),
 
-    labelMedium: TextStyle(
+    labelSmall: TextStyle(
       fontSize: 15,
       fontWeight: FontWeight.bold,
+    ),
+
+    //used in onboarding buttons
+    labelMedium: TextStyle(
+      color: Colors.white,
+      fontSize: 17,
+      fontWeight: FontWeight.w500,
     ),
 
     labelLarge: TextStyle(
@@ -65,7 +72,8 @@ class TripAdvisorTheme {
       disabledColor: kDarkGrey,
       textTheme: textTheme,
       colorScheme: const ColorScheme.light(
-        primary: kBrightGreen,
+        primary: kPurple,
+        secondary: kBrightGreen,
         primaryContainer: kDarkerGrey,
         secondaryContainer: kDarkGreen,
         tertiaryContainer: kGreen,
@@ -110,7 +118,7 @@ class TripAdvisorTheme {
       ),
       dividerTheme: const DividerThemeData(color: kGrey, thickness: 0.4),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: kBlack,
+        backgroundColor: kDarkerGrey,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: kWhite,
         unselectedItemColor: kGrey.withOpacity(0.7),
