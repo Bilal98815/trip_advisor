@@ -4,6 +4,50 @@ import 'package:flutter/material.dart';
 import 'package:trip_advisor/common/constants/constants.dart';
 
 class TripAdvisorTheme {
+  static TextTheme textTheme = const TextTheme(
+    titleLarge: TextStyle(
+      fontSize: 32,
+      fontWeight: FontWeight.w900,
+    ),
+
+    titleSmall: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+    ),
+
+    bodyMedium: TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.w400,
+    ),
+
+    bodySmall: TextStyle(
+      fontSize: 11,
+      fontWeight: FontWeight.w300,
+    ),
+
+    labelMedium: TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.bold,
+    ),
+
+    labelLarge: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w600,
+    ),
+
+    displayMedium: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+    ),
+
+    // used in imageContainer widget in review screen
+    displayLarge: TextStyle(
+      fontSize: 40,
+      fontWeight: FontWeight.w900,
+      overflow: TextOverflow.clip,
+    ),
+  );
+
   static ThemeData get light {
     return ThemeData(
       useMaterial3: true,
@@ -19,37 +63,14 @@ class TripAdvisorTheme {
       ),
       hintColor: kGrey,
       disabledColor: kDarkGrey,
-      textTheme: const TextTheme(
-        // used in titles on Account, review, plan trips screen
-        titleLarge: TextStyle(
-          color: kBlack,
-          fontSize: 32,
-          fontWeight: FontWeight.w900,
-        ),
-        displayMedium: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-        ),
-
-        // used in imageContainer widget in review screen
-        displayLarge: TextStyle(
-          color: kWhite,
-          fontSize: 40,
-          fontWeight: FontWeight.w900,
-          overflow: TextOverflow.clip,
-        ),
-
-        // used for version, device id in account screen
-        bodySmall: TextStyle(
-          color: kBlack,
-          fontSize: 11,
-          fontWeight: FontWeight.w300,
-        ),
-      ),
+      textTheme: textTheme,
       colorScheme: const ColorScheme.light(
         primary: kBrightGreen,
-        primaryContainer: kDarkGreen,
+        primaryContainer: kDarkerGrey,
+        secondaryContainer: kDarkGreen,
+        tertiaryContainer: kGreen,
         error: kRed,
+        onBackground: kBlack,
       ),
       dividerTheme: const DividerThemeData(color: kGrey, thickness: 0.4),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -76,56 +97,7 @@ class TripAdvisorTheme {
       ),
       hintColor: kGrey,
       disabledColor: kDarkGrey,
-      textTheme: const TextTheme(
-        titleLarge: TextStyle(
-          color: kWhite,
-          fontSize: 32,
-          fontWeight: FontWeight.w900,
-        ),
-
-        titleSmall: TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
-
-        bodyMedium: TextStyle(
-          color: Colors.white,
-          fontSize: 15,
-          fontWeight: FontWeight.w400,
-        ),
-
-        bodySmall: TextStyle(
-          color: kWhite,
-          fontSize: 11,
-          fontWeight: FontWeight.w300,
-        ),
-
-        labelMedium: TextStyle(
-          fontSize: 15,
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
-
-        labelLarge: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-          color: Colors.white,
-        ),
-
-        displayMedium: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-        ),
-
-        // used in imageContainer widget in review screen
-        displayLarge: TextStyle(
-          color: kWhite,
-          fontSize: 40,
-          fontWeight: FontWeight.w900,
-          overflow: TextOverflow.clip,
-        ),
-      ),
+      textTheme: textTheme,
       colorScheme: const ColorScheme.dark(
         background: kBlack,
         primary: kLightGreen,

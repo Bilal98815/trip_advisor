@@ -27,7 +27,6 @@ class OnboardingView extends StatelessWidget {
                     child: Text(
                       LocaleStrings.onboardingSkip,
                       style: textTheme.labelLarge?.copyWith(
-                        decorationColor: Colors.white,
                         decoration: TextDecoration.underline,
                       ),
                     ),
