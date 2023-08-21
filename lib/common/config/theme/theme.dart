@@ -32,7 +32,6 @@ class TripAdvisorTheme {
 
     //used in onboarding buttons
     labelMedium: TextStyle(
-      color: Colors.white,
       fontSize: 17,
       fontWeight: FontWeight.w500,
     ),
@@ -40,6 +39,12 @@ class TripAdvisorTheme {
     labelLarge: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w600,
+    ),
+
+    //used in primary buttons
+    headlineSmall: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.w500,
     ),
 
     displayMedium: TextStyle(

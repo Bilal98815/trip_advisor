@@ -47,34 +47,12 @@ class LoginView extends StatelessWidget {
                             LocaleStrings.loginEmailLabel,
                             style: textTheme.labelSmall,
                           ),
-                          SizedBox(
-                            height: constraints.maxHeight * 0.01,
-                          ),
-                          TextFormField(
+                          SizedBox(height: constraints.maxHeight * 0.01),
+                          CustomTextFormField(
                             controller: emailController,
                             validator: (val) => val!.isEmpty
                                 ? LocaleStrings.loginEmailError
                                 : null,
-                            decoration: InputDecoration(
-                              hintText: LocaleStrings.loginEmailHint,
-                              border: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: colorScheme.error),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: colorScheme.primaryContainer,
-                                ),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: colorScheme.onBackground,
-                                ),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
                           ),
                         ],
                       ),
@@ -93,41 +71,17 @@ class LoginView extends StatelessWidget {
                               SizedBox(
                                 height: constraints.maxHeight * 0.01,
                               ),
-                              TextFormField(
+                              CustomTextFormField(
                                 obscureText: true,
                                 controller: passwordController,
-                                style: const TextStyle(color: Colors.white),
                                 validator: (val) {
-                                  if (val!.isEmpty) {
-                                    return LocaleStrings
-                                        .loginPasswordEmptyError;
-                                  } else if (val.length < 6) {
-                                    return LocaleStrings
-                                        .loginPasswordLengthError;
-                                  } else {
-                                    return null;
-                                  }
+                                  return val!.isEmpty
+                                      ? LocaleStrings.loginPasswordEmptyError
+                                      : val.length < 6
+                                          ? LocaleStrings
+                                              .loginPasswordLengthError
+                                          : null;
                                 },
-                                decoration: InputDecoration(
-                                  hintText: LocaleStrings.loginPasswordHint,
-                                  border: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: colorScheme.error),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: colorScheme.primaryContainer,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: colorScheme.onBackground,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                ),
                               ),
                             ],
                           );
@@ -194,16 +148,16 @@ class LoginView extends StatelessWidget {
                                     );
                               }
                             },
-                            color: Colors.white,
+                            color: colorScheme.onBackground,
                             size: constraints,
                             child: Center(
                               child: state.authApiState == ApiState.loading
                                   ? const CircularProgressIndicator()
-                                  : CommonText(
-                                      text: LocaleStrings.loginSigninButton,
-                                      color: Colors.black87,
-                                      fontsize: 20,
-                                      fontWeight: FontWeight.w500,
+                                  : Text(
+                                      LocaleStrings.loginSigninButton,
+                                      style: textTheme.headlineSmall?.copyWith(
+                                        color: colorScheme.background,
+                                      ),
                                     ),
                             ),
                           );
@@ -219,11 +173,9 @@ class LoginView extends StatelessWidget {
                         color: Colors.black12,
                         size: constraints,
                         child: Center(
-                          child: CommonText(
-                            text: LocaleStrings.loginSignupButton,
-                            color: Colors.white,
-                            fontsize: 20,
-                            fontWeight: FontWeight.w500,
+                          child: Text(
+                            LocaleStrings.loginSignupButton,
+                            style: textTheme.headlineSmall,
                           ),
                         ),
                       ),

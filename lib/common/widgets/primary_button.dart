@@ -29,7 +29,10 @@ class PrimaryButton extends StatelessWidget {
           decoration: BoxDecoration(
             color: color,
             borderRadius: const BorderRadius.all(Radius.circular(35)),
-            border: Border.all(color: Colors.white, width: 2),
+            border: Border.all(
+              color: Theme.of(context).colorScheme.onBackground,
+              width: 2,
+            ),
           ),
           child: child,
         ),

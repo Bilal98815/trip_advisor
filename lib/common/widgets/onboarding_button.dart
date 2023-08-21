@@ -24,7 +24,7 @@ class OnboardingButton extends StatelessWidget {
           horizontal: size.maxWidth * 0.05,
         ),
         decoration: BoxDecoration(
-          color: Colors.black12,
+          color: Theme.of(context).colorScheme.background,
           borderRadius: const BorderRadius.all(Radius.circular(35)),
           border: Border.all(
             color: Theme.of(context).colorScheme.onBackground,
