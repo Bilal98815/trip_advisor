@@ -8,5 +8,8 @@ import 'package:trip_advisor/modules/login/login.dart';
 import 'package:trip_advisor/modules/user_data/presentation/bloc/user_data_bloc.dart';
 import 'package:trip_advisor/modules/user_data/user_data.dart';
 
+import '../../../../common/helpers/enums/enums.dart';
+import '../../../account/presentation/bloc/account_bloc.dart';
+
 part 'user_data_page.dart';
 part 'user_data_view.dart';

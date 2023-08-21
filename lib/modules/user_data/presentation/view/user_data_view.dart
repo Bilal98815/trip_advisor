@@ -250,6 +250,11 @@ class UserDataView extends StatelessWidget {
                                           password: password,
                                         ),
                                       );
+                                  context.read<AccountBloc>().add(
+                                        UpdateSigningCondition(
+                                          condition: SignOutCondition.signIn,
+                                        ),
+                                      );
                                   context.go(ExploreView.route());
                                 }
                               },
