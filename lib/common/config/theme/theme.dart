@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_classes_with_only_static_members
 
 import 'package:flutter/material.dart';
+import 'package:trip_advisor/common/constants/constants.dart';
 
 class TripAdvisorTheme {
   static ThemeData get light {
@@ -8,22 +9,20 @@ class TripAdvisorTheme {
       useMaterial3: true,
       appBarTheme: const AppBarTheme(
         centerTitle: true,
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(
-          color: Colors.black,
-        ),
+        backgroundColor: kWhite,
+        iconTheme: IconThemeData(color: kBlack),
         titleTextStyle: TextStyle(
-          color: Colors.black,
+          color: kBlack,
           fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
       ),
-      hintColor: Colors.grey,
-      disabledColor: Colors.grey.shade700,
-      primaryTextTheme: const TextTheme(
+      hintColor: kGrey,
+      disabledColor: kDarkGrey,
+      textTheme: const TextTheme(
         // used in titles on Account, review, plan trips screen
         titleLarge: TextStyle(
-          color: Colors.black,
+          color: kBlack,
           fontSize: 32,
           fontWeight: FontWeight.w900,
         ),
@@ -34,45 +33,30 @@ class TripAdvisorTheme {
 
         // used in imageContainer widget in review screen
         displayLarge: TextStyle(
-          color: Colors.white,
+          color: kWhite,
           fontSize: 40,
           fontWeight: FontWeight.w900,
           overflow: TextOverflow.clip,
         ),
 
         // used for version, device id in account screen
-        displaySmall: TextStyle(
-          color: Colors.black,
+        bodySmall: TextStyle(
+          color: kBlack,
           fontSize: 11,
           fontWeight: FontWeight.w300,
         ),
       ),
-      primaryColor: Colors.white,
-      primaryColorLight: Colors.white,
       colorScheme: const ColorScheme.light(
-        secondaryContainer: Colors.white,
-
-        // used in bottom bar above active item
-        tertiary: Colors.lightGreenAccent,
-
-        // used in trips tab in plan_trip screen
-        tertiaryContainer: Color(0xFF235347),
-
-        // used when there is error in validation in text field
-        onError: Colors.red,
-
-        // used in text field when there is no error
-        onPrimary: Colors.black,
+        primary: kBrightGreen,
+        primaryContainer: kDarkGreen,
+        error: kRed,
       ),
-      dividerTheme: const DividerThemeData(
-        color: Colors.grey,
-        thickness: 0.4,
-      ),
+      dividerTheme: const DividerThemeData(color: kGrey, thickness: 0.4),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: Colors.white,
+        backgroundColor: kWhite,
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey.withOpacity(0.7),
+        selectedItemColor: kBlack,
+        unselectedItemColor: kDarkGrey.withOpacity(0.7),
       ),
     );
   }
@@ -82,25 +66,47 @@ class TripAdvisorTheme {
       useMaterial3: true,
       appBarTheme: const AppBarTheme(
         centerTitle: true,
-        backgroundColor: Colors.black87,
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        ),
+        backgroundColor: kBlack,
+        iconTheme: IconThemeData(color: kWhite),
         titleTextStyle: TextStyle(
-          color: Colors.white,
+          color: kWhite,
           fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
       ),
-      hintColor: Colors.grey,
-      disabledColor: Colors.grey.shade700,
-      primaryTextTheme: const TextTheme(
-        // used in titles on Account, review, plan trips screen
+      hintColor: kGrey,
+      disabledColor: kDarkGrey,
+      textTheme: const TextTheme(
         titleLarge: TextStyle(
-          color: Colors.white,
+          color: kWhite,
           fontSize: 32,
           fontWeight: FontWeight.w900,
         ),
+
+        titleSmall: TextStyle(
+          color: Colors.white,
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+        ),
+
+        bodyMedium: TextStyle(
+          color: Colors.white,
+          fontSize: 15,
+          fontWeight: FontWeight.w400,
+        ),
+
+        bodySmall: TextStyle(
+          color: kWhite,
+          fontSize: 11,
+          fontWeight: FontWeight.w300,
+        ),
+
+        labelMedium: TextStyle(
+          fontSize: 15,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
+
         displayMedium: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w500,
@@ -108,49 +114,28 @@ class TripAdvisorTheme {
 
         // used in imageContainer widget in review screen
         displayLarge: TextStyle(
-          color: Colors.white,
+          color: kWhite,
           fontSize: 40,
           fontWeight: FontWeight.w900,
           overflow: TextOverflow.clip,
         ),
-
-        // used for version, device id in account screen
-        displaySmall: TextStyle(
-          color: Colors.white,
-          fontSize: 11,
-          fontWeight: FontWeight.w300,
-        ),
       ),
-
-      // main bg color of app
-      primaryColor: Colors.black87,
-
-      // bg color of buttons
-      primaryColorDark: Colors.black12,
-
-      // border color of buttons when bg color is black
-      primaryColorLight: Colors.white,
       colorScheme: const ColorScheme.dark(
-        secondaryContainer: Colors.black12,
+        background: kBlack,
+        primary: kLightGreen,
+        secondaryContainer: kDarkGreen,
+        error: kRed,
+        onPrimary: kWhite,
 
-        // used in bottom bar above active item
-        tertiary: Colors.lightGreenAccent,
-
-        // used in trips tab in plan_trip screen
-        tertiaryContainer: Color(0xFF235347),
-
-        // used when there is error in validation in text field
-        onError: Colors.red,
-
-        // used in text field when there is no error
-        onPrimary: Colors.white,
+        //see what this is
+        primaryContainer: kDarkerGrey,
       ),
-      dividerTheme: const DividerThemeData(color: Colors.grey, thickness: 0.4),
+      dividerTheme: const DividerThemeData(color: kGrey, thickness: 0.4),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: Colors.black87,
+        backgroundColor: kBlack,
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.grey.withOpacity(0.7),
+        selectedItemColor: kWhite,
+        unselectedItemColor: kGrey.withOpacity(0.7),
       ),
     );
   }

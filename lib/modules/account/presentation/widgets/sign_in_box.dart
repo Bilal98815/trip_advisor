@@ -10,7 +10,8 @@ class SignInBox extends StatelessWidget {
       width: size.maxWidth,
       height: size.maxHeight * 0.24,
       decoration: BoxDecoration(
-        color: Colors.grey[850],
+        color:
+            Theme.of(context).colorScheme.primaryContainer, //Colors.grey[850],
         borderRadius: const BorderRadius.all(Radius.circular(12)),
       ),
       padding: EdgeInsets.symmetric(horizontal: size.maxWidth * 0.04),

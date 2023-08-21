@@ -132,7 +132,10 @@ class LoginView extends StatelessWidget {
                                           const BorderSide(color: Colors.red),
                                       borderRadius: BorderRadius.circular(8),
                                     ),
-                                    focusedBorder: const OutlineInputBorder(),
+                                    focusedBorder: const OutlineInputBorder(
+                                      borderSide:
+                                          BorderSide(color: Colors.white),
+                                    ),
                                   ),
                                 ),
                               ],

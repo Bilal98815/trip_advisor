@@ -29,12 +29,8 @@ class BottomBarView extends StatelessWidget {
       bottomNavigationBar: LayoutBuilder(
         builder: (context, size) {
           return BottomNavigationBar(
-            backgroundColor: Colors.black87,
-            type: BottomNavigationBarType.fixed,
             currentIndex: currentIndex,
             onTap: (val) => context.go(tabs[val].iconTab.route),
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.grey.withOpacity(0.7),
             items: List.generate(
               tabs.length,
               (index) => BottomNavigationBarItem(
@@ -74,7 +70,7 @@ class NavBarIcon extends StatelessWidget {
               Container(
                 width: size.maxWidth * 0.13,
                 height: size.maxHeight * 0.003,
-                color: Colors.lightGreenAccent,
+                color: Theme.of(context).colorScheme.primary,
               ),
               SizedBox(
                 height: size.maxHeight * 0.005,
