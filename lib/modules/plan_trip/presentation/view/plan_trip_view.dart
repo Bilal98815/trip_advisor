@@ -14,7 +14,7 @@ class PlanTripView extends StatelessWidget {
               return Container(
                 width: size.maxWidth,
                 height: size.maxHeight,
-                color: Colors.black87,
+                color: Theme.of(context).colorScheme.background,
                 //padding: EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,11 +26,9 @@ class PlanTripView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.07,
                       ),
-                      child: CommonText(
-                        text: LocaleStrings.planTitle,
-                        color: Colors.white,
-                        fontsize: 32,
-                        fontWeight: FontWeight.w900,
+                      child: Text(
+                        LocaleStrings.planTitle,
+                        style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ),
                     SizedBox(
@@ -41,24 +39,22 @@ class PlanTripView extends StatelessWidget {
                         horizontal: size.maxWidth * 0.03,
                       ),
                       child: TabBar(
-                        indicatorColor: Colors.white,
-                        dividerColor: Colors.transparent,
+                        indicatorColor:
+                            Theme.of(context).tabBarTheme.indicatorColor,
+                        dividerColor:
+                            Theme.of(context).tabBarTheme.dividerColor,
                         isScrollable: true,
                         tabs: [
                           Tab(
-                            child: CommonText(
-                              text: LocaleStrings.tripsTabTitle,
-                              color: Colors.white,
-                              fontsize: 16,
-                              fontWeight: FontWeight.w600,
+                            child: Text(
+                              LocaleStrings.tripsTabTitle,
+                              style: Theme.of(context).textTheme.titleSmall,
                             ),
                           ),
                           Tab(
-                            child: CommonText(
-                              text: LocaleStrings.savesTabTitle,
-                              color: Colors.white,
-                              fontsize: 16,
-                              fontWeight: FontWeight.w600,
+                            child: Text(
+                              LocaleStrings.savesTabTitle,
+                              style: Theme.of(context).textTheme.titleSmall,
                             ),
                           ),
                         ],
@@ -73,17 +69,19 @@ class PlanTripView extends StatelessWidget {
                               SizedBox(
                                 height: size.maxHeight * 0.03,
                               ),
-                              CommonText(
-                                text: LocaleStrings.savesTabHeading,
-                                color: Colors.white,
-                                fontsize: 16,
-                                fontWeight: FontWeight.w700,
+                              Text(
+                                LocaleStrings.savesTabHeading,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleSmall
+                                    ?.copyWith(fontWeight: FontWeight.w700),
                               ),
-                              CommonText(
-                                text: LocaleStrings.savesTabPlace,
-                                color: Colors.white,
-                                fontsize: 15,
-                                fontWeight: FontWeight.w300,
+                              Text(
+                                LocaleStrings.savesTabPlace,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(fontWeight: FontWeight.w300),
                               ),
                             ],
                           ),

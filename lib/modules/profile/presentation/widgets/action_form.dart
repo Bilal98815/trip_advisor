@@ -26,22 +26,23 @@ class ActionForm extends StatelessWidget {
         ),
         Align(
           alignment: Alignment.centerLeft,
-          child: CommonText(
-            text: '$number $actionTitle',
-            color: Colors.white,
-            fontsize: 22,
-            fontWeight: FontWeight.w800,
+          child: Text(
+            '$number $actionTitle',
+            style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w800,
+                ),
           ),
         ),
         SizedBox(
           height: size.maxHeight * 0.08,
         ),
         if (isTextWidget)
-          CommonText(
-            text: 'You have no $actionTitle yet.',
-            color: Colors.white,
-            fontsize: 14,
-            fontWeight: FontWeight.w400,
+          Text(
+            'You have no $actionTitle yet.',
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  fontSize: 16,
+                ),
           )
         else
           BlocBuilder<ProfileBloc, ProfileState>(
@@ -82,25 +83,20 @@ class ActionForm extends StatelessWidget {
         PrimaryButton(
           ignoring: false,
           onTap: onTap,
-          color: Colors.black12,
+          color: Theme.of(context).colorScheme.background,
           height: size.maxHeight * 0.075,
           size: size,
           child: Center(
-            child: CommonText(
-              text: buttonText,
-              color: Colors.white,
-              fontsize: 17,
-              fontWeight: FontWeight.w500,
+            child: Text(
+              buttonText,
+              style: Theme.of(context).textTheme.labelMedium,
             ),
           ),
         ),
         SizedBox(
           height: size.maxHeight * 0.06,
         ),
-        const Divider(
-          color: Colors.grey,
-          thickness: 0.4,
-        ),
+        const Divider(),
       ],
     );
   }

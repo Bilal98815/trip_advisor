@@ -17,11 +17,9 @@ class SupportTile extends StatelessWidget {
       children: [
         Row(
           children: [
-            CommonText(
-              text: title,
-              color: Colors.white,
-              fontsize: 16,
-              fontWeight: FontWeight.w500,
+            Text(
+              title,
+              style: Theme.of(context).textTheme.displayMedium,
             ),
             const Spacer(),
             InkWell(
@@ -34,12 +32,9 @@ class SupportTile extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: size.maxHeight * 0.01,
+          height: size.maxHeight * 0.017,
         ),
-        const Divider(
-          thickness: 0.3,
-          color: Colors.grey,
-        ),
+        const Divider(),
       ],
     );
   }

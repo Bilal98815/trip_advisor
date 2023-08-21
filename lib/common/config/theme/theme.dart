@@ -71,12 +71,20 @@ class TripAdvisorTheme {
       hintColor: kGrey,
       disabledColor: kDarkGrey,
       textTheme: textTheme,
-      colorScheme: const ColorScheme.light(
+      iconTheme: const IconThemeData(
+        color: kBlack,
+        size: 18,
+      ),
+      colorScheme: ColorScheme.light(
         primary: kPurple,
         secondary: kBrightGreen,
+        tertiary: kTransparent,
         primaryContainer: kDarkerGrey,
+        onPrimaryContainer: kShadedGrey,
         secondaryContainer: kDarkGreen,
+        onSecondaryContainer: kShadedRed,
         tertiaryContainer: kGreen,
+        onTertiaryContainer: kGrey,
         error: kRed,
         onBackground: kBlack,
       ),
@@ -86,6 +94,10 @@ class TripAdvisorTheme {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: kBlack,
         unselectedItemColor: kDarkGrey.withOpacity(0.7),
+      ),
+      tabBarTheme: const TabBarTheme(
+        dividerColor: kTransparent,
+        indicatorColor: kBlack,
       ),
     );
   }
@@ -106,13 +118,21 @@ class TripAdvisorTheme {
       hintColor: kGrey,
       disabledColor: kDarkGrey,
       textTheme: textTheme,
-      colorScheme: const ColorScheme.dark(
+      iconTheme: const IconThemeData(
+        color: kWhite,
+        size: 18,
+      ),
+      colorScheme: ColorScheme.dark(
         background: kBlack,
         primary: kPurple,
         secondary: kLightGreen,
+        tertiary: kTransparent,
         primaryContainer: kDarkerGrey,
+        onPrimaryContainer: kShadedGrey,
         secondaryContainer: kDarkGreen,
+        onSecondaryContainer: kShadedRed,
         tertiaryContainer: kGreen,
+        onTertiaryContainer: kGrey,
         error: kRed,
         onPrimary: kWhite,
       ),
@@ -122,6 +142,10 @@ class TripAdvisorTheme {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: kWhite,
         unselectedItemColor: kGrey.withOpacity(0.7),
+      ),
+      tabBarTheme: const TabBarTheme(
+        dividerColor: kTransparent,
+        indicatorColor: kWhite,
       ),
     );
   }

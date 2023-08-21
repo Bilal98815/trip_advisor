@@ -129,7 +129,10 @@ class SignUpView extends StatelessWidget {
                                           const BorderSide(color: Colors.red),
                                       borderRadius: BorderRadius.circular(8),
                                     ),
-                                    focusedBorder: const OutlineInputBorder(),
+                                    focusedBorder: const OutlineInputBorder(
+                                      borderSide:
+                                          BorderSide(color: Colors.white),
+                                    ),
                                   ),
                                 ),
                               ],
@@ -172,13 +175,16 @@ class SignUpView extends StatelessWidget {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                CommonText(
-                                  text: LocaleStrings.signupCheckbox,
-                                  color: Colors.white,
-                                  fontsize: 15,
-                                  textOverflow: TextOverflow.clip,
-                                  textAlign: TextAlign.left,
-                                  fontWeight: FontWeight.normal,
+                                SizedBox(
+                                  width: constraints.maxWidth * 0.7,
+                                  child: CommonText(
+                                    text: LocaleStrings.signupCheckbox,
+                                    color: Colors.white,
+                                    fontsize: 15,
+                                    textOverflow: TextOverflow.clip,
+                                    textAlign: TextAlign.left,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                                 ),
                               ],
                             ),

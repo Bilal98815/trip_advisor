@@ -19,16 +19,19 @@ class ActionButton extends StatelessWidget {
         width: size.maxWidth * 0.4,
         height: size.maxHeight * 0.06,
         decoration: BoxDecoration(
-          color: Colors.black12,
+          color: Theme.of(context).colorScheme.background,
           borderRadius: const BorderRadius.all(Radius.circular(30)),
-          border: Border.all(color: Colors.white),
+          border: Border.all(
+            color: Theme.of(context).colorScheme.onPrimary,
+          ),
         ),
         child: Center(
-          child: CommonText(
-            text: text,
-            color: Colors.white,
-            fontsize: 17,
-            fontWeight: FontWeight.w700,
+          child: Text(
+            text,
+            style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
+                ),
           ),
         ),
       ),
