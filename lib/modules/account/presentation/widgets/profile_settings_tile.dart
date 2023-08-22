@@ -5,12 +5,11 @@ class ProfileSettingsTile extends StatelessWidget {
     required this.image,
     required this.onTap,
     required this.title,
-    required this.size,
     super.key,
   });
   final String image;
   final String title;
-  final BoxConstraints size;
+
   final VoidCallback onTap;
 
   @override
@@ -19,37 +18,20 @@ class ProfileSettingsTile extends StatelessWidget {
       children: [
         InkWell(
           onTap: onTap,
-          child: Row(
-            children: [
-              Image.asset(
-                image,
-                width: size.maxWidth * 0.045,
-              ),
-              SizedBox(
-                width: size.maxWidth * 0.06,
-              ),
-              CommonText(
-                text: title,
-                color: Colors.white,
-                fontsize: 15,
-                fontWeight: FontWeight.w500,
-              ),
-              const Spacer(),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 18,
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Row(
+              children: [
+                Image.asset(image, width: 18),
+                const SizedBox(width: 20),
+                Text(title, style: Theme.of(context).textTheme.labelSmall),
+                const Spacer(),
+                const Icon(Icons.arrow_forward_ios, size: 15),
+              ],
+            ),
           ),
         ),
-        SizedBox(
-          height: size.maxHeight * 0.01,
-        ),
-        const Divider(
-          thickness: 0.3,
-          color: Colors.grey,
-        ),
+        const Divider(),
       ],
     );
   }

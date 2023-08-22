@@ -2,6 +2,7 @@ part of 'view.dart';
 
 class UserDataView extends StatelessWidget {
   UserDataView({super.key, required this.email, required this.password});
+
   final String email;
   final String password;
 
@@ -26,7 +27,7 @@ class UserDataView extends StatelessWidget {
               return Container(
                 width: size.maxWidth,
                 height: size.maxHeight,
-                color: Colors.black87,
+                color: Theme.of(context).colorScheme.background,
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +44,9 @@ class UserDataView extends StatelessWidget {
                           height: size.maxHeight * 0.1,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Colors.red.shade300,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondaryContainer,
                           ),
                           child: Center(
                             child: Image.asset(
@@ -61,13 +64,13 @@ class UserDataView extends StatelessWidget {
                         padding: EdgeInsets.symmetric(
                           horizontal: size.maxWidth * 0.08,
                         ),
-                        child: CommonText(
-                          text: LocaleStrings.userDataHeading,
-                          color: Colors.white,
-                          textOverflow: TextOverflow.clip,
+                        child: Text(
+                          LocaleStrings.userDataHeading,
+                          style:
+                              Theme.of(context).textTheme.titleLarge?.copyWith(
+                                    overflow: TextOverflow.clip,
+                                  ),
                           textAlign: TextAlign.left,
-                          fontsize: 31,
-                          fontWeight: FontWeight.w800,
                         ),
                       ),
                       SizedBox(
@@ -82,32 +85,16 @@ class UserDataView extends StatelessWidget {
                           children: [
                             Text(
                               LocaleStrings.userDataNameFieldTitle,
-                              style: const TextStyle(
-                                fontSize: 15,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
+                              style: Theme.of(context).textTheme.labelSmall,
                             ),
                             SizedBox(
                               height: size.maxHeight * 0.01,
                             ),
-                            TextFormField(
+                            CustomTextFormField(
                               controller: nameController,
                               validator: (val) =>
                                   val!.isEmpty ? 'Enter name!' : null,
-                              style: const TextStyle(color: Colors.white),
-                              decoration: InputDecoration(
-                                hintText: LocaleStrings.userDataNameFieldHint,
-                                hintStyle: const TextStyle(color: Colors.grey),
-                                border: OutlineInputBorder(
-                                  borderSide:
-                                      const BorderSide(color: Colors.red),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                focusedBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                ),
-                              ),
+                              hintText: LocaleStrings.userDataNameFieldHint,
                             ),
                           ],
                         ),
@@ -124,11 +111,7 @@ class UserDataView extends StatelessWidget {
                           children: [
                             Text(
                               LocaleStrings.userDataLocationFieldTitle,
-                              style: const TextStyle(
-                                fontSize: 15,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
+                              style: Theme.of(context).textTheme.labelSmall,
                             ),
                             SizedBox(
                               height: size.maxHeight * 0.01,
@@ -143,7 +126,11 @@ class UserDataView extends StatelessWidget {
                               decoration: BoxDecoration(
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(10)),
-                                border: Border.all(color: Colors.grey),
+                                border: Border.all(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onTertiaryContainer,
+                                ),
                               ),
                               child:
                                   BlocBuilder<UserDataBloc, UserDataBlocState>(
@@ -157,14 +144,22 @@ class UserDataView extends StatelessWidget {
                                     //value: state.country,
                                     hint: Text(
                                       state.country,
-                                      style: const TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .labelSmall
+                                          ?.copyWith(
+                                            color: Theme.of(context).hintColor,
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                     ),
-                                    dropdownColor: Colors.black87,
-                                    style: const TextStyle(color: Colors.white),
+                                    dropdownColor: Theme.of(context)
+                                        .colorScheme
+                                        .primaryContainer,
+                                    style: TextStyle(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimaryContainer,
+                                    ),
                                     items: items.map((String item) {
                                       return DropdownMenuItem(
                                         value: item,
@@ -222,18 +217,28 @@ class UserDataView extends StatelessWidget {
                                           password: password,
                                         ),
                                       );
+                                  context.read<AccountBloc>().add(
+                                        UpdateSigningCondition(
+                                          condition: SignOutCondition.signIn,
+                                        ),
+                                      );
                                   context.go(ExploreView.route());
                                 }
                               },
                               height: size.maxHeight * 0.064,
-                              color: Colors.white,
+                              color: Theme.of(context).colorScheme.onBackground,
                               size: size,
                               child: Center(
-                                child: CommonText(
-                                  text: LocaleStrings.userDataButton,
-                                  color: Colors.black87,
-                                  fontsize: 20,
-                                  fontWeight: FontWeight.w500,
+                                child: Text(
+                                  LocaleStrings.userDataButton,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .background,
+                                      ),
                                 ),
                               ),
                             );

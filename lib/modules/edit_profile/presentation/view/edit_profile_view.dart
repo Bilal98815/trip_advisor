@@ -18,48 +18,23 @@ class EditProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black87,
-        centerTitle: true,
-        leading: LayoutBuilder(
-          builder: (context, size) {
-            return Padding(
-              padding: EdgeInsets.only(left: size.maxWidth * 0.5),
-              child: InkWell(
-                onTap: () => context.pop(),
-                child: const Icon(
-                  Icons.arrow_back_ios_new,
-                  color: Colors.white,
-                ),
-              ),
-            );
-          },
-        ),
-        title: CommonText(
-          text: LocaleStrings.editProfileTitle,
-          color: Colors.white,
-          fontsize: 20,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
+      appBar: CustomAppBar(title: LocaleStrings.editProfileTitle),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, size) {
-            return Container(
-              width: size.maxWidth,
-              height: size.maxHeight,
-              color: Colors.black87,
-              padding: EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: size.maxHeight * 0.04,
-                    ),
+                    SizedBox(height: size.maxHeight * 0.04),
                     SizedBox(
                       width: size.maxWidth * 0.2,
                       height: size.maxHeight * 0.11,
@@ -98,13 +73,13 @@ class EditProfileView extends StatelessWidget {
                               },
                               child: Container(
                                 padding: const EdgeInsets.all(5),
-                                decoration: const BoxDecoration(
-                                  color: Colors.white,
+                                decoration: BoxDecoration(
+                                  color: colorScheme.onBackground,
                                   shape: BoxShape.circle,
                                 ),
-                                child: const Icon(
+                                child: Icon(
                                   Icons.camera_alt_outlined,
-                                  color: Colors.black,
+                                  color: colorScheme.background,
                                   size: 17,
                                 ),
                               ),
@@ -113,61 +88,30 @@ class EditProfileView extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: size.maxHeight * 0.04,
-                    ),
+                    SizedBox(height: size.maxHeight * 0.04),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           LocaleStrings.editProfileNameLabel,
-                          style: const TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: textTheme.labelSmall,
                         ),
-                        SizedBox(
-                          height: size.maxHeight * 0.01,
-                        ),
+                        SizedBox(height: size.maxHeight * 0.01),
                         BlocBuilder<ProfileBloc, ProfileState>(
                           builder: (context, state) {
-                            return TextFormField(
+                            return CustomTextFormField(
                               controller: nameController,
-                              style: const TextStyle(color: Colors.white),
-                              decoration: InputDecoration(
-                                hintText: state.user?.name ??
-                                    LocaleStrings.editProfileNameHint,
-                                hintStyle: const TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 15,
-                                ),
-                                border: OutlineInputBorder(
-                                  borderSide:
-                                      const BorderSide(color: Colors.red),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                focusedBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                ),
-                              ),
+                              hintText: state.user?.name ??
+                                  LocaleStrings.editProfileNameHint,
                             );
                           },
                         ),
-                        SizedBox(
-                          height: size.maxHeight * 0.03,
-                        ),
+                        SizedBox(height: size.maxHeight * 0.03),
                         Text(
                           LocaleStrings.editProfileCityLabel,
-                          style: const TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: textTheme.labelSmall,
                         ),
-                        SizedBox(
-                          height: size.maxHeight * 0.01,
-                        ),
+                        SizedBox(height: size.maxHeight * 0.01),
                         Container(
                           width: size.maxWidth,
                           height: size.maxHeight * 0.08,
@@ -178,7 +122,7 @@ class EditProfileView extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(10)),
-                            border: Border.all(color: Colors.grey),
+                            border: Border.all(color: colorScheme.outline),
                           ),
                           child: BlocBuilder<EditProfileBloc, EditProfileState>(
                             builder: (context, state) {
@@ -218,86 +162,33 @@ class EditProfileView extends StatelessWidget {
                             },
                           ),
                         ),
-                        SizedBox(
-                          height: size.maxHeight * 0.03,
-                        ),
+                        SizedBox(height: size.maxHeight * 0.03),
                         Text(
                           LocaleStrings.editProfileWebsiteLabel,
-                          style: const TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: textTheme.labelSmall,
                         ),
-                        SizedBox(
-                          height: size.maxHeight * 0.01,
-                        ),
-                        TextFormField(
+                        SizedBox(height: size.maxHeight * 0.01),
+                        CustomTextFormField(
                           controller: websiteController,
-                          style: const TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
-                            hintText: LocaleStrings.editProfileWebsiteHint,
-                            hintStyle: const TextStyle(
-                              color: Colors.grey,
-                              fontSize: 15,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.red),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            focusedBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                          ),
+                          hintText: LocaleStrings.editProfileWebsiteHint,
                         ),
-                        SizedBox(
-                          height: size.maxHeight * 0.03,
-                        ),
+                        SizedBox(height: size.maxHeight * 0.03),
                         Text(
                           LocaleStrings.editProfileAboutLabel,
-                          style: const TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: textTheme.labelSmall,
                         ),
-                        SizedBox(
-                          height: size.maxHeight * 0.01,
+                        SizedBox(height: size.maxHeight * 0.01),
+                        CustomTextFormField(
+                          controller: aboutController,
+                          maxLines: 4,
+                          onChanged: (val) {
+                            context
+                                .read<EditProfileBloc>()
+                                .add(UpdateCountEvent(count: val.length));
+                          },
+                          hintText: LocaleStrings.editProfileAboutHint,
                         ),
-                        Container(
-                          height: size.maxHeight * 0.23,
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(8)),
-                            border: Border.all(color: Colors.grey),
-                          ),
-                          padding: EdgeInsets.symmetric(
-                            vertical: size.maxHeight * 0.005,
-                            horizontal: size.maxWidth * 0.03,
-                          ),
-                          child: TextFormField(
-                            controller: aboutController,
-                            maxLines: null,
-                            keyboardType: TextInputType.multiline,
-                            onChanged: (val) {
-                              context
-                                  .read<EditProfileBloc>()
-                                  .add(UpdateCountEvent(count: val.length));
-                            },
-                            style: const TextStyle(color: Colors.white),
-                            decoration: InputDecoration(
-                              hintText: LocaleStrings.editProfileAboutHint,
-                              hintStyle: const TextStyle(
-                                color: Colors.grey,
-                                fontSize: 15,
-                              ),
-                              border: InputBorder.none,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: size.maxHeight * 0.01,
-                        ),
+                        SizedBox(height: size.maxHeight * 0.01),
                         BlocBuilder<EditProfileBloc, EditProfileState>(
                           builder: (context, state) {
                             return Align(
@@ -313,9 +204,7 @@ class EditProfileView extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(
-                      height: size.maxHeight * 0.09,
-                    ),
+                    SizedBox(height: size.maxHeight * 0.09),
                     BlocConsumer<EditProfileBloc, EditProfileState>(
                       listener: (context, state) {
                         if (state.apiState == ApiState.saved) {
@@ -324,11 +213,8 @@ class EditProfileView extends StatelessWidget {
                         } else if (state.apiState == ApiState.error) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                              backgroundColor: Colors.red,
-                              content: Text(
-                                LocaleStrings.editProfileError,
-                                style: const TextStyle(color: Colors.white),
-                              ),
+                              backgroundColor: colorScheme.error,
+                              content: Text(LocaleStrings.editProfileError),
                             ),
                           );
                         }
@@ -352,25 +238,23 @@ class EditProfileView extends StatelessWidget {
                                   ),
                                 );
                           },
-                          color: Colors.white,
+                          color: colorScheme.onBackground,
                           height: size.maxHeight * 0.08,
                           size: size,
                           child: state.apiState == ApiState.loading
                               ? const Center(child: CircularProgressIndicator())
                               : Center(
-                                  child: CommonText(
-                                    text: LocaleStrings.editProfileSaveButton,
-                                    color: Colors.black,
-                                    fontsize: 18,
-                                    fontWeight: FontWeight.w500,
+                                  child: Text(
+                                    LocaleStrings.editProfileSaveButton,
+                                    style: textTheme.displayMedium?.copyWith(
+                                      color: colorScheme.background,
+                                    ),
                                   ),
                                 ),
                         );
                       },
                     ),
-                    SizedBox(
-                      height: size.maxHeight * 0.06,
-                    ),
+                    SizedBox(height: size.maxHeight * 0.06),
                   ],
                 ),
               ),

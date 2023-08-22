@@ -17,19 +17,17 @@ class MoreOptionTile extends StatelessWidget {
       children: [
         Row(
           children: [
-            CommonText(
-              text: title,
-              color: Colors.white,
-              fontsize: 15,
-              fontWeight: FontWeight.w600,
+            Text(
+              title,
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                    fontSize: 15,
+                  ),
             ),
             const Spacer(),
             InkWell(
               onTap: onTap,
               child: const Icon(
                 Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 18,
               ),
             ),
           ],
@@ -37,10 +35,7 @@ class MoreOptionTile extends StatelessWidget {
         SizedBox(
           height: size.maxHeight * 0.01,
         ),
-        const Divider(
-          thickness: 0.4,
-          color: Colors.grey,
-        ),
+        const Divider(),
       ],
     );
   }
