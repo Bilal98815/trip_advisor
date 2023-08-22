@@ -23,40 +23,26 @@ class SupportView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: size.maxHeight * 0.05,
-                  ),
+                  SizedBox(height: size.maxHeight * 0.05),
                   SupportTile(
                     onTap: () {},
                     size: size,
                     title: LocaleStrings.supportHelpCenter,
-                  ),
-                  SizedBox(
-                    height: size.maxHeight * 0.03,
                   ),
                   SupportTile(
                     onTap: () {},
                     size: size,
                     title: LocaleStrings.supportAppFeedback,
                   ),
-                  SizedBox(
-                    height: size.maxHeight * 0.03,
-                  ),
                   SupportTile(
                     onTap: () {},
                     size: size,
                     title: LocaleStrings.supportPrivacyPolicy,
                   ),
-                  SizedBox(
-                    height: size.maxHeight * 0.03,
-                  ),
                   SupportTile(
                     onTap: () {},
                     size: size,
                     title: LocaleStrings.supportTerms,
-                  ),
-                  SizedBox(
-                    height: size.maxHeight * 0.03,
                   ),
                   SupportTile(
                     onTap: () {},

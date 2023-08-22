@@ -15,24 +15,18 @@ class SupportTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Text(
-              title,
-              style: Theme.of(context).textTheme.displayMedium,
+        InkWell(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15),
+            child: Row(
+              children: [
+                Text(title, style: Theme.of(context).textTheme.displayMedium),
+                const Spacer(),
+                const Icon(Icons.arrow_outward),
+              ],
             ),
-            const Spacer(),
-            InkWell(
-              onTap: onTap,
-              child: Image.asset(
-                'assets/diagonal_arrow.png',
-                width: size.maxWidth * 0.03,
-              ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: size.maxHeight * 0.017,
+          ),
         ),
         const Divider(),
       ],
