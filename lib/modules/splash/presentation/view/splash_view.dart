@@ -23,7 +23,7 @@ class SplashView extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(50.0),
               child: Image.asset(
-                ImagePath().getPathByTheme(context, 'owl.png'),
+                Assets.of(context).owlLogo,
               ),
             ),
           ),

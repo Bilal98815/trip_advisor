@@ -19,9 +19,7 @@ class OnboardingView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: size.maxHeight * 0.04,
-                  ),
+                  SizedBox(height: size.maxHeight * 0.04),
                   Align(
                     alignment: Alignment.topRight,
                     child: Text(
@@ -40,9 +38,7 @@ class OnboardingView extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.all(15.0),
                     child: Center(
-                      child: Image.asset(
-                        ImagePath().getPathByTheme(context, 'owl.png'),
-                      ),
+                      child: Image.asset(Assets.of(context).owlLogo),
                     ),
                   ),
                   Text(
@@ -51,9 +47,7 @@ class OnboardingView extends StatelessWidget {
                     textAlign: TextAlign.left,
                     overflow: TextOverflow.clip,
                   ),
-                  SizedBox(
-                    height: size.maxHeight * 0.02,
-                  ),
+                  SizedBox(height: size.maxHeight * 0.02),
                   RichText(
                     text: TextSpan(
                       text: LocaleStrings.onboardingTextLine1,
@@ -78,23 +72,19 @@ class OnboardingView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: size.maxHeight * 0.04,
-                  ),
+                  SizedBox(height: size.maxHeight * 0.04),
                   OnboardingButton(
                     size: size,
                     title: LocaleStrings.onboardingGoogleButton,
-                    image: ImagePath().getPathByTheme(context, 'google.png'),
+                    image: Assets.of(context).gmailIcon,
                     onTap: () {},
                   ),
-                  SizedBox(
-                    height: size.maxHeight * 0.02,
-                  ),
+                  SizedBox(height: size.maxHeight * 0.02),
                   OnboardingButton(
                     size: size,
                     title: LocaleStrings.onboardingEmailButton,
+                    image: Assets.of(context).emailIcon,
                     onTap: () => context.go(LoginView.route()),
-                    image: ImagePath().getPathByTheme(context, 'email.png'),
                   ),
                 ],
               ),

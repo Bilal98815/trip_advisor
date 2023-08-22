@@ -35,7 +35,7 @@ class LocationDataView extends StatelessWidget {
                     ),
                     child: Center(
                       child: Image.asset(
-                        ImagePath().getPathByTheme(context, 'location.png'),
+                        Assets.of(context).coloredLocationPicture,
                         width: size.maxWidth * 0.1,
                         height: size.maxHeight * 0.07,
                       ),

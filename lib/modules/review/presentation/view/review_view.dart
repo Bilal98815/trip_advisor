@@ -7,6 +7,8 @@ class ReviewView extends StatelessWidget {
   Widget build(BuildContext context) {
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
 
+    final Assets assets = Assets.of(context);
+
     return Scaffold(
       floatingActionButton: LayoutBuilder(
         builder: (context, size) {
@@ -39,7 +41,7 @@ class ReviewView extends StatelessWidget {
                       _pickImageFromGallery();
                     },
                     child: Image.asset(
-                      ImagePath().getPathByTheme(context, 'gallery.png'),
+                      assets.speedDialPhotoIcon,
                       width: size.maxWidth * 0.045,
                     ),
                     labelWidget: Text(
@@ -58,7 +60,7 @@ class ReviewView extends StatelessWidget {
                           .add(IsChangeEvent(isChange: false));
                     },
                     child: Image.asset(
-                      ImagePath().getPathByTheme(context, 'pen.png'),
+                      assets.speedDialReviewIcon,
                       width: size.maxWidth * 0.045,
                     ),
                     labelWidget: Text(
@@ -80,7 +82,7 @@ class ReviewView extends StatelessWidget {
                       );
                     },
                     child: Image.asset(
-                      ImagePath().getPathByTheme(context, 'pin_black.png'),
+                      assets.speedDialPhotoIcon,
                       width: size.maxWidth * 0.045,
                     ),
                     labelWidget: Text(
@@ -135,17 +137,12 @@ class ReviewView extends StatelessWidget {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
-                                image: AssetImage(
-                                  ImagePath()
-                                      .getPathByTheme(context, 'mine.jpg'),
-                                ),
+                                image: AssetImage(assets.defaultProfilePic),
                                 fit: BoxFit.cover,
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: size.maxWidth * 0.06,
-                          ),
+                          SizedBox(width: size.maxWidth * 0.06),
                           BlocBuilder<ProfileBloc, ProfileState>(
                             builder: (context, state) {
                               return Column(

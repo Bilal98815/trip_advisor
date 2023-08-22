@@ -11,6 +11,8 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
 
+    final Assets assets = Assets.of(context);
+
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Profile',
@@ -56,8 +58,7 @@ class ProfileView extends StatelessWidget {
                                 CircleAvatar(
                                   radius: 50,
                                   backgroundImage: AssetImage(
-                                    ImagePath()
-                                        .getPathByTheme(context, 'mine.jpg'),
+                                    assets.defaultProfilePic,
                                   ),
                                 ),
                               SizedBox(width: size.maxWidth * 0.06),
@@ -104,10 +105,7 @@ class ProfileView extends StatelessWidget {
                                 ? LocaleStrings.profileCity
                                 : state.user?.country ?? '',
                             onTap: () => context.go(EditProfilePage.route()),
-                            image: ImagePath().getPathByTheme(
-                              context,
-                              'profile_placeholder.png',
-                            ),
+                            image: assets.profileCityIcon,
                           ),
                           SizedBox(height: size.maxHeight * 0.025),
                           PersonalDetailTile(
@@ -116,8 +114,7 @@ class ProfileView extends StatelessWidget {
                                 ? LocaleStrings.profileWebsite
                                 : state.user?.website ?? '',
                             onTap: () => context.go(EditProfilePage.route()),
-                            image:
-                                ImagePath().getPathByTheme(context, 'link.png'),
+                            image: assets.profileWebsiteIcon,
                           ),
                           SizedBox(height: size.maxHeight * 0.06),
                           const Divider(),

@@ -9,44 +9,36 @@ class TripsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Assets assets = Assets.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: size.maxHeight * 0.06,
-        ),
+        SizedBox(height: size.maxHeight * 0.06),
         TripGuidanceTile(
           size: size,
-          image: ImagePath().getPathByTheme(context, 'heart.png'),
+          image: assets.saveTripsIcon,
           text: LocaleStrings.tripsTabFavouritePlace,
         ),
-        SizedBox(
-          height: size.maxHeight * 0.03,
-        ),
+        SizedBox(height: size.maxHeight * 0.03),
         TripGuidanceTile(
           size: size,
-          image: ImagePath().getPathByTheme(context, 'placeholder.png'),
+          image: assets.seeSavedTripsIcon,
           text: LocaleStrings.tripsTabLocation,
         ),
-        SizedBox(
-          height: size.maxHeight * 0.03,
-        ),
+        SizedBox(height: size.maxHeight * 0.03),
         TripGuidanceTile(
           size: size,
-          image: ImagePath().getPathByTheme(context, 'document.png'),
+          image: assets.trackTripsIcon,
           text: LocaleStrings.tripsTabNotes,
         ),
-        SizedBox(
-          height: size.maxHeight * 0.03,
-        ),
+        SizedBox(height: size.maxHeight * 0.03),
         TripGuidanceTile(
           size: size,
-          image: ImagePath().getPathByTheme(context, 'follow.png'),
+          image: assets.shareTripsIcon,
           text: LocaleStrings.tripsTabShare,
         ),
-        SizedBox(
-          height: size.maxHeight * 0.05,
-        ),
+        SizedBox(height: size.maxHeight * 0.05),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: size.maxWidth * 0.06),
           child: Column(
@@ -56,9 +48,7 @@ class TripsView extends StatelessWidget {
                 LocaleStrings.tripsTabFieldTitle,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
-              SizedBox(
-                height: size.maxHeight * 0.01,
-              ),
+              SizedBox(height: size.maxHeight * 0.01),
               TextFormField(
                 controller: controller,
                 onChanged: (val) {

@@ -13,7 +13,7 @@ class ImageContainer extends StatelessWidget {
       child: Stack(
         children: [
           Image.asset(
-            ImagePath().getPathByTheme(context, 'stone_monument.jpg'),
+            Assets.of(context).reviewBackgroundImage,
             width: size.maxWidth,
             height: size.maxHeight,
             fit: BoxFit.cover,
