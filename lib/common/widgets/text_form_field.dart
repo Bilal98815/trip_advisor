@@ -30,7 +30,7 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: colorScheme.tertiary,
+              color: Theme.of(context).hintColor,
             ),
         border: OutlineInputBorder(
           borderSide: BorderSide(color: colorScheme.error),

@@ -32,7 +32,9 @@ class ImageContainer extends StatelessWidget {
                     width: size.maxWidth * 0.9,
                     child: Text(
                       LocaleStrings.reviewImageContainerHeading,
-                      style: Theme.of(context).textTheme.displayLarge,
+                      style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                            color: kWhite,
+                          ),
                       textAlign: TextAlign.start,
                     ),
                   ),
@@ -44,6 +46,7 @@ class ImageContainer extends StatelessWidget {
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
                             overflow: TextOverflow.clip,
+                            color: kWhite,
                           ),
                       textAlign: TextAlign.start,
                     ),

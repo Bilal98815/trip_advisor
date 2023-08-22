@@ -64,13 +64,13 @@ class UserDataView extends StatelessWidget {
                         padding: EdgeInsets.symmetric(
                           horizontal: size.maxWidth * 0.08,
                         ),
-                        child: CommonText(
-                          text: LocaleStrings.userDataHeading,
-                          color: Colors.white,
-                          textOverflow: TextOverflow.clip,
+                        child: Text(
+                          LocaleStrings.userDataHeading,
+                          style:
+                              Theme.of(context).textTheme.titleLarge?.copyWith(
+                                    overflow: TextOverflow.clip,
+                                  ),
                           textAlign: TextAlign.left,
-                          fontsize: 31,
-                          fontWeight: FontWeight.w800,
                         ),
                       ),
                       SizedBox(
@@ -115,9 +115,8 @@ class UserDataView extends StatelessWidget {
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primaryContainer,
+                                    color:
+                                        Theme.of(context).colorScheme.outline,
                                   ),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
@@ -259,7 +258,7 @@ class UserDataView extends StatelessWidget {
                                 }
                               },
                               height: size.maxHeight * 0.064,
-                              color: Theme.of(context).colorScheme.onPrimary,
+                              color: Theme.of(context).colorScheme.onBackground,
                               size: size,
                               child: Center(
                                 child: Text(

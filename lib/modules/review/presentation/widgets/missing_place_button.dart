@@ -21,7 +21,7 @@ class MissingPlaceButton extends StatelessWidget {
           color: Theme.of(context).colorScheme.background,
           borderRadius: const BorderRadius.all(Radius.circular(35)),
           border: Border.all(
-            color: Theme.of(context).colorScheme.onPrimary,
+            color: Theme.of(context).colorScheme.onBackground,
           ),
         ),
         child: Row(

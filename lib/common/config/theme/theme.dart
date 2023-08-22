@@ -79,7 +79,7 @@ class TripAdvisorTheme {
         ),
       ),
       hintColor: kDarkGrey,
-      disabledColor: kDarkGrey,
+      disabledColor: kGrey,
       textTheme: textTheme,
       iconTheme: const IconThemeData(
         color: kBlack,
