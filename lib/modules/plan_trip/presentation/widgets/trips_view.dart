@@ -82,7 +82,7 @@ class TripsView extends StatelessWidget {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Theme.of(context).colorScheme.primaryContainer,
+                      color: Theme.of(context).colorScheme.outline,
                     ),
                     borderRadius: BorderRadius.circular(8),
                   ),

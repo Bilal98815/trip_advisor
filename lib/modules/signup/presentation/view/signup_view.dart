@@ -111,11 +111,14 @@ class SignUpView extends StatelessWidget {
                               );
                             },
                           ),
-                          Text(
-                            LocaleStrings.signupCheckbox,
-                            style: textTheme.bodyMedium,
-                            overflow: TextOverflow.clip,
-                            textAlign: TextAlign.left,
+                          SizedBox(
+                            width: constraints.maxWidth * 0.7,
+                            child: Text(
+                              LocaleStrings.signupCheckbox,
+                              style: textTheme.bodyMedium,
+                              overflow: TextOverflow.clip,
+                              textAlign: TextAlign.left,
+                            ),
                           ),
                         ],
                       ),

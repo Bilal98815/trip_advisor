@@ -79,13 +79,13 @@ class TripAdvisorTheme {
         ),
       ),
       hintColor: kDarkGrey,
-      disabledColor: kDarkGrey,
+      disabledColor: kGrey,
       textTheme: textTheme,
       iconTheme: const IconThemeData(
         color: kBlack,
         size: 18,
       ),
-      colorScheme: ColorScheme.light(
+      colorScheme: const ColorScheme.light(
         primary: kDarkPurple,
         secondary: kBrightGreen,
         tertiary: kDarkGrey,
@@ -133,7 +133,7 @@ class TripAdvisorTheme {
         color: kWhite,
         size: 18,
       ),
-      colorScheme: ColorScheme.dark(
+      colorScheme: const ColorScheme.dark(
         background: kBlack,
         primary: kPurple,
         secondary: kLightGreen,

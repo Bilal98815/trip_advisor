@@ -28,7 +28,7 @@ class ReviewView extends StatelessWidget {
                 children: [
                   SpeedDialChild(
                     shape: const CircleBorder(),
-                    backgroundColor: Theme.of(context).colorScheme.onBackground,
+                    backgroundColor: Theme.of(context).colorScheme.onPrimary,
                     onTap: () {
                       context
                           .read<ReviewBloc>()
@@ -43,12 +43,13 @@ class ReviewView extends StatelessWidget {
                       LocaleStrings.uploadPhotoButton,
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
                             fontWeight: FontWeight.w500,
+                            color: Theme.of(context).colorScheme.background,
                           ),
                     ),
                   ),
                   SpeedDialChild(
                     shape: const CircleBorder(),
-                    backgroundColor: Theme.of(context).colorScheme.onBackground,
+                    backgroundColor: Theme.of(context).colorScheme.onPrimary,
                     onTap: () {
                       context
                           .read<ReviewBloc>()
@@ -62,12 +63,13 @@ class ReviewView extends StatelessWidget {
                       LocaleStrings.writeReviewButton,
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
                             fontWeight: FontWeight.w500,
+                            color: Theme.of(context).colorScheme.background,
                           ),
                     ),
                   ),
                   SpeedDialChild(
                     shape: const CircleBorder(),
-                    backgroundColor: Theme.of(context).colorScheme.onBackground,
+                    backgroundColor: Theme.of(context).colorScheme.onPrimary,
                     onTap: () {
                       context
                           .read<ReviewBloc>()
@@ -84,6 +86,7 @@ class ReviewView extends StatelessWidget {
                       LocaleStrings.reviewAddPlaceButton,
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
                             fontWeight: FontWeight.w500,
+                            color: Theme.of(context).colorScheme.background,
                           ),
                     ),
                   ),
