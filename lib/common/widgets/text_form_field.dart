@@ -29,6 +29,9 @@ class CustomTextFormField extends StatelessWidget {
       maxLines: maxLines ?? 1,
       decoration: InputDecoration(
         hintText: hintText,
+        hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: colorScheme.tertiary,
+            ),
         border: OutlineInputBorder(
           borderSide: BorderSide(color: colorScheme.error),
           borderRadius: BorderRadius.circular(8),

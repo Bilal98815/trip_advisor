@@ -172,7 +172,7 @@ class LoginView extends StatelessWidget {
                         ignoring: false,
                         height: constraints.maxHeight * 0.075,
                         onTap: () => context.go(SignUpPage.route()),
-                        color: Colors.black12,
+                        color: colorScheme.background,
                         size: constraints,
                         child: Center(
                           child: Text(
