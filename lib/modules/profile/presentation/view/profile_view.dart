@@ -53,10 +53,12 @@ class ProfileView extends StatelessWidget {
                                   ),
                                 )
                               else
-                                const CircleAvatar(
+                                CircleAvatar(
                                   radius: 50,
-                                  backgroundImage:
-                                      AssetImage('assets/mine.jpg'),
+                                  backgroundImage: AssetImage(
+                                    ImagePath()
+                                        .getPathByTheme(context, 'mine.jpg'),
+                                  ),
                                 ),
                               SizedBox(width: size.maxWidth * 0.06),
                               Column(
@@ -102,7 +104,10 @@ class ProfileView extends StatelessWidget {
                                 ? LocaleStrings.profileCity
                                 : state.user?.country ?? '',
                             onTap: () => context.go(EditProfilePage.route()),
-                            image: 'assets/placeholder.png',
+                            image: ImagePath().getPathByTheme(
+                              context,
+                              'profile_placeholder.png',
+                            ),
                           ),
                           SizedBox(height: size.maxHeight * 0.025),
                           PersonalDetailTile(
@@ -111,7 +116,8 @@ class ProfileView extends StatelessWidget {
                                 ? LocaleStrings.profileWebsite
                                 : state.user?.website ?? '',
                             onTap: () => context.go(EditProfilePage.route()),
-                            image: 'assets/link.png',
+                            image:
+                                ImagePath().getPathByTheme(context, 'link.png'),
                           ),
                           SizedBox(height: size.maxHeight * 0.06),
                           const Divider(),

@@ -16,6 +16,9 @@ class ReviewView extends StatelessWidget {
                 backgroundColor: Theme.of(context).colorScheme.onBackground,
                 overlayColor: kTransparent,
                 icon: state.isChangeIcon ? Icons.close : Icons.add,
+                iconTheme: IconThemeData(
+                  color: Theme.of(context).colorScheme.background,
+                ),
                 onOpen: () {
                   context.read<ReviewBloc>().add(IsChangeEvent(isChange: true));
                 },
@@ -36,14 +39,13 @@ class ReviewView extends StatelessWidget {
                       _pickImageFromGallery();
                     },
                     child: Image.asset(
-                      'assets/gallery.png',
+                      ImagePath().getPathByTheme(context, 'gallery.png'),
                       width: size.maxWidth * 0.045,
                     ),
                     labelWidget: Text(
                       LocaleStrings.uploadPhotoButton,
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            fontWeight: FontWeight.w500,
-                            color: Theme.of(context).colorScheme.background,
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            color: kWhite,
                           ),
                     ),
                   ),
@@ -56,14 +58,13 @@ class ReviewView extends StatelessWidget {
                           .add(IsChangeEvent(isChange: false));
                     },
                     child: Image.asset(
-                      'assets/pen.png',
+                      ImagePath().getPathByTheme(context, 'pen.png'),
                       width: size.maxWidth * 0.045,
                     ),
                     labelWidget: Text(
                       LocaleStrings.writeReviewButton,
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            fontWeight: FontWeight.w500,
-                            color: Theme.of(context).colorScheme.background,
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            color: kWhite,
                           ),
                     ),
                   ),
@@ -79,14 +80,13 @@ class ReviewView extends StatelessWidget {
                       );
                     },
                     child: Image.asset(
-                      'assets/pin_black.png',
+                      ImagePath().getPathByTheme(context, 'pin_black.png'),
                       width: size.maxWidth * 0.045,
                     ),
                     labelWidget: Text(
                       LocaleStrings.reviewAddPlaceButton,
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            fontWeight: FontWeight.w500,
-                            color: Theme.of(context).colorScheme.background,
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            color: kWhite,
                           ),
                     ),
                   ),
@@ -132,10 +132,13 @@ class ReviewView extends StatelessWidget {
                           Container(
                             width: size.maxWidth * 0.11,
                             height: size.maxHeight * 0.06,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
-                                image: AssetImage('assets/mine.jpg'),
+                                image: AssetImage(
+                                  ImagePath()
+                                      .getPathByTheme(context, 'mine.jpg'),
+                                ),
                                 fit: BoxFit.cover,
                               ),
                             ),

@@ -70,13 +70,14 @@ class TripAdvisorTheme {
       useMaterial3: true,
       appBarTheme: const AppBarTheme(
         centerTitle: true,
-        backgroundColor: kWhite,
+        backgroundColor: kTransparent,
         iconTheme: IconThemeData(color: kBlack, size: 20),
         titleTextStyle: TextStyle(
           color: kBlack,
           fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
+        elevation: 0,
       ),
       hintColor: kDarkGrey,
       disabledColor: kGrey,

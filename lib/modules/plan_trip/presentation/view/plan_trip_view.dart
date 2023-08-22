@@ -15,7 +15,6 @@ class PlanTripView extends StatelessWidget {
                 width: size.maxWidth,
                 height: size.maxHeight,
                 color: Theme.of(context).colorScheme.background,
-                //padding: EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

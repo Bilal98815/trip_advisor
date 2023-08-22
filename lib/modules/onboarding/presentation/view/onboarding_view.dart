@@ -39,7 +39,11 @@ class OnboardingView extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     padding: const EdgeInsets.all(15.0),
-                    child: Center(child: Image.asset('assets/owl.png')),
+                    child: Center(
+                      child: Image.asset(
+                        ImagePath().getPathByTheme(context, 'owl.png'),
+                      ),
+                    ),
                   ),
                   Text(
                     LocaleStrings.onboardingHeading,
@@ -80,7 +84,7 @@ class OnboardingView extends StatelessWidget {
                   OnboardingButton(
                     size: size,
                     title: LocaleStrings.onboardingGoogleButton,
-                    image: 'assets/google.png',
+                    image: ImagePath().getPathByTheme(context, 'google.png'),
                     onTap: () {},
                   ),
                   SizedBox(
@@ -90,7 +94,7 @@ class OnboardingView extends StatelessWidget {
                     size: size,
                     title: LocaleStrings.onboardingEmailButton,
                     onTap: () => context.go(LoginView.route()),
-                    image: 'assets/email.png',
+                    image: ImagePath().getPathByTheme(context, 'email.png'),
                   ),
                 ],
               ),

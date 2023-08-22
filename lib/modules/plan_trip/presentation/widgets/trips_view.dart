@@ -17,7 +17,7 @@ class TripsView extends StatelessWidget {
         ),
         TripGuidanceTile(
           size: size,
-          image: 'assets/heart.png',
+          image: ImagePath().getPathByTheme(context, 'heart.png'),
           text: LocaleStrings.tripsTabFavouritePlace,
         ),
         SizedBox(
@@ -25,7 +25,7 @@ class TripsView extends StatelessWidget {
         ),
         TripGuidanceTile(
           size: size,
-          image: 'assets/placeholder.png',
+          image: ImagePath().getPathByTheme(context, 'placeholder.png'),
           text: LocaleStrings.tripsTabLocation,
         ),
         SizedBox(
@@ -33,7 +33,7 @@ class TripsView extends StatelessWidget {
         ),
         TripGuidanceTile(
           size: size,
-          image: 'assets/document.png',
+          image: ImagePath().getPathByTheme(context, 'document.png'),
           text: LocaleStrings.tripsTabNotes,
         ),
         SizedBox(
@@ -41,7 +41,7 @@ class TripsView extends StatelessWidget {
         ),
         TripGuidanceTile(
           size: size,
-          image: 'assets/follow.png',
+          image: ImagePath().getPathByTheme(context, 'follow.png'),
           text: LocaleStrings.tripsTabShare,
         ),
         SizedBox(

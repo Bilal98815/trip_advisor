@@ -28,7 +28,7 @@ class MissingPlaceButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/pin.png',
+              ImagePath().getPathByTheme(context, 'pin.png'),
               width: size.maxWidth * 0.045,
             ),
             SizedBox(
