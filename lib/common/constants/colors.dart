@@ -1,10 +1,12 @@
 part of 'constants.dart';
 
 const Color kGreen = Colors.green;
-const Color kDarkGreen = Color(0xFF235347);
 const Color kLightGreen = Colors.lightGreenAccent;
 const Color kBrightGreen = Color(0xFF82CF2A);
+const Color kDarkGreen = Color(0xFF235347);
+const Color kLighterDarkGreen = Color.fromARGB(255, 57, 121, 105);
 
+const Color kLightGrey = Color(0xFFEEEEEE);
 const Color kGrey = Colors.grey;
 const Color kDarkGrey = Color(0xFF616161);
 Color kShadedGrey = Colors.grey.shade600;
@@ -20,5 +22,6 @@ Color kShadedRed = Colors.red.shade300;
 const Color kLightRed = Color(0xFFFFCBC4);
 
 const Color kPurple = Color(0xFFCE93D8);
+const Color kDarkPurple = Color.fromARGB(255, 137, 77, 148);
 
 const Color kTransparent = Colors.transparent;

@@ -18,12 +18,8 @@ class ProfileView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 20),
             child: InkWell(
-              onTap: () {
-                context.go(EditProfilePage.route());
-              },
-              child: const Icon(
-                Icons.create,
-              ),
+              onTap: () => context.go(EditProfilePage.route()),
+              child: const Icon(Icons.create),
             ),
           ),
         ],
@@ -46,9 +42,7 @@ class ProfileView extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            height: size.maxHeight * 0.02,
-                          ),
+                          SizedBox(height: size.maxHeight * 0.02),
                           Row(
                             children: [
                               if (state.user?.imageUrl != '')
@@ -64,47 +58,30 @@ class ProfileView extends StatelessWidget {
                                   backgroundImage:
                                       AssetImage('assets/mine.jpg'),
                                 ),
-                              SizedBox(
-                                width: size.maxWidth * 0.06,
-                              ),
+                              SizedBox(width: size.maxWidth * 0.06),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     state.user?.name ?? '',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleSmall
-                                        ?.copyWith(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.w700,
-                                        ),
+                                    style:
+                                        Theme.of(context).textTheme.titleMedium,
                                   ),
                                   Text(
                                     '${LocaleStrings.profileJoiningText} ${time.year}',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium
-                                        ?.copyWith(
-                                          fontSize: 14,
-                                        ),
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
                                   Text(
                                     '0 ${LocaleStrings.profileContributionText}',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium
-                                        ?.copyWith(
-                                          fontSize: 14,
-                                        ),
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
                                 ],
                               ),
                             ],
                           ),
-                          SizedBox(
-                            height: size.maxHeight * 0.02,
-                          ),
+                          SizedBox(height: size.maxHeight * 0.02),
                           Text(
                             state.user?.bio == ''
                                 ? LocaleStrings.profileBio
@@ -112,16 +89,13 @@ class ProfileView extends StatelessWidget {
                             textAlign: TextAlign.start,
                             style: Theme.of(context)
                                 .textTheme
-                                .displayMedium
+                                .bodyMedium
                                 ?.copyWith(
-                                  color: Colors.grey.shade400,
+                                  color: Theme.of(context).colorScheme.tertiary,
                                   overflow: TextOverflow.clip,
-                                  fontWeight: FontWeight.w400,
                                 ),
                           ),
-                          SizedBox(
-                            height: size.maxHeight * 0.05,
-                          ),
+                          SizedBox(height: size.maxHeight * 0.05),
                           PersonalDetailTile(
                             size: size,
                             text: state.user?.country == ''
@@ -130,9 +104,7 @@ class ProfileView extends StatelessWidget {
                             onTap: () => context.go(EditProfilePage.route()),
                             image: 'assets/placeholder.png',
                           ),
-                          SizedBox(
-                            height: size.maxHeight * 0.025,
-                          ),
+                          SizedBox(height: size.maxHeight * 0.025),
                           PersonalDetailTile(
                             size: size,
                             text: state.user?.website == ''
@@ -141,9 +113,7 @@ class ProfileView extends StatelessWidget {
                             onTap: () => context.go(EditProfilePage.route()),
                             image: 'assets/link.png',
                           ),
-                          SizedBox(
-                            height: size.maxHeight * 0.06,
-                          ),
+                          SizedBox(height: size.maxHeight * 0.06),
                           const Divider(),
                           if (state.apiState == ApiState.loading)
                             const Center(child: CircularProgressIndicator())
@@ -178,9 +148,7 @@ class ProfileView extends StatelessWidget {
                             number: 0,
                             actionTitle: LocaleStrings.profilePostsTitle,
                           ),
-                          SizedBox(
-                            height: size.maxHeight * 0.05,
-                          ),
+                          SizedBox(height: size.maxHeight * 0.05),
                           Text(
                             LocaleStrings.profileMoreTitle,
                             style: Theme.of(context)
@@ -221,9 +189,7 @@ class ProfileView extends StatelessWidget {
                 },
               );
             } else {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+              return const Center(child: CircularProgressIndicator());
             }
           },
         ),

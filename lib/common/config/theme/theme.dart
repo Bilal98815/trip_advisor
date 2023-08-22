@@ -10,6 +10,11 @@ class TripAdvisorTheme {
       fontWeight: FontWeight.w900,
     ),
 
+    titleMedium: TextStyle(
+      fontSize: 22,
+      fontWeight: FontWeight.w700,
+    ),
+
     titleSmall: TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w600,
@@ -81,22 +86,22 @@ class TripAdvisorTheme {
         size: 18,
       ),
       colorScheme: ColorScheme.light(
-        primary: kPurple,
+        primary: kDarkPurple,
         secondary: kBrightGreen,
         tertiary: kDarkGrey,
-        primaryContainer: kDarkerGrey,
+        primaryContainer: kLightGrey,
         onPrimaryContainer: kShadedGrey,
-        secondaryContainer: kDarkGreen,
+        secondaryContainer: kLighterDarkGreen,
         onSecondaryContainer: kShadedRed,
         tertiaryContainer: kGreen,
         onTertiaryContainer: kGrey,
         error: kRed,
         onBackground: kBlack,
-        outline: kDarkGrey,
+        outline: kGrey,
       ),
       dividerTheme: const DividerThemeData(color: kGrey, thickness: 0.4),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: kWhite,
+        backgroundColor: kLightGrey,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: kBlack,
         unselectedItemColor: kDarkGrey.withOpacity(0.7),
