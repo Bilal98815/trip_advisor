@@ -87,7 +87,7 @@ class TripAdvisorTheme {
       ),
       colorScheme: const ColorScheme.light(
         primary: kDarkPurple,
-        secondary: kBrightGreen,
+        secondary: kLightGreen,
         tertiary: kDarkGrey,
         primaryContainer: kLightGrey,
         onPrimaryContainer: kDarkGrey,

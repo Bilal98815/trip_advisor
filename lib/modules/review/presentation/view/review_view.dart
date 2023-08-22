@@ -16,6 +16,9 @@ class ReviewView extends StatelessWidget {
                 backgroundColor: Theme.of(context).colorScheme.onBackground,
                 overlayColor: kTransparent,
                 icon: state.isChangeIcon ? Icons.close : Icons.add,
+                iconTheme: IconThemeData(
+                  color: Theme.of(context).colorScheme.background,
+                ),
                 onOpen: () {
                   context.read<ReviewBloc>().add(IsChangeEvent(isChange: true));
                 },
@@ -43,7 +46,7 @@ class ReviewView extends StatelessWidget {
                       LocaleStrings.uploadPhotoButton,
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
                             fontWeight: FontWeight.w500,
-                            color: Theme.of(context).colorScheme.background,
+                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                     ),
                   ),
@@ -63,7 +66,7 @@ class ReviewView extends StatelessWidget {
                       LocaleStrings.writeReviewButton,
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
                             fontWeight: FontWeight.w500,
-                            color: Theme.of(context).colorScheme.background,
+                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                     ),
                   ),
@@ -86,7 +89,7 @@ class ReviewView extends StatelessWidget {
                       LocaleStrings.reviewAddPlaceButton,
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
                             fontWeight: FontWeight.w500,
-                            color: Theme.of(context).colorScheme.background,
+                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                     ),
                   ),
@@ -199,7 +202,13 @@ class ReviewView extends StatelessWidget {
                     SizedBox(
                       height: size.maxHeight * 0.06,
                     ),
-                    ImageContainer(size: size, onTap: () {}),
+                    ImageContainer(
+                      size: size,
+                      onTap: () {},
+                      heading: LocaleStrings.reviewImageContainerHeading,
+                      subHeading: LocaleStrings.reviewImageContainerSubHeading,
+                      buttonTitle: LocaleStrings.reviewImageContainerButton,
+                    ),
                     SizedBox(
                       height: size.maxHeight * 0.06,
                     ),

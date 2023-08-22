@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
 import 'package:trip_advisor/modules/account/account.dart';
 import 'package:trip_advisor/modules/bottom_bar/bottom_bar.dart';
-
 import 'package:trip_advisor/modules/edit_profile/edit_profile.dart';
 import 'package:trip_advisor/modules/explore/explore.dart';
 import 'package:trip_advisor/modules/forgot_password/forgot_password.dart';
@@ -97,7 +96,7 @@ class AppRouter {
         routes: [
           GoRoute(
             path: ExploreView.routeName,
-            builder: (context, state) => const ExploreView(),
+            builder: (context, state) => ExploreView(),
           ),
           GoRoute(
             path: SearchView.routeName,

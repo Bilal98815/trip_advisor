@@ -1,9 +1,20 @@
 part of 'widgets.dart';
 
 class ImageContainer extends StatelessWidget {
-  const ImageContainer({required this.size, required this.onTap, super.key});
+  const ImageContainer({
+    required this.size,
+    required this.onTap,
+    required this.heading,
+    required this.subHeading,
+    required this.buttonTitle,
+    super.key,
+  });
+
   final BoxConstraints size;
   final VoidCallback onTap;
+  final String buttonTitle;
+  final String heading;
+  final String subHeading;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +42,7 @@ class ImageContainer extends StatelessWidget {
                   SizedBox(
                     width: size.maxWidth * 0.9,
                     child: Text(
-                      LocaleStrings.reviewImageContainerHeading,
+                      heading,
                       style: Theme.of(context).textTheme.displayLarge?.copyWith(
                             color: kWhite,
                           ),
@@ -41,7 +52,7 @@ class ImageContainer extends StatelessWidget {
                   SizedBox(
                     width: size.maxWidth * 0.9,
                     child: Text(
-                      LocaleStrings.reviewImageContainerSubHeading,
+                      subHeading,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
@@ -65,7 +76,7 @@ class ImageContainer extends StatelessWidget {
                       ),
                       child: Center(
                         child: Text(
-                          LocaleStrings.reviewImageContainerButton,
+                          buttonTitle,
                           style: Theme.of(context)
                               .textTheme
                               .labelMedium

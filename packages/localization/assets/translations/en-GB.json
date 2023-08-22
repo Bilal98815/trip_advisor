@@ -2,13 +2,10 @@
   "name": "Bill!",
   "title_text": "{title}",
   "button_title": "{title}",
-
   "url_launcher_error": "Could not launch {url}",
-
   "account": {
     "title": "Account",
     "signout_button": "Sign Out",
-
     "profile_tiles": {
       "bookings": "Bookings",
       "profile": "Profile",
@@ -17,22 +14,18 @@
       "support": "Support",
       "tripadvisor": "Trip Advisor Plus"
     },
-
     "signin_box": {
       "info1": "Sign in to manage your bookings and",
       "info2": "easily plan your next trip",
       "button": "Sign In"
     },
-
     "signout_dialog": {
       "message": "Are you sure you want to sign out?",
       "button": "Sign Out"
     },
-
     "version": "Version: v53.5 build 230724021",
     "device_id": "Device ID: {id}"
   },
-
   "bottom_bar_tabs": {
     "explore": "Explore",
     "search": "Search",
@@ -40,36 +33,40 @@
     "review": "Review",
     "account": "Account"
   },
-
   "edit_profile": {
     "title": "Edit Profile",
     "save_button": "Save",
-
     "name_textfield_label": "Name",
     "city_textfield_label": "Current City",
     "website_textfield_label": "Website",
     "about_textfield_label": "About You",
-
     "name_textfield_hint": "Name",
     "website_textfield_hint": "Add a website",
     "about_textfield_hint": "Write some details about yourself",
-    
     "error": "Something went wrong!"
   },
-
   "explore": {
-    "title": "Explore"
+    "title": "Explore",
+    "hotel_button": "Hotels",
+    "things_button": "Things to do",
+    "restaurant_button": "Restaurants",
+    "forums_button": "Forums",
+    "keep_exploring_button": "Keep exploring",
+    "discover_title": "Discover more in Juneau",
+    "like_this_tile": "You might like this",
+    "more_things_tile": "More things to do in Juneau",
+    "perfect_weekend_image_container_heading": "A perfect weekend in Venice Beach",
+    "perfect_weekend_image_container_subHeading": "Feel like a local, even if you've only got a few days",
+    "perfect_weekend_image_container_button": "Check it out"
   },
-
   "forgot_password": {
     "heading": "Enter the email address you used to sign up",
     "email_textfield_label": "Email Address",
-    "email_textfield_hint": "Email address", 
+    "email_textfield_hint": "Email address",
     "email_textfield_error": "Enter email!",
     "button": "Send Email",
     "information": "We'll send you a password reset email",
     "error": "Please enter correct credentials",
-
     "dialog": {
       "title": "We've sent a password reset email.",
       "text": "Check your inbox for an email from Tripadvisor and follow the instructions to reset your password",
@@ -77,56 +74,47 @@
       "resend_button": "Resend Email"
     }
   },
-
   "location_data": {
     "heading": "Discover traveler recommended spots near you, wherever you are",
     "allow": "Allow Location Data",
     "not_now": "Not Now"
   },
-
   "login": {
     "heading": "Welcome Back",
-
     "email_textfield_label": "Email Address",
-    "email_textfield_hint": "Email address", 
+    "email_textfield_hint": "Email address",
     "email_textfield_error": "Enter email!",
-    
     "password_textfield_label": "Password",
-    "password_textfield_hint": "Password", 
+    "password_textfield_hint": "Password",
     "password_textfield_empty_error": "Enter password!",
     "password_textfield_length_error": "Please enter more than 6 digits",
-
     "forgot_password": "Forgot password?",
     "signin_button": "Sign In",
     "signup_button": "Sign Up",
-
     "error": "Please enter correct credentials",
-
     "exceptions": {
-      "something_wrong": "Something went wrong.", 
+      "something_wrong": "Something went wrong.",
       "wrong_password": "Invalid Password",
       "user_not_found": "Incorrect credentials",
       "user_disabled": "This user has been disabled",
       "invalid_email": "Email is not valid or badly formatted"
     }
-  }, 
-
+  },
   "onboarding": {
     "skip": "Skip",
     "heading": "Sign in to start planning your trip",
     "text": {
-      "line1": "By Proceeding, you agree to our ", 
-      "terms": "Terms of Use ", 
+      "line1": "By Proceeding, you agree to our ",
+      "terms": "Terms of Use ",
       "line2": "and confirm you have read our ",
       "privacy": "Privacy and Cookie Statement"
-    }, 
-    "google_button": "Continue with Google", 
+    },
+    "google_button": "Continue with Google",
     "email_button": "Continue with Email"
   },
-
   "plan_trip": {
     "title": "Plan",
-    "tab_title_trips":"Trips",
+    "tab_title_trips": "Trips",
     "tab_title_saves": "Saves",
     "trips": {
       "favorite_places_text": "Save places you'd like to visit",
@@ -142,7 +130,6 @@
       "places_text": "Places you save will appear here."
     }
   },
-
   "profile": {
     "title": "Profile",
     "joining_text": "Joined in",
@@ -163,7 +150,6 @@
     "badges_tile_text": "Badges",
     "travel_map_text": "Travel map"
   },
-
   "review": {
     "title": "Review",
     "review_text": "reviews",
@@ -179,7 +165,6 @@
     "missing_place_button_text": "Add a missing place",
     "add_place_button_text": "Add a place"
   },
-  
   "signup": {
     "title": "Become a Tripadvisor member.",
     "email_field_title": "Email address",
@@ -189,19 +174,16 @@
     "checkbox": "Yes, inform me on deals & new features. I can opt out at any time",
     "signUp_button": "Sign up",
     "signIn_button": "Sign in",
-
     "error": "Invalid credential format",
-
     "exceptions": {
-      "something_wrong": "Something went wrong.", 
+      "something_wrong": "Something went wrong.",
       "user_disabled": "This user has been disabled",
       "invalid_email": "Email is not valid or badly formatted",
       "account_exists": "An account already exists for this email",
-      "unallowed_operation": "Operation is not allowed", 
+      "unallowed_operation": "Operation is not allowed",
       "weak_password": "Please enter a stronger password"
     }
   },
-
   "support": {
     "title": "Support",
     "help_center": "Help center",
@@ -210,7 +192,6 @@
     "terms": "Terms of use",
     "open_source_license": "Open source licenses"
   },
-
   "user_data": {
     "heading": "Let's get the basics so we can give you the goods",
     "name_field_title": "What should we call you?",

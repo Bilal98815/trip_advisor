@@ -58,7 +58,18 @@
   },
 
   "explore": {
-    "title": "Explore"
+    "title": "Explore",
+    "hotel_button": "Hotels",
+    "things_button": "Things to do",
+    "restaurant_button": "Restaurants",
+    "forums_button": "Forums",
+    "keep_exploring_button": "Keep exploring",
+    "discover_title": "Discover more in Juneau",
+    "like_this_tile": "You might like this",
+    "more_things_tile": "More things to do in Juneau",
+    "perfect_weekend_image_container_heading": "A perfect weekend in Venice Beach",
+    "perfect_weekend_image_container_subHeading": "Feel like a local, even if you've only got a few days",
+    "perfect_weekend_image_container_button": "Check it out"
   },
 
   "forgot_password": {
