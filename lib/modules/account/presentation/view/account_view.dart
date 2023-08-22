@@ -50,8 +50,7 @@ class AccountView extends StatelessWidget {
                       if (state.signOutCondition ==
                           SignOutCondition.signIn) ...[
                         ProfileSettingsTile(
-                          image: ImagePath()
-                              .getPathByTheme(context, 'invoice.png'),
+                          image: Asset.of(context).invoice,
                           onTap: () => UrlLauncher().launchCustomUrl(
                             Uri.parse('https://www.google.com'),
                           ),
