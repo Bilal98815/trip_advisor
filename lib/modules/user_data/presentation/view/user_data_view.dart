@@ -90,43 +90,11 @@ class UserDataView extends StatelessWidget {
                             SizedBox(
                               height: size.maxHeight * 0.01,
                             ),
-                            TextFormField(
+                            CustomTextFormField(
                               controller: nameController,
                               validator: (val) =>
                                   val!.isEmpty ? 'Enter name!' : null,
-                              style: TextStyle(
-                                color:
-                                    Theme.of(context).colorScheme.onBackground,
-                              ),
-                              decoration: InputDecoration(
-                                hintText: LocaleStrings.userDataNameFieldHint,
-                                hintStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium
-                                    ?.copyWith(
-                                      color: Theme.of(context).hintColor,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).colorScheme.error,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        Theme.of(context).colorScheme.outline,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        Theme.of(context).colorScheme.onPrimary,
-                                  ),
-                                ),
-                              ),
+                              hintText: LocaleStrings.userDataNameFieldHint,
                             ),
                           ],
                         ),
@@ -190,7 +158,7 @@ class UserDataView extends StatelessWidget {
                                     style: TextStyle(
                                       color: Theme.of(context)
                                           .colorScheme
-                                          .onPrimary,
+                                          .onPrimaryContainer,
                                     ),
                                     items: items.map((String item) {
                                       return DropdownMenuItem(
