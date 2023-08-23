@@ -8,6 +8,13 @@ class LanguagePreferencesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const LanguagePreferencesView();
+    return BlocProvider(
+      create: (context) => LanguagePreferencesBloc(
+        languagePreferencesRepository: LanguagePreferencesRepositoryImp(
+          languagePreferencesAuth: LanguagePreferencesAuth(),
+        ),
+      ),
+      child: const LanguagePreferencesView(),
+    );
   }
 }

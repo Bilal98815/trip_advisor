@@ -1,8 +1,8 @@
 part of 'language_preferences_bloc.dart';
 
-sealed class LanguagePreferencesEvent extends Equatable {
-  const LanguagePreferencesEvent();
+abstract class LanguagePreferencesEvent {}
 
-  @override
-  List<Object> get props => [];
+class LanguagePreferencesLocaleChanged extends LanguagePreferencesEvent {
+  LanguagePreferencesLocaleChanged(this.locale);
+  final Locale locale;
 }

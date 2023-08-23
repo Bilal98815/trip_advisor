@@ -16,7 +16,7 @@ class PreferenceTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        GestureDetector(
+        InkWell(
           onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
