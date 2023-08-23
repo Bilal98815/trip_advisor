@@ -6,22 +6,23 @@ class LanguagePreferencesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black87,
       appBar: const CustomAppBar(title: 'Language'),
       body: ListView(
         children: [
           _LanguageTile(
-            title: 'English (United Kingdom)',
-            subtitle: LocaleStrings.languageEnglishUK,
-            value: 'en_GB',
-            groupValue: 'en_GB',
+            language: Language(
+              name: 'English (United Kingdom)',
+              localizedName: LocaleStrings.languageEnglishUK,
+              locale: kSupportedLocales[0],
+            ),
             onChanged: (value) {},
           ),
           _LanguageTile(
-            title: 'English (United States)',
-            subtitle: LocaleStrings.languageEnglishUS,
-            value: 'en_US',
-            groupValue: 'en_GB',
+            language: Language(
+              name: 'English (United States)',
+              localizedName: LocaleStrings.languageEnglishUS,
+              locale: kSupportedLocales[1],
+            ),
             onChanged: (value) {},
           ),
         ],
@@ -32,17 +33,11 @@ class LanguagePreferencesView extends StatelessWidget {
 
 class _LanguageTile extends StatelessWidget {
   const _LanguageTile({
-    required this.title,
-    required this.subtitle,
-    required this.value,
-    required this.groupValue,
+    required this.language,
     required this.onChanged,
   });
 
-  final String title;
-  final String subtitle;
-  final String value;
-  final String groupValue;
+  final Language language;
   final ValueChanged<String?>? onChanged;
 
   @override
@@ -50,16 +45,18 @@ class _LanguageTile extends StatelessWidget {
     return Column(
       children: [
         RadioListTile<String>(
-          title: TileTitleText(title: title),
-          subtitle: TileSubtitleText(subtitle: subtitle),
-          value: value,
-          groupValue: groupValue,
+          title: TileTitleText(title: language.name),
+          subtitle: TileSubtitleText(subtitle: language.localizedName),
+          value:
+              '${language.locale.languageCode}_${language.locale.countryCode}',
+          groupValue:
+              '${kSupportedLocales[0].languageCode}_${kSupportedLocales[0].countryCode}',
           onChanged: onChanged,
-          activeColor: Colors.white,
+          activeColor: Theme.of(context).colorScheme.onBackground,
         ),
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 25),
-          child: Divider(thickness: 0.3, color: Colors.grey),
+          child: Divider(),
         ),
       ],
     );

@@ -9,7 +9,6 @@ class PreferencesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black87,
       appBar: const CustomAppBar(),
       body: SingleChildScrollView(
         child: Padding(
@@ -22,38 +21,38 @@ class PreferencesView extends StatelessWidget {
                 child: HeadingText(heading: LocaleStrings.preferencesTitle),
               ),
               const SizedBox(height: 15),
-              /*ProfileSettingsTile(
+              PreferenceTile(
                 title: LocaleStrings.preferencesTileAccountInfo,
                 onTap: () => UrlLauncher().launchCustomUrl(
                   Uri.parse('https://www.google.com'),
                 ),
               ),
-              ProfileSettingsTile(
+              PreferenceTile(
                 title: LocaleStrings.preferencesTileLanguage,
                 onTap: () => context.go(LanguagePreferencesPage.route()),
               ),
-              ProfileSettingsTile(
+              PreferenceTile(
                 title: LocaleStrings.preferencesTileCurrency,
                 onTap: () {},
               ),
-              ProfileSettingsTile(
+              PreferenceTile(
                 title: LocaleStrings.preferencesTileUnits,
                 onTap: () {},
               ),
-              ProfileSettingsTile(
+              PreferenceTile(
                 title: LocaleStrings.preferencesTilePayment,
                 onTap: () => UrlLauncher().launchCustomUrl(
                   Uri.parse('https://www.google.com'),
                 ),
               ),
-              ProfileSettingsTile(
+              PreferenceTile(
                 title: LocaleStrings.preferencesTileNotifications,
                 onTap: () {},
               ),
-              ProfileSettingsTile(
+              PreferenceTile(
                 title: LocaleStrings.preferencesTilePrivacy,
                 onTap: () {},
-              ),*/
+              ),
             ],
           ),
         ),
