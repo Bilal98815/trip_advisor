@@ -50,7 +50,9 @@ class UserDataView extends StatelessWidget {
                           ),
                           child: Center(
                             child: Image.asset(
-                              Assets.of(context).coloredPersonPicture,
+                              AssetProvider.of(context)
+                                  .assets
+                                  .coloredPersonPicture,
                               width: size.maxWidth * 0.15,
                               height: size.maxHeight * 0.07,
                             ),

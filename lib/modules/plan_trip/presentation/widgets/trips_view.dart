@@ -9,7 +9,7 @@ class TripsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Assets assets = Assets.of(context);
+    final Assets assets = AssetProvider.of(context).assets;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

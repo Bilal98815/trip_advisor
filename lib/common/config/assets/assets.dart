@@ -1,59 +1,50 @@
 import 'package:flutter/material.dart';
 
-class Assets extends InheritedWidget {
-  const Assets({super.key, required this.child}) : super(child: child);
+part 'asset_provider.dart';
 
+abstract class Assets {
+  String get baseDirectory;
+
+  String get owlLogo => '$baseDirectory/owl.png';
+
+  String get gmailIcon => '$baseDirectory/google.png';
+  String get emailIcon => '$baseDirectory/email.png';
+
+  String get coloredLocationPicture => '$baseDirectory/location.png';
+  String get coloredPersonPicture => '$baseDirectory/man.png';
+
+  String get saveTripsIcon => '$baseDirectory/heart.png';
+  String get seeSavedTripsIcon => '$baseDirectory/placeholder.png';
+  String get trackTripsIcon => '$baseDirectory/document.png';
+  String get shareTripsIcon => '$baseDirectory/follow.png';
+
+  String get bookingsIcon => '$baseDirectory/invoice.png';
+  String get profileIcon => '$baseDirectory/user.png';
+  String get messagesIcon => '$baseDirectory/mail.png';
+  String get preferencesIcon => '$baseDirectory/settings.png';
+  String get supportIcon => '$baseDirectory/question.png';
+  String get tripAdvisorIcon => '$baseDirectory/owl_icon.png';
+
+  String get defaultProfilePic => '$baseDirectory/mine.jpg';
+
+  String get profileCityIcon => '$baseDirectory/profile_placeholder.png';
+  String get profileWebsiteIcon => '$baseDirectory/link.png';
+
+  String get speedDialPlaceIcon => '$baseDirectory/pin_black.png';
+  String get speedDialReviewIcon => '$baseDirectory/pen.png';
+  String get speedDialPhotoIcon => '$baseDirectory/gallery.png';
+
+  String get reviewBackgroundImage => '$baseDirectory/stone_monument.jpg';
+
+  String get missingPlaceIcon => '$baseDirectory/pin.png';
+}
+
+class DarkThemeAssets extends Assets {
   @override
-  final Widget child;
+  String get baseDirectory => 'assets/images/dark';
+}
 
-  static BuildContext? buildcontext;
-
-  static Assets of(BuildContext context) {
-    buildcontext = context;
-    return context.dependOnInheritedWidgetOfExactType<Assets>()!;
-  }
-
-  String _getImagePath(String imageName) {
-    final Brightness brightness = Theme.of(buildcontext!).brightness;
-    final themeModeFolder = brightness == Brightness.light ? 'light' : 'dark';
-    return 'assets/images/$themeModeFolder/$imageName';
-  }
-
+class LightThemeAssets extends Assets {
   @override
-  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
-    return false;
-  }
-
-  String get owlLogo => _getImagePath('owl.png');
-
-  String get gmailIcon => _getImagePath('google.png');
-  String get emailIcon => _getImagePath('email.png');
-
-  String get coloredLocationPicture => _getImagePath('location.png');
-  String get coloredPersonPicture => _getImagePath('man.png');
-
-  String get saveTripsIcon => _getImagePath('heart.png');
-  String get seeSavedTripsIcon => _getImagePath('placeholder.png');
-  String get trackTripsIcon => _getImagePath('document.png');
-  String get shareTripsIcon => _getImagePath('follow.png');
-
-  String get bookingsIcon => _getImagePath('invoice.png');
-  String get profileIcon => _getImagePath('user.png');
-  String get messagesIcon => _getImagePath('mail.png');
-  String get preferencesIcon => _getImagePath('settings.png');
-  String get supportIcon => _getImagePath('question.png');
-  String get tripAdvisorIcon => _getImagePath('owl_icon.png');
-
-  String get defaultProfilePic => _getImagePath('mine.jpg');
-
-  String get profileCityIcon => _getImagePath('profile_placeholder.png');
-  String get profileWebsiteIcon => _getImagePath('link.png');
-
-  String get speedDialPlaceIcon => _getImagePath('pin_black.png');
-  String get speedDialReviewIcon => _getImagePath('pen.png');
-  String get speedDialPhotoIcon => _getImagePath('gallery.png');
-
-  String get reviewBackgroundImage => _getImagePath('stone_monument.jpg');
-
-  String get missingPlaceIcon => _getImagePath('pin.png');
+  String get baseDirectory => 'assets/images/light';
 }

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ],
-      child: const Assets(child: TripAdvisorAppView()),
+      child: const TripAdvisorAppView(),
     );
   }
 }

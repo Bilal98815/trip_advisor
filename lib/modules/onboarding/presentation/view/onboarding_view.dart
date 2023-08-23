@@ -8,6 +8,8 @@ class OnboardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Assets assets = AssetProvider.of(context).assets;
+
     return Scaffold(
       body: SafeArea(
         child: LayoutBuilder(
@@ -37,9 +39,7 @@ class OnboardingView extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     padding: const EdgeInsets.all(15.0),
-                    child: Center(
-                      child: Image.asset(Assets.of(context).owlLogo),
-                    ),
+                    child: Center(child: Image.asset(assets.owlLogo)),
                   ),
                   Text(
                     LocaleStrings.onboardingHeading,
@@ -76,14 +76,14 @@ class OnboardingView extends StatelessWidget {
                   OnboardingButton(
                     size: size,
                     title: LocaleStrings.onboardingGoogleButton,
-                    image: Assets.of(context).gmailIcon,
+                    image: assets.gmailIcon,
                     onTap: () {},
                   ),
                   SizedBox(height: size.maxHeight * 0.02),
                   OnboardingButton(
                     size: size,
                     title: LocaleStrings.onboardingEmailButton,
-                    image: Assets.of(context).emailIcon,
+                    image: assets.emailIcon,
                     onTap: () => context.go(LoginView.route()),
                   ),
                 ],

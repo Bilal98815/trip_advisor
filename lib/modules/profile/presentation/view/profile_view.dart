@@ -11,7 +11,7 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
 
-    final Assets assets = Assets.of(context);
+    final Assets assets = AssetProvider.of(context).assets;
 
     return Scaffold(
       appBar: CustomAppBar(

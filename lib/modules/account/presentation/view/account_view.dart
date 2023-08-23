@@ -10,7 +10,7 @@ class AccountView extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextTheme textTheme = Theme.of(context).textTheme;
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final Assets assets = Assets.of(context);
+    final Assets assets = AssetProvider.of(context).assets;
 
     return Scaffold(
       body: SafeArea(

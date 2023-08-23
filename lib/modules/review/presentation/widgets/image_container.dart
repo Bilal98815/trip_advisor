@@ -13,7 +13,7 @@ class ImageContainer extends StatelessWidget {
       child: Stack(
         children: [
           Image.asset(
-            Assets.of(context).reviewBackgroundImage,
+            AssetProvider.of(context).assets.reviewBackgroundImage,
             width: size.maxWidth,
             height: size.maxHeight,
             fit: BoxFit.cover,
