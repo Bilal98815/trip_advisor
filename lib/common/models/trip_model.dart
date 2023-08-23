@@ -4,6 +4,7 @@ class TripModel {
   TripModel({
     this.image,
     this.isTravellersChoice,
+    this.isAward,
     this.name,
     this.rating,
     this.description,
@@ -12,14 +13,16 @@ class TripModel {
 
   TripModel.fromJson(Map<String, dynamic> json) {
     image = json['image'] as String;
-    isTravellersChoice = json['isTravellersChoice'] as bool;
+    isTravellersChoice = json['isTravellersChoice'] as int;
+    isAward = json['isAward'] as int;
     name = json['name'] as String;
     rating = json['rating'] as double;
     description = json['description'] as String;
     location = json['location'] as String;
   }
   String? image;
-  bool? isTravellersChoice;
+  int? isTravellersChoice;
+  int? isAward;
   String? name;
   double? rating;
   String? description;
@@ -29,6 +32,7 @@ class TripModel {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['image'] = image;
     data['isTravellersChoice'] = isTravellersChoice;
+    data['isAward'] = isAward;
     data['name'] = name;
     data['rating'] = rating;
     data['description'] = description;

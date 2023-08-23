@@ -46,11 +46,24 @@ class ProfileView extends StatelessWidget {
                           Row(
                             children: [
                               if (state.user?.imageUrl != '')
-                                CircleAvatar(
-                                  radius: 50,
-                                  backgroundImage: NetworkImage(
-                                    state.user?.imageUrl ?? '',
+                                CachedNetworkImage(
+                                  imageUrl: state.user?.imageUrl ?? '',
+                                  imageBuilder: (context, imageProvider) =>
+                                      Container(
+                                    height: size.maxHeight * 0.17,
+                                    width: size.maxWidth * 0.26,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                        image: imageProvider,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
                                   ),
+                                  placeholder: (context, url) =>
+                                      const CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) =>
+                                      const Icon(Icons.error),
                                 )
                               else
                                 const CircleAvatar(

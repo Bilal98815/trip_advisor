@@ -1,9 +1,11 @@
 part of 'widgets.dart';
 
 class TravellersChoiceWidget extends StatelessWidget {
-  const TravellersChoiceWidget({required this.size, super.key});
+  const TravellersChoiceWidget(
+      {required this.size, required this.color, super.key});
 
   final BoxConstraints size;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +13,9 @@ class TravellersChoiceWidget extends StatelessWidget {
       width: size.maxWidth * 0.08,
       height: size.maxHeight * 0.06,
       padding: EdgeInsets.only(top: size.maxWidth * 0.01),
-      decoration: const BoxDecoration(
-        color: Color(0xFF3DB489),
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
           bottomRight: Radius.circular(10),

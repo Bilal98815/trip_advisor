@@ -9,7 +9,7 @@ extension TabsX on Tabs {
         return IconTab(
           label: LocaleStrings.exploreTab,
           icon: Icons.home_rounded,
-          route: ExploreView.route(),
+          route: ExplorePage.route(),
         );
       case Tabs.search:
         return IconTab(
@@ -39,7 +39,7 @@ extension TabsX on Tabs {
         return IconTab(
           label: LocaleStrings.exploreTab,
           icon: Icons.home_rounded,
-          route: ExploreView.route(),
+          route: ExplorePage.route(),
         );
     }
   }

@@ -7,6 +7,7 @@ class ImageContainer extends StatelessWidget {
     required this.heading,
     required this.subHeading,
     required this.buttonTitle,
+    required this.image,
     super.key,
   });
 
@@ -15,16 +16,17 @@ class ImageContainer extends StatelessWidget {
   final String buttonTitle;
   final String heading;
   final String subHeading;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: size.maxWidth,
-      height: size.maxHeight * 0.7,
+      height: size.maxHeight * 0.67,
       child: Stack(
         children: [
           Image.asset(
-            'assets/stone_monument.jpg',
+            image,
             width: size.maxWidth,
             height: size.maxHeight,
             fit: BoxFit.cover,
@@ -68,8 +70,7 @@ class ImageContainer extends StatelessWidget {
                   InkWell(
                     onTap: onTap,
                     child: Container(
-                      width: size.maxWidth * 0.4,
-                      height: size.maxHeight * 0.07,
+                      padding: const EdgeInsets.all(15),
                       decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(35)),

@@ -37,7 +37,7 @@ class AppRouter {
         redirect: (context, state) async {
           final bool userAuthenticated = await isUserAuthenticated(context);
           return userAuthenticated
-              ? ExploreView.route()
+              ? ExplorePage.route()
               : OnboardingView.route();
         },
       ),
@@ -95,8 +95,8 @@ class AppRouter {
         ),
         routes: [
           GoRoute(
-            path: ExploreView.routeName,
-            builder: (context, state) => ExploreView(),
+            path: ExplorePage.routeName,
+            builder: (context, state) => const ExplorePage(),
           ),
           GoRoute(
             path: SearchView.routeName,

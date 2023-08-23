@@ -7,5 +7,12 @@ import 'package:trip_advisor/modules/account/account.dart';
 import 'package:trip_advisor/modules/app/router/router.dart';
 import 'package:trip_advisor/modules/login/login.dart';
 
+import '../../edit_profile/data/data.dart';
+import '../../edit_profile/domain/repository/repository.dart';
+import '../../edit_profile/presentation/bloc/edit_profile_bloc.dart';
+import '../../explore/data/data.dart';
+import '../../explore/domain/repository/repository.dart';
+import '../../explore/presentation/bloc/explore_bloc.dart';
+
 part 'trip_advisor_app.dart';
 part 'trip_advisor_app_view.dart';

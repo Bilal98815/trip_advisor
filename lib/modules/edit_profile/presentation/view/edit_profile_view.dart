@@ -61,8 +61,8 @@ class EditProfileView extends StatelessWidget {
                             bottom: 1,
                             left: 50,
                             child: InkWell(
-                              onTap: () {
-                                pickImageFromGallery().then((value) {
+                              onTap: () async {
+                                await pickImageFromGallery().then((value) {
                                   img = value;
                                   if (img != null) {
                                     context

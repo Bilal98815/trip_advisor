@@ -26,10 +26,13 @@ class EditProfileAuth {
 
     if (file != null) {
       debugPrint('------------->>>>> File is not Empty');
-      imageUrl = uploadImageToStorage(
+      await uploadImageToStorage(
         'profilePictures-${DateTime.now().millisecondsSinceEpoch}',
         file,
-      ).toString();
+      ).then((value) {
+        imageUrl = value;
+      });
+      debugPrint('DP url ------------->>>>> $imageUrl');
     }
 
     final updatedUser = user.copyWith(
@@ -60,6 +63,7 @@ class EditProfileAuth {
     final UploadTask task = ref.putData(file);
     final TaskSnapshot snapshot = await task;
     final String downloadUrl = await snapshot.ref.getDownloadURL();
+    debugPrint('Pic url------------->  $downloadUrl');
     return downloadUrl;
   }
 }

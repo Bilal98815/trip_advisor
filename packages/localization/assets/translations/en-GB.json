@@ -57,7 +57,14 @@
     "more_things_tile": "More things to do in Juneau",
     "perfect_weekend_image_container_heading": "A perfect weekend in Venice Beach",
     "perfect_weekend_image_container_subHeading": "Feel like a local, even if you've only got a few days",
-    "perfect_weekend_image_container_button": "Check it out"
+    "perfect_weekend_image_container_button": "Check it out",
+    "top_rated_title": "Top Rated",
+    "top_seller_title": "Top Seller",
+    "ocean_trips_title": "All about that ocean view",
+    "ocean_trips_subTitle": "Hotels and resorts right on the water",
+    "london_image_container_heading": "How to do London with kids",
+    "london_image_container_subHeading": "Zoos, parks, playgrounds-there's much to explore",
+    "london_image_container_button": "See more"
   },
   "forgot_password": {
     "heading": "Enter the email address you used to sign up",

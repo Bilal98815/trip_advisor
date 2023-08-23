@@ -110,6 +110,24 @@ class LocaleStrings {
   static String get explorePerfectWeekendContainerButton =>
       'explore.perfect_weekend_image_container_button'.tr();
 
+  static String get exploreTopRatedTitle => 'explore.top_rated_title'.tr();
+
+  static String get exploreTopSellerTitle => 'explore.top_seller_title'.tr();
+
+  static String get exploreOceanTripsTitle => 'explore.ocean_trips_title'.tr();
+
+  static String get exploreOceanTripsSubTitle =>
+      'explore.ocean_trips_subTitle'.tr();
+
+  static String get exploreLondonContainerHeading =>
+      'explore.london_image_container_heading'.tr();
+
+  static String get exploreLondonContainerSubHeading =>
+      'explore.london_image_container_subHeading'.tr();
+
+  static String get exploreLondonContainerButton =>
+      'explore.london_image_container_button'.tr();
+
   //forgot password
   static String get forgotPasswordHeading => 'forgot_password.heading'.tr();
 

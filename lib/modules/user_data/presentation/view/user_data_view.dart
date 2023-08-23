@@ -222,7 +222,7 @@ class UserDataView extends StatelessWidget {
                                           condition: SignOutCondition.signIn,
                                         ),
                                       );
-                                  context.go(ExploreView.route());
+                                  context.go(ExplorePage.route());
                                 }
                               },
                               height: size.maxHeight * 0.064,

@@ -4,7 +4,10 @@ const Color kGreen = Colors.green;
 const Color kLightGreen = Color(0xff3ded97);
 const Color kBrightGreen = Color(0xFF82CF2A);
 const Color kDarkGreen = Color(0xFF235347);
+const Color kForestGreen = Color(0xFF3DB489);
 const Color kLighterDarkGreen = Color.fromARGB(255, 57, 121, 105);
+
+const Color kYellow = Colors.yellow;
 
 const Color kLightGrey = Color(0xFFEEEEEE);
 const Color kGrey = Colors.grey;

@@ -1,7 +1,11 @@
 part of 'widgets.dart';
 
 class TripCard extends StatelessWidget {
-  const TripCard({required this.tripModel, required this.size, super.key});
+  const TripCard({
+    required this.tripModel,
+    required this.size,
+    super.key,
+  });
 
   final TripModel tripModel;
   final BoxConstraints size;
@@ -18,14 +22,25 @@ class TripCard extends StatelessWidget {
             height: size.maxHeight * 0.35,
             child: Stack(
               children: [
-                Container(
-                  width: size.maxWidth,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(tripModel.image ?? ''),
-                      fit: BoxFit.cover,
+                Center(
+                  child: CachedNetworkImage(
+                    imageUrl: tripModel.image ?? '',
+                    imageBuilder: (context, imageProvider) => Container(
+                      height: size.maxHeight * 0.35,
+                      width: size.maxWidth,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                    borderRadius: const BorderRadius.all(Radius.circular(14)),
+                    placeholder: (context, url) =>
+                        const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
                 Positioned(
@@ -50,13 +65,28 @@ class TripCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                if (tripModel.isTravellersChoice!)
+                if (tripModel.isTravellersChoice == 1)
                   Positioned(
                     bottom: 10,
                     left: 10,
                     child: Align(
                       alignment: Alignment.bottomLeft,
-                      child: TravellersChoiceWidget(size: size),
+                      child: TravellersChoiceWidget(
+                        size: size,
+                        color: kForestGreen,
+                      ),
+                    ),
+                  )
+                else if (tripModel.isTravellersChoice == 2)
+                  Positioned(
+                    bottom: 10,
+                    left: 10,
+                    child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: TravellersChoiceWidget(
+                        size: size,
+                        color: kYellow,
+                      ),
                     ),
                   )
                 else
@@ -74,6 +104,16 @@ class TripCard extends StatelessWidget {
           SizedBox(
             height: size.maxHeight * 0.02,
           ),
+          if (tripModel.isAward == 1)
+            AwardContainer(
+              awardTitle: LocaleStrings.exploreTopRatedTitle,
+              size: size,
+            )
+          else if (tripModel.isAward == 2)
+            AwardContainer(
+              awardTitle: LocaleStrings.exploreTopSellerTitle,
+              size: size,
+            ),
           Text(
             tripModel.name ?? '',
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
@@ -99,13 +139,14 @@ class TripCard extends StatelessWidget {
           SizedBox(
             height: size.maxHeight * 0.005,
           ),
-          Text(
-            tripModel.description ?? '',
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.w300,
-                  overflow: TextOverflow.ellipsis,
-                ),
-          ),
+          if (tripModel.description != '')
+            Text(
+              tripModel.description ?? '',
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.w300,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+            ),
           SizedBox(
             height: size.maxHeight * 0.005,
           ),

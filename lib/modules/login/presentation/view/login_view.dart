@@ -121,7 +121,7 @@ class LoginView extends StatelessWidget {
                                   emailController.text.trim(),
                                 );
                             if (context.mounted) {
-                              context.go(ExploreView.route());
+                              context.go(ExplorePage.route());
                             }
                           }
                         },

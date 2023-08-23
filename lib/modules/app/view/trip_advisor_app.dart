@@ -20,6 +20,13 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
+        BlocProvider(
+          create: (context) => ExploreBloc(
+            exploreRepository: ExploreRepositoryImp(
+              exploreAuth: ExploreAuth(),
+            ),
+          )..add(GetTripsEvent()),
+        ),
       ],
       child: const TripAdvisorAppView(),
     );

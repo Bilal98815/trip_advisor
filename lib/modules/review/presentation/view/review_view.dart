@@ -208,6 +208,7 @@ class ReviewView extends StatelessWidget {
                       heading: LocaleStrings.reviewImageContainerHeading,
                       subHeading: LocaleStrings.reviewImageContainerSubHeading,
                       buttonTitle: LocaleStrings.reviewImageContainerButton,
+                      image: 'assets/stone_monument.jpg',
                     ),
                     SizedBox(
                       height: size.maxHeight * 0.06,
