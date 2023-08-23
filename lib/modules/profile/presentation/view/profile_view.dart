@@ -4,6 +4,7 @@ class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
 
   static const routeName = 'profile';
+
   static String route() => '/account/profile';
 
   @override
@@ -11,46 +12,17 @@ class ProfileView extends StatelessWidget {
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black87,
-        centerTitle: true,
+      appBar: CustomAppBar(
+        title: 'Profile',
         actions: [
-          LayoutBuilder(
-            builder: (context, size) {
-              return Padding(
-                padding: const EdgeInsets.only(right: 20),
-                child: InkWell(
-                  onTap: () {
-                    context.go(EditProfilePage.route());
-                  },
-                  child: const Icon(Icons.create, color: Colors.white),
-                ),
-              );
-            },
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: InkWell(
+              onTap: () => context.go(EditProfilePage.route()),
+              child: const Icon(Icons.create),
+            ),
           ),
         ],
-        leading: LayoutBuilder(
-          builder: (context, size) {
-            return Padding(
-              padding: EdgeInsets.only(left: size.maxWidth * 0.5),
-              child: InkWell(
-                onTap: () {
-                  context.pop();
-                },
-                child: const Icon(
-                  Icons.arrow_back_ios_new,
-                  color: Colors.white,
-                ),
-              ),
-            );
-          },
-        ),
-        title: CommonText(
-          text: LocaleStrings.profileTitle,
-          color: Colors.white,
-          fontsize: 20,
-          fontWeight: FontWeight.w600,
-        ),
       ),
       body: SafeArea(
         child: BlocBuilder<ProfileBloc, ProfileState>(
@@ -63,16 +35,14 @@ class ProfileView extends StatelessWidget {
                   return Container(
                     width: size.maxWidth,
                     height: size.maxHeight,
-                    color: Colors.black87,
+                    color: Theme.of(context).colorScheme.background,
                     padding:
                         EdgeInsets.symmetric(horizontal: size.maxWidth * 0.08),
                     child: SingleChildScrollView(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            height: size.maxHeight * 0.02,
-                          ),
+                          SizedBox(height: size.maxHeight * 0.02),
                           Row(
                             children: [
                               if (state.user?.imageUrl != '')
@@ -88,52 +58,44 @@ class ProfileView extends StatelessWidget {
                                   backgroundImage:
                                       AssetImage('assets/mine.jpg'),
                                 ),
-                              SizedBox(
-                                width: size.maxWidth * 0.06,
-                              ),
+                              SizedBox(width: size.maxWidth * 0.06),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  CommonText(
-                                    text: state.user?.name ?? '',
-                                    color: Colors.white,
-                                    fontsize: 22,
-                                    fontWeight: FontWeight.w700,
+                                  Text(
+                                    state.user?.name ?? '',
+                                    style:
+                                        Theme.of(context).textTheme.titleMedium,
                                   ),
-                                  CommonText(
-                                    text:
-                                        '${LocaleStrings.profileJoiningText} ${time.year}',
-                                    color: Colors.white,
-                                    fontsize: 14,
-                                    fontWeight: FontWeight.w400,
+                                  Text(
+                                    '${LocaleStrings.profileJoiningText} ${time.year}',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                  CommonText(
-                                    text:
-                                        '0 ${LocaleStrings.profileContributionText}',
-                                    color: Colors.white,
-                                    fontsize: 14,
-                                    fontWeight: FontWeight.w400,
+                                  Text(
+                                    '0 ${LocaleStrings.profileContributionText}',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
                                 ],
                               ),
                             ],
                           ),
-                          SizedBox(
-                            height: size.maxHeight * 0.02,
-                          ),
-                          CommonText(
-                            text: state.user?.bio == ''
+                          SizedBox(height: size.maxHeight * 0.02),
+                          Text(
+                            state.user?.bio == ''
                                 ? LocaleStrings.profileBio
                                 : state.user?.bio ?? '',
-                            color: Colors.grey.shade400,
                             textAlign: TextAlign.start,
-                            textOverflow: TextOverflow.clip,
-                            fontsize: 16,
-                            fontWeight: FontWeight.w400,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  color: Theme.of(context).colorScheme.tertiary,
+                                  overflow: TextOverflow.clip,
+                                ),
                           ),
-                          SizedBox(
-                            height: size.maxHeight * 0.05,
-                          ),
+                          SizedBox(height: size.maxHeight * 0.05),
                           PersonalDetailTile(
                             size: size,
                             text: state.user?.country == ''
@@ -142,9 +104,7 @@ class ProfileView extends StatelessWidget {
                             onTap: () => context.go(EditProfilePage.route()),
                             image: 'assets/placeholder.png',
                           ),
-                          SizedBox(
-                            height: size.maxHeight * 0.025,
-                          ),
+                          SizedBox(height: size.maxHeight * 0.025),
                           PersonalDetailTile(
                             size: size,
                             text: state.user?.website == ''
@@ -153,13 +113,8 @@ class ProfileView extends StatelessWidget {
                             onTap: () => context.go(EditProfilePage.route()),
                             image: 'assets/link.png',
                           ),
-                          SizedBox(
-                            height: size.maxHeight * 0.06,
-                          ),
-                          const Divider(
-                            color: Colors.grey,
-                            thickness: 0.4,
-                          ),
+                          SizedBox(height: size.maxHeight * 0.06),
+                          const Divider(),
                           if (state.apiState == ApiState.loading)
                             const Center(child: CircularProgressIndicator())
                           else
@@ -184,31 +139,33 @@ class ProfileView extends StatelessWidget {
                             actionTitle: LocaleStrings.profileReviewTitle,
                           ),
                           ActionForm(
-                            onTap: () {
-                              _launchUrl(Uri.parse('https://www.google.com'));
-                            },
+                            onTap: () => UrlLauncher().launchCustomUrl(
+                              Uri.parse('https://www.google.com'),
+                            ),
                             size: size,
                             isTextWidget: true,
                             buttonText: LocaleStrings.profilePostsButton,
                             number: 0,
                             actionTitle: LocaleStrings.profilePostsTitle,
                           ),
-                          SizedBox(
-                            height: size.maxHeight * 0.05,
-                          ),
-                          CommonText(
-                            text: LocaleStrings.profileMoreTitle,
-                            color: Colors.white,
-                            fontsize: 22,
-                            fontWeight: FontWeight.w700,
+                          SizedBox(height: size.maxHeight * 0.05),
+                          Text(
+                            LocaleStrings.profileMoreTitle,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall
+                                ?.copyWith(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w700,
+                                ),
                           ),
                           SizedBox(
                             height: size.maxHeight * 0.05,
                           ),
                           MoreOptionTile(
-                            onTap: () {
-                              _launchUrl(Uri.parse('https://www.google.com'));
-                            },
+                            onTap: () => UrlLauncher().launchCustomUrl(
+                              Uri.parse('https://www.google.com'),
+                            ),
                             size: size,
                             title: LocaleStrings.profileBadgesTile,
                           ),
@@ -216,9 +173,9 @@ class ProfileView extends StatelessWidget {
                             height: size.maxHeight * 0.02,
                           ),
                           MoreOptionTile(
-                            onTap: () {
-                              _launchUrl(Uri.parse('https://www.google.com'));
-                            },
+                            onTap: () => UrlLauncher().launchCustomUrl(
+                              Uri.parse('https://www.google.com'),
+                            ),
                             size: size,
                             title: LocaleStrings.profileTravelTile,
                           ),
@@ -232,23 +189,11 @@ class ProfileView extends StatelessWidget {
                 },
               );
             } else {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+              return const Center(child: CircularProgressIndicator());
             }
           },
         ),
       ),
     );
-  }
-
-  Future<void> _launchUrl(Uri url) async {
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    } else {
-      Fluttertoast.showToast(
-        msg: LocaleStrings.urlLauncherError(url.toString()),
-      );
-    }
   }
 }

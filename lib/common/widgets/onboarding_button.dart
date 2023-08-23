@@ -24,26 +24,18 @@ class OnboardingButton extends StatelessWidget {
           horizontal: size.maxWidth * 0.05,
         ),
         decoration: BoxDecoration(
-          color: Colors.black12,
+          color: Theme.of(context).colorScheme.background,
           borderRadius: const BorderRadius.all(Radius.circular(35)),
-          border: Border.all(color: Colors.white, width: 2),
+          border: Border.all(
+            color: Theme.of(context).colorScheme.onBackground,
+            width: 2,
+          ),
         ),
         child: Row(
           children: [
-            Image.asset(
-              image,
-              width: 22,
-              height: 22,
-            ),
-            SizedBox(
-              width: size.maxWidth * 0.13,
-            ),
-            CommonText(
-              text: title,
-              color: Colors.white,
-              fontsize: 17,
-              fontWeight: FontWeight.w500,
-            ),
+            Image.asset(image, width: 22, height: 22),
+            SizedBox(width: size.maxWidth * 0.13),
+            Text(title, style: Theme.of(context).textTheme.labelMedium),
           ],
         ),
       ),

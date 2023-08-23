@@ -6,62 +6,46 @@ class SignoutDialogBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+
     return Dialog(
-      backgroundColor: Colors.grey[900],
-      surfaceTintColor: Colors.black,
+      backgroundColor: colorScheme.primaryContainer,
+      surfaceTintColor: colorScheme.background,
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(
-              height: size.maxHeight * 0.01,
-            ),
+            SizedBox(height: size.maxHeight * 0.01),
             Align(
               alignment: Alignment.centerLeft,
               child: InkWell(
-                onTap: () {
-                  context.pop();
-                },
-                child: const Icon(
-                  Icons.close,
-                  color: Colors.white,
-                ),
+                onTap: () => context.pop(),
+                child: Icon(Icons.close, color: colorScheme.onBackground),
               ),
             ),
-            SizedBox(
-              height: size.maxHeight * 0.02,
-            ),
-            CommonText(
-              text: LocaleStrings.signoutDialogText,
-              color: Colors.white,
-              fontsize: 15,
-              fontWeight: FontWeight.w300,
-            ),
-            SizedBox(
-              height: size.maxHeight * 0.04,
-            ),
+            SizedBox(height: size.maxHeight * 0.02),
+            Text(LocaleStrings.signoutDialogText, style: textTheme.bodyMedium),
+            SizedBox(height: size.maxHeight * 0.04),
             PrimaryButton(
               ignoring: false,
               onTap: () {
                 context.read<AccountBloc>().add(SignOutEvent());
                 Navigator.pop(context);
               },
-              color: Colors.white,
+              color: colorScheme.onBackground,
               height: size.maxHeight * 0.06,
               size: size,
               child: Center(
-                child: CommonText(
-                  text: LocaleStrings.signoutDialogButton,
-                  color: Colors.black87,
-                  fontsize: 15,
-                  fontWeight: FontWeight.w700,
+                child: Text(
+                  LocaleStrings.signoutDialogButton,
+                  style: textTheme.displayMedium
+                      ?.copyWith(color: colorScheme.background),
                 ),
               ),
             ),
-            SizedBox(
-              height: size.maxHeight * 0.02,
-            ),
+            SizedBox(height: size.maxHeight * 0.02),
           ],
         ),
       ),

@@ -2,15 +2,14 @@ part of 'widgets.dart';
 
 class ProfileSettingsTile extends StatelessWidget {
   const ProfileSettingsTile({
-    this.image,
+    required this.image,
     required this.onTap,
     required this.title,
-    this.size,
     super.key,
   });
-  final String? image;
+  final String image;
   final String title;
-  final BoxConstraints? size;
+
   final VoidCallback onTap;
 
   @override
@@ -20,28 +19,19 @@ class ProfileSettingsTile extends StatelessWidget {
         InkWell(
           onTap: onTap,
           child: Padding(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.symmetric(vertical: 10),
             child: Row(
               children: [
-                if (image != null) ...[
-                  Image.asset(image!, width: 18),
-                  const SizedBox(width: 20),
-                ],
-                TileTitleText(title: title),
+                Image.asset(image, width: 18),
+                const SizedBox(width: 20),
+                Text(title, style: Theme.of(context).textTheme.labelSmall),
                 const Spacer(),
-                const Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.white,
-                  size: 18,
-                ),
+                const Icon(Icons.arrow_forward_ios, size: 15),
               ],
             ),
           ),
         ),
-        const Divider(
-          thickness: 0.3,
-          color: Colors.grey,
-        ),
+        const Divider(),
       ],
     );
   }

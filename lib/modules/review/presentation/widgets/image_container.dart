@@ -30,23 +30,24 @@ class ImageContainer extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: size.maxWidth * 0.9,
-                    child: CommonText(
-                      text: LocaleStrings.reviewImageContainerHeading,
-                      color: Colors.white,
-                      fontsize: 40,
-                      fontWeight: FontWeight.w900,
-                      textOverflow: TextOverflow.clip,
+                    child: Text(
+                      LocaleStrings.reviewImageContainerHeading,
+                      style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                            color: kWhite,
+                          ),
                       textAlign: TextAlign.start,
                     ),
                   ),
                   SizedBox(
                     width: size.maxWidth * 0.9,
-                    child: CommonText(
-                      text: LocaleStrings.reviewImageContainerSubHeading,
-                      color: Colors.white,
-                      fontsize: 20,
-                      fontWeight: FontWeight.w500,
-                      textOverflow: TextOverflow.clip,
+                    child: Text(
+                      LocaleStrings.reviewImageContainerSubHeading,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            overflow: TextOverflow.clip,
+                            color: kWhite,
+                          ),
                       textAlign: TextAlign.start,
                     ),
                   ),
@@ -63,11 +64,12 @@ class ImageContainer extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(35)),
                       ),
                       child: Center(
-                        child: CommonText(
-                          text: LocaleStrings.reviewImageContainerButton,
-                          color: Colors.black,
-                          fontsize: 18,
-                          fontWeight: FontWeight.w500,
+                        child: Text(
+                          LocaleStrings.reviewImageContainerButton,
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelMedium
+                              ?.copyWith(color: Colors.black),
                         ),
                       ),
                     ),

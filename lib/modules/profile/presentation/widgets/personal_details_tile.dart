@@ -19,18 +19,12 @@ class PersonalDetailTile extends StatelessWidget {
       onTap: onTap,
       child: Row(
         children: [
-          Image.asset(
-            image,
-            width: size.maxWidth * 0.045,
-          ),
-          SizedBox(
-            width: size.maxWidth * 0.04,
-          ),
-          CommonText(
-            text: text,
-            color: Colors.grey[350]!,
-            fontsize: 14,
-            fontWeight: FontWeight.w400,
+          Image.asset(image, width: size.maxWidth * 0.045),
+          SizedBox(width: size.maxWidth * 0.04),
+          Text(
+            text,
+            style:
+                Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14),
           ),
         ],
       ),

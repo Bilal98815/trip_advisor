@@ -22,7 +22,7 @@ class PreferencesView extends StatelessWidget {
                 child: HeadingText(heading: LocaleStrings.preferencesTitle),
               ),
               const SizedBox(height: 15),
-              ProfileSettingsTile(
+              /*ProfileSettingsTile(
                 title: LocaleStrings.preferencesTileAccountInfo,
                 onTap: () => UrlLauncher().launchCustomUrl(
                   Uri.parse('https://www.google.com'),
@@ -53,7 +53,7 @@ class PreferencesView extends StatelessWidget {
               ProfileSettingsTile(
                 title: LocaleStrings.preferencesTilePrivacy,
                 onTap: () {},
-              ),
+              ),*/
             ],
           ),
         ),
