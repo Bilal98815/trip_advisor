@@ -33,8 +33,9 @@ class PreferencesView extends StatelessWidget {
               PreferenceTile(
                 title: LocaleStrings.preferencesTileLanguage,
                 onTap: () => context.go(LanguagePreferencesView.route()),
-                details: context
-                    .select((PreferencesBloc bloc) => bloc.state.language.name),
+                details: context.select(
+                  (PreferencesBloc bloc) => bloc.state.language.language.name,
+                ),
               ),
               PreferenceTile(
                 title: LocaleStrings.preferencesTileCurrency,

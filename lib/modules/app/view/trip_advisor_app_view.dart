@@ -24,7 +24,7 @@ class TripAdvisorAppView extends StatelessWidget {
             builder: (context, child) {
               context.setLocale(
                 context.select(
-                  (PreferencesBloc bloc) => bloc.state.language.locale,
+                  (PreferencesBloc bloc) => bloc.state.language.language.locale,
                 ),
               );
               //TODO: wrap with assetProvider instead

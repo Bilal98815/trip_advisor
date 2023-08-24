@@ -6,5 +6,5 @@ class PreferencesGetPreferences extends PreferencesEvent {}
 
 class PreferencesLanguageChanged extends PreferencesEvent {
   PreferencesLanguageChanged(this.language);
-  final Language language;
+  final Languages language;
 }

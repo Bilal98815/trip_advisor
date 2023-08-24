@@ -3,7 +3,7 @@ part of 'widgets.dart';
 class LanguageTile extends StatelessWidget {
   const LanguageTile({super.key, required this.language});
 
-  final Language language;
+  final Languages language;
 
   @override
   Widget build(BuildContext context) {
@@ -14,20 +14,22 @@ class LanguageTile extends StatelessWidget {
         return Column(
           children: [
             RadioListTile<String>(
-              title: Text(language.name, style: textTheme.bodyMedium),
+              title: Text(language.language.name, style: textTheme.bodyMedium),
               subtitle: Text(
-                language.localizedName,
+                language.language.localizedName,
                 style: textTheme.bodyMedium?.copyWith(
                   fontSize: 14,
                   color: Theme.of(context).colorScheme.tertiary,
                 ),
               ),
-              value: language.locale.toLanguageTag(),
-              groupValue: state.language.locale.toLanguageTag(),
+              value: language.name,
+              groupValue: state.language.name,
               onChanged: (value) {
-                context
-                    .read<PreferencesBloc>()
-                    .add(PreferencesLanguageChanged(language));
+                context.read<PreferencesBloc>().add(
+                      PreferencesLanguageChanged(
+                        Languages.values.byName(value ?? 'englishUK'),
+                      ),
+                    );
               },
               activeColor: Theme.of(context).colorScheme.onBackground,
             ),

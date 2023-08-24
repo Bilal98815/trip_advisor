@@ -1,13 +1,13 @@
 part of 'data.dart';
 
 class PreferencesFirebaseAPI {
-  Future<Language?> getLanguage({required String email}) async {
+  Future<Languages?> getLanguage({required String email}) async {
     final userDoc =
         await FirebaseFirestore.instance.collection('users').doc(email).get();
 
     if (userDoc.data() != null) {
       final UserModel user = UserModel.fromJson(userDoc.data()!);
-      final Language? language = user.preferences?.language;
+      final Languages? language = user.preferences?.language;
       return language;
     }
     return null;
@@ -15,11 +15,11 @@ class PreferencesFirebaseAPI {
 
   Future<void> updateLanguage({
     required String email,
-    required Language language,
+    required Languages language,
   }) async {
     await FirebaseFirestore.instance
         .collection('users')
         .doc(email)
-        .update({'preferences.language': language.toJson()});
+        .update({'preferences.language': language.name});
   }
 }

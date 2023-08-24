@@ -1,23 +1,18 @@
 part of 'preferences_bloc.dart';
 
 class PreferencesState extends Equatable {
-  PreferencesState({
-    Language? language,
+  const PreferencesState({
+    this.language = Languages.englishUK,
     this.currency = '',
     this.units = '',
-  }) : language = language ??
-            Language(
-              name: 'English (United Kingdom)',
-              localizedName: LocaleStrings.languageEnglishUK,
-              locale: kSupportedLocales[0],
-            );
+  });
 
-  final Language language;
+  final Languages language;
   final String currency;
   final String units;
 
   PreferencesState copyWith({
-    Language? language,
+    Languages? language,
     String? currency,
     String? units,
   }) {

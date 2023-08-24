@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:localization/localization.dart';
 
 import 'package:trip_advisor/common/common.dart';
 import 'package:trip_advisor/modules/language_preferences/language_preferences.dart';
@@ -11,7 +10,7 @@ part 'preferences_state.dart';
 
 class PreferencesBloc extends Bloc<PreferencesEvent, PreferencesState> {
   PreferencesBloc({required this.preferencesRepository})
-      : super(PreferencesState()) {
+      : super(const PreferencesState()) {
     on<PreferencesGetPreferences>((event, emit) => onGetRequested(emit));
 
     on<PreferencesLanguageChanged>(
@@ -30,7 +29,7 @@ class PreferencesBloc extends Bloc<PreferencesEvent, PreferencesState> {
   }
 
   Future<void> updateLanguage(
-    Language language,
+    Languages language,
     Emitter<PreferencesState> emit,
   ) async {
     final String email = await Preferences().getEmail() ?? '';
