@@ -196,11 +196,9 @@ class EditProfileView extends StatelessWidget {
                           builder: (context, state) {
                             return Align(
                               alignment: Alignment.centerRight,
-                              child: CommonText(
-                                text: '${state.count}/160',
-                                color: Colors.white,
-                                fontsize: 12,
-                                fontWeight: FontWeight.w400,
+                              child: Text(
+                                '${state.count}/160',
+                                style: textTheme.bodySmall,
                               ),
                             );
                           },
