@@ -1,13 +1,13 @@
 part of 'data.dart';
 
-class PreferencesAuth {
+class PreferencesFirebaseAPI {
   Future<Locale> getLocale({required String email}) async {
     final userDoc =
         await FirebaseFirestore.instance.collection('users').doc(email).get();
 
     if (userDoc.data() != null) {
-      final Locale locale =
-          UserModel.fromJson(userDoc.data()!).locale ?? kStartingLocale;
+      final UserModel user = UserModel.fromJson(userDoc.data()!);
+      final Locale locale = user.preferences?.locale ?? kStartingLocale;
       return locale;
     }
     return kStartingLocale;
@@ -20,6 +20,6 @@ class PreferencesAuth {
     await FirebaseFirestore.instance
         .collection('users')
         .doc(email)
-        .update({'locale': locale.toLanguageTag()});
+        .update({'preferences.locale': locale.toLanguageTag()});
   }
 }

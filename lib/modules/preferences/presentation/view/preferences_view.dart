@@ -18,7 +18,10 @@ class PreferencesView extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
-                child: HeadingText(heading: LocaleStrings.preferencesTitle),
+                child: Text(
+                  LocaleStrings.preferencesTitle,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
               ),
               const SizedBox(height: 15),
               PreferenceTile(

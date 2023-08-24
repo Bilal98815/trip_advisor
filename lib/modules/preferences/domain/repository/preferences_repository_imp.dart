@@ -1,16 +1,16 @@
 part of 'repository.dart';
 
 class PreferencesRepositoryImp implements PreferencesRepository {
-  PreferencesRepositoryImp({required this.preferencesAuth});
-  late PreferencesAuth preferencesAuth;
+  PreferencesRepositoryImp({required this.preferencesAPI});
+  late PreferencesFirebaseAPI preferencesAPI;
 
   @override
   Future<Locale> getLocale({required String email}) {
-    return preferencesAuth.getLocale(email: email);
+    return preferencesAPI.getLocale(email: email);
   }
 
   @override
   Future<void> updateLocale({required String email, required Locale locale}) {
-    return preferencesAuth.updateLocale(email: email, locale: locale);
+    return preferencesAPI.updateLocale(email: email, locale: locale);
   }
 }

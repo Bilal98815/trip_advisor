@@ -9,23 +9,23 @@ part 'preferences_event.dart';
 part 'preferences_state.dart';
 
 class PreferencesBloc extends Bloc<PreferencesEvent, PreferencesState> {
-  PreferencesBloc({required this.languagePreferencesRepository})
-      : super(const PreferencesState(locale: kStartingLocale)) {
+  PreferencesBloc({required this.preferencesRepository})
+      : super(const PreferencesState()) {
     on<PreferencesLocaleChanged>(
       (event, emit) => updateLocale(event.locale, emit),
     );
 
-    on<PreferencesGetPreferences>((event, emit) => onSubscription(emit));
+    on<PreferencesGetPreferences>((event, emit) => onGetRequested(emit));
   }
 
-  final PreferencesRepository languagePreferencesRepository;
+  final PreferencesRepository preferencesRepository;
 
-  Future<void> onSubscription(Emitter<PreferencesState> emit) async {
+  Future<void> onGetRequested(Emitter<PreferencesState> emit) async {
     final String email = await Preferences().getEmail() ?? '';
 
-    final locale = await languagePreferencesRepository.getLocale(email: email);
-
-    print('locale: $locale');
+    final locale = await preferencesRepository.getLocale(email: email);
+    print('subscription called, locale: $locale');
+    emit(state.copyWith(locale: locale));
   }
 
   Future<void> updateLocale(
@@ -34,10 +34,7 @@ class PreferencesBloc extends Bloc<PreferencesEvent, PreferencesState> {
   ) async {
     final String email = await Preferences().getEmail() ?? '';
 
-    await languagePreferencesRepository.updateLocale(
-      email: email,
-      locale: locale,
-    );
+    await preferencesRepository.updateLocale(email: email, locale: locale);
     emit(state.copyWith(locale: locale));
   }
 }

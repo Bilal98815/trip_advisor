@@ -13,7 +13,7 @@ class ProfileView extends StatelessWidget {
 
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Profile',
+        title: LocaleStrings.profileTitle,
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 20),

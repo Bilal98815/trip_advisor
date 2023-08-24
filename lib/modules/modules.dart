@@ -3,6 +3,7 @@ export 'bottom_bar/bottom_bar.dart';
 export 'edit_profile/edit_profile.dart';
 export 'explore/explore.dart';
 export 'forgot_password/forgot_password.dart';
+export 'language_preferences/language_preferences.dart';
 export 'location_data/location_data.dart';
 export 'login/login.dart';
 export 'onboarding/onboarding.dart';

@@ -3,4 +3,4 @@ import 'package:flutter/material.dart';
 
 import 'package:trip_advisor/common/common.dart';
 
-part 'preferences_auth.dart';
+part 'preferences_firebase_api.dart';

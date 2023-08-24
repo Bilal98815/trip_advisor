@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => PreferencesBloc(
-            languagePreferencesRepository: PreferencesRepositoryImp(
-              preferencesAuth: PreferencesAuth(),
+            preferencesRepository: PreferencesRepositoryImp(
+              preferencesAPI: PreferencesFirebaseAPI(),
             ),
           )..add(PreferencesGetPreferences()),
         ),

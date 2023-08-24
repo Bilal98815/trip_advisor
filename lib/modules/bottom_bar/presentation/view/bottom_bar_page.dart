@@ -1,6 +1,6 @@
 part of 'view.dart';
 
-class BottomBarPage extends StatelessWidget {
+class BottomBarPage extends StatefulWidget {
   const BottomBarPage({
     super.key,
     required this.child,
@@ -11,6 +11,11 @@ class BottomBarPage extends StatelessWidget {
   final String currentRoute;
 
   @override
+  State<BottomBarPage> createState() => _BottomBarPageState();
+}
+
+class _BottomBarPageState extends State<BottomBarPage> {
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ProfileBloc(
@@ -18,7 +23,8 @@ class BottomBarPage extends StatelessWidget {
           profileAuth: ProfileAuth(),
         ),
       ),
-      child: BottomBarView(currentRoute: currentRoute, child: child),
+      child:
+          BottomBarView(currentRoute: widget.currentRoute, child: widget.child),
     );
   }
 }
