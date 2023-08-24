@@ -12,6 +12,7 @@ class UserModel {
     this.imageUrl,
     this.bio,
     this.time,
+    this.locale,
   });
 
   UserModel.fromJson(Map<String, dynamic> json) {
@@ -24,7 +25,13 @@ class UserModel {
     time = json['time'] as Timestamp;
     website = json['website'] as String;
     imageUrl = json['imageUrl'] as String;
-    photos = json['photos'] as List<dynamic>;
+    photos = json['photos'] as List<dynamic>? ?? [];
+    locale = json['locale'] != null
+        ? Locale.fromSubtags(
+            languageCode: (json['locale'] as String).split('-')[0],
+            countryCode: (json['locale'] as String).split('-')[1],
+          )
+        : kStartingLocale;
   }
   String? email;
   String? name;
@@ -36,6 +43,7 @@ class UserModel {
   String? imageUrl;
   List<dynamic>? photos;
   String? website;
+  Locale? locale;
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -49,6 +57,7 @@ class UserModel {
     data['imageUrl'] = imageUrl;
     data['website'] = website;
     data['location'] = location;
+    data['locale'] = locale?.toLanguageTag();
     return data;
   }
 
@@ -63,6 +72,7 @@ class UserModel {
     String? imageUrl,
     List<dynamic>? photos,
     String? website,
+    Locale? locale,
   }) {
     return UserModel(
       email: email ?? this.email,
@@ -75,6 +85,7 @@ class UserModel {
       imageUrl: imageUrl ?? this.imageUrl,
       photos: photos ?? this.photos,
       website: website ?? this.website,
+      locale: locale ?? this.locale,
     );
   }
 }

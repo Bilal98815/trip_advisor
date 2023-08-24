@@ -113,9 +113,9 @@ class AppRouter {
                 builder: (context, state) => const PreferencesView(),
                 routes: [
                   GoRoute(
-                    path: LanguagePreferencesPage.routeName,
+                    path: LanguagePreferencesView.routeName,
                     builder: (context, state) =>
-                        const LanguagePreferencesPage(),
+                        const LanguagePreferencesView(),
                   )
                 ],
               ),

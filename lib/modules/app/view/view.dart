@@ -6,6 +6,7 @@ import 'package:trip_advisor/common/common.dart';
 import 'package:trip_advisor/modules/account/account.dart';
 import 'package:trip_advisor/modules/app/router/router.dart';
 import 'package:trip_advisor/modules/login/login.dart';
+import 'package:trip_advisor/modules/preferences/preferences.dart';
 
 part 'trip_advisor_app.dart';
 part 'trip_advisor_app_view.dart';

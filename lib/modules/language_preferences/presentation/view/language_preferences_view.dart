@@ -3,6 +3,9 @@ part of 'view.dart';
 class LanguagePreferencesView extends StatelessWidget {
   const LanguagePreferencesView({super.key});
 
+  static const routeName = 'language';
+  static String route() => '/account/preferences/language';
+
   @override
   Widget build(BuildContext context) {
     final List<Language> languages = [
@@ -36,7 +39,7 @@ class _LanguageTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LanguagePreferencesBloc, LanguagePreferencesState>(
+    return BlocBuilder<PreferencesBloc, PreferencesState>(
       builder: (context, state) {
         return Column(
           children: [
@@ -44,7 +47,7 @@ class _LanguageTile extends StatelessWidget {
               title: TileTitleText(title: language.name),
               subtitle: TileSubtitleText(subtitle: language.localizedName),
               value: language.locale.toLanguageTag(),
-              groupValue: state.selectedLocale.toLanguageTag(),
+              groupValue: state.locale.toLanguageTag(),
               onChanged: (value) {
                 final Locale locale = value != null
                     ? Locale.fromSubtags(
@@ -56,8 +59,8 @@ class _LanguageTile extends StatelessWidget {
                 context.setLocale(locale);
 
                 context
-                    .read<LanguagePreferencesBloc>()
-                    .add(LanguagePreferencesLocaleChanged(locale));
+                    .read<PreferencesBloc>()
+                    .add(PreferencesLocaleChanged(locale));
               },
               activeColor: Theme.of(context).colorScheme.onBackground,
             ),

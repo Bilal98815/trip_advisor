@@ -29,7 +29,7 @@ class PreferencesView extends StatelessWidget {
               ),
               PreferenceTile(
                 title: LocaleStrings.preferencesTileLanguage,
-                onTap: () => context.go(LanguagePreferencesPage.route()),
+                onTap: () => context.go(LanguagePreferencesView.route()),
               ),
               PreferenceTile(
                 title: LocaleStrings.preferencesTileCurrency,
