@@ -22,7 +22,7 @@ class LanguagePreferencesView extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: const CustomAppBar(title: 'Language'),
+      appBar: CustomAppBar(title: LocaleStrings.languageTitle),
       body: ListView.builder(
         itemBuilder: (context, index) =>
             LanguageTile(language: languages[index]),

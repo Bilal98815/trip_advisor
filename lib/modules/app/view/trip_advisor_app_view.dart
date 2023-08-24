@@ -23,7 +23,9 @@ class TripAdvisorAppView extends StatelessWidget {
             darkTheme: TripAdvisorTheme.dark,
             builder: (context, child) {
               context.setLocale(
-                context.select((PreferencesBloc bloc) => bloc.state.locale),
+                context.select(
+                  (PreferencesBloc bloc) => bloc.state.language.locale,
+                ),
               );
               //TODO: wrap with assetProvider instead
               return Container(child: child);

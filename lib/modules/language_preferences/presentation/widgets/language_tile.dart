@@ -23,18 +23,11 @@ class LanguageTile extends StatelessWidget {
                 ),
               ),
               value: language.locale.toLanguageTag(),
-              groupValue: state.locale.toLanguageTag(),
+              groupValue: state.language.locale.toLanguageTag(),
               onChanged: (value) {
-                final Locale locale = value != null
-                    ? Locale.fromSubtags(
-                        languageCode: value.split('-')[0],
-                        countryCode: value.split('-')[1],
-                      )
-                    : kStartingLocale;
-
                 context
                     .read<PreferencesBloc>()
-                    .add(PreferencesLocaleChanged(locale));
+                    .add(PreferencesLanguageChanged(language));
               },
               activeColor: Theme.of(context).colorScheme.onBackground,
             ),

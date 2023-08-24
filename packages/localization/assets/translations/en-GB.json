@@ -79,6 +79,7 @@
   },
 
   "language_preferences": {
+    "title": "Language",
     "english_uk": "English (United Kingdom)", 
     "english_us": "English (US)"
   },

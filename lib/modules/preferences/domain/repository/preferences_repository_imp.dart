@@ -5,12 +5,13 @@ class PreferencesRepositoryImp implements PreferencesRepository {
   late PreferencesFirebaseAPI preferencesAPI;
 
   @override
-  Future<Locale> getLocale({required String email}) {
-    return preferencesAPI.getLocale(email: email);
+  Future<Language?> getLanguage({required String email}) {
+    return preferencesAPI.getLanguage(email: email);
   }
 
   @override
-  Future<void> updateLocale({required String email, required Locale locale}) {
-    return preferencesAPI.updateLocale(email: email, locale: locale);
+  Future<void> updateLanguage(
+      {required String email, required Language language}) {
+    return preferencesAPI.updateLanguage(email: email, language: language);
   }
 }

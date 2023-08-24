@@ -1,24 +1,33 @@
 part of 'preferences_bloc.dart';
 
 class PreferencesState extends Equatable {
-  const PreferencesState({
-    this.locale = kStartingLocale,
+  PreferencesState({
+    Language? language,
     this.currency = '',
     this.units = '',
-  });
+  }) : language = language ??
+            Language(
+              name: 'English (United Kingdom)',
+              localizedName: LocaleStrings.languageEnglishUK,
+              locale: kSupportedLocales[0],
+            );
 
-  final Locale locale;
+  final Language language;
   final String currency;
   final String units;
 
-  PreferencesState copyWith({Locale? locale, String? currency, String? units}) {
+  PreferencesState copyWith({
+    Language? language,
+    String? currency,
+    String? units,
+  }) {
     return PreferencesState(
-      locale: locale ?? this.locale,
+      language: language ?? this.language,
       currency: currency ?? this.currency,
       units: units ?? this.units,
     );
   }
 
   @override
-  List<Object> get props => [locale, currency, units];
+  List<Object> get props => [language, currency, units];
 }

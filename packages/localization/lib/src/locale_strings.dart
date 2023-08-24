@@ -167,6 +167,7 @@ class LocaleStrings {
   static String get preferencesTilePrivacy => 'preferences.tiles.privacy'.tr();
 
   //language preferences
+  static String get languageTitle => 'language_preferences.title'.tr();
   static String get languageEnglishUK => 'language_preferences.english_uk'.tr();
   static String get languageEnglishUS => 'language_preferences.english_us'.tr();
 

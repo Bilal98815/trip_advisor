@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
-import 'package:trip_advisor/common/common.dart';
+import 'package:trip_advisor/modules/language_preferences/language_preferences.dart';
 
 part 'preference_settings.dart';

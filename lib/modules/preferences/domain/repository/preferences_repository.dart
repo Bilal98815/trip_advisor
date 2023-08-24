@@ -1,6 +1,10 @@
 part of 'repository.dart';
 
 abstract class PreferencesRepository {
-  Future<Locale> getLocale({required String email});
-  Future<void> updateLocale({required String email, required Locale locale});
+  Future<Language?> getLanguage({required String email});
+
+  Future<void> updateLanguage({
+    required String email,
+    required Language language,
+  });
 }

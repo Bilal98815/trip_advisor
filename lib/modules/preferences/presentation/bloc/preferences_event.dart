@@ -4,7 +4,7 @@ abstract class PreferencesEvent {}
 
 class PreferencesGetPreferences extends PreferencesEvent {}
 
-class PreferencesLocaleChanged extends PreferencesEvent {
-  PreferencesLocaleChanged(this.locale);
-  final Locale locale;
+class PreferencesLanguageChanged extends PreferencesEvent {
+  PreferencesLanguageChanged(this.language);
+  final Language language;
 }
