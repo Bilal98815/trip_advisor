@@ -253,6 +253,8 @@ class ReviewView extends StatelessWidget {
                         onTap: () => UrlLauncher().launchCustomUrl(
                           Uri.parse('https://www.google.com'),
                         ),
+                        color: Theme.of(context).colorScheme.background,
+                        width: size.maxWidth,
                         size: size,
                       ),
                     ),

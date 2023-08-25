@@ -11,15 +11,46 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState> {
     on<GetTripsEvent>((event, emit) async {
       await getTrips(emit);
     });
+    on<AddToRecentTipsEvent>((event, emit) async {
+      await addTripToRecentTrips(event.trip, emit);
+    });
   }
 
   late ExploreRepository exploreRepository;
+  final prefs = Preferences();
 
   Future<void> getTrips(Emitter<ExploreState> emit) async {
+    final String? email = await prefs.getEmail();
+
     emit(state.copyWith(apiState: ApiState.loading));
     final trips = await exploreRepository.getTrips();
     final oceanTrips = await exploreRepository.getOceanTrips();
-    emit(state.copyWith(
-        trips: trips, oceanTrips: oceanTrips, apiState: ApiState.done));
+    final recentTrips = await exploreRepository.getRecentTrips(email!);
+    final islandTrips = await exploreRepository.getIslandTrips();
+    final mountainTrips = await exploreRepository.getMountainsTrips();
+    final naturalWondersTrips =
+        await exploreRepository.getNaturalWondersTrips();
+    emit(
+      state.copyWith(
+        trips: trips,
+        oceanTrips: oceanTrips,
+        islandTrips: islandTrips,
+        recentTrips: recentTrips,
+        mountainTrips: mountainTrips,
+        naturalWondersTrips: naturalWondersTrips,
+        apiState: ApiState.done,
+      ),
+    );
+  }
+
+  Future<void> addTripToRecentTrips(
+    TripModel trip,
+    Emitter<ExploreState> emit,
+  ) async {
+    final String? email = await prefs.getEmail();
+    await exploreRepository.addTripsToRecentTrips(email!, trip);
+    final recentTrips = List<TripModel>.from(state.recentTrips);
+    recentTrips.add(trip);
+    emit(state.copyWith(recentTrips: recentTrips));
   }
 }

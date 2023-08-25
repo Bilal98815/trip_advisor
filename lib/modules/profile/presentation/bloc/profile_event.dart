@@ -15,3 +15,13 @@ class DataSavedEvent extends ProfileEvent {
   DataSavedEvent({required this.apiState});
   final ApiState apiState;
 }
+
+class UpdateImageEvent extends ProfileEvent {
+  UpdateImageEvent({required this.img});
+  final Uint8List img;
+}
+
+class UpdateImagePathEvent extends ProfileEvent {
+  UpdateImagePathEvent({required this.img});
+  final String img;
+}

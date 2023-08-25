@@ -30,11 +30,6 @@ class StoreCountryDbEvent extends EditProfileEvent {
   final String country;
 }
 
-class UpdateImageEvent extends EditProfileEvent {
-  UpdateImageEvent({required this.img});
-  final Uint8List img;
-}
-
 class ShowLoaderEvent extends EditProfileEvent {
   ShowLoaderEvent({required this.isLoading});
   final bool isLoading;

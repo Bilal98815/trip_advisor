@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:trip_advisor/common/helpers/shared_preferences/shared_preferences.dart';
+import 'package:trip_advisor/common/common.dart';
 import 'package:trip_advisor/modules/account/account.dart';
 import 'package:trip_advisor/modules/bottom_bar/bottom_bar.dart';
 import 'package:trip_advisor/modules/edit_profile/edit_profile.dart';
@@ -18,6 +18,7 @@ import 'package:trip_advisor/modules/search/search.dart';
 import 'package:trip_advisor/modules/signup/signup.dart';
 import 'package:trip_advisor/modules/splash/splash.dart';
 import 'package:trip_advisor/modules/support/support.dart';
+import 'package:trip_advisor/modules/trip_detail/presentation/presentation.dart';
 import 'package:trip_advisor/modules/user_data/user_data.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -97,6 +98,16 @@ class AppRouter {
           GoRoute(
             path: ExplorePage.routeName,
             builder: (context, state) => const ExplorePage(),
+            routes: [
+              GoRoute(
+                path: TripDetailView.routeName,
+                name: TripDetailView.routeName,
+                builder: (context, state) {
+                  final params = state.extra! as Map<String, TripModel>;
+                  return TripDetailView(tripModel: params['tripModel']!);
+                },
+              ),
+            ],
           ),
           GoRoute(
             path: SearchView.routeName,

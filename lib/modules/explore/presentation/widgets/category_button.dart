@@ -29,7 +29,7 @@ class CategoryButton extends StatelessWidget {
           children: [
             Image.asset(
               img,
-              width: size.maxWidth * 0.045,
+              width: size.maxWidth * 0.056,
             ),
             SizedBox(
               width: size.maxWidth * 0.03,

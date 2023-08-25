@@ -10,6 +10,7 @@ class ActionForm extends StatelessWidget {
     required this.actionTitle,
     super.key,
   });
+
   final int number;
   final String actionTitle;
   final VoidCallback onTap;
@@ -57,18 +58,28 @@ class ActionForm extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.008,
                       ),
-                      child: Container(
-                        width: size.maxWidth * 0.4,
+                      child: SizedBox(
                         height: size.maxHeight * 0.14,
-                        decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(18)),
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              state.user?.photos?[index].toString() ?? '',
+                        width: size.maxWidth * 0.4,
+                        child: CachedNetworkImage(
+                          imageUrl: state.user?.photos?[index].toString() ?? '',
+                          imageBuilder: (context, imageProvider) => Container(
+                            height: size.maxHeight,
+                            width: size.maxWidth,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(18)),
+                              image: DecorationImage(
+                                image: imageProvider,
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                            fit: BoxFit.cover,
                           ),
+                          placeholder: (context, url) => const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
                         ),
                       ),
                     );

@@ -25,6 +25,14 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       await uploadImages(event.images, emit);
     });
 
+    on<UpdateImageEvent>((event, emit) {
+      updateImage(event.img, emit);
+    });
+
+    on<UpdateImagePathEvent>((event, emit) {
+      updateImagePath(event.img, emit);
+    });
+
     on<PickImagesEvent>((event, emit) async {
       await pickMultipleImagesFromGallery(emit);
     });
@@ -52,6 +60,14 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     await profileRepository.uploadImagesToFireStore(images, email!);
     await getUserDetails(emit);
     emit(state.copyWith(apiState: ApiState.done, images: images));
+  }
+
+  void updateImage(Uint8List img, Emitter<ProfileState> emit) {
+    emit(state.copyWith(img: img));
+  }
+
+  void updateImagePath(String path, Emitter<ProfileState> emit) {
+    emit(state.copyWith(imagePath: path));
   }
 
   Future<void> pickMultipleImagesFromGallery(Emitter<ProfileState> emit) async {

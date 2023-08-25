@@ -4,23 +4,20 @@ class EditProfileState extends Equatable {
   const EditProfileState({
     this.count = 0,
     this.country = 'Search',
-    this.img,
     this.apiState = ApiState.idle,
     this.isLoading = false,
   });
   @override
-  List<Object?> get props => [count, country, img, isLoading, apiState];
+  List<Object?> get props => [count, country, isLoading, apiState];
 
   final int count;
   final String country;
-  final Uint8List? img;
   final bool isLoading;
   final ApiState apiState;
 
   EditProfileState copyWith({
     int? count,
     String? country,
-    Uint8List? img,
     ApiState? apiState,
     bool? isLoading,
   }) {
@@ -29,7 +26,6 @@ class EditProfileState extends Equatable {
       country: country ?? this.country,
       apiState: apiState ?? this.apiState,
       isLoading: isLoading ?? this.isLoading,
-      img: img ?? this.img,
     );
   }
 }

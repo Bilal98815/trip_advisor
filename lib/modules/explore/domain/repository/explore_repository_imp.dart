@@ -14,4 +14,29 @@ class ExploreRepositoryImp implements ExploreRepository {
   Future<List<TripModel>> getOceanTrips() {
     return exploreAuth.getOceanTrips();
   }
+
+  @override
+  Future<List<TripModel>> getIslandTrips() {
+    return exploreAuth.getIslandTrips();
+  }
+
+  @override
+  Future<List<TripModel>> getMountainsTrips() {
+    return exploreAuth.getMountainsTrips();
+  }
+
+  @override
+  Future<List<TripModel>> getNaturalWondersTrips() {
+    return exploreAuth.getNaturalWondersTrips();
+  }
+
+  @override
+  Future<void> addTripsToRecentTrips(String email, TripModel trip) {
+    return exploreAuth.addTripsToRecentTrips(email, trip);
+  }
+
+  @override
+  Future<List<TripModel>> getRecentTrips(String email) {
+    return exploreAuth.getRecentTrips(email);
+  }
 }

@@ -33,10 +33,6 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
       await updateCountryDb(event.country);
     });
 
-    on<UpdateImageEvent>((event, emit) {
-      updateImage(event.img, emit);
-    });
-
     on<ShowLoaderEvent>((event, emit) {
       isShowLoader(event.isLoading, emit);
     });
@@ -74,10 +70,6 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
   Future<void> updateCountryDb(String country) async {
     final String? email = await prefs.getEmail();
     await editProfileRepository.updateCountry(country, email!);
-  }
-
-  void updateImage(Uint8List img, Emitter<EditProfileState> emit) {
-    emit(state.copyWith(img: img));
   }
 
   void isShowLoader(bool isLoading, Emitter<EditProfileState> emit) {

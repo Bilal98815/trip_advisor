@@ -51,7 +51,7 @@ class ProfileView extends StatelessWidget {
                                   imageBuilder: (context, imageProvider) =>
                                       Container(
                                     height: size.maxHeight * 0.17,
-                                    width: size.maxWidth * 0.26,
+                                    width: size.maxWidth * 0.18,
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       image: DecorationImage(
@@ -60,8 +60,9 @@ class ProfileView extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  placeholder: (context, url) =>
-                                      const CircularProgressIndicator(),
+                                  placeholder: (context, url) => const Center(
+                                    child: CircularProgressIndicator(),
+                                  ),
                                   errorWidget: (context, url, error) =>
                                       const Icon(Icons.error),
                                 )

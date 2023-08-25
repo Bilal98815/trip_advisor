@@ -42,11 +42,17 @@ class EditProfileView extends StatelessWidget {
                         children: [
                           BlocBuilder<ProfileBloc, ProfileState>(
                             builder: (context, state) {
-                              if (state.user?.imageUrl != null) {
+                              if (state.img != null) {
                                 return CircleAvatar(
                                   radius: 64,
-                                  backgroundImage:
-                                      NetworkImage(state.user?.imageUrl ?? ''),
+                                  backgroundImage: MemoryImage(state.img!),
+                                );
+                              } else if (state.user?.imageUrl != null) {
+                                return CircleAvatar(
+                                  radius: 64,
+                                  backgroundImage: NetworkImage(
+                                    state.user?.imageUrl ?? '',
+                                  ),
                                 );
                               } else {
                                 return const CircleAvatar(
@@ -62,11 +68,12 @@ class EditProfileView extends StatelessWidget {
                             left: 50,
                             child: InkWell(
                               onTap: () async {
-                                await pickImageFromGallery().then((value) {
+                                await pickImageFromGallery(context)
+                                    .then((value) {
                                   img = value;
                                   if (img != null) {
                                     context
-                                        .read<EditProfileBloc>()
+                                        .read<ProfileBloc>()
                                         .add(UpdateImageEvent(img: img!));
                                   }
                                 });
@@ -265,11 +272,32 @@ class EditProfileView extends StatelessWidget {
     );
   }
 
-  Future<Uint8List?> pickImageFromGallery() async {
+  Future<Uint8List?> pickImageFromGallery(BuildContext context) async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (image != null) {
+      context.read<ProfileBloc>().add(UpdateImagePathEvent(img: image.path));
       return image.readAsBytes();
     }
     return null;
+  }
+
+  bool isImage(Uint8List? image) {
+    if (image == null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  String? convertUint8ListToXFile(Uint8List? image) {
+    if (image != null) {
+      final xFile = File.fromRawPath(image);
+      debugPrint(
+        'XFile path -------------->>>>>>> ${xFile.path}',
+      );
+      return xFile.path;
+    } else {
+      return null;
+    }
   }
 }
