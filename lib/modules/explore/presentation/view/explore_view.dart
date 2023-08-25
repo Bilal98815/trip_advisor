@@ -336,7 +336,7 @@ class ExploreView extends StatelessWidget {
                                                 trip: state.oceanTrips[index],
                                               ),
                                             );
-                                        context.go(
+                                        context.goNamed(
                                           TripDetailView.routeName,
                                           extra: {
                                             'tripModel':
@@ -572,7 +572,7 @@ class ExploreView extends StatelessWidget {
                                                     .naturalWondersTrips[index],
                                               ),
                                             );
-                                        context.go(
+                                        context.goNamed(
                                           TripDetailView.routeName,
                                           extra: {
                                             'tripModel': state
