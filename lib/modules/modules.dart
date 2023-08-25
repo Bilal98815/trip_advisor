@@ -1,4 +1,5 @@
 export 'account/account.dart';
+export 'app/app.dart';
 export 'bottom_bar/bottom_bar.dart';
 export 'edit_profile/edit_profile.dart';
 export 'explore/explore.dart';

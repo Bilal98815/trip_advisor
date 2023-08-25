@@ -39,6 +39,28 @@ class LocaleStrings {
   static String get reviewTab => 'bottom_bar_tabs.review'.tr();
   static String get accountTab => 'bottom_bar_tabs.account'.tr();
 
+  //currency preferences
+  static String get currencyTitle => 'currency_preferences.title'.tr();
+  static String get currencyUSDollars =>
+      'currency_preferences.currencies.usDollars'.tr();
+  static String get currencyPounds =>
+      'currency_preferences.currencies.pounds'.tr();
+  static String get currencyEuros =>
+      'currency_preferences.currencies.euros'.tr();
+  static String get currencyCanadianDollars =>
+      'currency_preferences.currencies.canadianDollars'.tr();
+  static String get currencyFrancs =>
+      'currency_preferences.currencies.francs'.tr();
+  static String get currencyAustralianDollars =>
+      'currency_preferences.currencies.australianDollars'.tr();
+  static String get currencyYen => 'currency_preferences.currencies.yen'.tr();
+  static String get currencyYuan => 'currency_preferences.currencies.yuan'.tr();
+  static String get currencyIndianRupees =>
+      'currency_preferences.currencies.indianRupees'.tr();
+  static String get currencyLira => 'currency_preferences.currencies.lira'.tr();
+  static String get currencyDirham =>
+      'currency_preferences.currencies.dirham'.tr();
+
   //edit profile
   static String get editProfileTitle => 'edit_profile.title'.tr();
   static String get editProfileSaveButton => 'edit_profile.save_button'.tr();
@@ -87,6 +109,11 @@ class LocaleStrings {
       'forgot_password.dialog.back_button'.tr();
   static String get forgotPasswordDialogResendButton =>
       'forgot_password.dialog.resend_button'.tr();
+
+  //language preferences
+  static String get languageTitle => 'language_preferences.title'.tr();
+  static String get languageEnglishUK => 'language_preferences.english_uk'.tr();
+  static String get languageEnglishUS => 'language_preferences.english_us'.tr();
 
   //location data
   static String get locationDataHeading => 'location_data.heading'.tr();
@@ -165,11 +192,6 @@ class LocaleStrings {
   static String get preferencesTileNotifications =>
       'preferences.tiles.notifications'.tr();
   static String get preferencesTilePrivacy => 'preferences.tiles.privacy'.tr();
-
-  //language preferences
-  static String get languageTitle => 'language_preferences.title'.tr();
-  static String get languageEnglishUK => 'language_preferences.english_uk'.tr();
-  static String get languageEnglishUS => 'language_preferences.english_us'.tr();
 
   // profile
   static String get profileTitle => 'profile.title'.tr();

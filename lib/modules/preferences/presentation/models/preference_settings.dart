@@ -2,20 +2,21 @@ part of 'models.dart';
 
 class PreferenceSettings extends Equatable {
   const PreferenceSettings({
-    required this.language,
-    required this.currency,
-    required this.units,
+    this.language = Languages.englishUK,
+    this.currency = Currencies.usDollars,
+    this.units = '',
   });
 
   final Languages language;
-  final String currency;
+  final Currencies currency;
   final String units;
 
   static PreferenceSettings fromJson(Map<String, dynamic> json) =>
       PreferenceSettings(
         language:
             Languages.values.byName(json['language'] as String? ?? 'englishUK'),
-        currency: json['currency'] as String? ?? '',
+        currency: Currencies.values
+            .byName(json['currency'] as String? ?? 'usDollars'),
         units: json['units'] as String? ?? '',
       );
 
@@ -27,7 +28,7 @@ class PreferenceSettings extends Equatable {
 
   PreferenceSettings copyWith({
     Languages? language,
-    String? currency,
+    Currencies? currency,
     String? units,
   }) {
     return PreferenceSettings(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/helpers/helpers.dart';
+import 'package:trip_advisor/modules/currency_preferences.dart/currency_preferences.dart';
 import 'package:trip_advisor/modules/modules.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -115,7 +116,12 @@ class AppRouter {
                     path: LanguagePreferencesView.routeName,
                     builder: (context, state) =>
                         const LanguagePreferencesView(),
-                  )
+                  ),
+                  GoRoute(
+                    path: CurrencyPreferencesView.routeName,
+                    builder: (context, state) =>
+                        const CurrencyPreferencesView(),
+                  ),
                 ],
               ),
               GoRoute(

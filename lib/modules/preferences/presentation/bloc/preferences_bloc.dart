@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:trip_advisor/common/common.dart';
+import 'package:trip_advisor/modules/currency_preferences.dart/presentation/models/models.dart';
 import 'package:trip_advisor/modules/language_preferences/language_preferences.dart';
 import 'package:trip_advisor/modules/preferences/preferences.dart';
 
@@ -16,6 +17,10 @@ class PreferencesBloc extends Bloc<PreferencesEvent, PreferencesState> {
     on<PreferencesLanguageChanged>(
       (event, emit) => updateLanguage(event.language, emit),
     );
+
+    on<PreferencesCurrencyChanged>(
+      (event, emit) => updateCurrency(event.currency, emit),
+    );
   }
 
   final PreferencesRepository preferencesRepository;
@@ -23,9 +28,15 @@ class PreferencesBloc extends Bloc<PreferencesEvent, PreferencesState> {
   Future<void> onGetRequested(Emitter<PreferencesState> emit) async {
     final String email = await Preferences().getEmail() ?? '';
 
-    final language = await preferencesRepository.getLanguage(email: email);
+    final preferences =
+        await preferencesRepository.getPreferences(email: email);
 
-    emit(state.copyWith(language: language));
+    emit(
+      state.copyWith(
+        language: preferences?.language,
+        currency: preferences?.currency,
+      ),
+    );
   }
 
   Future<void> updateLanguage(
@@ -39,5 +50,18 @@ class PreferencesBloc extends Bloc<PreferencesEvent, PreferencesState> {
       language: language,
     );
     emit(state.copyWith(language: language));
+  }
+
+  Future<void> updateCurrency(
+    Currencies currency,
+    Emitter<PreferencesState> emit,
+  ) async {
+    final String email = await Preferences().getEmail() ?? '';
+
+    await preferencesRepository.updateCurrency(
+      email: email,
+      currency: currency,
+    );
+    emit(state.copyWith(currency: currency));
   }
 }

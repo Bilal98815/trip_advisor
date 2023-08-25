@@ -31,6 +31,7 @@ class PreferenceTile extends StatelessWidget {
                     maxWidth: 150,
                     minHeight: 40,
                   ),
+                  alignment: Alignment.centerRight,
                   child: Padding(
                     padding: const EdgeInsets.only(right: 15),
                     child: Text(

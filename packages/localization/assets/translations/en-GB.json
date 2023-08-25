@@ -41,6 +41,23 @@
     "account": "Account"
   },
 
+  "currency_preferences": {
+    "title": "Select Currency",
+    "currencies": {
+      "usDollars": "U.S. Dollars",
+      "pounds": "British Pounds",
+      "euros": "Euros",
+      "canadianDollars": "Canadian Dollars",
+      "francs": "Swiss Francs",
+      "australianDollars": "Australian Dollars",
+      "yen": "Japanese Yen",
+      "yuan": "Chinese Yuan",
+      "indianRupees": "Indian Rupees",
+      "lira": "Turkish Lira",
+      "dirham": "UAE Dirham"
+    }
+  },
+
   "edit_profile": {
     "title": "Edit Profile",
     "save_button": "Save",

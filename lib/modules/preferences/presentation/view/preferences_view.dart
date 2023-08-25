@@ -39,7 +39,11 @@ class PreferencesView extends StatelessWidget {
               ),
               PreferenceTile(
                 title: LocaleStrings.preferencesTileCurrency,
-                onTap: () {},
+                onTap: () => context.go(CurrencyPreferencesView.route()),
+                details: context.select(
+                  (PreferencesBloc bloc) =>
+                      bloc.state.currency.currency.currency,
+                ),
               ),
               PreferenceTile(
                 title: LocaleStrings.preferencesTileUnits,

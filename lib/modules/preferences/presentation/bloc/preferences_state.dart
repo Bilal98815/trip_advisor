@@ -3,17 +3,17 @@ part of 'preferences_bloc.dart';
 class PreferencesState extends Equatable {
   const PreferencesState({
     this.language = Languages.englishUK,
-    this.currency = '',
+    this.currency = Currencies.usDollars,
     this.units = '',
   });
 
   final Languages language;
-  final String currency;
+  final Currencies currency;
   final String units;
 
   PreferencesState copyWith({
     Languages? language,
-    String? currency,
+    Currencies? currency,
     String? units,
   }) {
     return PreferencesState(
