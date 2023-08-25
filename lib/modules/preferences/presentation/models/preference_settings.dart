@@ -4,12 +4,12 @@ class PreferenceSettings extends Equatable {
   const PreferenceSettings({
     this.language = Languages.englishUK,
     this.currency = Currencies.usDollars,
-    this.units = '',
+    this.units = Units.imperial,
   });
 
   final Languages language;
   final Currencies currency;
-  final String units;
+  final Units units;
 
   static PreferenceSettings fromJson(Map<String, dynamic> json) =>
       PreferenceSettings(
@@ -17,7 +17,7 @@ class PreferenceSettings extends Equatable {
             Languages.values.byName(json['language'] as String? ?? 'englishUK'),
         currency: Currencies.values
             .byName(json['currency'] as String? ?? 'usDollars'),
-        units: json['units'] as String? ?? '',
+        units: Units.values.byName(json['units'] as String? ?? 'imperial'),
       );
 
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -29,7 +29,7 @@ class PreferenceSettings extends Equatable {
   PreferenceSettings copyWith({
     Languages? language,
     Currencies? currency,
-    String? units,
+    Units? units,
   }) {
     return PreferenceSettings(
       language: language ?? this.language,

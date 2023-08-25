@@ -32,4 +32,14 @@ class PreferencesFirebaseAPI {
         .doc(email)
         .update({'preferences.currency': currency.name});
   }
+
+  Future<void> updateUnits({
+    required String email,
+    required Units units,
+  }) async {
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(email)
+        .update({'preferences.units': units.name});
+  }
 }

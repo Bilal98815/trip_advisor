@@ -268,6 +268,19 @@ class LocaleStrings {
   static String get supportTerms => 'support.terms'.tr();
   static String get supportLicenses => 'support.open_source_license'.tr();
 
+  //unit_preferences
+  static String get unitsTitle => 'unit_preferences.title'.tr();
+
+  static String get unitsImperialLarge =>
+      'unit_preferences.units.imperial.large'.tr();
+  static String get unitsImperialSmall =>
+      'unit_preferences.units.imperial.small'.tr();
+
+  static String get unitsMetricLarge =>
+      'unit_preferences.units.metric.large'.tr();
+  static String get unitsMetricSmall =>
+      'unit_preferences.units.metric.small'.tr();
+
   // user_data
   static String get userDataHeading => 'user_data.heading'.tr();
   static String get userDataNameFieldTitle => 'user_data.name_field_title'.tr();

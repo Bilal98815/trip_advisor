@@ -47,7 +47,13 @@ class PreferencesView extends StatelessWidget {
               ),
               PreferenceTile(
                 title: LocaleStrings.preferencesTileUnits,
-                onTap: () {},
+                onTap: () => showModalBottomSheet<void>(
+                  context: context,
+                  builder: (context) => const UnitPreferencesView(),
+                ),
+                details: context.select(
+                  (PreferencesBloc bloc) => bloc.state.units.unit.toString(),
+                ),
               ),
               PreferenceTile(
                 title: LocaleStrings.preferencesTilePayment,

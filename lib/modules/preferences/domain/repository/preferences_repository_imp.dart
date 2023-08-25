@@ -24,4 +24,12 @@ class PreferencesRepositoryImp implements PreferencesRepository {
   }) {
     return preferencesAPI.updateCurrency(email: email, currency: currency);
   }
+
+  @override
+  Future<void> updateUnits({
+    required String email,
+    required Units units,
+  }) {
+    return preferencesAPI.updateUnits(email: email, units: units);
+  }
 }

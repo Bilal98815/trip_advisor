@@ -12,4 +12,9 @@ abstract class PreferencesRepository {
     required String email,
     required Currencies currency,
   });
+
+  Future<void> updateUnits({
+    required String email,
+    required Units units,
+  });
 }

@@ -6,5 +6,6 @@ import 'package:trip_advisor/common/common.dart';
 import 'package:trip_advisor/modules/currency_preferences.dart/currency_preferences.dart';
 import 'package:trip_advisor/modules/language_preferences/language_preferences.dart';
 import 'package:trip_advisor/modules/preferences/preferences.dart';
+import 'package:trip_advisor/modules/unit_preferences/unit_preferences.dart';
 
 part 'preferences_view.dart';

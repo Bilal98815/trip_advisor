@@ -247,6 +247,14 @@
     "open_source_license": "Open source licenses"
   },
 
+  "unit_preferences": {
+    "title": "Select Units", 
+    "units": {
+      "imperial": {"large": "Miles", "small": "Feet"},
+      "metric": {"large": "Kilometers", "small": "Meters"}
+    }
+  },
+
   "user_data": {
     "heading": "Let's get the basics so we can give you the goods",
     "name_field_title": "What should we call you?",

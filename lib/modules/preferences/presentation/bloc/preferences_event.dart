@@ -13,3 +13,8 @@ class PreferencesCurrencyChanged extends PreferencesEvent {
   PreferencesCurrencyChanged(this.currency);
   final Currencies currency;
 }
+
+class PreferencesUnitsChanged extends PreferencesEvent {
+  PreferencesUnitsChanged(this.units);
+  final Units units;
+}

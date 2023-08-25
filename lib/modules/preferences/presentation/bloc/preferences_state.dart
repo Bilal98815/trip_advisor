@@ -4,17 +4,17 @@ class PreferencesState extends Equatable {
   const PreferencesState({
     this.language = Languages.englishUK,
     this.currency = Currencies.usDollars,
-    this.units = '',
+    this.units = Units.imperial,
   });
 
   final Languages language;
   final Currencies currency;
-  final String units;
+  final Units units;
 
   PreferencesState copyWith({
     Languages? language,
     Currencies? currency,
-    String? units,
+    Units? units,
   }) {
     return PreferencesState(
       language: language ?? this.language,
