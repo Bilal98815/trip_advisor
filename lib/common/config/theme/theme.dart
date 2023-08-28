@@ -5,57 +5,22 @@ import 'package:trip_advisor/common/constants/constants.dart';
 
 class TripAdvisorTheme {
   static TextTheme textTheme = const TextTheme(
-    titleLarge: TextStyle(
-      fontSize: 32,
-      fontWeight: FontWeight.w900,
-    ),
+    titleSmall: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+    titleMedium: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+    titleLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.w900),
 
-    titleMedium: TextStyle(
-      fontSize: 22,
-      fontWeight: FontWeight.w700,
-    ),
+    bodySmall: TextStyle(fontSize: 11, fontWeight: FontWeight.w300),
+    bodyMedium: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
 
-    titleSmall: TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w600,
-    ),
-
-    bodyMedium: TextStyle(
-      fontSize: 15,
-      fontWeight: FontWeight.w400,
-    ),
-
-    bodySmall: TextStyle(
-      fontSize: 11,
-      fontWeight: FontWeight.w300,
-    ),
-
-    labelSmall: TextStyle(
-      fontSize: 15,
-      fontWeight: FontWeight.bold,
-    ),
-
+    labelSmall: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
     //used in onboarding buttons
-    labelMedium: TextStyle(
-      fontSize: 17,
-      fontWeight: FontWeight.w500,
-    ),
-
-    labelLarge: TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.w600,
-    ),
+    labelMedium: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+    labelLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
 
     //used in primary buttons
-    headlineSmall: TextStyle(
-      fontSize: 20,
-      fontWeight: FontWeight.w500,
-    ),
+    headlineSmall: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
 
-    displayMedium: TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w500,
-    ),
+    displayMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
 
     // used in imageContainer widget in review screen
     displayLarge: TextStyle(
@@ -70,13 +35,14 @@ class TripAdvisorTheme {
       useMaterial3: true,
       appBarTheme: const AppBarTheme(
         centerTitle: true,
-        backgroundColor: kWhite,
+        backgroundColor: kTransparent,
         iconTheme: IconThemeData(color: kBlack, size: 20),
         titleTextStyle: TextStyle(
           color: kBlack,
           fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
+        elevation: 0,
       ),
       hintColor: kDarkGrey,
       disabledColor: kGrey,

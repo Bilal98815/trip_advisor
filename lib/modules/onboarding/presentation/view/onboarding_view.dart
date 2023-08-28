@@ -8,6 +8,8 @@ class OnboardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Assets assets = AssetProvider.of(context).assets;
+
     return Scaffold(
       body: SafeArea(
         child: LayoutBuilder(
@@ -19,9 +21,7 @@ class OnboardingView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: size.maxHeight * 0.04,
-                  ),
+                  SizedBox(height: size.maxHeight * 0.04),
                   Align(
                     alignment: Alignment.topRight,
                     child: Text(
@@ -39,7 +39,7 @@ class OnboardingView extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     padding: const EdgeInsets.all(15.0),
-                    child: Center(child: Image.asset('assets/owl.png')),
+                    child: Center(child: Image.asset(assets.owlLogo)),
                   ),
                   Text(
                     LocaleStrings.onboardingHeading,
@@ -47,9 +47,7 @@ class OnboardingView extends StatelessWidget {
                     textAlign: TextAlign.left,
                     overflow: TextOverflow.clip,
                   ),
-                  SizedBox(
-                    height: size.maxHeight * 0.02,
-                  ),
+                  SizedBox(height: size.maxHeight * 0.02),
                   RichText(
                     text: TextSpan(
                       text: LocaleStrings.onboardingTextLine1,
@@ -74,23 +72,19 @@ class OnboardingView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: size.maxHeight * 0.04,
-                  ),
+                  SizedBox(height: size.maxHeight * 0.04),
                   OnboardingButton(
                     size: size,
                     title: LocaleStrings.onboardingGoogleButton,
-                    image: 'assets/google.png',
+                    image: assets.gmailIcon,
                     onTap: () {},
                   ),
-                  SizedBox(
-                    height: size.maxHeight * 0.02,
-                  ),
+                  SizedBox(height: size.maxHeight * 0.02),
                   OnboardingButton(
                     size: size,
                     title: LocaleStrings.onboardingEmailButton,
+                    image: assets.emailIcon,
                     onTap: () => context.go(LoginView.route()),
-                    image: 'assets/email.png',
                   ),
                 ],
               ),

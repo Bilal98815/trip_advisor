@@ -21,6 +21,12 @@ class TripAdvisorAppView extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: TripAdvisorTheme.light,
             darkTheme: TripAdvisorTheme.dark,
+            builder: (context, child) => AssetProvider(
+              assets: Theme.of(context).brightness == Brightness.dark
+                  ? DarkThemeAssets()
+                  : LightThemeAssets(),
+              child: child ?? Container(),
+            ),
           );
         },
       ),
