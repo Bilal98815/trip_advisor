@@ -11,6 +11,8 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
 
+    final Assets assets = AssetProvider.of(context).assets;
+
     return Scaffold(
       appBar: CustomAppBar(
         title: LocaleStrings.profileTitle,
@@ -53,10 +55,11 @@ class ProfileView extends StatelessWidget {
                                   ),
                                 )
                               else
-                                const CircleAvatar(
+                                CircleAvatar(
                                   radius: 50,
-                                  backgroundImage:
-                                      AssetImage('assets/mine.jpg'),
+                                  backgroundImage: AssetImage(
+                                    assets.defaultProfilePic,
+                                  ),
                                 ),
                               SizedBox(width: size.maxWidth * 0.06),
                               Column(
@@ -102,7 +105,7 @@ class ProfileView extends StatelessWidget {
                                 ? LocaleStrings.profileCity
                                 : state.user?.country ?? '',
                             onTap: () => context.go(EditProfilePage.route()),
-                            image: 'assets/placeholder.png',
+                            image: assets.profileCityIcon,
                           ),
                           SizedBox(height: size.maxHeight * 0.025),
                           PersonalDetailTile(
@@ -111,7 +114,7 @@ class ProfileView extends StatelessWidget {
                                 ? LocaleStrings.profileWebsite
                                 : state.user?.website ?? '',
                             onTap: () => context.go(EditProfilePage.route()),
-                            image: 'assets/link.png',
+                            image: assets.profileWebsiteIcon,
                           ),
                           SizedBox(height: size.maxHeight * 0.06),
                           const Divider(),

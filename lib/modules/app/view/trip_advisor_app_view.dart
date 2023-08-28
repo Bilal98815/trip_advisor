@@ -27,8 +27,12 @@ class TripAdvisorAppView extends StatelessWidget {
                   (PreferencesBloc bloc) => bloc.state.language.language.locale,
                 ),
               );
-              //TODO: wrap with assetProvider instead
-              return Container(child: child);
+              return AssetProvider(
+                assets: Theme.of(context).brightness == Brightness.dark
+                    ? DarkThemeAssets()
+                    : LightThemeAssets(),
+                child: child ?? Container(),
+              );
             },
           );
         },

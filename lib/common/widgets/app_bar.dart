@@ -18,13 +18,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(title),
-      leading: Padding(
-        padding: const EdgeInsets.only(left: 5),
-        child: GestureDetector(
-          onTap: () => onBack ?? context.pop(),
-          child: const Icon(Icons.arrow_back_ios_new),
-        ),
-      ),
+      leading: allowBack
+          ? Padding(
+              padding: const EdgeInsets.only(left: 5),
+              child: GestureDetector(
+                onTap: () => onBack ?? context.pop(),
+                child: const Icon(Icons.arrow_back_ios_new),
+              ),
+            )
+          : null,
       actions: actions,
     );
   }

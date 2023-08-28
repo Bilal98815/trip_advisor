@@ -7,6 +7,8 @@ class ReviewView extends StatelessWidget {
   Widget build(BuildContext context) {
     BlocProvider.of<ProfileBloc>(context).add(GetUserEvent());
 
+    final Assets assets = AssetProvider.of(context).assets;
+
     return Scaffold(
       floatingActionButton: LayoutBuilder(
         builder: (context, size) {
@@ -16,6 +18,9 @@ class ReviewView extends StatelessWidget {
                 backgroundColor: Theme.of(context).colorScheme.onBackground,
                 overlayColor: kTransparent,
                 icon: state.isChangeIcon ? Icons.close : Icons.add,
+                iconTheme: IconThemeData(
+                  color: Theme.of(context).colorScheme.background,
+                ),
                 onOpen: () {
                   context.read<ReviewBloc>().add(IsChangeEvent(isChange: true));
                 },
@@ -36,14 +41,13 @@ class ReviewView extends StatelessWidget {
                       _pickImageFromGallery();
                     },
                     child: Image.asset(
-                      'assets/gallery.png',
+                      assets.speedDialPhotoIcon,
                       width: size.maxWidth * 0.045,
                     ),
                     labelWidget: Text(
                       LocaleStrings.uploadPhotoButton,
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            fontWeight: FontWeight.w500,
-                            color: Theme.of(context).colorScheme.background,
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            color: kWhite,
                           ),
                     ),
                   ),
@@ -56,14 +60,13 @@ class ReviewView extends StatelessWidget {
                           .add(IsChangeEvent(isChange: false));
                     },
                     child: Image.asset(
-                      'assets/pen.png',
+                      assets.speedDialReviewIcon,
                       width: size.maxWidth * 0.045,
                     ),
                     labelWidget: Text(
                       LocaleStrings.writeReviewButton,
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            fontWeight: FontWeight.w500,
-                            color: Theme.of(context).colorScheme.background,
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            color: kWhite,
                           ),
                     ),
                   ),
@@ -79,14 +82,13 @@ class ReviewView extends StatelessWidget {
                       );
                     },
                     child: Image.asset(
-                      'assets/pin_black.png',
+                      assets.speedDialPhotoIcon,
                       width: size.maxWidth * 0.045,
                     ),
                     labelWidget: Text(
                       LocaleStrings.reviewAddPlaceButton,
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            fontWeight: FontWeight.w500,
-                            color: Theme.of(context).colorScheme.background,
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            color: kWhite,
                           ),
                     ),
                   ),
@@ -132,17 +134,15 @@ class ReviewView extends StatelessWidget {
                           Container(
                             width: size.maxWidth * 0.11,
                             height: size.maxHeight * 0.06,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
-                                image: AssetImage('assets/mine.jpg'),
+                                image: AssetImage(assets.defaultProfilePic),
                                 fit: BoxFit.cover,
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: size.maxWidth * 0.06,
-                          ),
+                          SizedBox(width: size.maxWidth * 0.06),
                           BlocBuilder<ProfileBloc, ProfileState>(
                             builder: (context, state) {
                               return Column(

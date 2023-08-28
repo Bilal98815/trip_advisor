@@ -8,7 +8,7 @@ extension TabsX on Tabs {
       case Tabs.explore:
         return IconTab(
           label: LocaleStrings.exploreTab,
-          icon: Icons.home_rounded,
+          icon: Icons.home_outlined,
           route: ExploreView.route(),
         );
       case Tabs.search:
@@ -20,19 +20,19 @@ extension TabsX on Tabs {
       case Tabs.plan:
         return IconTab(
           label: LocaleStrings.planTab,
-          icon: Icons.favorite,
+          icon: Icons.favorite_border,
           route: PlanTripPage.route(),
         );
       case Tabs.review:
         return IconTab(
           label: LocaleStrings.reviewTab,
-          icon: Icons.create,
+          icon: Icons.create_outlined,
           route: ReviewPage.route(),
         );
       case Tabs.account:
         return IconTab(
           label: LocaleStrings.accountTab,
-          icon: Icons.person,
+          icon: Icons.account_circle_outlined,
           route: AccountView.route(),
         );
       default:
