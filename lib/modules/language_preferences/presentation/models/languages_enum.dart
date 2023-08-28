@@ -9,13 +9,13 @@ extension LanguagesX on Languages {
         return Language(
           name: 'English (United Kingdom)',
           localizedName: LocaleStrings.languageEnglishUK,
-          locale: kSupportedLocales[0],
+          locale: kLocaleEnglishUK,
         );
       case Languages.englishUS:
         return Language(
           name: 'English (United States)',
           localizedName: LocaleStrings.languageEnglishUS,
-          locale: kSupportedLocales[1],
+          locale: kLocaleEnglishUS,
         );
     }
   }
