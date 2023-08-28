@@ -1,6 +1,7 @@
 export 'account/account.dart';
 export 'app/app.dart';
 export 'bottom_bar/bottom_bar.dart';
+export 'currency_preferences.dart/currency_preferences.dart';
 export 'edit_profile/edit_profile.dart';
 export 'explore/explore.dart';
 export 'forgot_password/forgot_password.dart';
@@ -16,4 +17,5 @@ export 'search/search.dart';
 export 'signup/signup.dart';
 export 'splash/splash.dart';
 export 'support/support.dart';
+export 'unit_preferences/unit_preferences.dart';
 export 'user_data/user_data.dart';
