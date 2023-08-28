@@ -63,7 +63,9 @@ class PlanTripView extends StatelessWidget {
                     Expanded(
                       child: TabBarView(
                         children: [
-                          TripsView(size: size),
+                          TripsView(
+                            size: size,
+                          ),
                           Column(
                             children: [
                               SizedBox(

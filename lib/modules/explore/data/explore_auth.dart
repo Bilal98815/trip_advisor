@@ -39,6 +39,7 @@ class ExploreAuth {
         isTravellersChoice: doc.get('isTravellersChoice') as int,
         description: doc.get('description') as String,
         location: doc.get('location') as String,
+        isFavourite: false,
       );
       trips.add(trip);
     }
@@ -60,6 +61,7 @@ class ExploreAuth {
         isTravellersChoice: doc.get('isTravellersChoice') as int,
         description: doc.get('description') as String,
         location: doc.get('location') as String,
+        isFavourite: false,
       );
       trips.add(trip);
     }
@@ -82,6 +84,7 @@ class ExploreAuth {
         isTravellersChoice: doc.get('isTravellersChoice') as int,
         description: doc.get('description') as String,
         location: doc.get('location') as String,
+        isFavourite: false,
       );
       trips.add(trip);
     }
@@ -102,6 +105,7 @@ class ExploreAuth {
         isTravellersChoice: 0,
         description: '',
         location: '',
+        isFavourite: false,
       );
       trips.add(trip);
     }
@@ -122,6 +126,7 @@ class ExploreAuth {
         isTravellersChoice: 0,
         description: '',
         location: '',
+        isFavourite: false,
       );
       trips.add(trip);
     }

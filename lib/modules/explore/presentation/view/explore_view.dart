@@ -153,6 +153,7 @@ class ExploreView extends StatelessWidget {
                                           return TripCard(
                                             tripModel: state.recentTrips[index],
                                             size: size,
+                                            favouriteTap: () {},
                                             onTap: () {
                                               context.goNamed(
                                                 TripDetailView.routeName,
@@ -240,6 +241,7 @@ class ExploreView extends StatelessWidget {
                                     return TripCard(
                                       tripModel: state.trips[index],
                                       size: size,
+                                      favouriteTap: () {},
                                       onTap: () {
                                         context.read<ExploreBloc>().add(
                                               AddToRecentTipsEvent(
@@ -330,6 +332,7 @@ class ExploreView extends StatelessWidget {
                                     return TripCard(
                                       tripModel: state.oceanTrips[index],
                                       size: size,
+                                      favouriteTap: () {},
                                       onTap: () {
                                         context.read<ExploreBloc>().add(
                                               AddToRecentTipsEvent(
@@ -565,6 +568,7 @@ class ExploreView extends StatelessWidget {
                                       tripModel:
                                           state.naturalWondersTrips[index],
                                       size: size,
+                                      favouriteTap: () {},
                                       onTap: () {
                                         context.read<ExploreBloc>().add(
                                               AddToRecentTipsEvent(

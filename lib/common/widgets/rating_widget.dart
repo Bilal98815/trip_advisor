@@ -1,10 +1,17 @@
 part of 'widgets.dart';
 
 class RatingWidget extends StatelessWidget {
-  const RatingWidget({required this.rating, required this.size, super.key});
+  const RatingWidget(
+      {required this.rating,
+      required this.size,
+      required this.iconSize,
+      required this.ratingImageSize,
+      super.key});
 
   final double rating;
   final BoxConstraints size;
+  final double iconSize;
+  final double ratingImageSize;
 
   @override
   Widget build(BuildContext context) {
@@ -15,19 +22,21 @@ class RatingWidget extends StatelessWidget {
         5,
         (index) {
           if (index < fullStars) {
-            return const Icon(
+            return Icon(
               Icons.circle,
-              color: Color(0xFF3DB489),
+              color: const Color(0xFF3DB489),
+              size: iconSize,
             );
           } else if (index == fullStars && hasFullStar) {
             return Image.asset(
               'assets/half_circle.png',
-              width: size.maxWidth * 0.036,
+              width: ratingImageSize,
             );
           } else {
-            return const Icon(
+            return Icon(
               Icons.circle_outlined,
-              color: Color(0xFF3DB489),
+              color: const Color(0xFF3DB489),
+              size: iconSize,
             );
           }
         },

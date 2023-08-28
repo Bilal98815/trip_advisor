@@ -5,12 +5,14 @@ class TripCard extends StatelessWidget {
     required this.tripModel,
     required this.size,
     required this.onTap,
+    required this.favouriteTap,
     super.key,
   });
 
   final TripModel tripModel;
   final BoxConstraints size;
   final VoidCallback onTap;
+  final VoidCallback favouriteTap;
 
   @override
   Widget build(BuildContext context) {
@@ -52,18 +54,25 @@ class TripCard extends StatelessWidget {
                     right: 10,
                     child: Align(
                       alignment: Alignment.topRight,
-                      child: Container(
-                        width: size.maxWidth * 0.1,
-                        height: size.maxHeight * 0.06,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Theme.of(context).colorScheme.onPrimary,
-                        ),
-                        child: const Center(
-                          child: Icon(
-                            Icons.favorite_border,
-                            color: kBlack,
-                            size: 25,
+                      child: InkWell(
+                        onTap: favouriteTap,
+                        child: Container(
+                          width: size.maxWidth * 0.1,
+                          height: size.maxHeight * 0.06,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: tripModel.isFavourite ?? false
+                                ? kRed
+                                : Theme.of(context).colorScheme.onPrimary,
+                          ),
+                          child: Center(
+                            child: Icon(
+                              tripModel.isFavourite ?? false
+                                  ? Icons.favorite
+                                  : Icons.favorite_border,
+                              color: kBlack,
+                              size: 25,
+                            ),
                           ),
                         ),
                       ),
@@ -132,6 +141,8 @@ class TripCard extends StatelessWidget {
               children: [
                 RatingWidget(
                   rating: tripModel.rating ?? 0,
+                  iconSize: 18,
+                  ratingImageSize: size.maxWidth * 0.036,
                   size: size,
                 ),
                 SizedBox(

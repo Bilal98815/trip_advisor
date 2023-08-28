@@ -9,6 +9,7 @@ class TripModel {
     this.rating,
     this.description,
     this.location,
+    this.isFavourite,
   });
 
   TripModel.fromJson(Map<String, dynamic> json) {
@@ -19,6 +20,7 @@ class TripModel {
     rating = json['rating'] as double;
     description = json['description'] as String;
     location = json['location'] as String;
+    isFavourite = json['isFavourite'] as bool;
   }
   String? image;
   int? isTravellersChoice;
@@ -27,6 +29,7 @@ class TripModel {
   double? rating;
   String? description;
   String? location;
+  bool? isFavourite;
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -37,6 +40,7 @@ class TripModel {
     data['rating'] = rating;
     data['description'] = description;
     data['location'] = location;
+    data['isFavourite'] = isFavourite;
     return data;
   }
 }
