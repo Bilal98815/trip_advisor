@@ -12,6 +12,7 @@ class UserModel {
     this.imageUrl,
     this.bio,
     this.time,
+    this.preferences,
   });
 
   UserModel.fromJson(Map<String, dynamic> json) {
@@ -24,7 +25,10 @@ class UserModel {
     time = json['time'] as Timestamp;
     website = json['website'] as String;
     imageUrl = json['imageUrl'] as String;
-    photos = json['photos'] as List<dynamic>;
+    photos = json['photos'] as List<dynamic>? ?? [];
+    preferences = PreferenceSettings.fromJson(
+      json['preferences'] as Map<String, dynamic>? ?? {},
+    );
   }
   String? email;
   String? name;
@@ -36,6 +40,7 @@ class UserModel {
   String? imageUrl;
   List<dynamic>? photos;
   String? website;
+  PreferenceSettings? preferences;
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -49,6 +54,7 @@ class UserModel {
     data['imageUrl'] = imageUrl;
     data['website'] = website;
     data['location'] = location;
+    data['preferences'] = preferences?.toJson();
     return data;
   }
 
@@ -63,6 +69,7 @@ class UserModel {
     String? imageUrl,
     List<dynamic>? photos,
     String? website,
+    PreferenceSettings? preferences,
   }) {
     return UserModel(
       email: email ?? this.email,
@@ -75,6 +82,7 @@ class UserModel {
       imageUrl: imageUrl ?? this.imageUrl,
       photos: photos ?? this.photos,
       website: website ?? this.website,
+      preferences: preferences ?? this.preferences,
     );
   }
 }

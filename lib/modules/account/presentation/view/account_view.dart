@@ -10,6 +10,7 @@ class AccountView extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextTheme textTheme = Theme.of(context).textTheme;
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final Assets assets = AssetProvider.of(context).assets;
 
     return Scaffold(
       body: SafeArea(
@@ -33,10 +34,10 @@ class AccountView extends StatelessWidget {
                           Container(
                             width: size.maxWidth * 0.11,
                             height: size.maxHeight * 0.1,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
-                                image: AssetImage('assets/mine.jpg'),
+                                image: AssetImage(assets.defaultProfilePic),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -47,19 +48,19 @@ class AccountView extends StatelessWidget {
                       if (state.signOutCondition ==
                           SignOutCondition.signIn) ...[
                         ProfileSettingsTile(
-                          image: 'assets/invoice.png',
+                          image: assets.bookingsIcon,
                           onTap: () => UrlLauncher().launchCustomUrl(
                             Uri.parse('https://www.google.com'),
                           ),
                           title: LocaleStrings.bookingsTile,
                         ),
                         ProfileSettingsTile(
-                          image: 'assets/user.png',
+                          image: assets.profileIcon,
                           onTap: () => context.go(ProfileView.route()),
                           title: LocaleStrings.profileTile,
                         ),
                         ProfileSettingsTile(
-                          image: 'assets/mail.png',
+                          image: assets.messagesIcon,
                           onTap: () => UrlLauncher().launchCustomUrl(
                             Uri.parse('https://www.google.com'),
                           ),
@@ -72,17 +73,17 @@ class AccountView extends StatelessWidget {
                         SizedBox(height: size.maxHeight * 0.05),
                       ],
                       ProfileSettingsTile(
-                        image: 'assets/settings.png',
-                        onTap: () {},
+                        image: assets.preferencesIcon,
+                        onTap: () => context.go(PreferencesView.route()),
                         title: LocaleStrings.preferencesTile,
                       ),
                       ProfileSettingsTile(
-                        image: 'assets/question.png',
+                        image: assets.supportIcon,
                         onTap: () => context.go(SupportView.route()),
                         title: LocaleStrings.supportTile,
                       ),
                       ProfileSettingsTile(
-                        image: 'assets/owl_white.png',
+                        image: assets.tripAdvisorIcon,
                         onTap: () => UrlLauncher().launchCustomUrl(
                           Uri.parse('https://www.google.com'),
                         ),

@@ -21,6 +21,13 @@ class MyApp extends StatelessWidget {
           ),
         ),
         BlocProvider(
+          create: (context) => PreferencesBloc(
+            preferencesRepository: PreferencesRepositoryImp(
+              preferencesAPI: PreferencesFirebaseAPI(),
+            ),
+          )..add(PreferencesGetPreferences()),
+        ),
+        BlocProvider(
           create: (context) => ExploreBloc(
             exploreRepository: ExploreRepositoryImp(
               exploreAuth: ExploreAuth(),

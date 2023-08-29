@@ -41,6 +41,23 @@
     "account": "Account"
   },
 
+  "currency_preferences": {
+    "title": "Select Currency",
+    "currencies": {
+      "usDollars": "U.S. Dollars",
+      "pounds": "British Pounds",
+      "euros": "Euros",
+      "canadianDollars": "Canadian Dollars",
+      "francs": "Swiss Francs",
+      "australianDollars": "Australian Dollars",
+      "yen": "Japanese Yen",
+      "yuan": "Chinese Yuan",
+      "indianRupees": "Indian Rupees",
+      "lira": "Turkish Lira",
+      "dirham": "UAE Dirham"
+    }
+  },
+
   "edit_profile": {
     "title": "Edit Profile",
     "save_button": "Save",
@@ -114,6 +131,12 @@
     }
   },
 
+  "language_preferences": {
+    "title": "Language",
+    "english_uk": "English (United Kingdom)", 
+    "english_us": "English (United States)"
+  },
+
   "location_data": {
     "heading": "Discover traveler recommended spots near you, wherever you are",
     "allow": "Allow Location Data",
@@ -176,6 +199,19 @@
     "saves": {
       "saves_text": "No Saves yet",
       "places_text": "Places you save will appear here."
+    }
+  },
+
+  "preferences": {
+    "title": "Preferences", 
+    "tiles": {
+      "account_info": "Account Info", 
+      "language": "Language", 
+      "currency": "Currency", 
+      "units": "Units", 
+      "payment": "Payment Preferences", 
+      "notifications": "Notifications", 
+      "privacy": "Manage Privacy"
     }
   },
 
@@ -245,6 +281,14 @@
     "privacy_policy": "Privacy policy",
     "terms": "Terms of use",
     "open_source_license": "Open source licenses"
+  },
+
+  "unit_preferences": {
+    "title": "Select Units", 
+    "units": {
+      "imperial": {"large": "Miles", "small": "Feet"},
+      "metric": {"large": "Kilometers", "small": "Meters"}
+    }
   },
 
   "user_data": {

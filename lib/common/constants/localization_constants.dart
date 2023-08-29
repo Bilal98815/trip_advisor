@@ -1,6 +1,11 @@
 part of 'constants.dart';
 
-const List<Locale> kSupportedLocales = [Locale('en', 'US'), Locale('en', 'GB')];
 const String kPath = 'packages/localization/assets/translations';
-const Locale kFallbackLocale = Locale('en', 'US');
-const Locale kStartingLocale = Locale('en', 'GB');
+
+const List<Locale> kSupportedLocales = [kLocaleEnglishUK, kLocaleEnglishUS];
+
+const Locale kLocaleEnglishUK = Locale('en', 'GB');
+const Locale kLocaleEnglishUS = Locale('en', 'US');
+
+const Locale kFallbackLocale = kLocaleEnglishUS;
+const Locale kStartingLocale = kLocaleEnglishUK;

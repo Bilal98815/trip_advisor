@@ -55,10 +55,13 @@ class EditProfileView extends StatelessWidget {
                                   ),
                                 );
                               } else {
-                                return const CircleAvatar(
+                                return CircleAvatar(
                                   radius: 64,
-                                  backgroundImage:
-                                      AssetImage('assets/mine.jpg'),
+                                  backgroundImage: AssetImage(
+                                    AssetProvider.of(context)
+                                        .assets
+                                        .defaultProfilePic,
+                                  ),
                                 );
                               }
                             },
@@ -139,14 +142,14 @@ class EditProfileView extends StatelessWidget {
                                 underline: const SizedBox.shrink(),
                                 hint: Text(
                                   state.country,
-                                  style: const TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500,
+                                  style: textTheme.bodyMedium?.copyWith(
+                                    color: Theme.of(context).hintColor,
                                   ),
                                 ),
-                                dropdownColor: Colors.black87,
-                                style: const TextStyle(color: Colors.white),
+                                dropdownColor: colorScheme.primaryContainer,
+                                style: TextStyle(
+                                  color: colorScheme.onPrimaryContainer,
+                                ),
                                 items: items.map((String item) {
                                   return DropdownMenuItem(
                                     value: item,
@@ -200,11 +203,9 @@ class EditProfileView extends StatelessWidget {
                           builder: (context, state) {
                             return Align(
                               alignment: Alignment.centerRight,
-                              child: CommonText(
-                                text: '${state.count}/160',
-                                color: Colors.white,
-                                fontsize: 12,
-                                fontWeight: FontWeight.w400,
+                              child: Text(
+                                '${state.count}/160',
+                                style: textTheme.bodySmall,
                               ),
                             );
                           },

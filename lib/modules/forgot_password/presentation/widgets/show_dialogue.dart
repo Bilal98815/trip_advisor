@@ -7,9 +7,10 @@ class DialogueBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final TextTheme textTheme = Theme.of(context).textTheme;
+
     return Dialog(
-      backgroundColor: Colors.grey[900],
-      surfaceTintColor: Colors.black,
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
@@ -21,55 +22,37 @@ class DialogueBox extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: const Icon(
-                  Icons.close,
-                  color: Colors.white,
-                ),
+                onTap: () => Navigator.pop(context),
+                child: const Icon(Icons.close),
               ),
             ),
-            SizedBox(
-              height: constraint.maxHeight * 0.02,
+            SizedBox(height: constraint.maxHeight * 0.02),
+            Text(
+              LocaleStrings.forgotPasswordDialogTitle,
+              style: textTheme.labelLarge,
             ),
-            CommonText(
-              text: LocaleStrings.forgotPasswordDialogTitle,
-              color: Colors.white,
-              fontsize: 18,
-              fontWeight: FontWeight.w700,
+            SizedBox(height: constraint.maxHeight * 0.02),
+            Text(
+              LocaleStrings.forgotPasswordDialogText,
+              style: textTheme.bodyMedium,
             ),
-            SizedBox(
-              height: constraint.maxHeight * 0.02,
-            ),
-            CommonText(
-              text: LocaleStrings.forgotPasswordDialogText,
-              color: Colors.white,
-              textOverflow: TextOverflow.clip,
-              textAlign: TextAlign.center,
-              fontsize: 19,
-              fontWeight: FontWeight.w400,
-            ),
+            SizedBox(height: constraint.maxHeight * 0.02),
             PrimaryButton(
               ignoring: false,
-              onTap: () {
-                context.go(LoginView.route());
-              },
-              color: Colors.white,
+              onTap: () => context.go(LoginView.route()),
+              color: colorScheme.onBackground,
               height: constraint.maxHeight * 0.06,
               size: constraint,
               child: Center(
-                child: CommonText(
-                  text: LocaleStrings.forgotPasswordDialogBackButton,
-                  color: Colors.black87,
-                  fontsize: 18,
-                  fontWeight: FontWeight.w700,
+                child: Text(
+                  LocaleStrings.forgotPasswordDialogBackButton,
+                  style: textTheme.labelLarge?.copyWith(
+                    color: colorScheme.background,
+                  ),
                 ),
               ),
             ),
-            SizedBox(
-              height: constraint.maxHeight * 0.01,
-            ),
+            SizedBox(height: constraint.maxHeight * 0.01),
             PrimaryButton(
               ignoring: false,
               onTap: () {
@@ -78,15 +61,13 @@ class DialogueBox extends StatelessWidget {
                     .add(ResetPassword(email: email));
                 Navigator.pop(context);
               },
-              color: Colors.black87,
+              color: colorScheme.background,
               height: constraint.maxHeight * 0.06,
               size: constraint,
               child: Center(
-                child: CommonText(
-                  text: LocaleStrings.forgotPasswordDialogResendButton,
-                  color: Colors.white,
-                  fontsize: 18,
-                  fontWeight: FontWeight.w700,
+                child: Text(
+                  LocaleStrings.forgotPasswordDialogResendButton,
+                  style: textTheme.labelLarge,
                 ),
               ),
             ),

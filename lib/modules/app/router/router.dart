@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_classes_with_only_static_members
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trip_advisor/common/common.dart';
@@ -20,6 +18,8 @@ import 'package:trip_advisor/modules/splash/splash.dart';
 import 'package:trip_advisor/modules/support/support.dart';
 import 'package:trip_advisor/modules/trip_detail/presentation/presentation.dart';
 import 'package:trip_advisor/modules/user_data/user_data.dart';
+import 'package:trip_advisor/common/helpers/helpers.dart';
+import 'package:trip_advisor/modules/modules.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
@@ -133,6 +133,22 @@ class AppRouter {
                     path: EditProfilePage.routeName,
                     builder: (context, state) => const EditProfilePage(),
                   )
+                ],
+              ),
+              GoRoute(
+                path: PreferencesView.routeName,
+                builder: (context, state) => const PreferencesView(),
+                routes: [
+                  GoRoute(
+                    path: LanguagePreferencesView.routeName,
+                    builder: (context, state) =>
+                        const LanguagePreferencesView(),
+                  ),
+                  GoRoute(
+                    path: CurrencyPreferencesView.routeName,
+                    builder: (context, state) =>
+                        const CurrencyPreferencesView(),
+                  ),
                 ],
               ),
               GoRoute(
