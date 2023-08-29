@@ -104,7 +104,7 @@ class TripDetailView extends StatelessWidget {
                               width: size.maxWidth * 0.03,
                             ),
                             Text(
-                              '${tripModel.rating} rating',
+                              '${tripModel.rating} ${LocaleStrings.tripDetailRating}',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium
@@ -116,7 +116,7 @@ class TripDetailView extends StatelessWidget {
                           height: size.maxHeight * 0.03,
                         ),
                         Text(
-                          'About',
+                          LocaleStrings.tripDetailAbout,
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
                         if (tripModel.description != '')
@@ -163,7 +163,7 @@ class TripDetailView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Awards',
+                            LocaleStrings.tripDetailAwards,
                             style: Theme.of(context)
                                 .textTheme
                                 .titleMedium
@@ -175,7 +175,7 @@ class TripDetailView extends StatelessWidget {
                           TravellersChoiceTile(
                             size: size,
                             color: kForestGreen,
-                            title: "Travellers' Choice Winner",
+                            title: LocaleStrings.tripDetailTravellersChoice,
                           ),
                         ],
                       ),
@@ -189,7 +189,7 @@ class TripDetailView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Awards',
+                            LocaleStrings.tripDetailAwards,
                             style: Theme.of(context)
                                 .textTheme
                                 .titleMedium
@@ -201,7 +201,7 @@ class TripDetailView extends StatelessWidget {
                           TravellersChoiceTile(
                             size: size,
                             color: kYellow,
-                            title: "Travellers' Choice Best of the Best",
+                            title: LocaleStrings.tripDetailTravellersChoiceBest,
                           ),
                         ],
                       ),

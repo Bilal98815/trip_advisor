@@ -130,7 +130,7 @@ class ExploreView extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Recently viewed',
+                                  LocaleStrings.exploreRecentlyViewedTrips,
                                   style: Theme.of(context)
                                       .textTheme
                                       .titleSmall
@@ -365,7 +365,7 @@ class ExploreView extends StatelessWidget {
                             horizontal: size.maxWidth * 0.08,
                           ),
                           child: Text(
-                            'Kid-friendly Caribbean islands',
+                            LocaleStrings.exploreKidFriendlyIslands,
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall
@@ -383,7 +383,7 @@ class ExploreView extends StatelessWidget {
                             horizontal: size.maxWidth * 0.08,
                           ),
                           child: Text(
-                            'Plan a (meltdown-free) beach vacay',
+                            LocaleStrings.explorePlanMeltDown,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium
@@ -444,7 +444,7 @@ class ExploreView extends StatelessWidget {
                             horizontal: size.maxWidth * 0.08,
                           ),
                           child: Text(
-                            'Outdoor--and out of this world',
+                            LocaleStrings.exploreOutdoorTrips,
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall
@@ -462,7 +462,7 @@ class ExploreView extends StatelessWidget {
                             horizontal: size.maxWidth * 0.08,
                           ),
                           child: Text(
-                            'Destinations that feel like another planet',
+                            LocaleStrings.exploreDestinations,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium
@@ -508,10 +508,12 @@ class ExploreView extends StatelessWidget {
                         ImageContainer(
                           size: size,
                           onTap: () {},
-                          heading: "Cruisin' through the East Coast",
-                          subHeading:
-                              'Buckle uo and enjoy the ride on these road trip routes',
-                          buttonTitle: "Let's roll",
+                          heading:
+                              LocaleStrings.exploreRollingImageContainerHeading,
+                          subHeading: LocaleStrings
+                              .exploreRollingImageContainerSubHeading,
+                          buttonTitle:
+                              LocaleStrings.exploreRollingImageContainerButton,
                           image: 'assets/forest_road.jpg',
                         ),
                         SizedBox(
@@ -522,7 +524,7 @@ class ExploreView extends StatelessWidget {
                             horizontal: size.maxWidth * 0.08,
                           ),
                           child: Text(
-                            'Bring on the oohs and aahs',
+                            LocaleStrings.exploreBringOohsAahs,
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall
@@ -540,7 +542,7 @@ class ExploreView extends StatelessWidget {
                             horizontal: size.maxWidth * 0.08,
                           ),
                           child: Text(
-                            "Can't miss natural wonders in the U.S.",
+                            LocaleStrings.exploreNaturalWonders,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium
@@ -603,7 +605,7 @@ class ExploreView extends StatelessWidget {
                           ),
                           child: GuidedActionWidget(
                             size: size,
-                            title: 'Is Tripadvisor missing a place?',
+                            title: LocaleStrings.exploreMissingPlaceButton,
                             button: MissingPlaceButton(
                               onTap: () {},
                               size: size,

@@ -64,7 +64,25 @@
     "ocean_trips_subTitle": "Hotels and resorts right on the water",
     "london_image_container_heading": "How to do London with kids",
     "london_image_container_subHeading": "Zoos, parks, playgrounds-there's much to explore",
-    "london_image_container_button": "See more"
+    "london_image_container_button": "See more",
+    "recently_viewed": "Recently viewed",
+    "kid_friendly_islands": "Kid-friendly Caribbean islands",
+    "plan_meltdown": "Plan a (meltdown-free) beach vacay",
+    "outdoor": "Outdoor--and out of this world",
+    "destinations": "Destinations that feel like another planet",
+    "rolling_image_container_heading": "Cruisin' through the East Coast",
+    "rolling_image_container_subHeading": "Buckle uo and enjoy the ride on these road trip routes",
+    "rolling_image_container_button": "Let's roll",
+    "bring_oohs_aahs": "Bring on the oohs and aahs",
+    "natural_wonders": "Can't miss natural wonders in the U.S.",
+    "tripadvisor_missing_place": "Is Tripadvisor missing a place?"
+  },
+  "trip_detail": {
+    "rating": "rating",
+    "about": "About",
+    "awards": "Awards",
+    "travellers_choice": "Travellers' Choice Winner",
+    "travellers_choice_best": "Travellers' Choice Best of the Best"
   },
   "forgot_password": {
     "heading": "Enter the email address you used to sign up",

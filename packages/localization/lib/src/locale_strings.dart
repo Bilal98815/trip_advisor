@@ -128,6 +128,47 @@ class LocaleStrings {
   static String get exploreLondonContainerButton =>
       'explore.london_image_container_button'.tr();
 
+  static String get exploreKidFriendlyIslands =>
+      'explore.kid_friendly_islands'.tr();
+
+  static String get exploreRecentlyViewedTrips =>
+      'explore.recently_viewed'.tr();
+
+  static String get explorePlanMeltDown => 'explore.plan_meltdown'.tr();
+
+  static String get exploreOutdoorTrips => 'explore.outdoor'.tr();
+
+  static String get exploreDestinations => 'explore.destinations'.tr();
+
+  static String get exploreRollingImageContainerHeading =>
+      'explore.rolling_image_container_heading'.tr();
+
+  static String get exploreRollingImageContainerSubHeading =>
+      'explore.rolling_image_container_subHeading'.tr();
+
+  static String get exploreRollingImageContainerButton =>
+      'explore.rolling_image_container_button'.tr();
+
+  static String get exploreBringOohsAahs => 'explore.bring_oohs_aahs'.tr();
+
+  static String get exploreNaturalWonders => 'explore.natural_wonders'.tr();
+
+  static String get exploreMissingPlaceButton =>
+      'explore.tripadvisor_missing_place'.tr();
+
+  // trip detail
+  static String get tripDetailRating => 'trip_detail.rating'.tr();
+
+  static String get tripDetailAbout => 'trip_detail.about'.tr();
+
+  static String get tripDetailAwards => 'trip_detail.awards'.tr();
+
+  static String get tripDetailTravellersChoice =>
+      'trip_detail.travellers_choice'.tr();
+
+  static String get tripDetailTravellersChoiceBest =>
+      'trip_detail.travellers_choice_best'.tr();
+
   //forgot password
   static String get forgotPasswordHeading => 'forgot_password.heading'.tr();
 
