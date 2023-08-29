@@ -14,6 +14,8 @@ class TravellersChoiceTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Assets assets = AssetProvider.of(context).assets;
+
     return Row(
       children: [
         Container(
@@ -25,7 +27,7 @@ class TravellersChoiceTile extends StatelessWidget {
           ),
           child: Center(
             child: Image.asset(
-              'assets/owl.png',
+              assets.owlLogo,
               width: size.maxWidth * 0.054,
             ),
           ),

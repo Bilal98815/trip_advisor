@@ -33,6 +33,7 @@ class TripSnapWidget extends StatelessWidget {
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     fontSize: 22,
                     fontWeight: FontWeight.w800,
+                    color: kWhite,
                   ),
             ),
           ),

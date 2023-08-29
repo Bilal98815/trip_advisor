@@ -5,6 +5,8 @@ class ExploreView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Assets assets = AssetProvider.of(context).assets;
+
     return Scaffold(
       body: SafeArea(
         child: BlocBuilder<ExploreBloc, ExploreState>(
@@ -36,10 +38,11 @@ class ExploreView extends StatelessWidget {
                                     Container(
                                       width: size.maxWidth * 0.1,
                                       height: size.maxHeight * 0.06,
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                         image: DecorationImage(
-                                          image: AssetImage('assets/mine.jpg'),
+                                          image: AssetImage(
+                                              assets.defaultProfilePic),
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -79,14 +82,14 @@ class ExploreView extends StatelessWidget {
                                   children: [
                                     CategoryButton(
                                       title: LocaleStrings.exploreHotelButton,
-                                      img: 'assets/bed.png',
+                                      img: assets.bedIcon,
                                       onTap: () {},
                                       size: size,
                                     ),
                                     CategoryButton(
                                       title:
                                           LocaleStrings.exploreThingsTodoButton,
-                                      img: 'assets/invoice.png',
+                                      img: assets.invoiceIcon,
                                       onTap: () {},
                                       size: size,
                                     ),
@@ -102,13 +105,13 @@ class ExploreView extends StatelessWidget {
                                     CategoryButton(
                                       title:
                                           LocaleStrings.exploreRestaurantButton,
-                                      img: 'assets/cutlery.png',
+                                      img: assets.dinnerIcon,
                                       onTap: () {},
                                       size: size,
                                     ),
                                     CategoryButton(
                                       title: LocaleStrings.exploreForumsButton,
-                                      img: 'assets/forums.png',
+                                      img: assets.forumsIcon,
                                       onTap: () {},
                                       size: size,
                                     ),
@@ -277,7 +280,7 @@ class ExploreView extends StatelessWidget {
                               .explorePerfectWeekendContainerSubHeading,
                           buttonTitle: LocaleStrings
                               .explorePerfectWeekendContainerButton,
-                          image: 'assets/stone_monument.jpg',
+                          image: assets.reviewBackgroundImage,
                         ),
                         SizedBox(
                           height: size.maxHeight * 0.04,
@@ -434,7 +437,7 @@ class ExploreView extends StatelessWidget {
                               LocaleStrings.exploreLondonContainerSubHeading,
                           buttonTitle:
                               LocaleStrings.exploreLondonContainerButton,
-                          image: 'assets/london.jpg',
+                          image: assets.londonPicture,
                         ),
                         SizedBox(
                           height: size.maxHeight * 0.06,
@@ -514,7 +517,7 @@ class ExploreView extends StatelessWidget {
                               .exploreRollingImageContainerSubHeading,
                           buttonTitle:
                               LocaleStrings.exploreRollingImageContainerButton,
-                          image: 'assets/forest_road.jpg',
+                          image: assets.forestRoadPicture,
                         ),
                         SizedBox(
                           height: size.maxHeight * 0.06,

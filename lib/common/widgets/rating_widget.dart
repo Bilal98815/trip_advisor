@@ -1,12 +1,13 @@
 part of 'widgets.dart';
 
 class RatingWidget extends StatelessWidget {
-  const RatingWidget(
-      {required this.rating,
-      required this.size,
-      required this.iconSize,
-      required this.ratingImageSize,
-      super.key});
+  const RatingWidget({
+    required this.rating,
+    required this.size,
+    required this.iconSize,
+    required this.ratingImageSize,
+    super.key,
+  });
 
   final double rating;
   final BoxConstraints size;
@@ -15,8 +16,10 @@ class RatingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Assets assets = AssetProvider.of(context).assets;
     final int fullStars = rating.floor();
     final bool hasFullStar = rating - fullStars >= 0.5;
+
     return Row(
       children: List.generate(
         5,
@@ -29,7 +32,7 @@ class RatingWidget extends StatelessWidget {
             );
           } else if (index == fullStars && hasFullStar) {
             return Image.asset(
-              'assets/half_circle.png',
+              assets.halfCircleIcon,
               width: ratingImageSize,
             );
           } else {

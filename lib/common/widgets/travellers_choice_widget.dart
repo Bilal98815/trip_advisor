@@ -9,6 +9,8 @@ class TravellersChoiceWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Assets assets = AssetProvider.of(context).assets;
+
     return Container(
       width: size.maxWidth * 0.08,
       height: size.maxHeight * 0.06,
@@ -25,7 +27,7 @@ class TravellersChoiceWidget extends StatelessWidget {
       child: Column(
         children: [
           Image.asset(
-            'assets/owl.png',
+            assets.owlLogo,
             width: size.maxWidth * 0.054,
           ),
           Text(
