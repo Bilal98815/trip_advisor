@@ -6,6 +6,7 @@ import 'package:localization/localization.dart';
 import 'package:trip_advisor/common/common.dart';
 
 import 'package:trip_advisor/modules/account/account.dart';
+import 'package:trip_advisor/modules/preferences/preferences.dart';
 import 'package:trip_advisor/modules/profile/profile.dart';
 import 'package:trip_advisor/modules/support/support.dart';
 

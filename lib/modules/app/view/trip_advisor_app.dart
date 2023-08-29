@@ -20,6 +20,13 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
+        BlocProvider(
+          create: (context) => PreferencesBloc(
+            preferencesRepository: PreferencesRepositoryImp(
+              preferencesAPI: PreferencesFirebaseAPI(),
+            ),
+          )..add(PreferencesGetPreferences()),
+        ),
       ],
       child: const TripAdvisorAppView(),
     );

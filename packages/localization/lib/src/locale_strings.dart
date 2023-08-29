@@ -39,6 +39,28 @@ class LocaleStrings {
   static String get reviewTab => 'bottom_bar_tabs.review'.tr();
   static String get accountTab => 'bottom_bar_tabs.account'.tr();
 
+  //currency preferences
+  static String get currencyTitle => 'currency_preferences.title'.tr();
+  static String get currencyUSDollars =>
+      'currency_preferences.currencies.usDollars'.tr();
+  static String get currencyPounds =>
+      'currency_preferences.currencies.pounds'.tr();
+  static String get currencyEuros =>
+      'currency_preferences.currencies.euros'.tr();
+  static String get currencyCanadianDollars =>
+      'currency_preferences.currencies.canadianDollars'.tr();
+  static String get currencyFrancs =>
+      'currency_preferences.currencies.francs'.tr();
+  static String get currencyAustralianDollars =>
+      'currency_preferences.currencies.australianDollars'.tr();
+  static String get currencyYen => 'currency_preferences.currencies.yen'.tr();
+  static String get currencyYuan => 'currency_preferences.currencies.yuan'.tr();
+  static String get currencyIndianRupees =>
+      'currency_preferences.currencies.indianRupees'.tr();
+  static String get currencyLira => 'currency_preferences.currencies.lira'.tr();
+  static String get currencyDirham =>
+      'currency_preferences.currencies.dirham'.tr();
+
   //edit profile
   static String get editProfileTitle => 'edit_profile.title'.tr();
   static String get editProfileSaveButton => 'edit_profile.save_button'.tr();
@@ -87,6 +109,11 @@ class LocaleStrings {
       'forgot_password.dialog.back_button'.tr();
   static String get forgotPasswordDialogResendButton =>
       'forgot_password.dialog.resend_button'.tr();
+
+  //language preferences
+  static String get languageTitle => 'language_preferences.title'.tr();
+  static String get languageEnglishUK => 'language_preferences.english_uk'.tr();
+  static String get languageEnglishUS => 'language_preferences.english_us'.tr();
 
   //location data
   static String get locationDataHeading => 'location_data.heading'.tr();
@@ -151,6 +178,20 @@ class LocaleStrings {
   static String get tripsTabButton => 'plan_trip.trips.trip_button_text'.tr();
   static String get savesTabHeading => 'plan_trip.saves.saves_text'.tr();
   static String get savesTabPlace => 'plan_trip.saves.places_text'.tr();
+
+  //preferences
+  static String get preferencesTitle => 'preferences.title'.tr();
+  static String get preferencesTileAccountInfo =>
+      'preferences.tiles.account_info'.tr();
+  static String get preferencesTileLanguage =>
+      'preferences.tiles.language'.tr();
+  static String get preferencesTileCurrency =>
+      'preferences.tiles.currency'.tr();
+  static String get preferencesTileUnits => 'preferences.tiles.units'.tr();
+  static String get preferencesTilePayment => 'preferences.tiles.payment'.tr();
+  static String get preferencesTileNotifications =>
+      'preferences.tiles.notifications'.tr();
+  static String get preferencesTilePrivacy => 'preferences.tiles.privacy'.tr();
 
   // profile
   static String get profileTitle => 'profile.title'.tr();
@@ -226,6 +267,19 @@ class LocaleStrings {
   static String get supportPrivacyPolicy => 'support.privacy_policy'.tr();
   static String get supportTerms => 'support.terms'.tr();
   static String get supportLicenses => 'support.open_source_license'.tr();
+
+  //unit_preferences
+  static String get unitsTitle => 'unit_preferences.title'.tr();
+
+  static String get unitsImperialLarge =>
+      'unit_preferences.units.imperial.large'.tr();
+  static String get unitsImperialSmall =>
+      'unit_preferences.units.imperial.small'.tr();
+
+  static String get unitsMetricLarge =>
+      'unit_preferences.units.metric.large'.tr();
+  static String get unitsMetricSmall =>
+      'unit_preferences.units.metric.small'.tr();
 
   // user_data
   static String get userDataHeading => 'user_data.heading'.tr();

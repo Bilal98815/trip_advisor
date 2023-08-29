@@ -35,7 +35,7 @@ class TripAdvisorTheme {
       useMaterial3: true,
       appBarTheme: const AppBarTheme(
         centerTitle: true,
-        backgroundColor: kTransparent,
+        backgroundColor: kWhite,
         iconTheme: IconThemeData(color: kBlack, size: 20),
         titleTextStyle: TextStyle(
           color: kBlack,

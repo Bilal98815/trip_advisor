@@ -74,7 +74,7 @@ class AccountView extends StatelessWidget {
                       ],
                       ProfileSettingsTile(
                         image: assets.preferencesIcon,
-                        onTap: () {},
+                        onTap: () => context.go(PreferencesView.route()),
                         title: LocaleStrings.preferencesTile,
                       ),
                       ProfileSettingsTile(
