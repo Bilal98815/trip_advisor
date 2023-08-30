@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => ExploreBloc(
+            prefs: Preferences(),
             exploreRepository: ExploreRepositoryImp(
               exploreAuth: ExploreAuth(),
             ),

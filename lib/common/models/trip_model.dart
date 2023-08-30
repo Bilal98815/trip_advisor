@@ -1,6 +1,7 @@
 part of 'models.dart';
 
-class TripModel {
+//ignore: must_be_immutable
+class TripModel extends Equatable {
   TripModel({
     this.image,
     this.isTravellersChoice,
@@ -22,6 +23,7 @@ class TripModel {
     location = json['location'] as String;
     isFavourite = json['isFavourite'] as bool;
   }
+
   String? image;
   int? isTravellersChoice;
   int? isAward;
@@ -43,4 +45,16 @@ class TripModel {
     data['isFavourite'] = isFavourite;
     return data;
   }
+
+  @override
+  List<Object?> get props => [
+        image,
+        name,
+        description,
+        location,
+        isFavourite,
+        isAward,
+        isTravellersChoice,
+        rating,
+      ];
 }

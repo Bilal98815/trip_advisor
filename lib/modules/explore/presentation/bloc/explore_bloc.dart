@@ -7,7 +7,8 @@ part 'explore_event.dart';
 part 'explore_state.dart';
 
 class ExploreBloc extends Bloc<ExploreEvent, ExploreState> {
-  ExploreBloc({required this.exploreRepository}) : super(const ExploreState()) {
+  ExploreBloc({required this.exploreRepository, required this.prefs})
+      : super(const ExploreState()) {
     on<GetTripsEvent>((event, emit) async {
       await getTrips(emit);
     });
@@ -17,15 +18,14 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState> {
   }
 
   late ExploreRepository exploreRepository;
-  final prefs = Preferences();
+  late Preferences prefs;
 
   Future<void> getTrips(Emitter<ExploreState> emit) async {
-    final String? email = await prefs.getEmail();
-
+    final String email = await prefs.getEmail() ?? '';
     emit(state.copyWith(apiState: ApiState.loading));
     final trips = await exploreRepository.getTrips();
     final oceanTrips = await exploreRepository.getOceanTrips();
-    final recentTrips = await exploreRepository.getRecentTrips(email!);
+    final recentTrips = await exploreRepository.getRecentTrips(email);
     final islandTrips = await exploreRepository.getIslandTrips();
     final mountainTrips = await exploreRepository.getMountainsTrips();
     final naturalWondersTrips =
