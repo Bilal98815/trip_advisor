@@ -83,7 +83,7 @@ void main() {
 
     group('Bloc testing', () {
       blocTest<ExploreBloc, ExploreState>(
-        'Getting trips test',
+        'Getting trips testing',
         setUp: () {
           arrangeSharedPreferenceEmail();
           arrangeRepositoryReturnAllTrips();
