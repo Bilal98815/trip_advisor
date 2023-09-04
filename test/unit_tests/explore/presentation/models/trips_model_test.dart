@@ -46,6 +46,6 @@ void main() {
   });
 
   tearDown(() {
-    'Trip model test complete';
+    return 'Trip model test complete';
   });
 }

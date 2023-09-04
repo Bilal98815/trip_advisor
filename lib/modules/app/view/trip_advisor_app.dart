@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           create: (context) => ExploreBloc(
             prefs: Preferences(),
             exploreRepository: ExploreRepositoryImp(
-              exploreAuth: ExploreAuth(),
+              exploreAuth: ExploreAuth(firestore: FirebaseFirestore.instance),
             ),
           )..add(GetTripsEvent()),
         ),

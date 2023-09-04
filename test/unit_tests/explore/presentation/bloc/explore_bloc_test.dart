@@ -10,6 +10,16 @@ class MockExploreRepository extends Mock implements ExploreRepository {}
 class MockPreferences extends Mock implements Preferences {}
 
 List<TripModel> mockTrips = [];
+TripModel fakeTrip = TripModel(
+  image: 'image',
+  name: 'name',
+  location: 'location',
+  description: 'description',
+  isFavourite: true,
+  isAward: 0,
+  isTravellersChoice: 0,
+  rating: 4,
+);
 
 void main() {
   group('Second Group testing', () {
@@ -64,9 +74,8 @@ void main() {
     }
 
     Future<void> arrangeRepositoryReturnIslandTrips() async {
-      when(() => mockExploreRepository.getIslandTrips()).thenAnswer(
-        (inv) async => mockTrips,
-      );
+      when(() => mockExploreRepository.getIslandTrips())
+          .thenAnswer((inv) async => mockTrips);
     }
 
     Future<void> arrangeRepositoryReturnOceanTrips() async {
@@ -81,9 +90,20 @@ void main() {
       );
     }
 
-    group('Bloc testing', () {
+    Future<void> addToTrip() async {
+      when(
+        () => mockExploreRepository.addTripsToRecentTrips(
+          'valid.email',
+          fakeTrip,
+        ),
+      ).thenAnswer(
+        (inv) async => mockTrips,
+      );
+    }
+
+    group('Bloc testing 1', () {
       blocTest<ExploreBloc, ExploreState>(
-        'Getting trips test',
+        'Getting All trips test',
         setUp: () {
           arrangeSharedPreferenceEmail();
           arrangeRepositoryReturnAllTrips();
@@ -101,6 +121,34 @@ void main() {
           ),
           const ExploreState(
             apiState: ApiState.done,
+          ),
+        ],
+      );
+    });
+
+    group('Bloc testing 2', () {
+      blocTest<ExploreBloc, ExploreState>(
+        'Getting trips test',
+        setUp: () {
+          arrangeSharedPreferenceEmail();
+          addToTrip();
+        },
+        build: () => exploreBloc,
+        act: (bloc) => bloc.add(AddToRecentTipsEvent(trip: fakeTrip)),
+        expect: () => [
+          ExploreState(
+            recentTrips: [
+              TripModel(
+                image: 'image',
+                name: 'name',
+                location: 'location',
+                description: 'description',
+                isFavourite: true,
+                isAward: 0,
+                isTravellersChoice: 0,
+                rating: 4,
+              )
+            ],
           ),
         ],
       );

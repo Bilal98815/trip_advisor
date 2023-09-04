@@ -1,9 +1,13 @@
 part of 'data.dart';
 
 class ExploreAuth {
+  ExploreAuth({required this.firestore});
+
+  late FirebaseFirestore firestore;
+
   Future<List<TripModel>> getTrips() async {
     final List<TripModel> trips = [];
-    final snapShot = await FirebaseFirestore.instance.collection('trips').get();
+    final snapShot = await firestore.collection('trips').get();
 
     for (final doc in snapShot.docs) {
       final num rating = doc.get('rating') as num;
@@ -23,7 +27,7 @@ class ExploreAuth {
 
   Future<List<TripModel>> getRecentTrips(String email) async {
     final List<TripModel> trips = [];
-    final snapShot = await FirebaseFirestore.instance
+    final snapShot = await firestore
         .collection('users')
         .doc(email)
         .collection('recent_trips')
@@ -48,8 +52,7 @@ class ExploreAuth {
 
   Future<List<TripModel>> getOceanTrips() async {
     final List<TripModel> trips = [];
-    final snapShot =
-        await FirebaseFirestore.instance.collection('ocean_trips').get();
+    final snapShot = await firestore.collection('ocean_trips').get();
 
     for (final doc in snapShot.docs) {
       final num rating = doc.get('rating') as num;
@@ -70,9 +73,7 @@ class ExploreAuth {
 
   Future<List<TripModel>> getNaturalWondersTrips() async {
     final List<TripModel> trips = [];
-    final snapShot = await FirebaseFirestore.instance
-        .collection('natural_wonders_trips')
-        .get();
+    final snapShot = await firestore.collection('natural_wonders_trips').get();
 
     for (final doc in snapShot.docs) {
       final num rating = doc.get('rating') as num;
@@ -93,8 +94,7 @@ class ExploreAuth {
 
   Future<List<TripModel>> getIslandTrips() async {
     final List<TripModel> trips = [];
-    final snapShot =
-        await FirebaseFirestore.instance.collection('island_trips').get();
+    final snapShot = await firestore.collection('island_trips').get();
 
     for (final doc in snapShot.docs) {
       final trip = TripModel(
@@ -114,8 +114,7 @@ class ExploreAuth {
 
   Future<List<TripModel>> getMountainsTrips() async {
     final List<TripModel> trips = [];
-    final snapShot =
-        await FirebaseFirestore.instance.collection('mountain_trips').get();
+    final snapShot = await firestore.collection('mountain_trips').get();
 
     for (final doc in snapShot.docs) {
       final trip = TripModel(
@@ -134,10 +133,8 @@ class ExploreAuth {
   }
 
   Future<void> addTripsToRecentTrips(String email, TripModel trip) async {
-    final CollectionReference recentTripCollection = FirebaseFirestore.instance
-        .collection('users')
-        .doc(email)
-        .collection('recent_trips');
+    final CollectionReference recentTripCollection =
+        firestore.collection('users').doc(email).collection('recent_trips');
 
     final Map<String, dynamic> recentTrip = trip.toJson();
 
