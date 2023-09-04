@@ -35,18 +35,41 @@ class ExploreView extends StatelessWidget {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    Container(
-                                      width: size.maxWidth * 0.1,
-                                      height: size.maxHeight * 0.06,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              assets.defaultProfilePic),
-                                          fit: BoxFit.cover,
+                                    if (state.image != '')
+                                      CachedNetworkImage(
+                                        imageUrl: state.image,
+                                        imageBuilder:
+                                            (context, imageProvider) =>
+                                                Container(
+                                          width: size.maxWidth * 0.1,
+                                          height: size.maxHeight * 0.06,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            image: DecorationImage(
+                                              image: imageProvider,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        placeholder: (context, url) =>
+                                            const Center(
+                                          child: CircularProgressIndicator(),
+                                        ),
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(Icons.error),
+                                      )
+                                    else
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              assets.defaultProfilePic,
+                                            ),
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
                                       ),
-                                    ),
                                     SizedBox(
                                       width: size.maxWidth * 0.05,
                                     ),

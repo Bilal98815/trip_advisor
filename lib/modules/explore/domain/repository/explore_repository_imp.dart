@@ -39,4 +39,9 @@ class ExploreRepositoryImp implements ExploreRepository {
   Future<List<TripModel>> getRecentTrips(String email) {
     return exploreAuth.getRecentTrips(email);
   }
+
+  @override
+  Future<String?> getUserProfilePicture(String email) {
+    return exploreAuth.getUserProfilePicture(email);
+  }
 }

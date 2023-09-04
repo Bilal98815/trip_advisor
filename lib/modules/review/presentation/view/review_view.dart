@@ -129,23 +129,46 @@ class ReviewView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: size.maxWidth * 0.08,
                       ),
-                      child: Row(
-                        children: [
-                          Container(
-                            width: size.maxWidth * 0.11,
-                            height: size.maxHeight * 0.06,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: AssetImage(assets.defaultProfilePic),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: size.maxWidth * 0.06),
-                          BlocBuilder<ProfileBloc, ProfileState>(
-                            builder: (context, state) {
-                              return Column(
+                      child: BlocBuilder<ProfileBloc, ProfileState>(
+                        builder: (context, state) {
+                          return Row(
+                            children: [
+                              if (state.user?.imageUrl != '')
+                                CachedNetworkImage(
+                                  imageUrl: state.user?.imageUrl ?? '',
+                                  imageBuilder: (context, imageProvider) =>
+                                      Container(
+                                    width: size.maxWidth * 0.11,
+                                    height: size.maxHeight * 0.06,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                        image: imageProvider,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  placeholder: (context, url) => const Center(
+                                    child: CircularProgressIndicator(),
+                                  ),
+                                  errorWidget: (context, url, error) =>
+                                      const Icon(Icons.error),
+                                )
+                              else
+                                Container(
+                                  width: size.maxWidth * 0.11,
+                                  height: size.maxHeight * 0.06,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                      image:
+                                          AssetImage(assets.defaultProfilePic),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              SizedBox(width: size.maxWidth * 0.06),
+                              Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
@@ -154,7 +177,7 @@ class ReviewView extends StatelessWidget {
                                         Theme.of(context).textTheme.labelLarge,
                                   ),
                                   Text(
-                                    '0 ${LocaleStrings.reviews}, 0 ${LocaleStrings.drafts}, 0 ${LocaleStrings.photos}',
+                                    '0 ${LocaleStrings.reviews}, 0 ${LocaleStrings.drafts}, ${state.user?.photos?.length ?? 0} ${LocaleStrings.photos}',
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodySmall
@@ -163,10 +186,10 @@ class ReviewView extends StatelessWidget {
                                         ),
                                   ),
                                 ],
-                              );
-                            },
-                          )
-                        ],
+                              ),
+                            ],
+                          );
+                        },
                       ),
                     ),
                     SizedBox(

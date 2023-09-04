@@ -7,9 +7,14 @@ part 'account_event.dart';
 part 'account_state.dart';
 
 class AccountBloc extends Bloc<AccountEvent, AccountState> {
-  AccountBloc({required this.accountRepository}) : super(const AccountState()) {
+  AccountBloc({required this.accountRepository, required this.prefs})
+      : super(const AccountState()) {
     on<SignOutEvent>((event, emit) async {
       await signOutUser(emit);
+    });
+
+    on<GetProfilePicEvent>((event, emit) async {
+      await getProfilePic(emit);
     });
 
     on<UpdateSigningCondition>((event, emit) {
@@ -17,6 +22,7 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
     });
   }
   late AccountRepository accountRepository;
+  late Preferences prefs;
 
   Future<void> signOutUser(Emitter<AccountState> emit) async {
     await accountRepository.signOut();
@@ -27,6 +33,12 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
   Future<void> clearPrefs() async {
     final prefs = Preferences();
     await prefs.clearPreferences();
+  }
+
+  Future<void> getProfilePic(Emitter<AccountState> emit) async {
+    final String? email = await prefs.getEmail();
+    final image = await accountRepository.getUserProfilePicture(email!);
+    emit(state.copyWith(image: image));
   }
 
   void updateSigningCondition(

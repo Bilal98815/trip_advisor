@@ -15,10 +15,11 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => AccountBloc(
+            prefs: Preferences(),
             accountRepository: AccountRepositoryImp(
               accountAuth: AccountAuth(),
             ),
-          ),
+          )..add(GetProfilePicEvent()),
         ),
         BlocProvider(
           create: (context) => PreferencesBloc(

@@ -31,17 +31,39 @@ class AccountView extends StatelessWidget {
                             LocaleStrings.accountTitle,
                             style: textTheme.titleLarge,
                           ),
-                          Container(
-                            width: size.maxWidth * 0.11,
-                            height: size.maxHeight * 0.1,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: AssetImage(assets.defaultProfilePic),
-                                fit: BoxFit.cover,
+                          if (state.image != '')
+                            CachedNetworkImage(
+                              imageUrl: state.image,
+                              imageBuilder: (context, imageProvider) =>
+                                  Container(
+                                width: size.maxWidth * 0.11,
+                                height: size.maxHeight * 0.12,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    image: imageProvider,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              placeholder: (context, url) => const Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                              errorWidget: (context, url, error) =>
+                                  const Icon(Icons.error),
+                            )
+                          else
+                            Container(
+                              width: size.maxWidth * 0.11,
+                              height: size.maxHeight * 0.12,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image: AssetImage(assets.defaultProfilePic),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
                         ],
                       ),
                       SizedBox(height: size.maxHeight * 0.05),

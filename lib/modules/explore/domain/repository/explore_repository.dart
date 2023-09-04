@@ -8,4 +8,5 @@ abstract class ExploreRepository {
   Future<List<TripModel>> getMountainsTrips();
   Future<List<TripModel>> getNaturalWondersTrips();
   Future<void> addTripsToRecentTrips(String email, TripModel trip);
+  Future<String?> getUserProfilePicture(String email);
 }

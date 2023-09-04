@@ -24,6 +24,7 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState> {
     final String email = await prefs.getEmail() ?? '';
     emit(state.copyWith(apiState: ApiState.loading));
     final trips = await exploreRepository.getTrips();
+    final profilePic = await exploreRepository.getUserProfilePicture(email);
     final oceanTrips = await exploreRepository.getOceanTrips();
     final recentTrips = await exploreRepository.getRecentTrips(email);
     final islandTrips = await exploreRepository.getIslandTrips();
@@ -38,6 +39,7 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState> {
         recentTrips: recentTrips,
         mountainTrips: mountainTrips,
         naturalWondersTrips: naturalWondersTrips,
+        image: profilePic,
         apiState: ApiState.done,
       ),
     );

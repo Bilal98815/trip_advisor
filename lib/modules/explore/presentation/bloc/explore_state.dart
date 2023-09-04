@@ -9,6 +9,7 @@ class ExploreState extends Equatable {
     this.naturalWondersTrips = const [],
     this.recentTrips = const [],
     this.apiState = ApiState.idle,
+    this.image = '',
   });
 
   @override
@@ -20,6 +21,7 @@ class ExploreState extends Equatable {
         mountainTrips,
         naturalWondersTrips,
         recentTrips,
+        image,
       ];
 
   final List<TripModel> trips;
@@ -29,6 +31,7 @@ class ExploreState extends Equatable {
   final List<TripModel> naturalWondersTrips;
   final List<TripModel> recentTrips;
   final ApiState apiState;
+  final String image;
 
   ExploreState copyWith({
     List<TripModel>? trips,
@@ -38,6 +41,7 @@ class ExploreState extends Equatable {
     List<TripModel>? naturalWondersTrips,
     List<TripModel>? recentTrips,
     List<TripModel>? mountainTrips,
+    String? image,
   }) {
     return ExploreState(
       trips: trips ?? this.trips,
@@ -47,6 +51,7 @@ class ExploreState extends Equatable {
       naturalWondersTrips: naturalWondersTrips ?? this.naturalWondersTrips,
       recentTrips: recentTrips ?? this.recentTrips,
       islandTrips: islandTrips ?? this.islandTrips,
+      image: image ?? this.image,
     );
   }
 }

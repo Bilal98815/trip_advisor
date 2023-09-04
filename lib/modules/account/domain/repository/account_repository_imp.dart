@@ -8,4 +8,9 @@ class AccountRepositoryImp implements AccountRepository {
   Future<void> signOut() {
     return accountAuth.signOut();
   }
+
+  @override
+  Future<String?> getUserProfilePicture(String email) {
+    return accountAuth.getUserProfilePicture(email);
+  }
 }
