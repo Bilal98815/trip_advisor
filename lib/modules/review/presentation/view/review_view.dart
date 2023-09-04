@@ -38,7 +38,7 @@ class ReviewView extends StatelessWidget {
                       context
                           .read<ReviewBloc>()
                           .add(IsChangeEvent(isChange: false));
-                      _pickImageFromGallery();
+                      context.read<ProfileBloc>().add(PickImagesEvent());
                     },
                     child: Image.asset(
                       assets.speedDialPhotoIcon,
@@ -168,25 +168,31 @@ class ReviewView extends StatelessWidget {
                                   ),
                                 ),
                               SizedBox(width: size.maxWidth * 0.06),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    state.user?.name ?? '',
-                                    style:
-                                        Theme.of(context).textTheme.labelLarge,
-                                  ),
-                                  Text(
-                                    '0 ${LocaleStrings.reviews}, 0 ${LocaleStrings.drafts}, ${state.user?.photos?.length ?? 0} ${LocaleStrings.photos}',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall
-                                        ?.copyWith(
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                  ),
-                                ],
-                              ),
+                              if (state.apiState == ApiState.done)
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      state.user?.name ?? '',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .labelLarge,
+                                    ),
+                                    Text(
+                                      '0 ${LocaleStrings.reviews}, 0 ${LocaleStrings.drafts}, ${state.user?.photos?.length ?? 0} ${LocaleStrings.photos}',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                    ),
+                                  ],
+                                )
+                              else
+                                const Center(
+                                  child: CircularProgressIndicator(),
+                                ),
                             ],
                           );
                         },
@@ -213,7 +219,9 @@ class ReviewView extends StatelessWidget {
                             size: size,
                             text: LocaleStrings.uploadPhotoButton,
                             onTap: () {
-                              _pickImageFromGallery();
+                              context
+                                  .read<ProfileBloc>()
+                                  .add(PickImagesEvent());
                             },
                           ),
                         ],
@@ -289,9 +297,5 @@ class ReviewView extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<void> _pickImageFromGallery() async {
-    await ImagePicker().pickImage(source: ImageSource.gallery);
   }
 }
