@@ -25,6 +25,11 @@ void main() {
           .collection('trips')
           .doc('1')
           .set(fakeTrip.toJson());
+
+      await fakeFirebaseFirestore
+          .collection('island_trips')
+          .doc('1')
+          .set(fakeTrip.toJson());
     });
 
     group('First Group Testing', () {
@@ -44,7 +49,21 @@ void main() {
       });
     });
 
-    group('Second Group Testing', () {
+    group('Second group Testing', () {
+      test('no trips will be return', () async {
+        final mountainTrips = await exploreAuth.getMountainsTrips();
+        expect(mountainTrips, <TripModel>[]);
+      });
+    });
+
+    group('Third group Testing', () {
+      test('returns number of trips', () async {
+        final islandTrips = await exploreAuth.getIslandTrips();
+        expect(islandTrips.length, 1);
+      });
+    });
+
+    group('Fourth Group Testing', () {
       test('Add Trip', () async {
         await exploreAuth.addTripsToRecentTrips(
           'valid.email',
