@@ -19,6 +19,29 @@ void main() {
     };
   });
 
+  group('constructor initialized', () {
+    test('initialization test', () {
+      final tripExample1 = TripModel(
+        image: 'image',
+        location: 'Lahore',
+        description: 'In ventureDive',
+        isTravellersChoice: 0,
+        rating: 5.0,
+        name: 'VentureDive',
+        isAward: 1,
+        isFavourite: true,
+      );
+      expect(tripExample1.image, 'image');
+      expect(tripExample1.location, 'Lahore');
+      expect(tripExample1.description, 'In ventureDive');
+      expect(tripExample1.isTravellersChoice, 0);
+      expect(tripExample1.rating, 5.0);
+      expect(tripExample1.name, 'VentureDive');
+      expect(tripExample1.isAward, 1);
+      expect(tripExample1.isFavourite, true);
+    });
+  });
+
   group('Group testing', () {
     test('Trip model test 1', () {
       expect(tripModel, isA<TripModel>());

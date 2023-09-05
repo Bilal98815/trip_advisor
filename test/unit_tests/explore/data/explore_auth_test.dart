@@ -53,6 +53,7 @@ void main() {
       test('no trips will be return', () async {
         final mountainTrips = await exploreAuth.getMountainsTrips();
         expect(mountainTrips, <TripModel>[]);
+        expect(mountainTrips.length, 0);
       });
     });
 

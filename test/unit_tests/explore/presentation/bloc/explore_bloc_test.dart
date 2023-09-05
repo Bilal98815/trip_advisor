@@ -5,7 +5,7 @@ import 'package:trip_advisor/common/common.dart';
 import 'package:trip_advisor/modules/explore/domain/repository/repository.dart';
 import 'package:trip_advisor/modules/explore/presentation/bloc/explore_bloc.dart';
 
-class MockExploreRepository extends Mock implements ExploreRepository {}
+class MockExploreRepository extends Mock implements ExploreRepositoryImp {}
 
 class MockPreferences extends Mock implements Preferences {}
 
