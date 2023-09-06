@@ -14,11 +14,16 @@ class TripDetailView extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         actions: [
-          const Padding(
-            padding: EdgeInsets.only(right: 20),
-            child: Icon(
-              Icons.share,
-              size: 25,
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: InkWell(
+              onTap: () {
+                Share.share('Checkout this trip!!');
+              },
+              child: const Icon(
+                Icons.share,
+                size: 25,
+              ),
             ),
           ),
           Padding(

@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:trip_advisor/common/common.dart';
 import 'package:trip_advisor/modules/trip_detail/presentation/widgets/widgets.dart';
 
