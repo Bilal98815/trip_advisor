@@ -22,7 +22,7 @@ TripModel fakeTrip = TripModel(
 );
 
 void main() {
-  group('Second Group testing', () {
+  group('Group testing', () {
     late ExploreBloc exploreBloc;
     late MockExploreRepository mockExploreRepository;
     late MockPreferences mockPreferences;
