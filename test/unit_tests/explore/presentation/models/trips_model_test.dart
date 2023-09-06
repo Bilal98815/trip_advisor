@@ -25,7 +25,7 @@ void main() {
         image: 'image',
         location: 'Lahore',
         description: 'In ventureDive',
-        isTravellersChoice: 0,
+        isTravellersChoice: 1,
         rating: 5.0,
         name: 'VentureDive',
         isAward: 1,
@@ -34,7 +34,7 @@ void main() {
       expect(tripExample1.image, 'image');
       expect(tripExample1.location, 'Lahore');
       expect(tripExample1.description, 'In ventureDive');
-      expect(tripExample1.isTravellersChoice, 0);
+      expect(tripExample1.isTravellersChoice, 1);
       expect(tripExample1.rating, 5.0);
       expect(tripExample1.name, 'VentureDive');
       expect(tripExample1.isAward, 1);
